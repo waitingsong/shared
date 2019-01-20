@@ -100,7 +100,7 @@ export function isFileExists(path: string): Promise<boolean> {
 }
 
 
-function isDirFileExists(path: string, type: 'DIR' | 'FILE'): Promise<boolean> {
+export function isDirFileExists(path: string, type: 'DIR' | 'FILE'): Promise<boolean> {
   if (! path) {
     return Promise.resolve(false)
   }
