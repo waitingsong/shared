@@ -5,7 +5,7 @@
 import { combineLatest, concat, from as ofrom, of } from 'rxjs'
 import { map, mergeMap, share, tap } from 'rxjs/operators'
 
-import { join, pathAccessible, readFileAsync } from '../src/shared/index'
+import { join, pathAccessible, readFileAsync } from '../src/index'
 
 import { protectBranch, skipMsg } from './commitlint-skip-rule'
 
