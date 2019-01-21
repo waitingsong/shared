@@ -66,7 +66,7 @@ export function isSkipCommitlint(options: IsNeedCommitlintOpts): Observable<numb
 
   const exitCode$ = forkJoin(protectTest$, skipTest$).pipe(
     map(([pro, skip]) => {
-      console.info('pro:skip', pro, skip)
+      //console.info('pro:skip', pro, skip)
       // tslint:disable-next-line:no-bitwise
       return pro & skip
     }),
