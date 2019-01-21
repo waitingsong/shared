@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/waitingsong/node-shared-core/compare/v1.1.0...v1.2.0) (2019-01-21)
+
+
+### Bug Fixes
+
+* not reading content of COMMIT_EDITMSG with isSkipCommitlint() ([3df87a1](https://github.com/waitingsong/node-shared-core/commit/3df87a1))
+
+
+
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/waitingsong/node-shared-core/compare/v1.0.0...v1.1.0) (2019-01-21)
 
