@@ -2,12 +2,7 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [1.4.1](https://github.com/waitingsong/node-shared-core/compare/v1.4.0...v1.4.1) (2019-02-26)
-
-
-### Features
-
-* export helper ([a550384](https://github.com/waitingsong/node-shared-core/commit/a550384))
+# [1.5.0](https://github.com/waitingsong/node-shared-core/compare/v1.4.1...v1.5.0) (2019-02-26)
 
 
 
