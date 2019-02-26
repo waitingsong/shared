@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [1.3.3](https://github.com/waitingsong/node-shared-core/compare/v1.3.2...v1.3.3) (2019-02-24)
+# [1.4.0](https://github.com/waitingsong/node-shared-core/compare/v1.3.3...v1.4.0) (2019-02-26)
+
+
+### Features
+
+* add SetPathDirectory() ([252cf95](https://github.com/waitingsong/node-shared-core/commit/252cf95))
+* add validateDllFile() ([fc1b278](https://github.com/waitingsong/node-shared-core/commit/fc1b278))
 
 
 
