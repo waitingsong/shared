@@ -273,3 +273,21 @@ async function _rimraf(path: string): Promise<void> {
   }
 }
 
+
+/**
+ * Validate dll file exists for node-ffi
+ */
+export async function validateDllFile(path: string): Promise<void> {
+  if (! path) {
+    throw new Error('File path empth ')
+  }
+  // only filename. can be loaded by search path such as %system%
+  if (! path.includes('/')) {
+    return
+  }
+  // absolute path
+  if (await isPathAccessible(path)) {
+    return
+  }
+  throw new Error('File not exists: ' + path)
+}
