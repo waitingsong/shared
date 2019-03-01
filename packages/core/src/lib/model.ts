@@ -3,6 +3,7 @@ export type Omit<T, K> = Pick<T, Exclude<keyof T, K>>
 
 // ref: https://zhuanlan.zhihu.com/p/38687656
 // original ref: https://github.com/microsoft/typescript/pull/24897
+// dependencies typescript >= 3.1
 export type Head<Tuple extends any[]> = Tuple extends [infer H, ...any[]] ? H : never
 export type Tail<Tuple extends any[]> = ((...x: Tuple) => void) extends ((h: any, ...rest: infer R) => void) ? R : never
 export type Unshift<
@@ -26,3 +27,13 @@ export type Push<
   R = Reverse<Tuple>,
   T extends any[]= ToTuple<R>
 > = Reverse<Unshift<T, Element>>
+
+export type Concat<
+  Tuple1 extends any[],
+  Tuple2 extends any[],
+  R = Reverse<Tuple1>, T extends any[]= ToTuple<R>> = Concat_<T, Tuple2>
+
+type Concat_<Tuple1 extends any[], Tuple2 extends any[]> = {
+  1: Reverse<Tuple1>,
+  0: Concat_<Unshift<Tuple1, Head<Tuple2>>, Tail<Tuple2>>,
+}[Tuple2 extends [] ? 1 : 0]
