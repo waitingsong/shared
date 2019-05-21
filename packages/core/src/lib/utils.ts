@@ -294,7 +294,7 @@ export async function validateDllFile(path: string): Promise<void> {
 
 
 /**
- * Convert Browser ArrayBuffer to js Buffer
+ * Convert js ArrayBuffer to Node.js Buffer
  *
  * @see https://stackoverflow.com/a/14737423
  */
@@ -309,4 +309,43 @@ export function ab2buf(ab: ArrayBuffer): Buffer {
  */
 export function buf2ab(buf: Buffer): ArrayBuffer {
   return Uint8Array.from(buf).buffer
+}
+
+
+/**
+ * Convert ArrayBuffer to String via TextDecoder
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/TextDecoder
+ */
+export function ab2str(ab: ArrayBuffer, encoding: 'utf8' | 'utf16' = 'utf8'): string {
+  const decoder = new TextDecoder(encoding)
+  const view = new Uint8Array(ab)
+  return decoder.decode(view)
+}
+
+/**
+ * Convert String to ArrayBuffer via TextEncoder
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/TextEncoder
+ */
+export function str2ab(input: string): ArrayBuffer {
+  const view = str2Uint8Array(input)
+  return view.buffer
+}
+
+/** Convert String to Uint8Array */
+export function str2Uint8Array(input: string): Uint8Array {
+  const encoder = new TextEncoder()
+  const view = encoder.encode(input)
+  return view
+}
+
+
+/**
+ * Generate random integer
+ *
+ * @see https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+ */
+export function genRandomInt(max: number): number {
+  return Math.floor(Math.random() * Math.floor(max))
 }

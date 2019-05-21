@@ -7,6 +7,7 @@ import { from as ofrom, of, EMPTY } from 'rxjs'
 import { catchError, defaultIfEmpty, finalize, mergeMap, tap } from 'rxjs/operators'
 
 import {
+  ab2str,
   assertNever,
   assertNeverRx,
   basename,
@@ -15,6 +16,7 @@ import {
   createFileAsync,
   dirExists,
   fileExists,
+  genRandomInt,
   isDirExists,
   isDirFileExists,
   isFileExists,
@@ -23,6 +25,7 @@ import {
   normalize,
   pathAccessible,
   readFileAsync,
+  str2ab,
   tmpdir,
 } from '../src/index'
 
@@ -577,4 +580,40 @@ describe(filename, () => {
     }
   })
 })
+
+
+describe(filename, () => {
+  const fnName = 'str2ab'
+
+  it(`Should ${fnName}() works`, async () => {
+    const arr: Array<string | number> = []
+    arr.push('A')
+    arr.push('€')
+    arr.push('𠮷')
+    arr.push('中文')
+    arr.push('Привет, мир!')
+    arr.push('a\'b"c<d>e&f= ')
+    arr.push(Math.random())
+
+    const input = arr.join('')
+    const ab = str2ab(input)
+    const ret = ab2str(ab)
+
+    assert(ret === input)
+  })
+})
+
+
+describe(filename, () => {
+  const fnName = 'ab2str'
+
+  it(`Should ${fnName}() works`, async () => {
+    const input = '𠮷'
+    const buf = new Uint8Array([240, 160, 174, 183])
+    const ret = ab2str(buf)
+    assert(ret === input)
+  })
+})
+
+
 
