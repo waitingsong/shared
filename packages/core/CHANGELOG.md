@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.9.0](https://github.com/waitingsong/node-shared-core/compare/v1.8.0...v1.9.0) (2019-05-21)
+
+
+### Features
+
+* add ab2str(), str2ab(), genRandomInt() ([70d20e8](https://github.com/waitingsong/node-shared-core/commit/70d20e8))
+
+
+
 ## [1.8.0](https://github.com/waitingsong/node-shared-core/compare/v1.7.0...v1.8.0) (2019-05-21)
 
 
