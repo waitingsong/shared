@@ -291,3 +291,18 @@ export async function validateDllFile(path: string): Promise<void> {
   }
   throw new Error('File not exists: ' + path)
 }
+
+
+/**
+ * Convert Browser ArrayBuffer to js Buffer
+ */
+export function ab2buf(ab: ArrayBuffer): Buffer {
+  return Buffer.from(ab)
+}
+
+/**
+ * Convert Node.js Buffer to js ArrayBuffer
+ */
+export function buf2ab(buf: Buffer): ArrayBuffer {
+  return Uint8Array.from(buf).buffer
+}
