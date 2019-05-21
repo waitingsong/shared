@@ -1,6 +1,15 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [1.8.0](https://github.com/waitingsong/node-shared-core/compare/v1.7.0...v1.8.0) (2019-05-21)
+
+
+### Features
+
+* add ab2buf(), buf2ab() ([77aa8e2](https://github.com/waitingsong/node-shared-core/commit/77aa8e2))
+
+
 
 # [1.7.0](https://github.com/waitingsong/node-shared-core/compare/v1.6.0...v1.7.0) (2019-03-01)
 
