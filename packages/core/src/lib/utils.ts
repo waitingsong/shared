@@ -295,6 +295,8 @@ export async function validateDllFile(path: string): Promise<void> {
 
 /**
  * Convert Browser ArrayBuffer to js Buffer
+ *
+ * @see https://stackoverflow.com/a/14737423
  */
 export function ab2buf(ab: ArrayBuffer): Buffer {
   return Buffer.from(ab)
@@ -302,6 +304,8 @@ export function ab2buf(ab: ArrayBuffer): Buffer {
 
 /**
  * Convert Node.js Buffer to js ArrayBuffer
+ *
+ * @see https://stackoverflow.com/a/14737423
  */
 export function buf2ab(buf: Buffer): ArrayBuffer {
   return Uint8Array.from(buf).buffer
