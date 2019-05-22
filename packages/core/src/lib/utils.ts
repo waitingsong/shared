@@ -35,7 +35,7 @@ import {
   mergeMap,
   scan,
 } from 'rxjs/operators'
-import { promisify } from 'util'
+import { promisify, TextDecoder, TextEncoder } from 'util'
 
 
 export const closeAsync = promisify(close)
@@ -317,7 +317,7 @@ export function buf2ab(buf: Buffer): ArrayBuffer {
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/TextDecoder
  */
-export function ab2str(ab: ArrayBuffer, encoding: 'utf8' | 'utf16' = 'utf8'): string {
+export function ab2str(ab: ArrayBuffer, encoding: 'utf8' | 'utf-16' = 'utf8'): string {
   const decoder = new TextDecoder(encoding)
   const view = new Uint8Array(ab)
   return decoder.decode(view)
