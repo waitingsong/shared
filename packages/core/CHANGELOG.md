@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.9.2](https://github.com/waitingsong/node-shared-core/compare/v1.9.1...v1.9.2) (2019-05-22)
+
+
+### Bug Fixes
+
+* ab2str() ([de71297](https://github.com/waitingsong/node-shared-core/commit/de71297))
+
+
+
 ### [1.9.1](https://github.com/waitingsong/node-shared-core/compare/v1.9.0...v1.9.1) (2019-05-22)
 
 
