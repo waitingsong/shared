@@ -313,14 +313,16 @@ export function buf2ab(buf: Buffer): ArrayBuffer {
 
 
 /**
- * Convert ArrayBuffer to String via TextDecoder
+ * Convert ArrayBuffer/TypedArray to String via TextDecoder
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/TextDecoder
  */
-export function ab2str(ab: ArrayBuffer, encoding: 'utf8' | 'utf-16' = 'utf8'): string {
-  const decoder = new TextDecoder(encoding)
-  const view = new Uint8Array(ab)
-  return decoder.decode(view)
+export function ab2str(
+  input: ArrayBuffer | Uint8Array | Int8Array | Uint16Array | Int16Array | Uint32Array | Int32Array,
+  outputEncoding: 'utf8' | 'utf-16' = 'utf8',
+): string {
+  const decoder = new TextDecoder(outputEncoding)
+  return decoder.decode(input)
 }
 
 /**
