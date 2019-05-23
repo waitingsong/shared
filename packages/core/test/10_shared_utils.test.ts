@@ -625,12 +625,12 @@ describe(filename, () => {
     const i16Str = ab2str(i16arr)
     assert(i16Str === input)
 
-    const i32arr = new Int32Array([-1213292304])
-    const i32Str = ab2str(i32arr)
-    assert(i32Str === input)
-
     const u32arr = new Uint32Array([3081674992])
     const u32Str = ab2str(u32arr)
     assert(u32Str === input)
+
+    const i32arr = new Int32Array([-1213292304])
+    const i32Str = ab2str(i32arr)
+    assert(i32Str === input)
   })
 })
