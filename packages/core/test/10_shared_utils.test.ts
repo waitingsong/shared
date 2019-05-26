@@ -610,27 +610,27 @@ describe(filename, () => {
     const input = '𠮷'
 
     const u8arr = new Uint8Array([240, 160, 174, 183])
-    const u8Str = ab2str(u8arr)
-    assert(u8Str === input)
+    const u8str = ab2str(u8arr)
+    assert(u8str === input)
 
     const i8arr = new Int8Array([-16, -96, -82, -73])
-    const i8Str = ab2str(i8arr, 'utf8')
-    assert(i8Str === input)
+    const i8str = ab2str(i8arr, 'utf8')
+    assert(i8str === input)
 
     const u16arr = new Uint16Array([41200, 47022])
-    const u16Str = ab2str(u16arr)
-    assert(u16Str === input)
+    const u16str = ab2str(u16arr)
+    assert(u16str === input)
 
     const i16arr = new Int16Array([-24336, -18514])
-    const i16Str = ab2str(i16arr)
-    assert(i16Str === input)
+    const i16str = ab2str(i16arr)
+    assert(i16str === input)
 
     const u32arr = new Uint32Array([3081674992])
-    const u32Str = ab2str(u32arr)
-    assert(u32Str === input)
+    const u32str = ab2str(u32arr)
+    assert(u32str === input)
 
     const i32arr = new Int32Array([-1213292304])
-    const i32Str = ab2str(i32arr)
-    assert(i32Str === input)
+    const i32str = ab2str(i32arr)
+    assert(i32str === input)
   })
 })
