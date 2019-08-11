@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/waitingsong/node-shared-core/issues"
   },
-  "homepage": "https://github.com/waitingsong/node-shared-core#readme",
+  "homepage": "https://waitingsong.github.io/node-shared-core/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/waitingsong/node-shared-core.git"
