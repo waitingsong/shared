@@ -1,3 +1,4 @@
+/* eslint-disable no-await-in-loop */
 /**
  * 搜索指定目录以 file.example 文件为基础生成不带后缀的文件为不带 .example 后缀的文件
  */
@@ -7,10 +8,10 @@ import { copyFileAsync, isPathAccessible, join, readDirAsync } from './utils'
 
 // const rootDir = join(__dirname, '..')
 export async function genFileFromExample(rootDir: string, list: string[]): Promise<string[]> {
-  const copied = <string[]> []
+  const copied = <string[]>[]
 
   for (const dir of list) {
-    const path = join(rootDir, dir.replace(/\.{2,}/, '/'))
+    const path = join(rootDir, dir.replace(/\.{2,}/u, '/'))
 
     if (! await isPathAccessible(path)) {
       continue
@@ -18,7 +19,7 @@ export async function genFileFromExample(rootDir: string, list: string[]): Promi
     const files = await readDirAsync(path)
 
     for (const file of files) {
-      if (!hasExampleSuffix(file)) {
+      if (! hasExampleSuffix(file)) {
         continue
       }
       const source = join(path, file)
@@ -36,7 +37,7 @@ export async function genFileFromExample(rootDir: string, list: string[]): Promi
 }
 
 function hasExampleSuffix(name: string): boolean {
-  if (!name) {
+  if (! name) {
     return false
   }
   if (name === '.example') {
@@ -44,7 +45,7 @@ function hasExampleSuffix(name: string): boolean {
   }
   const arr = name.split('.')
 
-  if (arr.length > 1 && arr[arr.length - 1] === 'example') {  // 排除  '.example'
+  if (arr.length > 1 && arr[arr.length - 1] === 'example') { // 排除  '.example'
     return true
   }
   else {

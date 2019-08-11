@@ -12,17 +12,10 @@ cache:
 environment:
   matrix:
     - nodejs_version: "10"
-<<<<<<< HEAD
-
-platform:
-  - x64
-  - x86
-=======
     - nodejs_version: "12"
 
 platform:
   - x64
->>>>>>> bp/master
 
 install:
   - ps: Install-Product node $env:nodejs_version $env:platform
@@ -30,8 +23,6 @@ install:
   - npm i rollup typescript eslint nyc
   - npm install
 
-<<<<<<< HEAD
-=======
 #services:
 #  - postgresql101
 #
@@ -41,17 +32,12 @@ before_test:
   - SET PATH=C:\Program Files\PostgreSQL\10\bin\;%PATH%
   #- psql -U postgres -c "create database db_ci_test;"
 
->>>>>>> bp/master
 test_script:
   - openssl version
   - node --version
   - npm --version
   - npm run build
-<<<<<<< HEAD
-  - npm run test
-=======
   #- npm run test
->>>>>>> bp/master
 
 on_success:
   - npm run cov:coveralls

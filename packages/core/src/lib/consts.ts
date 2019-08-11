@@ -2,7 +2,7 @@ import { normalize } from './utils'
 
 
 /* istanbul ignore next */
-export const isWin32 = process.platform === 'win32' ? true : false
+export const isWin32 = process.platform === 'win32'
 
 /* istanbul ignore next */
 export const userHome = isWin32

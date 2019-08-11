@@ -1,10 +1,7 @@
 package-lock.json
-<<<<<<< HEAD
-=======
 yarn.lock
 /agent.js
 /app.js
->>>>>>> bp/master
 app/**/*.js
 test/**/*.js
 config/**/*.js
@@ -27,11 +24,8 @@ diff-dump/
 nbproject/
 /www
 .githooks
-<<<<<<< HEAD
-=======
 .tsbuildinfo
 .tsbuildinfo.*
->>>>>>> bp/master
 
 dbconfig.json
 
@@ -85,18 +79,12 @@ log.txt
 .vscode/
 
 .idea/
-<<<<<<< HEAD
-=======
 .ionic/
->>>>>>> bp/master
 .sourcemaps/
 .sass-cache/
 .tmp/
 .versions/
-<<<<<<< HEAD
-=======
 www/
->>>>>>> bp/master
 dist/
 tmp/
 temp/
@@ -169,10 +157,7 @@ logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-<<<<<<< HEAD
-=======
 *.un~
->>>>>>> bp/master
 
 # Runtime data
 pids

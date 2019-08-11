@@ -2,12 +2,8 @@ if: tag IS blank
 
 language: node_js
 node_js:
-<<<<<<< HEAD
-- '10'
-=======
   - '10'
   - '12'
->>>>>>> bp/master
 
 cache:
   directories:
@@ -19,25 +15,18 @@ before_install:
   - npm i rollup typescript eslint nyc
   - npm install
 
-<<<<<<< HEAD
-=======
 #services:
 #  - postgresql
 #addons:
 #  postgresql: "9.6"
 #before_script:
 #  - psql -U postgres -c "create database db_ci_test;"
->>>>>>> bp/master
 
 install: true
 
 script:
   - npm run build
-<<<<<<< HEAD
-  - npm run test
-=======
   #- npm run test
->>>>>>> bp/master
 
 after_success:
   - npm run cov:coveralls

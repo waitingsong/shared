@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 export type Omit<T, K> = Pick<T, Exclude<keyof T, K>>
 
@@ -25,13 +26,13 @@ export type Push<
   Tuple extends any[],
   Element,
   R = Reverse<Tuple>,
-  T extends any[]= ToTuple<R>
+  T extends any[] = ToTuple<R>
 > = Reverse<Unshift<T, Element>>
 
 export type Concat<
   Tuple1 extends any[],
   Tuple2 extends any[],
-  R = Reverse<Tuple1>, T extends any[]= ToTuple<R>> = Concat_<T, Tuple2>
+  R = Reverse<Tuple1>, T extends any[] = ToTuple<R>> = Concat_<T, Tuple2>
 
 type Concat_<Tuple1 extends any[], Tuple2 extends any[]> = {
   1: Reverse<Tuple1>,

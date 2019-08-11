@@ -1,7 +1,6 @@
 /// <reference types="mocha" />
 
 import * as assert from 'power-assert'
-import rewire = require('rewire')
 import * as rmdir from 'rimraf'
 import { from as ofrom, of, EMPTY } from 'rxjs'
 import { catchError, defaultIfEmpty, finalize, mergeMap, tap } from 'rxjs/operators'
@@ -28,6 +27,9 @@ import {
   tmpdir,
 } from '../src/index'
 
+
+import rewire = require('rewire')
+
 const filename = basename(__filename)
 const tmpDir = join(tmpdir(), 'test-tmp')
 const pathPrefix = 'mytest'
@@ -38,8 +40,8 @@ describe(filename, () => {
   before(async () => {
     await createDirAsync(tmpDir)
   })
-  after(done => {
-    rmdir(tmpDir, err => {
+  after((done) => {
+    rmdir(tmpDir, (err) => {
       err && console.error(err)
       done()
     })
@@ -95,7 +97,7 @@ describe(filename, () => {
   })
 
 
-  it('Should createDirAsync() works with blank param', resolve => {
+  it('Should createDirAsync() works with blank param', (resolve) => {
     createDirAsync('')
       .then(() => {
         assert(false, 'should throw error, but NOT')
@@ -195,7 +197,7 @@ describe(filename, () => {
     rmdir(randomPath, err => err && console.error(err))
   })
 
-  it('Should createFileAsync() works with blank path', resolve => {
+  it('Should createFileAsync() works with blank path', (resolve) => {
     createFileAsync('', '')
       .then(() => {
         assert(false, 'should throw error, but NOT')
@@ -269,8 +271,8 @@ describe(filename, () => {
 
 
 describe(filename + ' :pathAcessible()', () => {
-  after(done => {
-    rmdir(tmpDir, err => {
+  after((done) => {
+    rmdir(tmpDir, (err) => {
       err && console.error(err)
       done()
     })
@@ -278,15 +280,15 @@ describe(filename + ' :pathAcessible()', () => {
 
   const fnName = 'pathAcessible'
 
-  it(`Should ${fnName}() works`, done => {
+  it(`Should ${fnName}() works`, (done) => {
     const dir = tmpdir()
     return of(dir).pipe(
       mergeMap(pathAccessible),
     ).subscribe(
-      (path => {
+      (path) => {
         assert(path === dir, `sytem temp path should accessible: "${dir}"`)
         done()
-      }),
+      },
       (err: Error) => {
         assert(false, err.message)
         done()
@@ -320,8 +322,8 @@ describe(filename + ' :isPathAcessible()', () => {
   before(async () => {
     await createDirAsync(tmpDir)
   })
-  after(done => {
-    rmdir(tmpDir, err => {
+  after((done) => {
+    rmdir(tmpDir, (err) => {
       err && console.error(err)
       done()
     })
@@ -363,8 +365,8 @@ describe(filename + ' :dirExists()', () => {
   before(async () => {
     await createDirAsync(tmpDir)
   })
-  after(done => {
-    rmdir(tmpDir, err => {
+  after((done) => {
+    rmdir(tmpDir, (err) => {
       err && console.error(err)
       done()
     })
@@ -372,14 +374,14 @@ describe(filename + ' :dirExists()', () => {
 
   const fnName = 'dirExists'
 
-  it(`Should ${fnName}() works`, done => {
+  it(`Should ${fnName}() works`, (done) => {
     return of(tmpDir).pipe(
       mergeMap(dirExists),
     ).subscribe(
-      (path => {
+      (path) => {
         assert(path && path === tmpDir, `path should exists: "${tmpDir}"`)
         done()
-      }),
+      },
       (err: Error) => {
         assert(false, err.message)
         done()
@@ -387,17 +389,17 @@ describe(filename + ' :dirExists()', () => {
     )
   })
 
-  it(`Should ${fnName}() works with invalid path`, done => {
+  it(`Should ${fnName}() works with invalid path`, (done) => {
     const random = Math.random()
     const randomPath = `${tmpDir}/${pathPrefix}-${random}`
 
     return of(randomPath).pipe(
       mergeMap(dirExists),
     ).subscribe(
-      (path => {
+      (path) => {
         assert(path === '', `path should NOT exists: "${randomPath}"`)
         done()
-      }),
+      },
       (err: Error) => {
         assert(false, err.message)
         done()
@@ -405,14 +407,14 @@ describe(filename + ' :dirExists()', () => {
     )
   })
 
-  it(`Should ${fnName}() works with blank path`, done => {
+  it(`Should ${fnName}() works with blank path`, (done) => {
     return of('').pipe(
       mergeMap(dirExists),
     ).subscribe(
-      (path => {
+      (path) => {
         assert(path === '', 'empty path should NOT exists')
         done()
-      }),
+      },
       (err: Error) => {
         assert(false, err.message)
         done()
@@ -427,8 +429,8 @@ describe(filename + ' :createDir()', () => {
   before(async () => {
     await createDirAsync(tmpDir)
   })
-  after(done => {
-    rmdir(tmpDir, err => {
+  after((done) => {
+    rmdir(tmpDir, (err) => {
       err && console.error(err)
       done()
     })
@@ -436,26 +438,26 @@ describe(filename + ' :createDir()', () => {
 
   const fnName = 'createDir'
 
-  it(`Should ${fnName}() works`, done => {
+  it(`Should ${fnName}() works`, (done) => {
     const paths = [
       `${tmpDir}/${pathPrefix}-${Math.random()}`,
       `${tmpDir}/${pathPrefix}-${Math.random()}/.test/0ab`,
     ]
 
     return ofrom(paths).pipe(
-      mergeMap(path => {
+      mergeMap((path) => {
         return createDir(path).pipe(
-          tap(retPath => {
+          tap((retPath) => {
             assert(retPath === normalize(path))
           }),
         )
       }),
       mergeMap(dirExists),
     ).subscribe(
-      (path => {
+      (path) => {
         assert(path.length)
         rmdir(path, err => err && console.error(err))
-      }),
+      },
       (err: Error) => {
         assert(false, err.message)
         done()
@@ -465,15 +467,15 @@ describe(filename + ' :createDir()', () => {
   })
 
 
-  it(`Should ${fnName}() works with blank param`, done => {
+  it(`Should ${fnName}() works with blank param`, (done) => {
     return of('').pipe(
       mergeMap(createDir),
       mergeMap(dirExists),
     ).subscribe(
-      (path => {
+      (path) => {
         assert(false, 'should throw error, but NOT with' + path)
         done()
-      }),
+      },
       (err: Error) => {
         assert(true, err.message)
         done()
@@ -500,7 +502,7 @@ describe(filename, () => {
 describe(filename, () => {
   const fnName = 'assertNeverObb'
 
-  it(`Should ${fnName}() works`, done => {
+  it(`Should ${fnName}() works`, (done) => {
     const ret$ = assertNeverRx(<never> 'foo')
 
     ret$.pipe(
@@ -585,7 +587,7 @@ describe(filename, () => {
   const fnName = 'str2ab'
 
   it(`Should ${fnName}() works`, async () => {
-    const arr: Array<string | number> = []
+    const arr: (string | number)[] = []
     arr.push('A')
     arr.push('€')
     arr.push('𠮷')

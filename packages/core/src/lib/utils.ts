@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   access,
   chmod,
@@ -21,6 +22,8 @@ import {
   resolve as pathResolve,
   sep,
 } from 'path'
+import { promisify, TextDecoder, TextEncoder } from 'util'
+
 import {
   defer,
   from as ofrom,
@@ -35,7 +38,6 @@ import {
   mergeMap,
   scan,
 } from 'rxjs/operators'
-import { promisify, TextDecoder, TextEncoder } from 'util'
 
 
 export const closeAsync = promisify(close)
@@ -69,7 +71,7 @@ export function pathAccessible(path: string): Observable<string> {
 // support relative file ('./foo')
 export function isPathAccessible(path: string): Promise<boolean> {
   return path
-    ? new Promise(resolve => access(path, err => resolve(err ? false : true)))
+    ? new Promise(resolve => access(path, err => resolve(! err)))
     : Promise.resolve(false)
 }
 
@@ -101,18 +103,18 @@ export function isFileExists(path: string): Promise<boolean> {
 
 
 export function isDirFileExists(path: string, type: 'DIR' | 'FILE'): Promise<boolean> {
-  if (! path) {
-    return Promise.resolve(false)
-  }
-  else {
+  if (path) {
     return isPathAccessible(path)
-      .then(accessible => {
-        return ! accessible
-          ? false
-          : statAsync(path).then(stats => {
+      .then((accessible) => {
+        return accessible
+          ? statAsync(path).then((stats) => {
             return type === 'DIR' ? stats.isDirectory() : stats.isFile()
           })
+          : false
       })
+  }
+  else {
+    return Promise.resolve(false)
   }
 }
 
@@ -134,14 +136,16 @@ export function createDir(absolutePath: string): Observable<string> {
 
   const ret$ = path$.pipe(
     mergeMap(dirExists),
-    mergeMap(p => p ? of(p) : create$),
+    mergeMap((ps) => {
+      return ps ? of(ps) : create$
+    }),
   )
 
   return ret$
 }
-function _createDirObb(path: string, index?: number): Observable<string> {
+function _createDirObb(path: string): Observable<string> {
   return pathAccessible(path).pipe(
-    mergeMap(str => {
+    mergeMap((str) => {
       return str
         ? of(str)
         : defer(() => mkdirAsync(path, 0o755)).pipe(mapTo(path))
@@ -151,13 +155,10 @@ function _createDirObb(path: string, index?: number): Observable<string> {
 
 /** create directories recursively */
 export async function createDirAsync(path: string): Promise<string> {
-  if (! path) {
-    throw new Error('value of path param invalid')
-  }
-  else {
-    const target = normalize(path)  // ! required for '.../.myca' under win32
+  if (path) {
+    const target = normalize(path) // ! required for '.../.myca' under win32
     /* istanbul ignore else */
-    if (!await isDirExists(target)) {
+    if (! await isDirExists(target)) {
       await target.split(sep).reduce(
         async (parentDir: Promise<string>, childDir: string) => {
           const curDir = pathResolve(await parentDir, childDir)
@@ -170,6 +171,9 @@ export async function createDirAsync(path: string): Promise<string> {
     }
 
     return target
+  }
+  else {
+    throw new Error('value of path param invalid')
   }
 }
 
@@ -194,7 +198,7 @@ export async function createFileAsync(file: string, data: any, options?: WriteFi
   const path = normalize(file)
 
   /* istanbul ignore else */
-  if (!await isFileExists(path)) {
+  if (! await isFileExists(path)) {
     const opts: WriteFileOptions = options ? options : { mode: 0o640 }
 
     if (Buffer.isBuffer(data)) {
@@ -264,6 +268,7 @@ async function _rimraf(path: string): Promise<void> {
 
     if (entries.length) {
       for (const entry of entries) {
+        // eslint-disable-next-line no-await-in-loop
         await _rimraf(join(path, entry))
       }
     }
