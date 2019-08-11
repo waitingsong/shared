@@ -82,23 +82,31 @@ const config = [
     input: pkg.module,
     output: [
       {
-        banner,
-        format: 'es',
-        file: pkg.es2015,
-      },
-      { file: pkg.main,
+        file: pkg.main,
         amd: { id: name },
         banner,
         format: 'cjs',
         globals,
         name,
+        sourcemap: true,
       },
     ],
   },
-
 ]
 
-if (production) {
+if (pkg.es2015) {
+  config[0].output.push(
+    {
+      banner,
+      format: 'es',
+      file: pkg.es2015,
+      sourcemap: true,
+    },
+
+  )
+}
+
+if (production && pkg.es2015) {
   config.push(
     // esm minify
     {
@@ -123,9 +131,7 @@ if (pkg.browser) {
       input: pkg.module,
       plugins: [
         resolve({
-          browser: true,
-          jsnext: true,
-          main: true,
+          mainFields: ['browser', 'module', 'main']
         }),
         commonjs(),
         production && terser(uglifyOpts),

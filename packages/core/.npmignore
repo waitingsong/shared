@@ -1,27 +1,57 @@
+<<<<<<< HEAD
 .config
 .coveralls.yml
 .editorconfig
 .eslintignore
 .eslintrc.json
+=======
+*.swp
+*.bak
+
+.config
+.coveralls.yml
+.editorconfig
+>>>>>>> bp/master
 .githooks
 .nyc_output
 .travis.yml
 .vscode
+<<<<<<< HEAD
 
 appveyor.yml
 commitlint.config.js
 coverage
 demo
+=======
+.tsbuildinfo
+.tsbuildinfo.*
+
+appveyor.yml
+coverage
+demo
+docs
+>>>>>>> bp/master
 node_modules*
 npm-shrinkwrap.json
 rollup.config.js
 src
 test
 test_browser*
+<<<<<<< HEAD
 tsconfig.json
 tsconfig.cjs.json
 tsconfig.*.json
 tslint.json
+=======
+tsconfig*
+typedoc.json
+
+/*.tgz
+/*lint*
+/docs*
+/dist*
+!/dist
+>>>>>>> bp/master
 
 !/asset/.config
 

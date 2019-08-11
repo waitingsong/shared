@@ -4,9 +4,9 @@
 
 import { tap } from 'rxjs/operators'
 
-import { isSkipCommitlint, join } from '../src/index'
-
+import { join } from './init-utils'
 import { protectBranch, skipMsg } from './is-skip-commitlint-rule'
+import { isSkipCommitlint } from './test-skip-commitlint'
 
 
 const args = process.argv
