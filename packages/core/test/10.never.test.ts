@@ -18,7 +18,7 @@ describe(filename, () => {
 
   it(`Should ${fnName}() works`, () => {
     try {
-      assertNever(<never> 'foo')
+      assertNever('foo' as never)
     }
     catch (ex) {
       return assert(true)
@@ -31,7 +31,7 @@ describe(filename, () => {
   const fnName = 'assertNeverObb'
 
   it(`Should ${fnName}() works`, (done) => {
-    const ret$ = assertNeverRx(<never> 'foo')
+    const ret$ = assertNeverRx('foo' as never)
 
     ret$.pipe(
       defaultIfEmpty(''),
