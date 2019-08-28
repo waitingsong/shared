@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.0](https://github.com/waitingsong/node-shared-core/compare/v2.1.0...v2.2.0) (2019-08-28)
+
+
+### Features
+
+* **types:** add type JsonType ([a4bebf7](https://github.com/waitingsong/node-shared-core/commit/a4bebf7))
+* **types:** add type KnownKeys ([4f7db33](https://github.com/waitingsong/node-shared-core/commit/4f7db33))
+
 ## [2.1.0](https://github.com/waitingsong/node-shared-core/compare/v2.0.1...v2.1.0) (2019-08-14)
 
 
