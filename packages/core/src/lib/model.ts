@@ -43,3 +43,13 @@ type Concat_<Tuple1 extends any[], Tuple2 extends any[]> = {
 export type KnownKeys<T> = {
   [K in keyof T]: string extends K ? never : number extends K ? never : K
 } extends { [_ in keyof T]: infer U } ? U : never
+
+/** Value of key-value pairs object */
+export type PlainJsonValueType = boolean | number | string | null | undefined
+/**
+ * Typeof JSON object parsed from Response data
+ * simple key-value pairs object.
+ */
+export interface JsonType {
+  [key: string]: PlainJsonValueType | PlainJsonValueType[] | JsonType | JsonType[]
+}
