@@ -1,7 +1,7 @@
 {
   "name": "@waiting/shared-types",
   "author": "waiting",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "shared typescript types",
   "keywords": [
     "types",
@@ -47,8 +47,7 @@
     ],
     "all": true
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/mocha": "*",
     "@types/node": "*",
