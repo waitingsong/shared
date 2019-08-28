@@ -1,5 +1,3 @@
-/// <reference types="mocha" />
-
 import * as assert from 'power-assert'
 import { from as ofrom, of, EMPTY } from 'rxjs'
 import { catchError, defaultIfEmpty, finalize, tap } from 'rxjs/operators'

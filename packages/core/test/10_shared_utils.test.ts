@@ -1,5 +1,3 @@
-/// <reference types="mocha" />
-
 import * as assert from 'power-assert'
 import * as rmdir from 'rimraf'
 
