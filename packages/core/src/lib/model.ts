@@ -38,3 +38,8 @@ type Concat_<Tuple1 extends any[], Tuple2 extends any[]> = {
   1: Reverse<Tuple1>,
   0: Concat_<Unshift<Tuple1, Head<Tuple2>>, Tail<Tuple2>>,
 }[Tuple2 extends [] ? 1 : 0]
+
+
+export type KnownKeys<T> = {
+  [K in keyof T]: string extends K ? never : number extends K ? never : K
+} extends { [_ in keyof T]: infer U } ? U : never
