@@ -84,7 +84,7 @@
     "clean": "rm -rf dist/* .vscode/.tsbuildinfo .vscode/.tsbuildinfo.* ",
     "cov": "cross-env TS_NODE_PROJECT=test/tsconfig.json nyc mocha",
     "cov:coveralls": "cross-env TS_NODE_PROJECT=test/tsconfig.json nyc mocha && nyc report --reporter=text-lcov | coveralls",
-    "doc": "typedoc src/index.ts src/lib/index.ts src/lib/model.ts",
+    "doc": "typedoc --includes src/",
     "jslint": "eslint --fix dist/**/*.js",
     "link_global": "npm link typescript",
     "lint": "eslint --fix {src,test}/**/*.ts",
