@@ -1,10 +1,10 @@
 {
-  "name": "npm-base",
+  "name": "@waiting/shared-types",
   "author": "waiting",
   "version": "0.0.1",
-  "description": "npm boilerplate",
+  "description": "shared typescript types",
   "keywords": [
-    "种子项目",
+    "types",
     "typescript",
     "ts"
   ],
@@ -18,12 +18,12 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bugs": {
-    "url": "https://github.com/waitingsong/npm-base/issues"
+    "url": "https://github.com/waitingsong/shared-types/issues"
   },
-  "homepage": "https://github.com/waitingsong/npm-base#readme",
+  "homepage": "https://waitingsong.github.io/shared-types#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/waitingsong/npm-base.git"
+    "url": "git+https://github.com/waitingsong/shared-types.git"
   },
   "license": "MIT",
   "nyc": {
@@ -48,7 +48,6 @@
     "all": true
   },
   "dependencies": {
-    "rxjs": "^6.5.2"
   },
   "devDependencies": {
     "@types/mocha": "*",
