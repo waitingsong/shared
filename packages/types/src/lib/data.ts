@@ -10,7 +10,9 @@ export interface JsonType {
 }
 
 /** Custom response json data structure */
-export interface JsonResp<T extends JsonType | PlainJsonValue = JsonType> extends JsonType {
+export interface JsonResp<
+  T extends JsonType | PlainJsonValue | PlainJsonValue[] | JsonType[] = JsonType
+> extends JsonType {
   /** 0: no error */
   err: number
   /** payload */
