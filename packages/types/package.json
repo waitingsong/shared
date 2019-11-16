@@ -1,7 +1,7 @@
 {
   "name": "@waiting/shared-types",
   "author": "waiting",
-  "version": "1.1.0",
+  "version": "3.1.0",
   "description": "shared typescript types",
   "keywords": [
     "types",
@@ -23,7 +23,6 @@
     "url": "git+https://github.com/waitingsong/shared-types.git"
   },
   "license": "MIT",
-  "dependencies": {},
   "devDependencies": {
     "cross-env": "6"
   },

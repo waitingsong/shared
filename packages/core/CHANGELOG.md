@@ -1,3 +1,40 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# 3.1.0 (2019-11-16)
+
+
+### Bug Fixes
+
+* **lint:** minors ([ecc3672](https://github.com/waitingsong/node-shared-core/commit/ecc3672afde0c0d3378b99c5f7d5d402681fe1f0))
+* ab2str() ([0a09e04](https://github.com/waitingsong/node-shared-core/commit/0a09e046f0e2873c1c88899ad8ad2dfdd71ce7ab))
+* not reading content of COMMIT_EDITMSG with isSkipCommitlint() ([54bf9b5](https://github.com/waitingsong/node-shared-core/commit/54bf9b5b2655dc79bfc12f3d680c087d0e8197a0))
+
+
+### Features
+
+* **types:** add type JsonType ([3cad591](https://github.com/waitingsong/node-shared-core/commit/3cad591739b392db05e335680c319a9ca9301928))
+* **types:** add type KnownKeys ([8f05f43](https://github.com/waitingsong/node-shared-core/commit/8f05f4322a6dc0d4b8d97df3ffd229ac86b91093))
+* add ab2buf(), buf2ab() ([56b99c7](https://github.com/waitingsong/node-shared-core/commit/56b99c77ecdb2f3e3375804305e4eefcbb4e6558))
+* add ab2str(), str2ab(), genRandomInt() ([8914fae](https://github.com/waitingsong/node-shared-core/commit/8914faeea8fb6478748a90a96f5bfafcaf5821e5))
+* add readFileLineRx() ([39c69c5](https://github.com/waitingsong/node-shared-core/commit/39c69c56b3f87793c57e5352e0d4cbb2dbb44d14))
+* **types:** add Concat ([2f71b17](https://github.com/waitingsong/node-shared-core/commit/2f71b17099425795fd0317c69709d173984a09ab))
+* **types:** add types below ([0109140](https://github.com/waitingsong/node-shared-core/commit/0109140860f254fe614351ff00ce3d7e2df1c905))
+* add SetPathDirectory() ([658218f](https://github.com/waitingsong/node-shared-core/commit/658218f2c3736bf49a39cf0f5d40bc17410ecc6e))
+* add src files ([d8e21f7](https://github.com/waitingsong/node-shared-core/commit/d8e21f793292f5f5d46795d625811f149abcba8b))
+* add validateDllFile() ([c7de681](https://github.com/waitingsong/node-shared-core/commit/c7de681b5a2c28d85c1d26d2047a34abf8c5ad80))
+* export const isWin32, userHome ([03da0fa](https://github.com/waitingsong/node-shared-core/commit/03da0fa5f13a2a07d9f244bbfed79d8551a79d3d))
+* export helper ([d85170c](https://github.com/waitingsong/node-shared-core/commit/d85170c888d1828453e76b51abe282065cdd85ec))
+* export isDirFileExists() ([dd56e9d](https://github.com/waitingsong/node-shared-core/commit/dd56e9d29f2f4b1ea266319c789bd313df2e997e))
+* genFileFromExample() ([bb8ea22](https://github.com/waitingsong/node-shared-core/commit/bb8ea229954ab0ee3145d5b1f099e45b68521cfa))
+* isSkipCommitlint() check whether skip commitlint ([8845ad3](https://github.com/waitingsong/node-shared-core/commit/8845ad31f6e81c012247f7c6fb0c2779b158f913))
+
+
+
+
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
