@@ -1,5 +1,5 @@
 {
-  "name": "npm-mono-base",
+  "name": "@waiting/shared",
   "description": "",
   "private": true,
   "devDependencies": {

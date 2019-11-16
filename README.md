@@ -1,7 +1,7 @@
-# NPM mono repository
+# Shared types and utils
 
 
-[![GitHub tag](https://img.shields.io/github/tag/waitingsong/npm-mono-base.svg)]()
+[![GitHub tag](https://img.shields.io/github/tag/waitingsong/shared.svg)]()
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 ![](https://img.shields.io/badge/lang-TypeScript-blue.svg)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
@@ -36,17 +36,25 @@ npm run bootstrap
 
 ## Packages
 
-| Package       | Version                | Dependencies                 | DevDependencies                |
-| ------------- | ---------------------- | ---------------------------- | ------------------------------ |
-| [`demo`]      | [![demo-svg]][demo-ch] | [![demo-d-svg]][demo-d-link] | [![demo-dd-svg]][demo-dd-link] |
+| Package   | Version                  | Dependencies                   | DevDependencies                  |
+| --------- | ------------------------ | ------------------------------ | -------------------------------- |
+| [`types`] | [![types-svg]][types-ch] | [![types-d-svg]][types-d-link] | [![types-dd-svg]][types-dd-link] |
+| [`core`]  | [![core-svg]][core-ch]   | [![core-d-svg]][core-d-link]   | [![core-dd-svg]][core-dd-link]   |
 
 
-[`demo`]: https://github.com/waitingsong/npm-mono-base/tree/master/packages/demo
+[`types`]: https://github.com/waitingsong/shared/tree/master/packages/types
+[types-svg]: https://img.shields.io/npm/v/@waiting/shared-types.svg?maxAge=86400
+[types-ch]: https://github.com/waitingsong/shared/tree/master/packages/types/CHANGELOG.md
+[types-d-svg]: https://david-dm.org/waitingsong/@waiting/shared-types.svg?path=packages/@waiting/shared-types
+[types-d-link]: https://david-dm.org/waitingsong/@waiting/shared-types.svg?path=packages/@waiting/shared-types
+[types-dd-svg]: https://david-dm.org/waitingsong/@waiting/shared-types/dev-status.svg?path=packages/@waiting/shared-types
+[types-dd-link]: https://david-dm.org/waitingsong/@waiting/shared-types?path=packages/@waiting/shared-types#info=devDependencies
 
-[demo-svg]: https://img.shields.io/npm/v/kmore.svg?maxAge=86400
-[demo-ch]: https://github.com/waitingsong/npm-mono-base/tree/master/packages/demo/CHANGELOG.md
-[demo-d-svg]: https://david-dm.org/waitingsong/kmore.svg?path=packages/kmore
-[demo-d-link]: https://david-dm.org/waitingsong/kmore.svg?path=packages/kmore
-[demo-dd-svg]: https://david-dm.org/waitingsong/kmore/dev-status.svg?path=packages/kmore
-[demo-dd-link]: https://david-dm.org/waitingsong/kmore?path=packages/kmore#info=devDependencies
+[`core`]: https://github.com/waitingsong/shared/tree/master/packages/core
+[core-svg]: https://img.shields.io/npm/v/@waiting/shared-core.svg?maxAge=86400
+[core-ch]: https://github.com/waitingsong/shared/tree/master/packages/demo/CHANGELOG.md
+[core-d-svg]: https://david-dm.org/waitingsong/@waiting/shared-core.svg?path=packages/@waiting/shared-core
+[core-d-link]: https://david-dm.org/waitingsong/@waiting/shared-core.svg?path=packages/@waiting/shared-core
+[core-dd-svg]: https://david-dm.org/waitingsong/@waiting/shared-core/dev-status.svg?path=packages/@waiting/shared-core
+[core-dd-link]: https://david-dm.org/waitingsong/@waiting/shared-core?path=packages/@waiting/shared-core#info=devDependencies
 
