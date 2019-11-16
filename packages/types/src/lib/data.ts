@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 /** Value of key-value pairs object */
 export type PlainJsonValue = boolean | number | string | null | undefined
@@ -11,10 +12,10 @@ export interface JsonType {
 
 /** Custom response json data structure */
 export interface JsonResp<
-  T extends JsonType | PlainJsonValue | PlainJsonValue[] | JsonType[] = JsonType
-> extends JsonType {
+  T extends JsonType | PlainJsonValue | PlainJsonValue[] | JsonType[] | any = any
+> {
   /** 0: no error */
-  err: number
+  code: number
   /** payload */
   dat?: T
   msg?: string | null
