@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/waitingsong/shared-types/compare/v3.1.0...v3.2.0) (2019-11-26)
+
+
+### Features
+
+* add type NpmPkg for package.json ([e65b717](https://github.com/waitingsong/shared-types/commit/e65b71731facd604020df9ed5a365ee95ac298aa))
+
+
+
+
+
 # 3.1.0 (2019-11-16)
 
 
