@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](/compare/v3.2.0...v3.3.0) (2020-01-09)
+
+
+### Features
+
+* **types:** add alias.ts 1e08c0f
+
+
+
+
+
 # [3.2.0](/compare/v3.1.0...v3.2.0) (2019-11-26)
 
 
