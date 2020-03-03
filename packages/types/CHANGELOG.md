@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.4.0](https://github.com/waitingsong/shared-types/compare/v3.3.1...v3.4.0) (2020-03-03)
+
+
+### Features
+
+* **types:** add type DateISOString (ISO 8601) ([285eb43](https://github.com/waitingsong/shared-types/commit/285eb43cb405eb4279154bf3d7fc331e0b19024c))
+
+
+
+
+
 ## [3.3.1](https://github.com/waitingsong/shared-types/compare/v3.3.0...v3.3.1) (2020-01-09)
 
 
