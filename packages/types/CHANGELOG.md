@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.5.0](https://github.com/waitingsong/shared-types/compare/v3.4.0...v3.5.0) (2020-03-18)
+
+
+### Features
+
+* **types:** add `Spread` ([1927800](https://github.com/waitingsong/shared-types/commit/19278009bc9362a4705b3092d64e5d9373009665))
+
+
+
+
+
 # [3.4.0](https://github.com/waitingsong/shared-types/compare/v3.3.1...v3.4.0) (2020-03-03)
 
 
