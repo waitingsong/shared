@@ -36,3 +36,12 @@ type Concat_<Tuple1 extends any[], Tuple2 extends any[]> = {
   1: Reverse<Tuple1>,
   0: Concat_<Unshift<Tuple1, Head<Tuple2>>, Tail<Tuple2>>,
 }[Tuple2 extends [] ? 1 : 0]
+
+/**
+ * Union tow types, with optinal excluded keys
+ * @example `Spread<T, K, 'foo'>` or `Spread<T, K, 'foo' | 'bar'>`
+ * @see https://github.com/microsoft/TypeScript/pull/13288#issuecomment-412230721
+ */
+export type Spread<T1, T2, KeyExcludeOptinal = void>
+  = { [K in Exclude<keyof T1, KeyExcludeOptinal | keyof T2>]: T1[K] }
+  & { [K in Exclude<keyof T2, KeyExcludeOptinal>]: T2[K] }
