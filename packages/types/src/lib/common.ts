@@ -45,3 +45,4 @@ type Concat_<Tuple1 extends any[], Tuple2 extends any[]> = {
 export type Spread<T1, T2, KeyExcludeOptinal = void>
   = { [K in Exclude<keyof T1, KeyExcludeOptinal | keyof T2>]: T1[K] }
   & { [K in Exclude<keyof T2, KeyExcludeOptinal>]: T2[K] }
+
