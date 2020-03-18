@@ -38,7 +38,7 @@ type Concat_<Tuple1 extends any[], Tuple2 extends any[]> = {
 }[Tuple2 extends [] ? 1 : 0]
 
 /**
- * Union tow types, with optinal excluded keys
+ * Union tow types, with optional excluded keys
  * @example `Spread<T, K, 'foo'>` or `Spread<T, K, 'foo' | 'bar'>`
  * @see https://github.com/microsoft/TypeScript/pull/13288#issuecomment-412230721
  */
