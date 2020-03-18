@@ -34,7 +34,7 @@ describe(filename, () => {
     }
     catch (ex) {
       assert(false, ex.message)
-      rmdir(randomPath, () => { })
+      rmdir(randomPath, err => console.warn(err))
     }
   })
 })
@@ -98,3 +98,4 @@ describe(filename + ' :createDir()', () => {
   })
 
 })
+
