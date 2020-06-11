@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](/compare/v3.5.1...v4.0.0) (2020-06-11)
+
+
+### Bug Fixes
+
+* **core:** createFileAsync() types of param `data` d19f510
+
+
+### Features
+
+* increase pkg.engines.node to >=12.13.0 b296c00
+
+
+
+
+
 ## [3.5.1](/compare/v3.5.0...v3.5.1) (2020-03-18)
 
 **Note:** Version bump only for package @waiting/shared

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/waitingsong/node-shared-core/compare/v3.5.1...v4.0.0) (2020-06-11)
+
+
+### Bug Fixes
+
+* **core:** createFileAsync() types of param `data` ([d19f510](https://github.com/waitingsong/node-shared-core/commit/d19f510b40d53272025d8e1843d714b80782d3a2))
+
+
+### Features
+
+* increase pkg.engines.node to >=12.13.0 ([b296c00](https://github.com/waitingsong/node-shared-core/commit/b296c0030a5c36a566975ba802a3763f96dbe774))
+
+
+
+
+
 ## [3.5.1](https://github.com/waitingsong/node-shared-core/compare/v3.5.0...v3.5.1) (2020-03-18)
 
 **Note:** Version bump only for package @waiting/shared-core
