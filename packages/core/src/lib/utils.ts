@@ -13,6 +13,7 @@ import {
   unlink,
   write,
   writeFile,
+  WriteFileOptions,
 } from 'fs'
 import {
   basename,
@@ -230,12 +231,6 @@ export interface ExecFileOptions {
   gid?: number
   windowsHide?: boolean
   windowsVerbatimArguments?: boolean
-}
-// param options of fs.writeFile()
-export interface WriteFileOptions {
-  encoding?: string | null
-  mode?: number
-  flag?: string
 }
 
 
