@@ -31,8 +31,8 @@ describe(filename, () => {
       assert(path === normalize(file), `Should ${file} but result ${path}`)
     }
     catch (ex) {
-      assert(false, ex.message)
       rmdir(randomPath, err => console.warn(err))
+      throw new Error(ex)
     }
   })
 })
@@ -52,8 +52,8 @@ describe(filename, () => {
       assert(await fileExists(file).toPromise() === normalize(file), `file not exists, path: "${file}"`)
     }
     catch (ex) {
-      assert(false, ex.message)
       rmdir(randomPath, err => console.warn(err))
+      throw new Error(ex)
     }
   })
 })

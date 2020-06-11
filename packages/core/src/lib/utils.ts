@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   access,
@@ -218,10 +219,11 @@ export async function createFileAsync(file: string, data: any, options?: WriteFi
 
 
 /**
- * @deprecated in favor of using child_process['ExecOptions']
+ * @deprecated in favor of using child_process['ExecFileOptions']
  */
 export interface ExecFileOptions {
   cwd?: string
+  // eslint-disable-next-line @typescript-eslint/ban-types
   env?: object
   encoding?: 'utf8' | string
   timeout?: 0 | number

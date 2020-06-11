@@ -33,8 +33,8 @@ describe(filename, () => {
       assert(path2 === normalize(randomPath))
     }
     catch (ex) {
-      assert(false, ex.message)
       rmdir(randomPath, err => console.warn(err))
+      throw new Error(ex)
     }
   })
 })

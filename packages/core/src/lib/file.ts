@@ -19,12 +19,12 @@ export function readFileLineRx(path: string): Observable<string> {
   // Note: we use the crlfDelay option to recognize all instances of CR LF
   // ('\r\n') in input.txt as a single line break.
 
-  const line$: Observable<string> = Observable.create((obv: Observer<string>) => {
+  const line$ = Observable.create((obv: Observer<string>) => {
     rline.on('line', line => obv.next(line))
     rline.once('close', () => obv.complete())
 
     return () => rline.removeAllListeners()
-  })
+  }) as Observable<string>
 
   return line$
 }
