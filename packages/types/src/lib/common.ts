@@ -46,3 +46,11 @@ export type Spread<T1, T2, KeyExcludeOptinal = void>
   = { [K in Exclude<keyof T1, KeyExcludeOptinal | keyof T2>]: T1[K] }
   & { [K in Exclude<keyof T2, KeyExcludeOptinal>]: T2[K] }
 
+/**
+ * @example `type R = AllValues<Record<'uid', 'tbUserUid'>>`
+ * @see https://stackoverflow.com/a/56416192
+ */
+export type AllValues<T extends Record<PropertyKey, PropertyKey>> = {
+  [P in keyof T]: { key: P, value: T[P] }
+}[keyof T]
+
