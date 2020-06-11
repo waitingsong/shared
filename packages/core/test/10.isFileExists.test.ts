@@ -41,7 +41,7 @@ describe(filename, () => {
   const fnName = 'fileExist'
 
   it(`Should ${fnName}() works`, async () => {
-    const random = Math.random()
+    const random = Math.random().toString()
     const randomPath = `${tmpDir}/${pathPrefix}-${random}`
     const file = `${randomPath}/test`
 

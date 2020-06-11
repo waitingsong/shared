@@ -148,7 +148,12 @@ export async function createDirAsync(path: string): Promise<string> {
  *
  * @requires string - created file path
  */
-export async function createFileAsync(file: string, data: any, options?: WriteFileOptions): Promise<string> {
+export async function createFileAsync(
+  file: string,
+  data: string | NodeJS.ArrayBufferView | number | Record<PropertyKey, unknown>,
+  options?: WriteFileOptions,
+): Promise<string> {
+
   const dir = dirname(file)
 
   /* istanbul ignore next */
@@ -169,6 +174,9 @@ export async function createFileAsync(file: string, data: any, options?: WriteFi
     }
     else if (typeof data === 'object') {
       await writeFileAsync(path, JSON.stringify(data))
+    }
+    else if (typeof data === 'number') {
+      await writeFileAsync(path, data.toString(), opts)
     }
     else {
       await writeFileAsync(path, data, opts)
