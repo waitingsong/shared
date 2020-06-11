@@ -121,38 +121,7 @@ export function isDirFileExists(path: string, type: 'DIR' | 'FILE'): Promise<boo
 }
 
 export function createDir(absolutePath: string): Observable<string> {
-  /* istanbul ignore else */
-  if (! absolutePath) {
-    throw new Error('value of path param invalid')
-  }
-  // ! normalize required for '.../.myca' under win32
-  const path$ = of(normalize(absolutePath))
-  const paths$ = path$.pipe(
-    mergeMap(target => ofrom(target.split(sep))),
-    scan((acc: string, curr: string) => pathResolve(acc, curr), sep),
-  )
-  const create$ = paths$.pipe(
-    concatMap(_createDirObb),
-    last(),
-  )
-
-  const ret$ = path$.pipe(
-    mergeMap(dirExists),
-    mergeMap((ps) => {
-      return ps ? of(ps) : create$
-    }),
-  )
-
-  return ret$
-}
-function _createDirObb(path: string): Observable<string> {
-  return pathAccessible(path).pipe(
-    mergeMap((str) => {
-      return str
-        ? of(str)
-        : defer(() => mkdirAsync(path, 0o755)).pipe(mapTo(path))
-    }),
-  )
+  return defer(() => createDirAsync(absolutePath))
 }
 
 /** create directories recursively */
@@ -161,15 +130,7 @@ export async function createDirAsync(path: string): Promise<string> {
     const target = normalize(path) // ! required for '.../.myca' under win32
     /* istanbul ignore else */
     if (! await isDirExists(target)) {
-      await target.split(sep).reduce(
-        async (parentDir: Promise<string>, childDir: string) => {
-          const curDir = pathResolve(await parentDir, childDir)
-
-          await isPathAccessible(curDir) || await mkdirAsync(curDir, 0o755)
-          return curDir
-        },
-        Promise.resolve(sep),
-      )
+      await mkdirAsync(path, { recursive: true })
     }
 
     return target
