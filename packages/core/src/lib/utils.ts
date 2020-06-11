@@ -22,24 +22,15 @@ import {
   join,
   normalize,
   resolve as pathResolve,
-  sep,
 } from 'path'
 import { promisify, TextDecoder, TextEncoder } from 'util'
 
 import {
   defer,
-  from as ofrom,
   of,
   Observable,
 } from 'rxjs'
-import {
-  concatMap,
-  last,
-  map,
-  mapTo,
-  mergeMap,
-  scan,
-} from 'rxjs/operators'
+import { map } from 'rxjs/operators'
 
 
 export const closeAsync = promisify(close)
