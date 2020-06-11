@@ -1,9 +1,9 @@
-module.exports = {
-  extends: ['@commitlint/config-conventional'],
+const config = {
+  // extends: ['@commitlint/config-conventional'],
   rules: {
     'body-leading-blank': [2, 'always'],
     'footer-leading-blank': [2, 'always'],
-    'header-max-length': [2, 'always', 72],
+    'header-max-length': [2, 'always', 100],
     'subject-case': [
       2,
       'never',
@@ -29,4 +29,6 @@ module.exports = {
     ],
   },
 }
+
+module.exports = config
 
