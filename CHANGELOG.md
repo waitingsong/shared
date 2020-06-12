@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](/compare/v4.0.0...v4.1.0) (2020-06-12)
+
+
+### Features
+
+* **types:** add type AllValues 98043f9
+* **types:** add type Invert<T> 0bf9e9e
+* **types:** add type KeyFromValue<T, V> 33c87d6
+
+
+
+
+
 # [4.0.0](/compare/v3.5.1...v4.0.0) (2020-06-11)
 
 

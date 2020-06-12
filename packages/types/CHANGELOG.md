@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/waitingsong/shared-types/compare/v4.0.0...v4.1.0) (2020-06-12)
+
+
+### Features
+
+* **types:** add type AllValues ([98043f9](https://github.com/waitingsong/shared-types/commit/98043f9a119ebf4a76a77fb6e8c8776ab9ce0012))
+* **types:** add type Invert<T> ([0bf9e9e](https://github.com/waitingsong/shared-types/commit/0bf9e9e68d739e4131a3c9c2f7ed21bbd220245d))
+* **types:** add type KeyFromValue<T, V> ([33c87d6](https://github.com/waitingsong/shared-types/commit/33c87d67cfe0a5778b42a98646499b63210093ac))
+
+
+
+
+
 # [4.0.0](https://github.com/waitingsong/shared-types/compare/v3.5.1...v4.0.0) (2020-06-11)
 
 
