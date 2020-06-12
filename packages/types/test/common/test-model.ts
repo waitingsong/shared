@@ -17,7 +17,9 @@ interface Alias2 {
   foo: 'tbUserUid' // <-- duplicate value tbUserUid
 }
 export type AliasRecord2 = Pick<Alias2, keyof Alias2>
-
+export type Alias2Type = {
+  [k in keyof Alias2]: Alias2[k]
+}
 
 export const alias = {
   uid: 'tbUserUid',

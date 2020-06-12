@@ -62,3 +62,13 @@ export type KeyFromValue<T extends Record<PropertyKey, PropertyKey>, V> = {
   [key in keyof T]: V extends T[key] ? key : never
 }[keyof T]
 
+/**
+ * Invert key/value of type/interface
+ * @example `type R = Invert<{x: 'a', y: 'b'}>` got `{a: 'x', b: 'y'}`
+ * @example `type R = Invert<{x: 'a', y: 'b', z: 'a'}>` got `{a: 'x' | 'z', b: 'y'}`
+ * @see https://stackoverflow.com/a/57726844
+ */
+export type Invert<T extends Record<PropertyKey, PropertyKey>> = {
+  [K in T[keyof T]]: KeyFromValue<T, K>
+}
+
