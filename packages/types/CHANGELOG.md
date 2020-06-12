@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.2.0](https://github.com/waitingsong/shared-types/compare/v4.1.0...v4.2.0) (2020-06-12)
+
+
+### Features
+
+* **types:** add type Equals<X, Y> ([a4d3688](https://github.com/waitingsong/shared-types/commit/a4d3688af9ba2adba81b70bbb2666663581d2b57))
+
+
+
+
+
 # [4.1.0](https://github.com/waitingsong/shared-types/compare/v4.0.0...v4.1.0) (2020-06-12)
 
 

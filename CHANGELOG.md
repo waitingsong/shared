@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.2.0](/compare/v4.1.0...v4.2.0) (2020-06-12)
+
+
+### Features
+
+* **types:** add type Equals<X, Y> a4d3688
+
+
+
+
+
 # [4.1.0](/compare/v4.0.0...v4.1.0) (2020-06-12)
 
 
