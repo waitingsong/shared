@@ -54,3 +54,11 @@ export type AllValues<T extends Record<PropertyKey, PropertyKey>> = {
   [P in keyof T]: { key: P, value: T[P] }
 }[keyof T]
 
+/**
+ * @example `type R = KeyFromValue<{uid: 'tbUserUid'}, 'tbUserUid'>` got `uid`
+ * @ref https://stackoverflow.com/a/57726844
+ */
+export type KeyFromValue<T extends Record<PropertyKey, PropertyKey>, V> = {
+  [key in keyof T]: V extends T[key] ? key : never
+}[keyof T]
+
