@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.3.0](https://github.com/waitingsong/shared-types/compare/v4.2.0...v4.3.0) (2020-06-21)
+
+
+### Features
+
+* **types:** add type UnionToTuple ([d3dd1ae](https://github.com/waitingsong/shared-types/commit/d3dd1ae109b9e976d5a12200a17fbf3e0032fe8c))
+* **types:** exports type UnionToIntersection ([764a368](https://github.com/waitingsong/shared-types/commit/764a3683121dc7ca6a21df98838ff2a4669d8907))
+
+
+
+
+
 # [4.2.0](https://github.com/waitingsong/shared-types/compare/v4.1.0...v4.2.0) (2020-06-12)
 
 

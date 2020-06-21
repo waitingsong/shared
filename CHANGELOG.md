@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.3.0](/compare/v4.2.0...v4.3.0) (2020-06-21)
+
+
+### Features
+
+* **types:** add type UnionToTuple d3dd1ae
+* **types:** exports type UnionToIntersection 764a368
+
+
+
+
+
 # [4.2.0](/compare/v4.1.0...v4.2.0) (2020-06-12)
 
 
