@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.4.0](/compare/v4.3.0...v4.4.0) (2020-06-30)
+
+
+### Features
+
+* **types:** add types, set deprecated types 79e1f17
+
+
+
+
+
 # [4.3.0](/compare/v4.2.0...v4.3.0) (2020-06-21)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.4.0](https://github.com/waitingsong/shared-types/compare/v4.3.0...v4.4.0) (2020-06-30)
+
+
+### Features
+
+* **types:** add types, set deprecated types ([79e1f17](https://github.com/waitingsong/shared-types/commit/79e1f1718de825ad67407a40994f8f3452b51821))
+
+
+
+
+
 # [4.3.0](https://github.com/waitingsong/shared-types/compare/v4.2.0...v4.3.0) (2020-06-21)
 
 
