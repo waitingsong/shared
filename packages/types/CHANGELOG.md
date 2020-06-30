@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.5.0](https://github.com/waitingsong/shared-types/compare/v4.4.0...v4.5.0) (2020-06-30)
+
+
+### Features
+
+* **types:** add types of database ([c2cdbe8](https://github.com/waitingsong/shared-types/commit/c2cdbe8daed2a779c35d536d2cc7fc4074e4ed0f))
+
+
+
+
+
 # [4.4.0](https://github.com/waitingsong/shared-types/compare/v4.3.0...v4.4.0) (2020-06-30)
 
 
