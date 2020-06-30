@@ -3,11 +3,23 @@
 // ref: https://zhuanlan.zhihu.com/p/38687656
 // original ref: https://github.com/microsoft/typescript/pull/24897
 // dependencies typescript >= 3.1
+/**
+ * @deprecated use `TupleHead` instead
+ */
 export type Head<Tuple extends any[]> = Tuple extends [infer H, ...any[]] ? H : never
+/**
+ * @deprecated use `TupleTail` instead
+ */
 export type Tail<Tuple extends any[]> = ((...x: Tuple) => void) extends ((h: any, ...rest: infer R) => void) ? R : never
+/**
+ * @deprecated use `TupleUnshift` instead
+ */
 export type Unshift<
   Tuple extends any[],
   Element> = ((h: Element, ...tuple: Tuple) => void) extends (...x: infer R) => void ? R : never
+/**
+ * @deprecated use `TupleLast` instead
+ */
 export type Last<Tuple extends any[]> = {
   1: Tuple[0],
   0: Last<Tail<Tuple>>,
@@ -20,6 +32,9 @@ type Reverse_<Tuple extends any[], Result extends any[]> = {
 }[Tuple extends [] ? 1 : 0]
 
 export type ToTuple<T> = T extends any[] ? T : any[]
+/**
+ * @deprecated use `TuplePush` instead
+ */
 export type Push<
   Tuple extends any[],
   Element,
@@ -27,11 +42,13 @@ export type Push<
   T extends any[] = ToTuple<R>
 > = Reverse<Unshift<T, Element>>
 
+/**
+ * @deprecated use `TupleConcat` instead
+ */
 export type Concat<
   Tuple1 extends any[],
   Tuple2 extends any[],
   R = Reverse<Tuple1>, T extends any[] = ToTuple<R>> = Concat_<T, Tuple2>
-
 type Concat_<Tuple1 extends any[], Tuple2 extends any[]> = {
   1: Reverse<Tuple1>,
   0: Concat_<Unshift<Tuple1, Head<Tuple2>>, Tail<Tuple2>>,
@@ -79,3 +96,4 @@ export type Invert<T extends Record<PropertyKey, PropertyKey>> = {
 export type Equals<X, Y> = (<T>() => T extends X ? 1 : 2) extends (<T>() => T extends Y ? 1 : 2)
   ? true
   : false
+
