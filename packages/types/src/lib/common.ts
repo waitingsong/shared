@@ -97,3 +97,8 @@ export type Equals<X, Y> = (<T>() => T extends X ? 1 : 2) extends (<T>() => T ex
   ? true
   : false
 
+
+export type OverwriteNeverToUnknown<T extends any> = {
+  [fld in keyof T]: T[fld] extends never ? unknown : T[fld]
+}
+
