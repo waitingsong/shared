@@ -97,6 +97,11 @@ export type Invert<T extends Record<PropertyKey, PropertyKey>> = {
 export type Equals<X, Y> = (<T>() => T extends X ? 1 : 2) extends (<T>() => T extends Y ? 1 : 2)
   ? true
   : false
+/**
+ * (Experimental) Equals two types which convert by FormatIntersect<>
+ * ```
+ */
+export type EqualsExt<X, Y> = Equals<FormatIntersect<X>, FormatIntersect<Y>>
 
 export type OverwriteNeverToUnknown<T extends any> = {
   [fld in keyof T]: T[fld] extends never ? unknown : T[fld]
