@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.6.0](https://github.com/waitingsong/npm-mono-base/compare/v4.5.0...v4.6.0) (2020-07-10)
+
+**Note:** Version bump only for package demo
+
+
+
+
+
 # [4.5.0](https://github.com/waitingsong/npm-mono-base/compare/v4.4.0...v4.5.0) (2020-06-30)
 
 **Note:** Version bump only for package demo

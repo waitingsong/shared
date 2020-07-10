@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.6.0](/compare/v4.5.0...v4.6.0) (2020-07-10)
+
+
+### Features
+
+* **types:** add type EqualsExt<> 6917f32
+* **types:** add type FormatIntersect<> 1b0a92b
+
+
+
+
+
 # [4.5.0](/compare/v4.4.0...v4.5.0) (2020-06-30)
 
 

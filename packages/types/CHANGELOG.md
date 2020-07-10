@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.6.0](https://github.com/waitingsong/shared-types/compare/v4.5.0...v4.6.0) (2020-07-10)
+
+
+### Features
+
+* **types:** add type EqualsExt<> ([6917f32](https://github.com/waitingsong/shared-types/commit/6917f32951bc4945a4f1df0bc778f758265245cc))
+* **types:** add type FormatIntersect<> ([1b0a92b](https://github.com/waitingsong/shared-types/commit/1b0a92b1c8eaacc33c81c0cf10a0fc409aaf0bb7))
+
+
+
+
+
 # [4.5.0](https://github.com/waitingsong/shared-types/compare/v4.4.0...v4.5.0) (2020-06-30)
 
 
