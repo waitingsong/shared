@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 // ref: https://zhuanlan.zhihu.com/p/38687656
@@ -97,8 +98,21 @@ export type Equals<X, Y> = (<T>() => T extends X ? 1 : 2) extends (<T>() => T ex
   ? true
   : false
 
-
 export type OverwriteNeverToUnknown<T extends any> = {
   [fld in keyof T]: T[fld] extends never ? unknown : T[fld]
 }
+
+/* eslint-disable @typescript-eslint/ban-types */
+/**
+ * (Experimental) Rewrite members of intersect type into one type
+ *
+ * @example ```ts
+ * {foo: number} & {bar: string} => {foo: number, bar: string}
+ * ```
+ */
+export type FormatIntersect<T> = T extends object
+  ? T extends any[] | number | string | boolean | Function
+    ? T
+    : {[K in keyof T]: T[K]}
+  : T
 
