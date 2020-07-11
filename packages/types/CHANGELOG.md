@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.6.1](https://github.com/waitingsong/shared-types/compare/v4.6.0...v4.6.1) (2020-07-11)
+
+
+### Performance Improvements
+
+* **types:** update FormatIntersect ([da57cbe](https://github.com/waitingsong/shared-types/commit/da57cbeec206b9f0b68e9dfc54f8cd6c6e48d46b))
+
+
+
+
+
 # [4.6.0](https://github.com/waitingsong/shared-types/compare/v4.5.0...v4.6.0) (2020-07-10)
 
 

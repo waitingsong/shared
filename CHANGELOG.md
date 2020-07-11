@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.6.1](/compare/v4.6.0...v4.6.1) (2020-07-11)
+
+
+### Performance Improvements
+
+* **types:** update FormatIntersect da57cbe
+
+
+
+
+
 # [4.6.0](/compare/v4.5.0...v4.6.0) (2020-07-10)
 
 
