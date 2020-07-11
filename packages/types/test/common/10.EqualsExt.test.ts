@@ -59,6 +59,24 @@ describe(filename, () => {
     it('() => void, () => void', () => {
       const ret: Equals<() => void, () => void> = true
     })
+    it('Record', () => {
+      const ret0: Equals<Record<any, number>, Record<string, number>> = true
+      const ret1: Equals<Record<string, any>, Record<string, any>> = true
+      const ret2: Equals<Record<string, number>, Record<string, number>> = true
+      const ret3: Equals<Record<string, string>, {[k: string]: string}> = true
+      const ret4: Equals<Record<number, string>, {[k: number]: string}> = true
+    })
+    it('Map', () => {
+      const ret1: Equals<Map<string, number>, Map<string, number>> = true
+      const ret2: Equals<Map<string, unknown>, Map<string, unknown>> = true
+      const ret3: Equals<Map<string, any>, Map<string, any>> = true
+    })
+    it('Set', () => {
+      const ret1: Equals<Set<string>, Set<string>> = true
+      const ret2: Equals<Set<any>, Set<any>> = true
+      const ret3: Equals<Set<any[]>, Set<any[]>> = true
+    })
+
     it('Intersect', () => {
       interface Row {
         name: string
@@ -134,6 +152,23 @@ describe(filename, () => {
     })
     it('() => void, () => undefined', () => {
       const ret: Equals<() => void, () => undefined> = false
+    })
+    it('Record', () => {
+      const ret1: Equals<Record<string, any>, Record<string, string>> = false
+      const ret2: Equals<Record<string, number>, Record<string, any>> = false
+      const ret3: Equals<Record<string, string>, {[k: number]: string}> = false
+      const ret4: Equals<Record<string | number, string>, {[k: number]: string}> = false
+      const ret5: Equals<Record<string, string>, Map<string, string>> = false
+    })
+    it('Map', () => {
+      const ret1: Equals<Map<any, number>, Map<string, number>> = false
+      const ret2: Equals<Map<any, unknown>, Map<string, unknown>> = false
+      const ret3: Equals<Map<string, any>, {[k: string]: any}> = false
+    })
+    it('Set', () => {
+      const ret1: Equals<Set<string>, Set<number>> = false
+      const ret2: Equals<Set<any>, Set<unknown>> = false
+      const ret3: Equals<Set<any[]>, Set<string[]>> = false
     })
   })
 
