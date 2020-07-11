@@ -13,6 +13,29 @@ const filename = basename(__filename)
 describe(filename, () => {
 
   describe('should Equals return true', () => {
+    it('Intersect', () => {
+      interface Row {
+        name: string
+        tbUserDetailUid: number
+      }
+      type Foo = Pick<User, 'name'> & {
+        tbUserDetailUid: number,
+      }
+      type F2 = FormatIntersect<Foo>
+      const ret: Equals<Row, Foo> = true
+      const ret2: Equals<Row, F2> = true
+    })
+    it('Intersect', () => {
+      interface Row {
+        name: string
+        tbUserDetailUid: number
+      }
+      type Foo = { name: string } & { tbUserDetailUid: number }
+      type F2 = FormatIntersect<Foo>
+      const ret: Equals<Row, Foo> = true
+      const ret2: Equals<Row, F2> = true
+      const ret3: EQ<Row, Foo> = false
+    })
     it('true:true', () => {
       const ret: Equals<true, true> = true
     })
@@ -77,29 +100,6 @@ describe(filename, () => {
       const ret3: Equals<Set<any[]>, Set<any[]>> = true
     })
 
-    it('Intersect', () => {
-      interface Row {
-        name: string
-        tbUserDetailUid: number
-      }
-      type Foo = Pick<User, 'name'> & {
-        tbUserDetailUid: number,
-      }
-      type F2 = FormatIntersect<Foo>
-      const ret: Equals<Row, Foo> = true
-      const ret2: Equals<Row, F2> = true
-    })
-    it('Intersect', () => {
-      interface Row {
-        name: string
-        tbUserDetailUid: number
-      }
-      type Foo = { name: string } & { tbUserDetailUid: number }
-      type F2 = FormatIntersect<Foo>
-      const ret: Equals<Row, Foo> = true
-      const ret2: Equals<Row, F2> = true
-      const ret3: EQ<Row, Foo> = false
-    })
   })
 
 
