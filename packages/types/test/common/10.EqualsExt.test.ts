@@ -6,6 +6,7 @@ import {
 import * as assert from 'power-assert'
 
 import { Equals as EQ, EqualsExt as Equals, FormatIntersect } from '../../src/index'
+import { User, UserAlias } from '../database/data'
 
 
 const filename = basename(__filename)
@@ -100,6 +101,10 @@ describe(filename, () => {
       const ret3: Equals<Set<any[]>, Set<any[]>> = true
     })
 
+    it('readonly', () => {
+      const ret1: Equals<UserAlias, UserAlias> = true
+      const ret2: Equals<Readonly<UserAlias>, Readonly<UserAlias>> = true
+    })
   })
 
 
@@ -170,12 +175,11 @@ describe(filename, () => {
       const ret2: Equals<Set<any>, Set<unknown>> = false
       const ret3: Equals<Set<any[]>, Set<string[]>> = false
     })
+
+    it('readonly', () => {
+      const ret1: Equals<UserAlias, Readonly<UserAlias>> = false
+    })
   })
 
 })
-
-interface User {
-  uid: number
-  name: string
-}
 
