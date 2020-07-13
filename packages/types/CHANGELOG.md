@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.7.1](https://github.com/waitingsong/shared-types/compare/v4.7.0...v4.7.1) (2020-07-13)
+
+
+### Bug Fixes
+
+* **types:** type TypeFromJointTable ([997d757](https://github.com/waitingsong/shared-types/commit/997d757923c8e10c4fb30366c9a49bd1acfc57a8))
+
+
+
+
+
 # [4.7.0](https://github.com/waitingsong/shared-types/compare/v4.6.1...v4.7.0) (2020-07-13)
 
 
