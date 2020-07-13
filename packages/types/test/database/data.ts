@@ -20,7 +20,7 @@ export interface Db extends DbModel {
 export interface User {
   uid: number
   name: string
-  ctime: string
+  ctime: string | Date
 }
 export interface UserDetail {
   uid: number
@@ -31,7 +31,7 @@ export interface UserDetail {
 export interface UserAlias {
   tbUserUid: number
   tbUserName: string
-  tbUserCtime: string
+  tbUserCtime: string | Date
 }
 export interface UserDetailAlias {
   tbUserDetailUid: number
@@ -42,7 +42,7 @@ export interface UserDetailAlias {
 export interface InverseUserAlias {
   'tb_user.uid': number
   'tb_user.name': string
-  'tb_user.ctime': string
+  'tb_user.ctime': string | Date
 }
 export interface InverseUserDetailAlias {
   'tb_user_detail.uid': number
@@ -104,3 +104,4 @@ export interface DbDict {
     },
   }
 }
+

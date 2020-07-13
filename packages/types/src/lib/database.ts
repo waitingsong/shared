@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { OverwriteNeverToUnknown } from './common'
+import { OverwriteNeverToUnknown, FormatIntersect } from './common'
 import { UnionToIntersection } from './union2tuple'
 
 
@@ -210,7 +210,7 @@ export type FullTableModelFromDictAlias<
 
 
 type TypeFromJointTable<T extends AliasTableModel>
-  = UnionToIntersection<FlateJointTable<T>>
+  = FormatIntersect<OverwriteNeverToUnknown<UnionToIntersection<FlateJointTable<T>>>>
 
 /**
  * @returns ```ts

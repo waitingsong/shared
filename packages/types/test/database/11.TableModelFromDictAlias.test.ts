@@ -12,6 +12,10 @@ import {
   TableModelFromDictAlias,
   InverseTableModelFromDictAlias,
   FullTableModelFromDictAlias,
+  // JointTableFromDictAliasCols,
+  // JointTableFromDictAliasColsKey,
+  // JointTableFromDictAliasColsValue,
+  // TypeFromJointTable,
 } from '../../src/index'
 
 import {
@@ -26,6 +30,15 @@ import {
 
 
 type AcUser = DbDict['aliasColumns']['tb_user']
+
+// type TA1 = FullTableModelFromDictAlias<User, AcUser>
+// declare const foo1: TA1['tbUserUid']
+// declare const foo2: TA1['tb_user.uid']
+// declare const foo3: TA1['tb_user.ctime']
+// type J1 = JointTableFromDictAliasCols<User, AcUser>
+// type J1k = JointTableFromDictAliasColsKey<User, AcUser>
+// type J1v = JointTableFromDictAliasColsValue<User, AcUser>
+// type TF1 = TypeFromJointTable<J1>
 
 const filename = basename(__filename)
 
