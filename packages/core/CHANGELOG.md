@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.7.0](https://github.com/waitingsong/node-shared-core/compare/v4.6.1...v4.7.0) (2020-07-13)
+
+**Note:** Version bump only for package @waiting/shared-core
+
+
+
+
+
 ## [4.6.1](https://github.com/waitingsong/node-shared-core/compare/v4.6.0...v4.6.1) (2020-07-11)
 
 **Note:** Version bump only for package @waiting/shared-core

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.7.0](/compare/v4.6.1...v4.7.0) (2020-07-13)
+
+
+### Features
+
+* **types:** add types for database 5af329e
+
+
+
+
+
 ## [4.6.1](/compare/v4.6.0...v4.6.1) (2020-07-11)
 
 
