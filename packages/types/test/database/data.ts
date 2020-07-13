@@ -39,6 +39,16 @@ export interface UserDetailAlias {
   tbUserDetailAddress: string
 }
 
+export interface InverseUserAlias {
+  'tb_user.uid': number
+  'tb_user.name': string
+  'tb_user.ctime': string
+}
+export interface InverseUserDetailAlias {
+  'tb_user_detail.uid': number
+  'tb_user_detail.name': string
+  'tb_user_detail.address': string
+}
 
 export interface DbDict {
   tables: {
