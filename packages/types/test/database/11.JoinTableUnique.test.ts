@@ -9,7 +9,7 @@ import {
   JoinTable,
   JoinTableUnique,
   Equals,
-} from '../src/index'
+} from '../../src/index'
 
 
 const filename = basename(__filename)
