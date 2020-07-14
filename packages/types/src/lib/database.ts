@@ -45,7 +45,7 @@ export interface TableModel<FieldType = any> {
  * }
  * ```
  */
-export interface AliasTableModel {
+export interface TableAliasModel {
   [fld: string]: TableModel
 }
 
@@ -209,7 +209,7 @@ export type FullTableModelFromDictAlias<
   = Readonly<TypeFromJointTable<JointTableFromDictAliasCols<T, TAC, IncludeKeys>>>
 
 
-type TypeFromJointTable<T extends AliasTableModel>
+type TypeFromJointTable<T extends TableAliasModel>
   = FormatIntersect<OverwriteNeverToUnknown<UnionToIntersection<FlateJointTable<T>>>>
 
 /**
@@ -281,7 +281,7 @@ type JointTableFromDictAliasColsValue<
       }
     }
 
-type FlateJointTable<T extends AliasTableModel> = T extends { [fld: string]: infer F }
+type FlateJointTable<T extends TableAliasModel> = T extends { [fld: string]: infer F }
   ? F extends TableModel
     ? { [output in keyof F]: F[output] }
     : never
