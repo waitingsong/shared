@@ -5,7 +5,7 @@ import {
 } from '@waiting/shared-core'
 import * as assert from 'power-assert'
 
-import { UnionToTuple, Equals, UnionToIntersection } from '../src/index'
+import { UnionToTuple, Equals, UnionToIntersection, FormatIntersect, EqualsExt } from '../src/index'
 
 
 const filename = basename(__filename)
@@ -56,6 +56,44 @@ describe(filename, () => {
       type Foo = { name: 'foo' } | { name: number }
       type T1 = UnionToIntersection<Foo>
       const ret: Equals<T1, never> = true
+    })
+    it('mixed', () => {
+      type Foo = {
+        uid: {
+          tbUserUid: 'tb_user.uid',
+          tbUserDetailUid: 'tb_user_detail.uid',
+        },
+      } | {
+        name: {
+          tbUserName: 'tb_user.name',
+          tbUserDetailName: 'tb_user_detail.name',
+        },
+      }
+      type Expect = {
+        uid: {
+          tbUserUid: 'tb_user.uid',
+          tbUserDetailUid: 'tb_user_detail.uid',
+        },
+      } & {
+        name: {
+          tbUserName: 'tb_user.name',
+          tbUserDetailName: 'tb_user_detail.name',
+        },
+      }
+      interface Expect2 {
+        uid: {
+          tbUserUid: 'tb_user.uid',
+          tbUserDetailUid: 'tb_user_detail.uid',
+        }
+        name: {
+          tbUserName: 'tb_user.name',
+          tbUserDetailName: 'tb_user_detail.name',
+        }
+      }
+      type T1 = UnionToIntersection<Foo>
+      const ret: Equals<T1, Expect> = true
+      type T2 = UnionToIntersection<Foo>
+      const ret2: EqualsExt<T2, Expect2> = true
     })
   })
 
