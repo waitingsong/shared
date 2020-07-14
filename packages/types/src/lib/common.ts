@@ -109,15 +109,15 @@ export type OverwriteNeverToUnknown<T extends any> = {
 
 /* eslint-disable @typescript-eslint/ban-types */
 /**
- * (Experimental) Rewrite members of intersect type into one type
+ * (Experimental) Rewrite members of intersect type into one type deeply
  *
  * @example ```ts
  * {foo: number} & {bar: string} => {foo: number, bar: string}
  * ```
  */
 export type FormatIntersect<T> = T extends Record<string | number, any>
-  ? T extends any[] | Function
+  ? T extends any[] | Function | Date
     ? T
-    : {[K in keyof T]: T[K]}
+    : {[K in keyof T]: FormatIntersect<T[K]>}
   : T
 
