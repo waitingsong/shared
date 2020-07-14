@@ -21,7 +21,7 @@ import {
  * @param AR AliasCols of right table, AcUserDetail
  * @example `type F1 = JoinTableWithAlias<User, AcUser, UserDetail, AcUserDetail>`
  * @returns ```ts
- * // Assume User and UserDetail both has fields uid and name
+ * // Assume User and UserDetail both have fields uid and name
  * {
  *  ctime: string | Date;
  *  age: number;
