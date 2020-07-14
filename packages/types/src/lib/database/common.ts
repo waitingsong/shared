@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { OverwriteNeverToUnknown, FormatIntersect } from './common'
-import { UnionToIntersection } from './union2tuple'
+import { OverwriteNeverToUnknown, FormatIntersect } from '../common'
+import { UnionToIntersection } from '../union2tuple'
 
 
 /**
@@ -281,9 +281,25 @@ type JointTableFromDictAliasColsValue<
       }
     }
 
-type FlateJointTable<T extends TableAliasModel> = T extends { [fld: string]: infer F }
+export type FlateJointTable<T extends TableAliasModel> = T extends { [fld: string]: infer F }
   ? F extends TableModel
     ? { [output in keyof F]: F[output] }
     : never
   : never
+
+
+// export type JoinTableWithAlias<
+//   L extends TableModel,
+//   LA extends TableAliasCols,
+//   R extends TableModel,
+//   RA extends TableAliasCols,
+// > =
+//  // JoinTableUnique<L, R>
+//   PickAliasByKey<TableModelFromDictAlias<L, LA>, TableModelFromDictAlias<R, RA>, PickDuplicateKeys<L, R>>
+
+// type PickAliasByKey<
+//   L extends TableAliasCols,
+//   R extends TableAliasCols,
+//   K extends keyof L | keyof R,
+// > = { [key in K]: L[K] } | { [key in K]: R[K] }
 
