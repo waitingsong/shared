@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.8.0](/compare/v4.7.1...v4.8.0) (2020-07-14)
+
+
+### Features
+
+* **types:** add type JoinTableWithAlias b05e312
+* **types:** update type FormatIntersect deeply b24f097
+
+
+
+
+
 ## [4.7.1](/compare/v4.7.0...v4.7.1) (2020-07-13)
 
 

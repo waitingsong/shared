@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.8.0](https://github.com/waitingsong/shared-types/compare/v4.7.1...v4.8.0) (2020-07-14)
+
+
+### Features
+
+* **types:** add type JoinTableWithAlias ([b05e312](https://github.com/waitingsong/shared-types/commit/b05e312cf8afd3a389244fe14dfb9217c115a2cf))
+* **types:** update type FormatIntersect deeply ([b24f097](https://github.com/waitingsong/shared-types/commit/b24f097d44ba0a195bc78a86f1851a1dc4d41499))
+
+
+
+
+
 ## [4.7.1](https://github.com/waitingsong/shared-types/compare/v4.7.0...v4.7.1) (2020-07-13)
 
 
