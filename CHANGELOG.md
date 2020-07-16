@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.8.1](/compare/v4.8.0...v4.8.1) (2020-07-16)
+
+
+### Bug Fixes
+
+* **types:** remove undefined from type Json 584fb0f
+
+
+### Features
+
+* **types:** add type DbAliasCols a3a2e5d
+
+
+
+
+
 # [4.8.0](/compare/v4.7.1...v4.8.0) (2020-07-14)
 
 

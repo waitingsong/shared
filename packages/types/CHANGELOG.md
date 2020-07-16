@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.8.1](https://github.com/waitingsong/shared-types/compare/v4.8.0...v4.8.1) (2020-07-16)
+
+
+### Bug Fixes
+
+* **types:** remove undefined from type Json ([584fb0f](https://github.com/waitingsong/shared-types/commit/584fb0fc391280d88444f960543541fe7031e381))
+
+
+### Features
+
+* **types:** add type DbAliasCols ([a3a2e5d](https://github.com/waitingsong/shared-types/commit/a3a2e5db003ddac146c9bb785108d912aad4a1f0))
+
+
+
+
+
 # [4.8.0](https://github.com/waitingsong/shared-types/compare/v4.7.1...v4.8.0) (2020-07-14)
 
 
