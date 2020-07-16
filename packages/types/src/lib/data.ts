@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 /** Value of key-value pairs object */
-export type PlainJsonValue = boolean | number | string | null | undefined
+export type PlainJsonValue = boolean | number | string | null
 /**
  * Typeof JSON object parsed from Response data
  * simple key-value pairs object.
