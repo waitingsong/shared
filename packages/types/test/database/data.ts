@@ -2,15 +2,7 @@ import { DbModel } from '../../src'
 
 
 export interface Db extends DbModel {
-  /**
-   * @description 用户表
-   * @table 表实际名称user
-   */
   tb_user: User
-  /**
-   * @description 用户详情表
-   * @table 表实际名称userDetail
-   */
   tb_user_detail: UserDetail
 }
 
