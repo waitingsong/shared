@@ -7,7 +7,7 @@ import * as assert from 'power-assert'
 
 import {
   JoinTable,
-  JoinTableUnique,
+  JoinTableDistinct,
   Equals,
   TableModelFromDictAlias,
   InverseTableModelFromDictAlias,

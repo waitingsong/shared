@@ -7,7 +7,7 @@ import * as assert from 'power-assert'
 
 import {
   JoinTable,
-  JoinTableUnique,
+  JoinTableDistinct,
   Equals,
 } from '../../src/index'
 
@@ -63,7 +63,7 @@ describe(filename, () => {
 
   describe('should JoinTableUnique works', () => {
     it('normal', () => {
-      type Foo = JoinTableUnique<User, Order>
+      type Foo = JoinTableDistinct<User, Order>
       interface ExpectType {
         address: string
         name: string
@@ -71,14 +71,14 @@ describe(filename, () => {
       const ret: Equals<Foo, ExpectType> = true
     })
     it('normal with KeyExcludeOptional', () => {
-      type Foo = JoinTableUnique<User, Order, 'uid' | 'name'>
+      type Foo = JoinTableDistinct<User, Order, 'uid' | 'name'>
       interface ExpectType {
         address: string
       }
       const ret: Equals<Foo, ExpectType> = true
     })
     it('normal 2', () => {
-      type Foo = JoinTableUnique<User, Order2>
+      type Foo = JoinTableDistinct<User, Order2>
       interface ExpectType {
         address: string
         name: string
@@ -86,7 +86,7 @@ describe(filename, () => {
       const ret: Equals<Foo, ExpectType> = true
     })
     it('invalid', () => {
-      type Foo = JoinTableUnique<User, Order>
+      type Foo = JoinTableDistinct<User, Order>
       interface ExpectType {
         uid: number // <--
         address: string

@@ -4,7 +4,7 @@ import { UnionToIntersection } from '../union2tuple'
 import {
   AliasColumn,
   FlateJointTable,
-  JoinTableUnique,
+  JoinTableDistinct,
   PickDuplicateKeys,
   TableAliasCols,
   TableModel,
@@ -38,7 +38,7 @@ export type JoinTableWithAlias<
   AL extends TableAliasCols<L>,
   R extends TableModel,
   AR extends TableAliasCols<R>,
-> = FormatIntersect<JoinTableUnique<L, R> & A4<L, AL, R, AR>>
+> = FormatIntersect<JoinTableDistinct<L, R> & A4<L, AL, R, AR>>
 
 
 // type AcUser = DbDict['aliasColumns']['tb_user']

@@ -118,7 +118,7 @@ export type JoinTable<
 /**
  * Join two table, duplicated field removed
  */
-export type JoinTableUnique<
+export type JoinTableDistinct<
   L extends TableModel,
   R extends TableModel,
   KeyExcludeOptional extends keyof L | keyof R | void = void>
