@@ -179,6 +179,17 @@ describe(filename, () => {
     it('readonly', () => {
       const ret1: Equals<UserAlias, Readonly<UserAlias>> = false
     })
+    it('optional', () => {
+      interface F1 {
+        foo: number
+        bar: string
+      }
+      interface F2 {
+        foo: number
+        bar?: string
+      }
+      const ret1: Equals<F1, F2> = false
+    })
   })
 
 })
