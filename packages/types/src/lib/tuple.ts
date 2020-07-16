@@ -31,3 +31,15 @@ export type TypeAssert<T, A> = T extends A ? T : never
 // @ts-expect-error
 export type Overwrite<T, S extends any> = { [P in keyof T]: S[P] }
 
+
+/**
+ * Whether literal type is in Tuple contains literal,
+ *
+ * @example ```ts
+ * type Foo = isInType<['ab', 'cd'], 'ab'>
+ * ```
+ * @returns boolean
+ */
+export type isInLiteralTuple<T extends (string | number | symbol)[], K extends string | number | symbol>
+  = Extract<T[number], K> extends never ? false : true
+

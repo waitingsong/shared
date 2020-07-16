@@ -14,6 +14,7 @@ import {
   TupleUnshift,
   TuplePush,
   TupleConcat,
+  isInLiteralTuple,
 } from '../src/index'
 
 
@@ -235,6 +236,46 @@ describe(filename, () => {
     })
   })
 
+  describe('should isInTuple works', () => {
+    it('pri string', () => {
+      type Foo = [string]
+
+      const ret0: isInLiteralTuple<Foo, any> = true
+      const ret1: isInLiteralTuple<Foo, string> = true
+
+      const ret2: isInLiteralTuple<Foo, number> = false
+    })
+    it('pri mixed', () => {
+      type Foo = [string, number, string]
+
+      const ret0: isInLiteralTuple<Foo, any> = true
+      const ret1: isInLiteralTuple<Foo, string> = true
+      const ret2: isInLiteralTuple<Foo, number> = true
+    })
+    it('literal mixed', () => {
+      type Foo = ['ab', 1, '3']
+
+      const ret0: isInLiteralTuple<Foo, any> = true
+      const ret1: isInLiteralTuple<Foo, string> = true
+      const ret2: isInLiteralTuple<Foo, 'ab'> = true
+      const ret3: isInLiteralTuple<Foo, '3'> = true
+
+      const ret4: isInLiteralTuple<Foo, number> = true
+      const ret5: isInLiteralTuple<Foo, 1> = true
+
+      const ret6: isInLiteralTuple<Foo, 'a'> = false
+      const ret7: isInLiteralTuple<Foo, '1'> = false
+      const ret8: isInLiteralTuple<Foo, ''> = false
+      const ret9: isInLiteralTuple<Foo, 2> = false
+    })
+    it('any', () => {
+      type Foo = [any]
+
+      const ret0: isInLiteralTuple<Foo, any> = true
+      const ret1: isInLiteralTuple<Foo, string> = true
+      const ret2: isInLiteralTuple<Foo, number> = true
+    })
+  })
 
 })
 
