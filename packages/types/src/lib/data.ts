@@ -17,7 +17,7 @@ export type JsonType =
 
 /** Custom response json data structure */
 export interface JsonResp<
-  T extends JsonType = any
+  T extends JsonType | Record<string, unknown> = any
 > {
   /** 0: no error */
   code: number
