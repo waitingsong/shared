@@ -29,19 +29,19 @@ describe(filename, () => {
 
   describe('should PickDuplicateKeys works', () => {
     it('normal 1', () => {
-      type F1 = PickDuplicateKeys<User, AcUser>
+      type F1 = PickDuplicateKeys<[keyof User, keyof AcUser]>
       type Expect = 'name' | 'uid' | 'ctime'
       const ret1: Equals<F1, Expect> = true
       const ret2: Equals<F1, 'uid'> = false
     })
     it('normal 2', () => {
-      type F1 = PickDuplicateKeys<User, User>
+      type F1 = PickDuplicateKeys<[keyof User, keyof User]>
       type Expect = 'name' | 'uid' | 'ctime'
       const ret1: Equals<F1, Expect> = true
       const ret2: Equals<F1, 'uid'> = false
     })
     it('normal 3', () => {
-      type F1 = PickDuplicateKeys<User, UserDetail>
+      type F1 = PickDuplicateKeys<[keyof User, keyof UserDetail]>
       type Expect = 'uid'
       const ret1: Equals<F1, Expect> = true
       const ret2: Equals<F1, 'uid' | 'name'> = false

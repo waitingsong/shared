@@ -44,7 +44,7 @@ export type JoinTableWithAlias<
 // type AcUser = DbDict['aliasColumns']['tb_user']
 // type AcUserDetail = DbDict['aliasColumns']['tb_user_detail']
 // type Ret = JoinTableWithAlias<User, AcUser, UserDetail, AcUserDetail>
-// type F5k = PickDuplicateKeys<User, UserDetail> // 'uid' | 'name'
+// type F5k = PickDuplicateKeys<[keyof User, keyof UserDetail]> // 'uid' | 'name'
 // type RA4 = A4<User, AcUser, UserDetail, AcUserDetail>
 // type RA3 = A3<User, AcUser, UserDetail, AcUserDetail>
 // type RA2 = PickDictColsByDupKeysFromTablesModel<User, AcUser, UserDetail, AcUserDetail>
@@ -71,7 +71,7 @@ export type PickDictColsByDupKeysFromTablesModel<
   AL extends TableAliasCols,
   R extends TableModel,
   AR extends TableAliasCols,
-> = UnionToIntersection<FlateJointTable<A1<AL, AR, PickDuplicateKeys<L, R>>>>
+> = UnionToIntersection<FlateJointTable<A1<AL, AR, PickDuplicateKeys<[keyof L, keyof R]>>>>
 
 type A1<
   AL extends TableAliasCols,

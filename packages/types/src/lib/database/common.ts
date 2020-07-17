@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { OverwriteNeverToUnknown, FormatIntersect } from '../common'
+import { TupleTail, TupleHead } from '../tuple'
 import { UnionToIntersection } from '../union2tuple'
 
 
@@ -125,9 +126,24 @@ export type JoinTableDistinct<
   = JoinTable<L, R, KeyExcludeOptional | (keyof L & keyof R)>
 
 
-export type PickDuplicateKeys<L extends TableModel, R extends TableModel>
-  = (keyof L & keyof R)
+// export type PickDuplicateKeys<L extends TableModel, R extends TableModel>
+//   = (keyof L & keyof R)
 
+/**
+ * @example ```ts
+ *   // Expect: "2" | "3"
+ *   PickDuplicateKeys<['1' | '2' | '3', '2' | '3' | '4']>
+ *
+ *   // Expect: () => void
+ *   SetIntersection<string | number | (() => void), Function>
+ * ```
+ */
+export type PickDuplicateKeys<T extends unknown[]> = _PickDupKeys<T>
+type _PickDupKeys<T1 extends unknown[], T2 = never, Result = never> = {
+  2: Result,
+  1: T2,
+  0: _PickDupKeys<TupleTail<T1>, TupleHead<T1> | T2, Extract<TupleHead<T1>, T2> | Result>,
+}[T1 extends [] ? 2 : 0]
 
 /**
  * Generate TableAlias model from TableModel and DictAliasCols,
