@@ -123,7 +123,11 @@ export type JoinTableDistinct<
   L extends TableModel,
   R extends TableModel,
   KeyExcludeOptional extends keyof L | keyof R | void = void>
-  = JoinTable<L, R, KeyExcludeOptional | (keyof L & keyof R)>
+  = Omit<
+  L & R,
+  KeyExcludeOptional extends void ? (keyof L & keyof R) : KeyExcludeOptional | (keyof L & keyof R)
+  >
+  // = JoinTable<L, R, KeyExcludeOptional | (keyof L & keyof R)>
 
 
 // export type PickDuplicateKeys<L extends TableModel, R extends TableModel>
