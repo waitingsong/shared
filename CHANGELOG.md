@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0](/compare/v4.8.1...v5.0.0) (2020-07-17)
+
+
+### Features
+
+* **types:** add type isInLiteralTuple 6d23af5
+* **types:** breaking change params of PickDuplicateKeys<> to array 8e084ea
+* **types:** rename type JoinTableUnique to JoinTableDistinct 678b9c5
+
+
+
+
+
 ## [4.8.1](/compare/v4.8.0...v4.8.1) (2020-07-16)
 
 

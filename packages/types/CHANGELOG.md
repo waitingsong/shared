@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0](https://github.com/waitingsong/shared-types/compare/v4.8.1...v5.0.0) (2020-07-17)
+
+
+### Features
+
+* **types:** add type isInLiteralTuple ([6d23af5](https://github.com/waitingsong/shared-types/commit/6d23af5ea482c8f469a90a659d12ed2eccc4ad4a))
+* **types:** breaking change params of PickDuplicateKeys<> to array ([8e084ea](https://github.com/waitingsong/shared-types/commit/8e084ea3ef519cfd4806d3ac8752405a8a23f7cb))
+* **types:** rename type JoinTableUnique to JoinTableDistinct ([678b9c5](https://github.com/waitingsong/shared-types/commit/678b9c5bbe4d718c259cbf46db2ee7372424c797))
+
+
+
+
+
 ## [4.8.1](https://github.com/waitingsong/shared-types/compare/v4.8.0...v4.8.1) (2020-07-16)
 
 
