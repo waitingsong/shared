@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.1.0](/compare/v5.0.0...v5.1.0) (2020-07-17)
+
+
+### Features
+
+* **types:** update generics param of JsonResp<> 786914c
+
+
+
+
+
 # [5.0.0](/compare/v4.8.1...v5.0.0) (2020-07-17)
 
 
