@@ -5,7 +5,7 @@ import {
 } from '@waiting/shared-core'
 import * as assert from 'power-assert'
 
-import { FormatIntersect, Equals } from '../../src/index'
+import { FormatIntersect, Equals, EqualsExt } from '../../src/index'
 
 import { AliasRecord } from './test-model'
 
@@ -104,6 +104,41 @@ describe(filename, () => {
       type F1 = Pick<User, 'name'> & Pick<Order, 'address'>
       type F2 = FormatIntersect<F1>
       const ret: Equals<F2, F2> = true
+    })
+
+    it('deep false', () => {
+      interface F1 {
+        user: {
+          f1: {f2: number} & {f3: string},
+        }
+      }
+      interface F2 {
+        user: {
+          f1: {d2: number} & {d3: string},
+        }
+      }
+      /*
+      type R1 = {
+        user: {
+          f1: {
+            f2: number
+            f3: string
+            d2: number
+            d3: string
+          }
+        }
+      } */
+      type R1 = FormatIntersect<F1 & F2, true>
+      /*
+      type R2 = {
+        user: {
+          f1: { f2: number } & { f3: string }
+        } & {
+          f1: { d2: number } & { d3: string }
+        }
+      } */
+      type R2 = FormatIntersect<F1 & F2, false>
+      const ret: EqualsExt<R1, R2> = true
     })
   })
 

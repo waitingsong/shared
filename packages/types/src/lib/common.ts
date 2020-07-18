@@ -115,9 +115,9 @@ export type OverwriteNeverToUnknown<T extends any> = {
  * {foo: number} & {bar: string} => {foo: number, bar: string}
  * ```
  */
-export type FormatIntersect<T> = T extends Record<string | number, any>
+export type FormatIntersect<T, deep extends boolean = true> = T extends Record<string | number, any>
   ? T extends any[] | Function | Date
     ? T
-    : {[K in keyof T]: FormatIntersect<T[K]>}
+    : { [K in keyof T]: deep extends true ? FormatIntersect<T[K], true> : T[K] }
   : T
 
