@@ -62,13 +62,19 @@ describe(filename, () => {
       type ExpectType = []
       const ret: Equals<T1, ExpectType> = true
     })
+    it('[unknown]', () => {
+      type Foo = [unknown]
+      type T1 = TupleTail<Foo>
+      type ExpectType = []
+      const ret: Equals<T1, ExpectType> = true
+    })
     it('unknown[]', () => {
       type Foo = unknown[]
       type T1 = TupleTail<Foo>
       type ExpectType = unknown[]
       const ret: Equals<T1, ExpectType> = true
     })
-    it('any', () => {
+    it('[any]', () => {
       type Foo = [any]
       type T1 = TupleTail<Foo>
       type ExpectType = []
@@ -77,7 +83,7 @@ describe(filename, () => {
     it('any[]', () => {
       type Foo = any[]
       type T1 = TupleTail<Foo>
-      type ExpectType = any[]
+      type ExpectType = unknown[]
       const ret: Equals<T1, ExpectType> = true
     })
   })
