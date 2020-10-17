@@ -9,11 +9,11 @@ export type StrSplit<S extends string, D extends string> =
     S extends `${infer T}${D}${infer U}` ? [T, ...StrSplit<U, D>] :
       [S]
 
-export type StrJoin<T extends V[], D extends string> =
+export type TupleJoin<T extends V[], D extends string> =
   T extends [] ? '' :
     T extends [unknown] ? `${T[0]}`:
       // @ts-expect-error
-      T extends [unknown, ...infer U] ? `${T[0]}${D}${StrJoin<U, D>}` :
+      T extends [unknown, ...infer U] ? `${T[0]}${D}${TupleJoin<U, D>}` :
         string
 
 // export type StrJoin<T extends V[], D extends string> =
@@ -32,6 +32,6 @@ type FormatCamelCase<T extends V[]> =
         T extends [unknown, ...infer U] ? [T[0], ...FormatCapitalize<U & V[]>] :
           []
 
-export type SnakeToCamel<T extends string, D extends string = '_' | '-'> = StrJoin<FormatCamelCase<StrSplit<T, D>>, ''>
-export type SnakeToPascal<T extends string, D extends string = '_' | '-'> = StrJoin<FormatCapitalize<StrSplit<T, D>>, ''>
+export type SnakeToCamel<T extends string, D extends string = '_' | '-'> = TupleJoin<FormatCamelCase<StrSplit<T, D>>, ''>
+export type SnakeToPascal<T extends string, D extends string = '_' | '-'> = TupleJoin<FormatCapitalize<StrSplit<T, D>>, ''>
 
