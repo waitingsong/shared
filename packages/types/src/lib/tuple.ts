@@ -49,3 +49,5 @@ export type Overwrite<T, S extends any> = { [P in keyof T]: S[P] }
 export type isInLiteralTuple<T extends (string | number | symbol)[], K extends string | number | symbol>
   = Extract<T[number], K> extends never ? false : true
 
+export type TupleToUnion<T extends unknown[]> = T[number]
+

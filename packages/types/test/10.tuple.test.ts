@@ -14,6 +14,7 @@ import {
   TupleUnshift,
   TuplePush,
   TupleConcat,
+  TupleToUnion,
   isInLiteralTuple,
 } from '../src/index'
 
@@ -280,6 +281,42 @@ describe(filename, () => {
       const ret0: isInLiteralTuple<Foo, any> = true
       const ret1: isInLiteralTuple<Foo, string> = true
       const ret2: isInLiteralTuple<Foo, number> = true
+    })
+  })
+
+
+  describe('should TupleToUnion works', () => {
+    it('pri string', () => {
+      type Foo = [string, string]
+      const ret0: TupleToUnion<Foo> = 'abc'
+    })
+    it('pri mixed', () => {
+      type Foo = [string, number, string, bigint]
+
+      const ret0: TupleToUnion<Foo> = 'ab'
+      const ret1: TupleToUnion<Foo> = 1
+      // mocha not support now
+      // const ret2: TupleToUnion<Foo> = 1n
+    })
+    it('literal mixed', () => {
+      type Foo = ['ab', 1, '3']
+
+      const ret0: TupleToUnion<Foo> = 'ab'
+      const ret1: TupleToUnion<Foo> = 1
+      const ret2: TupleToUnion<Foo> = '3'
+    })
+    it('any', () => {
+      type Foo = [any, string]
+
+      const ret0: TupleToUnion<Foo> = 'ab'
+    })
+    it('unknown', () => {
+      type Foo = [unknown]
+
+      const ret0: TupleToUnion<Foo> = 'ab'
+      const ret1: TupleToUnion<Foo> = 1
+      // mocha not support now
+      // const ret2: TupleToUnion<Foo> = 1n
     })
   })
 
