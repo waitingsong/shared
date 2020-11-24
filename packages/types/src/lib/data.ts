@@ -7,6 +7,9 @@ export type PlainJsonValue = boolean | number | string | null
  * Typeof JSON object parsed from Response data
  * simple key-value pairs object.
  */
+export interface JsonObject {
+  [key: string]: PlainJsonValue | PlainJsonValue[] | JsonObject | JsonObject[]
+}
 export type JsonType =
   | string
   | number
