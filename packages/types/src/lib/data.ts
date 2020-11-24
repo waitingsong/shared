@@ -11,17 +11,12 @@ export interface JsonObject {
   [key: string]: PlainJsonValue | PlainJsonValue[] | JsonObject | JsonObject[]
 }
 export type JsonType =
-  | string
-  | number
-  | boolean
-  | null
+  | PlainJsonValue
   | JsonType[]
   | { [property: string]: JsonType }
 
 /** Custom response json data structure */
-export interface JsonResp<
-  T extends JsonType | Record<string, unknown> = any
-> {
+export interface JsonResp<T = unknown> {
   /** 0: no error */
   code: number
   /** payload */
