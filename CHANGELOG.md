@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.2.0](/compare/v5.1.0...v5.2.0) (2020-11-24)
+
+
+### Features
+
+* **types:** add JsonObject 64dc5f0
+* **types:** change generics of JsonResp to unknow 083d50f
+
+
+
+
+
 # [5.1.0](/compare/v5.0.0...v5.1.0) (2020-07-17)
 
 

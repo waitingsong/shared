@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.2.0](https://github.com/waitingsong/shared-types/compare/v5.1.0...v5.2.0) (2020-11-24)
+
+
+### Features
+
+* **types:** add JsonObject ([64dc5f0](https://github.com/waitingsong/shared-types/commit/64dc5f0f890ccaeedf6d54647a395381b80a9a03))
+* **types:** change generics of JsonResp to unknow ([083d50f](https://github.com/waitingsong/shared-types/commit/083d50f39c86d2deba399af2b8fb6bcbb6864e5a))
+
+
+
+
+
 # [5.1.0](https://github.com/waitingsong/shared-types/compare/v5.0.0...v5.1.0) (2020-07-17)
 
 
