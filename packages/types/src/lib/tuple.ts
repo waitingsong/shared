@@ -18,7 +18,7 @@ export type TupleRemoveLast<T extends any[]> = TypeAssert<Overwrite<TupleTail<T>
 export type TupleUnshift<T extends any[], X> = ((x: X, ...t: T) => void) extends (...t: infer R) => void ? R : never
 
 /** Append element at last */
-export type TuplePush<T extends any[], X> = TypeAssert<Overwrite<TupleUnshift<T, any>, T & { [x: string]: X }>, any[]>
+export type TuplePush<T extends any[], X> = [...T, X]
 
 /** Concat two tuples */
 export type TupleConcat<A extends any[], B extends any[]> = {
