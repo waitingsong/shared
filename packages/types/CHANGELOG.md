@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.3.0](https://github.com/waitingsong/shared-types/compare/v5.2.0...v5.3.0) (2020-12-19)
+
+
+### Features
+
+* **types:** update JsonResp with optional prop reqId: string ([a22c419](https://github.com/waitingsong/shared-types/commit/a22c419a0ea060d4ba422474786e6ceadf67a800))
+
+
+
+
+
 # [5.2.0](https://github.com/waitingsong/shared-types/compare/v5.1.0...v5.2.0) (2020-11-24)
 
 
