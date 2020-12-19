@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.5.0](/compare/v5.4.0...v5.5.0) (2020-12-19)
+
+
+### Features
+
+* **types:** add 2nd param of FormatIntersect 912b7dd
+* **types:** add template-literal.ts e513ad0
+* **types:** add type TupleToUnion 48b4b81
+
+
+### Performance Improvements
+
+* **types:** update JoinTableDistinct 48407bf
+
+
+
+
+
 # [5.4.0](/compare/v5.3.0...v5.4.0) (2020-12-19)
 
 

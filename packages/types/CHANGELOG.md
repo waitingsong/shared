@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.5.0](https://github.com/waitingsong/shared-types/compare/v5.4.0...v5.5.0) (2020-12-19)
+
+
+### Features
+
+* **types:** add 2nd param of FormatIntersect ([912b7dd](https://github.com/waitingsong/shared-types/commit/912b7ddd53bf06894c2fed9e4b4422c5cb9f43ca))
+* **types:** add template-literal.ts ([e513ad0](https://github.com/waitingsong/shared-types/commit/e513ad097b399f99772db1b459ac1883065a6f3a))
+* **types:** add type TupleToUnion ([48b4b81](https://github.com/waitingsong/shared-types/commit/48b4b815f5e95588e1c9844efc5d94e9033f720f))
+
+
+### Performance Improvements
+
+* **types:** update JoinTableDistinct ([48407bf](https://github.com/waitingsong/shared-types/commit/48407bf35a054453bace1806a4b6d59fd8c3644d))
+
+
+
+
+
 # [5.4.0](https://github.com/waitingsong/shared-types/compare/v5.3.0...v5.4.0) (2020-12-19)
 
 
