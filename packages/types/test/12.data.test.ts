@@ -9,6 +9,7 @@ import {
   Equals,
   EqualsExt,
   JsonType,
+  JsonResp,
 } from '../src/index'
 
 
@@ -95,5 +96,23 @@ describe(filename, () => {
     })
   })
 
+  describe('should JsonResp["dat"] works with generics', () => {
+    it('with passing generics', () => {
+      const ret: JsonResp<number> = {
+        code: 0,
+        dat: 1,
+      }
+      const foo: number = ret.dat
+      assert(foo === 1)
+    })
+    it('w/o passing generics', () => {
+      const ret: JsonResp = {
+        code: 0,
+        dat: 1,
+      }
+      const foo: unknown = ret.dat
+      assert(foo === 1)
+    })
+  })
 })
 

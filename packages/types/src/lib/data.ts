@@ -15,14 +15,22 @@ export type JsonType =
   | JsonType[]
   | { [property: string]: JsonType }
 
+// https://stackoverflow.com/a/57318205
 /** Custom response json data structure */
-export interface JsonResp<T = unknown> {
+export type JsonResp<T = never> = {
   /** 0: no error */
-  code: number
-  /** payload */
-  dat?: T
-  msg?: string | null
+  code: number,
+  msg?: string | null,
   /** Request id */
-  reqId?: string
-}
+  reqId?: string,
+} & ([T] extends [never]
+  ? {
+    /** payload */
+    dat?: unknown,
+  }
+  : {
+    /** payload */
+    dat: T,
+  }
+)
 
