@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.4.0](https://github.com/waitingsong/shared-types/compare/v5.3.0...v5.4.0) (2020-12-19)
+
+
+### Bug Fixes
+
+* **types:** TuplePush ([8fcf34e](https://github.com/waitingsong/shared-types/commit/8fcf34e4ea892f80a6848fe9d53f03eb32a605ab))
+
+
+### Features
+
+* **types:** update JsonResp<T> ([b145c4d](https://github.com/waitingsong/shared-types/commit/b145c4df1f79f68e11b5198ddaf0e0252a237d50))
+
+
+
+
+
 # [5.3.0](https://github.com/waitingsong/shared-types/compare/v5.2.0...v5.3.0) (2020-12-19)
 
 

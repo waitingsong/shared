@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.4.0](/compare/v5.3.0...v5.4.0) (2020-12-19)
+
+
+### Bug Fixes
+
+* **types:** TuplePush 8fcf34e
+
+
+### Features
+
+* **types:** update JsonResp<T> b145c4d
+
+
+
+
+
 # [5.3.0](/compare/v5.2.0...v5.3.0) (2020-12-19)
 
 
