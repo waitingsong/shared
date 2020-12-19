@@ -22,5 +22,7 @@ export interface JsonResp<T = unknown> {
   /** payload */
   dat?: T
   msg?: string | null
+  /** Request id */
+  reqId?: string
 }
 
