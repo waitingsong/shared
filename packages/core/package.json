@@ -24,7 +24,7 @@
   "license": "MIT",
   "dependencies": {
     "@waiting/shared-types": "^5.5.1",
-    "rxjs": "^6.5.2"
+    "rxjs": "6"
   },
   "devDependencies": {
     "cross-env": "7"
