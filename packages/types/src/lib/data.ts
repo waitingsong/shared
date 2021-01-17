@@ -20,6 +20,10 @@ export type JsonType =
 export type JsonResp<T = never> = {
   /** 0: no error */
   code: number,
+  /**
+   * keyof typeof ErrorCode, eg. 'E_Not_Found'
+   */
+  codeKey?: string,
   msg?: string | null,
   /** Request id */
   reqId?: string,
