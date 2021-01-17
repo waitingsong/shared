@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.6.0](https://github.com/waitingsong/shared-types/compare/v5.5.1...v5.6.0) (2021-01-17)
+
+
+### Features
+
+* **types:** add JsonResp['codeKey'] optional ([dc45e0b](https://github.com/waitingsong/shared-types/commit/dc45e0bf560da8edc7f8afc2f33c149ec73cc8c8))
+
+
+
+
+
 ## [5.5.1](https://github.com/waitingsong/shared-types/compare/v5.5.0...v5.5.1) (2020-12-20)
 
 **Note:** Version bump only for package @waiting/shared-types
