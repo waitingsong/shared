@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.6.1](https://github.com/waitingsong/shared-types/compare/v5.6.0...v5.6.1) (2021-02-08)
+
+
+### Bug Fixes
+
+* **types:** FormatCapitalize and FormatCamelCase ([755bdf8](https://github.com/waitingsong/shared-types/commit/755bdf845134f9d34b5d6c1297a6caee0cde9f10))
+
+
+
+
+
 # [5.6.0](https://github.com/waitingsong/shared-types/compare/v5.5.1...v5.6.0) (2021-01-17)
 
 
