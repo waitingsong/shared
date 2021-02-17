@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 5.7.0 (2021-02-17)
+
+
+### Features
+
+* **core:** add functions ([45b8778](https://github.com/waitingsong/npm-mono-base/commit/45b87783ab81fcd18a57b25e5bc149c7c9f9b7dc))
+
+
+
+
+
 ## 5.6.2 (2021-02-17)
 
 **Note:** Version bump only for package demo
