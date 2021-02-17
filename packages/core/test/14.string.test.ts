@@ -41,6 +41,13 @@ describe(filename, () => {
       const ExpectType = 'tbUserTWoThreE'
       assert(T1 === ExpectType)
     })
+
+    it('minus', () => {
+      const Foo = 'tb_user-tWo_threE'
+      const T1 = snakeToCamel(Foo)
+      const ExpectType = 'tbUserTWoThreE'
+      assert(T1 === ExpectType)
+    })
   })
 
   describe('should SnakeToPascal works', () => {
@@ -67,6 +74,14 @@ describe(filename, () => {
 
     it('non standard snake', () => {
       const Foo = 'tb_user_tWo_threE'
+      const T1 = snakeToPascal(Foo)
+      const ExpectType = 'TbUserTWoThreE'
+      assert(T1 === ExpectType)
+    })
+
+
+    it('minus', () => {
+      const Foo = 'tb_user-tWo_threE'
       const T1 = snakeToPascal(Foo)
       const ExpectType = 'TbUserTWoThreE'
       assert(T1 === ExpectType)
