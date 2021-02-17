@@ -71,9 +71,9 @@ export type PickDictColsByDupKeysFromTablesModel<
   AL extends TableAliasCols,
   R extends TableModel,
   AR extends TableAliasCols,
-> = UnionToIntersection<FlateJointTable<A1<AL, AR, PickDuplicateKeys<[keyof L, keyof R]>>>>
+> = UnionToIntersection<FlateJointTable<_A1<AL, AR, PickDuplicateKeys<[keyof L, keyof R]>>>>
 
-type A1<
+type _A1<
   AL extends TableAliasCols,
   AR extends TableAliasCols,
   Keys,
