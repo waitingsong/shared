@@ -1,17 +1,18 @@
 /* eslint-disable @typescript-eslint/prefer-nullish-coalescing */
+import { SnakeToCamel } from '@waiting/shared-types'
 
 
 /**
  *
  * @see SnakeToCamel of @waiting/shared-types
  */
-export function snakeToCamel(input: string): string {
+export function snakeToCamel<T extends string = string>(input: T): SnakeToCamel<T> {
   const line = input.replace(/-/gu, '_')
   const ret = line.replace(/_./gu, (match) => {
     const str = match.toUpperCase()
     return str.slice(1)
   })
-  return ret
+  return ret as SnakeToCamel<T>
 }
 
 
