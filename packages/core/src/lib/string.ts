@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/prefer-nullish-coalescing */
-import { SnakeToCamel } from '@waiting/shared-types'
+import { SnakeToCamel, SnakeToPascal } from '@waiting/shared-types'
 
 
 /**
@@ -20,10 +20,10 @@ export function snakeToCamel<T extends string = string>(input: T): SnakeToCamel<
  *
  * @see SnakeToPascal of @waiting/shared-types
  */
-export function snakeToPascal(input: string): string {
+export function snakeToPascal<T extends string = string>(input: T): SnakeToPascal<T> {
   const line = snakeToCamel(input)
   const p1 = line.slice(0, 1).toUpperCase()
   const p2 = line.slice(1)
-  return `${p1}${p2}`
+  return `${p1}${p2}` as SnakeToPascal<T>
 }
 
