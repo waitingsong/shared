@@ -3,7 +3,7 @@ import { SnakeToCamel, SnakeToPascal } from '@waiting/shared-types'
 
 
 /**
- *
+ * Convert 'tb_user-detail' to tbUserDetail
  * @see SnakeToCamel of @waiting/shared-types
  */
 export function snakeToCamel<T extends string = string>(input: T): SnakeToCamel<T> {
@@ -17,7 +17,7 @@ export function snakeToCamel<T extends string = string>(input: T): SnakeToCamel<
 
 
 /**
- *
+ * Convert 'tb_user-detail' to TbUserDetail
  * @see SnakeToPascal of @waiting/shared-types
  */
 export function snakeToPascal<T extends string = string>(input: T): SnakeToPascal<T> {
