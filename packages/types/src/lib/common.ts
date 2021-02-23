@@ -77,8 +77,8 @@ export type AllValues<T extends Record<PropertyKey, PropertyKey>> = {
  * @ref https://stackoverflow.com/a/57726844
  */
 export type KeyFromValue<T, V> = {
-  [key in keyof T]: V extends T[key] ? key : never
-}[keyof T]
+  [key in KnownKeys<T>]: V extends T[key] ? key : never
+}[KnownKeys<T>]
 
 /**
  * Invert key/value of type/interface
