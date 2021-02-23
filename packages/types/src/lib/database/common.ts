@@ -112,9 +112,9 @@ export type AliasColumn = Record<string, string>
  */
 export type JoinTable<
   L extends TableModel,
-  R extends TableModel,
-  KeyExcludeOptional extends keyof L | keyof R | void = void>
-= Omit<Pick<{
+  R extends TableModel>
+= Pick<
+{
   [K in keyof L]: K extends keyof R
     ? undefined extends R[K]
       ? L[K]
@@ -126,7 +126,18 @@ export type JoinTable<
       ? R[K]
       : unknown
     : R[K]
-}, KnownKeys<L> | KnownKeys<R>>, KeyExcludeOptional extends void ? never : KeyExcludeOptional>
+},
+KnownKeys<L> | KnownKeys<R>
+>
+
+export type JoinTableExclude<
+  L extends TableModel,
+  R extends TableModel,
+  KeyExcludeOptional extends keyof L | keyof R | void = void>
+= Omit<
+JoinTable<L, R>,
+KeyExcludeOptional extends void ? never : KeyExcludeOptional
+>
 
 /**
  * Join two table, duplicated fields removed

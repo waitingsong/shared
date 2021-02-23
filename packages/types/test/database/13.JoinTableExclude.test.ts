@@ -6,9 +6,8 @@ import {
 import * as assert from 'power-assert'
 
 import {
-  JoinTable,
+  JoinTableExclude,
   Equals,
-  TableModel,
 } from '../../src/index'
 
 
@@ -16,9 +15,9 @@ const filename = basename(__filename)
 
 describe(filename, () => {
 
-  describe('should JoinTable works for extends interface', () => {
+  describe('should JoinTableExclude works for interface', () => {
     it('normal', () => {
-      type Foo = JoinTable<User, Order>
+      type Foo = JoinTableExclude<User, Order>
       interface ExpectType {
         address: string
         uid: unknown
@@ -26,8 +25,15 @@ describe(filename, () => {
       }
       const ret: Equals<Foo, ExpectType> = true
     })
+    it('normal with KeyExcludeOptional', () => {
+      type Foo = JoinTableExclude<User, Order, 'uid' | 'name'>
+      interface ExpectType {
+        address: string
+      }
+      const ret: Equals<Foo, ExpectType> = true
+    })
     it('unknown', () => {
-      type Foo = JoinTable<User, Order2>
+      type Foo = JoinTableExclude<User, Order2>
       interface ExpectType {
         address: string
         uid: unknown
@@ -37,7 +43,7 @@ describe(filename, () => {
     })
 
     it('invalid', () => {
-      type Foo = JoinTable<User, Order>
+      type Foo = JoinTableExclude<User, Order>
       interface ExpectType {
         uid: number
         name: string
@@ -45,7 +51,7 @@ describe(filename, () => {
       const ret: Equals<Foo, ExpectType> = false
     })
     it('invalid 2', () => {
-      type Foo = JoinTable<User, Order2>
+      type Foo = JoinTableExclude<User, Order2>
       interface ExpectType {
         address: string
         uid: any
@@ -55,9 +61,9 @@ describe(filename, () => {
     })
   })
 
-  describe('should JoinTable works for extends class', () => {
+  describe('should JoinTableExclude works for class', () => {
     it('normal', () => {
-      type Foo = JoinTable<CUser, COrder>
+      type Foo = JoinTableExclude<CUser, COrder>
       interface ExpectType {
         address: string
         uid: unknown
@@ -65,8 +71,15 @@ describe(filename, () => {
       }
       const ret: Equals<Foo, ExpectType> = true
     })
+    it('normal with KeyExcludeOptional', () => {
+      type Foo = JoinTableExclude<CUser, COrder, 'uid' | 'name'>
+      interface ExpectType {
+        address: string
+      }
+      const ret: Equals<Foo, ExpectType> = true
+    })
     it('unknown', () => {
-      type Foo = JoinTable<CUser, COrder2>
+      type Foo = JoinTableExclude<CUser, COrder2>
       interface ExpectType {
         address: string
         uid: unknown
@@ -76,7 +89,7 @@ describe(filename, () => {
     })
 
     it('invalid', () => {
-      type Foo = JoinTable<CUser, COrder>
+      type Foo = JoinTableExclude<CUser, COrder>
       interface ExpectType {
         uid: number
         name: string
@@ -84,7 +97,7 @@ describe(filename, () => {
       const ret: Equals<Foo, ExpectType> = false
     })
     it('invalid 2', () => {
-      type Foo = JoinTable<CUser, COrder2>
+      type Foo = JoinTableExclude<CUser, COrder2>
       interface ExpectType {
         address: string
         uid: any
@@ -95,7 +108,7 @@ describe(filename, () => {
   })
 })
 
-interface User extends TableModel {
+interface User {
   uid: number
   name: string
 }
@@ -108,7 +121,7 @@ interface Order2 {
   address: string
 }
 
-class CUser implements TableModel {
+class CUser {
 
   uid: number
 

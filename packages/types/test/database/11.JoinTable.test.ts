@@ -25,13 +25,6 @@ describe(filename, () => {
       }
       const ret: Equals<Foo, ExpectType> = true
     })
-    it('normal with KeyExcludeOptional', () => {
-      type Foo = JoinTable<User, Order, 'uid' | 'name'>
-      interface ExpectType {
-        address: string
-      }
-      const ret: Equals<Foo, ExpectType> = true
-    })
     it('unknown', () => {
       type Foo = JoinTable<User, Order2>
       interface ExpectType {
@@ -68,13 +61,6 @@ describe(filename, () => {
         address: string
         uid: unknown
         name: string
-      }
-      const ret: Equals<Foo, ExpectType> = true
-    })
-    it('normal with KeyExcludeOptional', () => {
-      type Foo = JoinTable<CUser, COrder, 'uid' | 'name'>
-      interface ExpectType {
-        address: string
       }
       const ret: Equals<Foo, ExpectType> = true
     })
