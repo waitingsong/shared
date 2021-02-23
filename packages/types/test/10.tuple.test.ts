@@ -16,6 +16,7 @@ import {
   TupleConcat,
   TupleToUnion,
   isInLiteralTuple,
+  Reverse,
 } from '../src/index'
 
 
@@ -317,6 +318,24 @@ describe(filename, () => {
       const ret1: TupleToUnion<Foo> = 1
       // mocha not support now
       // const ret2: TupleToUnion<Foo> = 1n
+    })
+  })
+
+  describe('should Reverse works', () => {
+    it('pri string', () => {
+      type Foo = Reverse<[string, string]>
+      type ExpectType = [string, string]
+      const ret: Equals<Foo, ExpectType> = true
+    })
+    it('mixed', () => {
+      type Foo = Reverse<[string, number, string, bigint, unknown, any, never]>
+      type ExpectType = [never, any, unknown, bigint, string, number, string]
+      const ret: Equals<Foo, ExpectType> = true
+    })
+    it('literal mixed', () => {
+      type Foo = Reverse<['ab', 1, '3']>
+      type ExpectType = ['3', 1, 'ab']
+      const ret: Equals<Foo, ExpectType> = true
     })
   })
 

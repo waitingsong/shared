@@ -51,3 +51,10 @@ export type isInLiteralTuple<T extends (string | number | symbol)[], K extends s
 
 export type TupleToUnion<T extends unknown[]> = T[number]
 
+
+export type Reverse<Tuple extends any[]> = Reverse_<Tuple, []>
+type Reverse_<Tuple extends any[], Result extends any[]> = {
+  1: Result,
+  0: Reverse_<TupleTail<Tuple>, TupleUnshift<Result, TupleHead<Tuple>>>,
+}[Tuple extends [] ? 1 : 0]
+
