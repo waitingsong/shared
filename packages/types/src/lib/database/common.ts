@@ -151,6 +151,15 @@ KnownKeys<L> & KnownKeys<R>
 >
 type _JoinTableDistinct<R> = Pick<R, KnownKeys<R>>
 
+export type JoinTableDistinctExclude<
+  L extends TableModel,
+  R extends TableModel,
+  KeyExcludeOptional extends keyof L | keyof R | void = void>
+= Omit<
+JoinTableDistinct<L, R>,
+KeyExcludeOptional extends void ? never : KeyExcludeOptional
+>
+
 
 /**
  * Dulicate keys will convert to never type
