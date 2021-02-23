@@ -20,6 +20,7 @@ interface User1 {
 }
 interface User2 extends User1 {
   addr: unknown
+  [k: string]: unknown
 }
 interface User3 extends User2 {
   json: any
@@ -45,7 +46,9 @@ class CUser1 {
 }
 class CUser2 extends CUser1 {
 
-  addr: unknown
+  addr: unknown;
+
+  [k: string]: unknown
 
 }
 class CUser3 extends CUser2 {
