@@ -87,7 +87,7 @@ export type KeyFromValue<T, V> = {
  * @see https://stackoverflow.com/a/57726844
  */
 export type Invert<T extends Record<PropertyKey, PropertyKey>> = {
-  [K in T[keyof T]]: KeyFromValue<T, K>
+  [K in T[KnownKeys<T>]]: KeyFromValue<T, K>
 }
 
 

@@ -23,7 +23,8 @@ describe(filename, () => {
 
   describe('should AllValues works', () => {
     it('type AliasRecord', () => {
-      const ret: Invert<AliasRecord> = {
+      type T1 = Invert<AliasRecord>
+      const ret: T1 = {
         tbUserUid: 'uid',
         tbUserName: 'name',
       }
@@ -31,7 +32,8 @@ describe(filename, () => {
       assert(ret.tbUserName === 'name')
     })
     it('type AliasRecord2 (duplicate value)', () => {
-      const ret: Invert<AliasRecord2> = {
+      type T1 = Invert<AliasRecord2>
+      const ret: T1 = {
         tbUserUid: 'uid',
         tbUserName: 'name',
       }
@@ -39,7 +41,7 @@ describe(filename, () => {
       assert(ret.tbUserUid !== 'foo')
       assert(ret.tbUserName === 'name')
 
-      const ret2: Invert<AliasRecord2> = {
+      const ret2: T1 = {
         tbUserUid: 'foo', // <-- foo|uid
         tbUserName: 'name',
       }
@@ -48,7 +50,8 @@ describe(filename, () => {
       assert(ret2.tbUserName === 'name')
     })
     it('type Alias2Type (duplicate value)', () => {
-      const ret: Invert<Alias2Type> = {
+      type T1 = Invert<Alias2Type>
+      const ret: T1 = {
         tbUserUid: 'uid',
         tbUserName: 'name',
       }
@@ -56,7 +59,7 @@ describe(filename, () => {
       assert(ret.tbUserUid !== 'foo')
       assert(ret.tbUserName === 'name')
 
-      const ret2: Invert<Alias2Type> = {
+      const ret2: T1 = {
         tbUserUid: 'foo', // <-- foo|uid
         tbUserName: 'name',
       }
@@ -65,7 +68,8 @@ describe(filename, () => {
       assert(ret2.tbUserName === 'name')
     })
     it('type inline', () => {
-      const ret: Invert< {uid: 'tbUserUid', name: 'tbUserName'}> = {
+      type T1 = Invert<{uid: 'tbUserUid', name: 'tbUserName'}>
+      const ret: T1 = {
         tbUserUid: 'uid',
         tbUserName: 'name',
       }
@@ -73,7 +77,8 @@ describe(filename, () => {
       assert(ret.tbUserName === 'name')
     })
     it('type Alias (w/o auto-complete)', () => {
-      const ret: Invert<Alias> = {
+      type T1 = Invert<Alias>
+      const ret: T1 = {
         tbUserUid: 'uid',
         tbUserName: 'name',
       }
@@ -83,7 +88,8 @@ describe(filename, () => {
     })
 
     it('constant alias', () => {
-      const ret: Invert<typeof alias> = {
+      type T1 = Invert<typeof alias>
+      const ret: T1 = {
         tbUserUid: 'uid',
         tbUserName: 'name',
       }
@@ -92,7 +98,8 @@ describe(filename, () => {
     })
 
     it('invalid type inline', () => {
-      const ret: Invert<AliasRecord> = {
+      type T1 = Invert<AliasRecord>
+      const ret: T1 = {
         // @ts-expect-error
         tbUserUid: 'Foo', // with validation
         tbUserName: 'name',
@@ -101,7 +108,8 @@ describe(filename, () => {
       assert(ret.tbUserName === 'name')
     })
     it('invalid constant alias', () => {
-      const ret: Invert<typeof alias> = {
+      type T1 = Invert<typeof alias>
+      const ret: T1 = {
         // @ts-expect-error
         tbUserUid: 'foo', // with validation
         tbUserName: 'name',
@@ -110,7 +118,8 @@ describe(filename, () => {
       assert(ret.tbUserName === 'name')
     })
     it('invalid constant alias2', () => {
-      const ret: Invert<typeof alias2> = {
+      type T1 = Invert<typeof alias2>
+      const ret: T1 = {
         // @ts-expect-error
         tbUserUid: 'Fake', // with validation
         tbUserName: 'name',
@@ -119,7 +128,9 @@ describe(filename, () => {
       assert(ret.tbUserName === 'name')
     })
     it('invalid type Alias', () => {
-      const ret: Invert<Alias> = {
+      type T1 = Invert<typeof alias>
+      const ret: T1 = {
+        // @ts-expect-error
         tbUserUid: 'foo', // w/o validation
         tbUserName: 'name',
       }
