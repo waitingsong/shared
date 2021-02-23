@@ -7,14 +7,6 @@ import * as assert from 'power-assert'
 
 import { Equals, KnownKeys } from '../../src/index'
 
-import {
-  Alias,
-  AliasRecord,
-  AliasRecord2,
-  alias,
-  alias2,
-} from './test-model'
-
 
 const filename = basename(__filename)
 
