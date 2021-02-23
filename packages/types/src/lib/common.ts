@@ -121,3 +121,11 @@ export type FormatIntersect<T, deep extends boolean = true> = T extends Record<s
     : { [K in keyof T]: deep extends true ? FormatIntersect<T[K], true> : T[K] }
   : T
 
+/**
+ * Retrive keys
+ * @see https://stackoverflow.com/a/51955852/2887218
+ */
+export type KnownKeys<T> = {
+  [K in keyof T]: string extends K ? never : number extends K ? never : K
+} extends { [_ in keyof T]: infer U } ? U : never
+
