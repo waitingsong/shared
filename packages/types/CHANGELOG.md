@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.9.1 (2021-02-23)
+
+
+### Bug Fixes
+
+* **types:** Invert<T> ([b619b1f](https://github.com/waitingsong/shared-types/commit/b619b1faba893c72d78580515c56f7a39df6fd6a))
+
+
+
+
+
 # 5.9.0 (2021-02-23)
 
 
