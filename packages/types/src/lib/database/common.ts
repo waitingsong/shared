@@ -129,7 +129,7 @@ export type JoinTable<
 }, KnownKeys<L> | KnownKeys<R>>, KeyExcludeOptional extends void ? never : KeyExcludeOptional>
 
 /**
- * Join two table, duplicated field removed
+ * Join two table, duplicated fields removed
  */
 export type JoinTableDistinct<
   L extends TableModel,
@@ -141,6 +141,26 @@ export type JoinTableDistinct<
   >
   // = JoinTable<L, R, KeyExcludeOptional | (keyof L & keyof R)>
 
+
+/**
+ * Dulicate keys will convert to never type
+ */
+export type MergeTableDistinct<
+  L extends TableModel,
+  R extends TableModel,
+> = {
+  [K in keyof L]: K extends keyof R
+    ? undefined extends R[K]
+      ? L[K]
+      : never
+    : L[K]
+} & {
+  [K in keyof R]: K extends keyof L
+    ? undefined extends L[K]
+      ? R[K]
+      : never
+    : R[K]
+}
 
 // export type PickDuplicateKeys<L extends TableModel, R extends TableModel>
 //   = (keyof L & keyof R)
