@@ -6,7 +6,6 @@ import {
 import * as assert from 'power-assert'
 
 import {
-  JoinTable,
   JoinTableDistinct,
   Equals,
 } from '../../src/index'
@@ -16,52 +15,7 @@ const filename = basename(__filename)
 
 describe(filename, () => {
 
-  describe('should JoinTable works', () => {
-    it('normal', () => {
-      type Foo = JoinTable<User, Order>
-      interface ExpectType {
-        address: string
-        uid: number
-        name: string
-      }
-      const ret: Equals<Foo, ExpectType> = true
-    })
-    it('normal with KeyExcludeOptional', () => {
-      type Foo = JoinTable<User, Order, 'uid' | 'name'>
-      interface ExpectType {
-        address: string
-      }
-      const ret: Equals<Foo, ExpectType> = true
-    })
-    it('unknown', () => {
-      type Foo = JoinTable<User, Order2>
-      interface ExpectType {
-        address: string
-        uid: unknown // <--
-        name: string
-      }
-      const ret: Equals<Foo, ExpectType> = true
-    })
-    it('invalid', () => {
-      type Foo = JoinTable<User, Order>
-      interface ExpectType {
-        uid: number
-        name: string
-      }
-      const ret: Equals<Foo, ExpectType> = false
-    })
-    it('invalid 2', () => {
-      type Foo = JoinTable<User, Order2>
-      interface ExpectType {
-        address: string
-        uid: any
-        name: string
-      }
-      const ret: Equals<Foo, ExpectType> = false
-    })
-  })
-
-  describe('should JoinTableUnique works', () => {
+  describe('should JoinTableDistinct works for interface', () => {
     it('normal', () => {
       type Foo = JoinTableDistinct<User, Order>
       interface ExpectType {
@@ -77,7 +31,7 @@ describe(filename, () => {
       }
       const ret: Equals<Foo, ExpectType> = true
     })
-    it('normal 2', () => {
+    it('unknown', () => {
       type Foo = JoinTableDistinct<User, Order2>
       interface ExpectType {
         address: string
@@ -85,17 +39,69 @@ describe(filename, () => {
       }
       const ret: Equals<Foo, ExpectType> = true
     })
+
     it('invalid', () => {
       type Foo = JoinTableDistinct<User, Order>
       interface ExpectType {
-        uid: number // <--
+        uid: number
+        name: string
+      }
+      const ret: Equals<Foo, ExpectType> = false
+    })
+    it('invalid 2', () => {
+      type Foo = JoinTableDistinct<User, Order2>
+      interface ExpectType {
         address: string
+        uid: any
         name: string
       }
       const ret: Equals<Foo, ExpectType> = false
     })
   })
 
+  describe('should JoinTableDistinct works for class', () => {
+    it('normal', () => {
+      type Foo = JoinTableDistinct<CUser, COrder>
+      interface ExpectType {
+        address: string
+        name: string
+      }
+      const ret: Equals<Foo, ExpectType> = true
+    })
+    it('normal with KeyExcludeOptional', () => {
+      type Foo = JoinTableDistinct<CUser, COrder, 'uid' | 'name'>
+      interface ExpectType {
+        address: string
+      }
+      const ret: Equals<Foo, ExpectType> = true
+    })
+    it('unknown', () => {
+      type Foo = JoinTableDistinct<CUser, COrder2>
+      interface ExpectType {
+        address: string
+        name: string
+      }
+      const ret: Equals<Foo, ExpectType> = true
+    })
+
+    it('invalid', () => {
+      type Foo = JoinTableDistinct<CUser, COrder>
+      interface ExpectType {
+        uid: number
+        name: string
+      }
+      const ret: Equals<Foo, ExpectType> = false
+    })
+    it('invalid 2', () => {
+      type Foo = JoinTableDistinct<CUser, COrder2>
+      interface ExpectType {
+        address: string
+        uid: any
+        name: string
+      }
+      const ret: Equals<Foo, ExpectType> = false
+    })
+  })
 })
 
 interface User {
@@ -109,5 +115,27 @@ interface Order {
 interface Order2 {
   uid: bigint
   address: string
+}
+
+class CUser {
+
+  uid: number
+
+  name: string
+
+}
+class COrder {
+
+  uid: number
+
+  address: string
+
+}
+class COrder2 {
+
+  uid: bigint
+
+  address: string
+
 }
 
