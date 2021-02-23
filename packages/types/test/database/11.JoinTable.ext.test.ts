@@ -8,6 +8,7 @@ import * as assert from 'power-assert'
 import {
   JoinTable,
   Equals,
+  TableModel,
 } from '../../src/index'
 
 
@@ -15,7 +16,7 @@ const filename = basename(__filename)
 
 describe(filename, () => {
 
-  describe('should JoinTable works for interface', () => {
+  describe('should JoinTable works for extends interface', () => {
     it('normal', () => {
       type Foo = JoinTable<User, Order>
       interface ExpectType {
@@ -61,7 +62,7 @@ describe(filename, () => {
     })
   })
 
-  describe('should JoinTable works for class', () => {
+  describe('should JoinTable works for extends class', () => {
     it('normal', () => {
       type Foo = JoinTable<CUser, COrder>
       interface ExpectType {
@@ -108,7 +109,7 @@ describe(filename, () => {
   })
 })
 
-interface User {
+interface User extends TableModel {
   uid: number
   name: string
 }
@@ -121,7 +122,7 @@ interface Order2 {
   address: string
 }
 
-class CUser {
+class CUser implements TableModel {
 
   uid: number
 

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { OverwriteNeverToUnknown, FormatIntersect } from '../common'
+import { OverwriteNeverToUnknown, FormatIntersect, KnownKeys } from '../common'
 import { TupleTail, TupleHead } from '../tuple'
 import { UnionToIntersection } from '../union2tuple'
 
@@ -108,13 +108,25 @@ export type AliasColumn = Record<string, string>
 
 
 /**
- * Join two table, never type will be converted to unknown
+ * Join two table, duplicate fields will be converted to unknown
  */
 export type JoinTable<
   L extends TableModel,
   R extends TableModel,
   KeyExcludeOptional extends keyof L | keyof R | void = void>
-  = Omit<OverwriteNeverToUnknown<L & R>, KeyExcludeOptional extends void ? never : KeyExcludeOptional>
+= Omit<Pick<{
+  [K in keyof L]: K extends keyof R
+    ? undefined extends R[K]
+      ? L[K]
+      : unknown
+    : L[K]
+} & {
+  [K in keyof R]: K extends keyof L
+    ? undefined extends L[K]
+      ? R[K]
+      : unknown
+    : R[K]
+}, KnownKeys<L> | KnownKeys<R>>, KeyExcludeOptional extends void ? never : KeyExcludeOptional>
 
 /**
  * Join two table, duplicated field removed
