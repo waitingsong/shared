@@ -56,7 +56,7 @@ class CUser3 extends CUser2 {
 
 describe(filename, () => {
   describe('should ValuesOf works for class', () => {
-    it('type bigint', () => {
+    it('normal', () => {
       type T1 = ValuesOf<CUser1>
       type Expect = string | bigint | number | Date | null
       const t1: Equals<T1, Expect> = true
@@ -73,7 +73,7 @@ describe(filename, () => {
 
 
   describe('should ValuesOf works for interface', () => {
-    it('type bigint', () => {
+    it('normal', () => {
       type T1 = ValuesOf<User1>
       type Expect = string | bigint | number | Date | null
       const t1: Equals<T1, Expect> = true

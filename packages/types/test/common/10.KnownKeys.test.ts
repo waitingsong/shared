@@ -56,7 +56,7 @@ class CUser3 extends CUser2 {
 
 describe(filename, () => {
   describe('should KnownKeys works for class', () => {
-    it('type bigint', () => {
+    it('normal', () => {
       type T1 = KnownKeys<CUser1>
       type Expect = 'uid' | 'age' | 'gender' | 'name' | 'ctime' | 'mtime'
       const t1: Equals<T1, Expect> = true
@@ -73,7 +73,7 @@ describe(filename, () => {
 
 
   describe('should KnownKeys works for interface', () => {
-    it('type bigint', () => {
+    it('normal', () => {
       type T1 = KnownKeys<User1>
       type Expect = 'uid' | 'age' | 'gender' | 'name' | 'ctime' | 'mtime'
       const t1: Equals<T1, Expect> = true
