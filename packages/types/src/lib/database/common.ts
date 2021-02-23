@@ -133,13 +133,12 @@ export type JoinTable<
  */
 export type JoinTableDistinct<
   L extends TableModel,
-  R extends TableModel,
-  KeyExcludeOptional extends keyof L | keyof R | void = void>
+  R extends TableModel>
   = Omit<
-  L & R,
-  KeyExcludeOptional extends void ? (keyof L & keyof R) : KeyExcludeOptional | (keyof L & keyof R)
+  _JoinTableDistinct<MergeTableDistinct<L, R>>,
+  KnownKeys<L> & KnownKeys<R>
   >
-  // = JoinTable<L, R, KeyExcludeOptional | (keyof L & keyof R)>
+type _JoinTableDistinct<R> = Pick<R, KnownKeys<R>>
 
 
 /**

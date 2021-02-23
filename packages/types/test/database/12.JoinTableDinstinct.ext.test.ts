@@ -7,7 +7,11 @@ import * as assert from 'power-assert'
 
 import {
   JoinTableDistinct,
+  TableModel,
   Equals,
+  FormatIntersect,
+  KnownKeys,
+  MergeTableDistinct,
 } from '../../src/index'
 
 
@@ -15,9 +19,10 @@ const filename = basename(__filename)
 
 describe(filename, () => {
 
-  describe('should JoinTableDistinct works for interface', () => {
+  describe('should JoinTableDistinct works for extends interface', () => {
     it('normal', () => {
       type Foo = JoinTableDistinct<User, Order>
+      type K1 = void
       interface ExpectType {
         address: string
         name: string
@@ -52,7 +57,7 @@ describe(filename, () => {
     })
   })
 
-  describe('should JoinTableDistinct works for class', () => {
+  describe('should JoinTableDistinct works for extends class', () => {
     it('normal', () => {
       type Foo = JoinTableDistinct<CUser, COrder>
       interface ExpectType {
@@ -90,7 +95,7 @@ describe(filename, () => {
   })
 })
 
-interface User {
+interface User extends TableModel {
   uid: number
   name: string
 }
@@ -103,7 +108,7 @@ interface Order2 {
   address: string
 }
 
-class CUser {
+class CUser implements TableModel {
 
   uid: number
 
