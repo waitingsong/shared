@@ -32,6 +32,9 @@ interface User2 extends User1 {
 interface User3 extends User2 {
   json: any
 }
+interface User4 extends User2 {
+  neverKey: never
+}
 
 class CUser1 {
 
@@ -181,6 +184,19 @@ describe(filename, () => {
       type Expect3 = 'mtime' | 'ctime' | 'addr' | 'json' | 'name'
       const t3: Equals<T3, Expect3> = true
     })
+    it('type never', () => {
+      type T1 = KeyFromValue<CUser1, never>
+      type Expect = never
+      const t1: Equals<T1, Expect> = true
+
+      type T2 = KeyFromValue<CUser2, never>
+      type Expect2 = never
+      const t2: Equals<T2, Expect2> = true
+
+      type T3 = KeyFromValue<CUser3, never>
+      type Expect3 = never
+      const t3: Equals<T3, Expect3> = true
+    })
 
   })
 
@@ -275,6 +291,19 @@ describe(filename, () => {
 
       type T3 = KeyFromValue<User3, unknown>
       type Expect3 = 'addr' | 'json'
+      const t3: Equals<T3, Expect3> = true
+    })
+    it('type never', () => {
+      type T1 = KeyFromValue<User1, never>
+      type Expect = never
+      const t1: Equals<T1, Expect> = true
+
+      type T2 = KeyFromValue<User2, never>
+      type Expect2 = never
+      const t2: Equals<T2, Expect2> = true
+
+      type T3 = KeyFromValue<User3, never>
+      type Expect3 = never
       const t3: Equals<T3, Expect3> = true
     })
 
