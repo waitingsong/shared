@@ -5,7 +5,7 @@ import {
 } from '@waiting/shared-core'
 import * as assert from 'power-assert'
 
-import { KeyFromValue } from '../../src/index'
+import { Equals, KeyFromValue } from '../../src/index'
 
 import {
   Alias,
@@ -18,9 +18,146 @@ import {
 
 const filename = basename(__filename)
 
+interface User1 {
+  uid: bigint
+  age: number
+  gender: number
+  name: string
+  ctime: Date
+  mtime: Date | null
+}
+interface User2 extends User1 {
+  addr: unknown
+}
+interface User3 extends User2 {
+  json: any
+}
+
 describe(filename, () => {
 
-  describe('should AllValues works', () => {
+  describe('should KeyFromValue works', () => {
+    it('type bigint', () => {
+      type T1 = KeyFromValue<User1, bigint>
+      type Expect = 'uid'
+      const t1: Equals<T1, Expect> = true
+
+      type T2 = KeyFromValue<User2, bigint>
+      type Expect2 = 'uid' | 'addr'
+      const t2: Equals<T2, Expect2> = true
+
+      type T3 = KeyFromValue<User3, bigint>
+      type Expect3 = 'uid' | 'addr' | 'json'
+      const t3: Equals<T3, Expect3> = true
+    })
+    it('type number', () => {
+      type T1 = KeyFromValue<User1, number>
+      type Expect = 'age' | 'gender'
+      const t1: Equals<T1, Expect> = true
+
+      type T2 = KeyFromValue<User2, number>
+      type Expect2 = 'age' | 'gender' | 'addr'
+      const t2: Equals<T2, Expect2> = true
+
+      type T3 = KeyFromValue<User3, number>
+      type Expect3 = 'age' | 'gender' | 'addr' | 'json'
+      const t3: Equals<T3, Expect3> = true
+    })
+    it('type string', () => {
+      type T1 = KeyFromValue<User1, string>
+      type Expect = 'name'
+      const t1: Equals<T1, Expect> = true
+
+      type T2 = KeyFromValue<User2, string>
+      type Expect2 = 'name' | 'addr'
+      const t2: Equals<T2, Expect2> = true
+
+      type T3 = KeyFromValue<User3, string>
+      type Expect3 = 'name' | 'addr' | 'json'
+      const t3: Equals<T3, Expect3> = true
+    })
+    it('type Date', () => {
+      type T1 = KeyFromValue<User1, Date>
+      type Expect = 'mtime' | 'ctime'
+      const t1: Equals<T1, Expect> = true
+
+      type T2 = KeyFromValue<User2, Date>
+      type Expect2 = 'mtime' | 'ctime' | 'addr'
+      const t2: Equals<T2, Expect2> = true
+
+      type T3 = KeyFromValue<User3, Date>
+      type Expect3 = 'mtime' | 'ctime' | 'addr' | 'json'
+      const t3: Equals<T3, Expect3> = true
+    })
+    it('type null', () => {
+      type T1 = KeyFromValue<User1, null>
+      type Expect = 'mtime'
+      const t1: Equals<T1, Expect> = true
+
+      type T2 = KeyFromValue<User2, null>
+      type Expect2 = 'mtime' | 'addr'
+      const t2: Equals<T2, Expect2> = true
+
+      type T3 = KeyFromValue<User3, null>
+      type Expect3 = 'mtime' | 'addr' | 'json'
+      const t3: Equals<T3, Expect3> = true
+    })
+    it('type undefined', () => {
+      type T1 = KeyFromValue<User1, undefined>
+      type Expect = never
+      const t1: Equals<T1, Expect> = true
+
+      type T2 = KeyFromValue<User2, undefined>
+      type Expect2 = 'addr'
+      const t2: Equals<T2, Expect2> = true
+
+      type T3 = KeyFromValue<User3, undefined>
+      type Expect3 = 'addr' | 'json'
+      const t3: Equals<T3, Expect3> = true
+    })
+    it('type unknown', () => {
+      type T1 = KeyFromValue<User1, unknown>
+      type Expect = never
+      const t1: Equals<T1, Expect> = true
+
+      type T2 = KeyFromValue<User2, unknown>
+      type Expect2 = 'addr'
+      const t2: Equals<T2, Expect2> = true
+
+      type T3 = KeyFromValue<User3, unknown>
+      type Expect3 = 'addr' | 'json'
+      const t3: Equals<T3, Expect3> = true
+    })
+
+
+    it('type Date | null', () => {
+      type T1 = KeyFromValue<User1, Date | null>
+      type Expect = 'mtime' | 'ctime'
+      const t1: Equals<T1, Expect> = true
+
+      type T2 = KeyFromValue<User2, Date | null>
+      type Expect2 = 'mtime' | 'ctime' | 'addr'
+      const t2: Equals<T2, Expect2> = true
+
+      type T3 = KeyFromValue<User3, Date | null>
+      type Expect3 = 'mtime' | 'ctime' | 'addr' | 'json'
+      const t3: Equals<T3, Expect3> = true
+    })
+
+    it('type Date | string', () => {
+      type T1 = KeyFromValue<User1, Date | string>
+      type Expect = 'mtime' | 'ctime' | 'name'
+      const t1: Equals<T1, Expect> = true
+
+      type T2 = KeyFromValue<User2, Date | string>
+      type Expect2 = 'mtime' | 'ctime' | 'addr' | 'name'
+      const t2: Equals<T2, Expect2> = true
+
+      type T3 = KeyFromValue<User3, Date | string>
+      type Expect3 = 'mtime' | 'ctime' | 'addr' | 'json' | 'name'
+      const t3: Equals<T3, Expect3> = true
+    })
+
+
     it('type AliasRecord', () => {
       const ret: KeyFromValue<AliasRecord, 'tbUserUid'> = 'uid'
       assert(ret === 'uid')
