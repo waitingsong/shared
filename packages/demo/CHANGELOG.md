@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 5.9.0 (2021-02-23)
+
+
+### Features
+
+* **types:** add KnownKeys<T> ([5f293f4](https://github.com/waitingsong/npm-mono-base/commit/5f293f495b80586d9048ca241270a301a8b05882))
+
+
+
+
+
 # 5.8.0 (2021-02-23)
 
 **Note:** Version bump only for package demo
