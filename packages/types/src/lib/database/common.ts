@@ -145,10 +145,10 @@ KeyExcludeOptional extends void ? never : KeyExcludeOptional
 export type JoinTableDistinct<
   L extends TableModel,
   R extends TableModel>
-  = Omit<
-  _JoinTableDistinct<MergeTableDistinct<L, R>>,
-  KnownKeys<L> & KnownKeys<R>
-  >
+= Omit<
+_JoinTableDistinct<MergeTableDistinct<L, R>>,
+KnownKeys<L> & KnownKeys<R>
+>
 type _JoinTableDistinct<R> = Pick<R, KnownKeys<R>>
 
 
