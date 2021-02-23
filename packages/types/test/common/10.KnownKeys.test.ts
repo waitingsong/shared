@@ -25,7 +25,7 @@ interface User2 extends User1 {
 interface User3 extends User2 {
   json: any
 }
-interface User4 extends User2 {
+interface User4 extends User3 {
   neverKey: never
 }
 
@@ -56,6 +56,11 @@ class CUser3 extends CUser2 {
   json: any
 
 }
+class CUser4 extends CUser3 {
+
+  neverKey: never
+
+}
 
 describe(filename, () => {
   describe('should KnownKeys works for class', () => {
@@ -71,6 +76,10 @@ describe(filename, () => {
       type T3 = KnownKeys<CUser3>
       type Expect3 = Expect2 | 'json'
       const t3: Equals<T3, Expect3> = true
+
+      type T4 = KnownKeys<CUser4>
+      type Expect4 = Expect3 | 'neverKey'
+      const t4: Equals<T4, Expect4> = true
     })
   })
 
@@ -88,6 +97,10 @@ describe(filename, () => {
       type T3 = KnownKeys<User3>
       type Expect3 = Expect2 | 'json'
       const t3: Equals<T3, Expect3> = true
+
+      type T4 = KnownKeys<User4>
+      type Expect4 = Expect3 | 'neverKey'
+      const t4: Equals<T4, Expect4> = true
     })
   })
 
