@@ -27,8 +27,8 @@ export type AllValues<T extends Record<PropertyKey, PropertyKey>> = {
  * @ref https://stackoverflow.com/a/57726844
  */
 export type KeyFromValue<T, V> = {
-  [key in KnownKeys<T>]: V extends T[key] ? key : never
-}[KnownKeys<T>]
+  [key in keyof T]: V extends T[key] ? key : never
+}[KnownKeys<T> & keyof T]
 
 /**
  * Invert key/value of type/interface
@@ -37,7 +37,7 @@ export type KeyFromValue<T, V> = {
  * @see https://stackoverflow.com/a/57726844
  */
 export type Invert<T extends Record<PropertyKey, PropertyKey>> = {
-  [K in T[KnownKeys<T>]]: KeyFromValue<T, K>
+  [K in T[KnownKeys<T> & (keyof T)]]: KeyFromValue<T, K>
 }
 
 
@@ -76,7 +76,10 @@ export type FormatIntersect<T, deep extends boolean = true> = T extends Record<s
  * @see https://stackoverflow.com/a/51955852/2887218
  */
 export type KnownKeys<T> = {
-  [K in keyof T]: string extends K ? never : number extends K ? never : K
+  [K in keyof T]: string extends K
+    ? never : number extends K
+      ? never : symbol extends K
+        ? never : K
 } extends { [_ in keyof T]: infer U } ? U : never
 
 /**

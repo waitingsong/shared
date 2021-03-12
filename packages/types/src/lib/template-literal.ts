@@ -11,6 +11,7 @@ export type StrSplit<S extends string, D extends string> =
 
 export type TupleJoin<T extends V[], D extends string> =
   T extends [] ? '' :
+    // @ts-expect-error
     T extends [unknown] ? `${T[0]}`:
       // @ts-expect-error
       T extends [unknown, ...infer U] ? `${T[0]}${D}${TupleJoin<U, D>}` :

@@ -127,6 +127,7 @@ export type JoinTable<
       : unknown
     : R[K]
 },
+// @ts-expect-error
 KnownKeys<L> | KnownKeys<R>
 >
 
@@ -147,8 +148,9 @@ export type JoinTableDistinct<
   R extends TableModel>
 = Omit<
 _JoinTableDistinct<MergeTableDistinct<L, R>>,
-KnownKeys<L> & KnownKeys<R>
+KnownKeys<L> & KnownKeys<R> & string
 >
+// @ts-expect-error
 type _JoinTableDistinct<R> = Pick<R, KnownKeys<R>>
 
 export type JoinTableDistinctExclude<
