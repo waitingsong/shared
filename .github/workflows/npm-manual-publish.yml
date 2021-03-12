@@ -44,13 +44,13 @@ jobs:
         run: |
           openssl version
           node -v
-          npm i -g lerna
+          npm i -g lerna nyc rollup
           npm run bootstrap
           npm run build --if-present
       - name: npm ci
         run: |
           # lint must after build
-          lerna run lint:nofix
+          npm run lint:nofix
           npm run ci
         env:
           CI: true
