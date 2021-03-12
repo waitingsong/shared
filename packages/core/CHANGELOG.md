@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.0.1 (2021-03-12)
+
+
+### Bug Fixes
+
+* **types:** suppress type error under typescript v4.2 ([210d08b](https://github.com/waitingsong/node-shared-core/commit/210d08bd6ea8cbfe61faa36ca5739ab09ce7b9d7))
+
+
+
+
+
 # 6.0.0 (2021-02-23)
 
 **Note:** Version bump only for package @waiting/shared-core
