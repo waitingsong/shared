@@ -1,3 +1,5 @@
+import { ISO8601String } from '@waiting/shared-types'
+
 
 /**
  * Generate ISO 8601 string with timezone offset,
@@ -5,7 +7,7 @@
  *
  * @link https://stackoverflow.com/a/17415677
  */
-export function genISOString(date?: Date): string {
+export function genISOString(date?: Date): ISO8601String {
   const dd = date ? date : new Date()
   const tzo = -dd.getTimezoneOffset()
   const dif = tzo >= 0 ? '+' : '-'
@@ -19,7 +21,8 @@ export function genISOString(date?: Date): string {
     + '.' + pad3(dd.getMilliseconds())
     + dif + pad(tzo / 60)
     + ':' + pad(tzo % 60)
-  return ret
+
+  return ret as ISO8601String
 }
 
 function pad(num: number): string {
