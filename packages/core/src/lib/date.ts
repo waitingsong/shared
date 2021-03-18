@@ -7,7 +7,7 @@ import { ISO8601String } from '@waiting/shared-types'
  *
  * @link https://stackoverflow.com/a/17415677
  */
-export function genISOString(date?: Date): ISO8601String {
+export function genISO8601String(date?: Date): ISO8601String {
   const dd = date ? date : new Date()
   const tzo = -dd.getTimezoneOffset()
   const dif = tzo >= 0 ? '+' : '-'
