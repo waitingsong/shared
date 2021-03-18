@@ -20,13 +20,26 @@ describe(filename, () => {
       assert(dd.toISOString() === dd2)
     })
 
-    it('pass param 2', () => {
+    it('pass param 999', () => {
+      const dd = new Date('2021-03-17T12:21:21.999')
+      const ret = genISOString(dd)
+      const dd2 = new Date(ret).toISOString()
+      assert(dd.toISOString() === dd2)
+    })
+
+    it('pass param 024', () => {
       const dd = new Date('2021-03-17T12:21:21.024Z')
       const ret = genISOString(dd)
       const dd2 = new Date(ret).toISOString()
       assert(dd.toISOString() === dd2)
     })
 
+    it('pass param 001', () => {
+      const dd = new Date('2021-03-17T12:21:21.001Z')
+      const ret = genISOString(dd)
+      const dd2 = new Date(ret).toISOString()
+      assert(dd.toISOString() === dd2)
+    })
 
     it('w/o param', () => {
       const ret = genISOString()

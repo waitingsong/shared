@@ -13,25 +13,20 @@ export function genISOString(date?: Date): ISO8601String {
   const dif = tzo >= 0 ? '+' : '-'
 
   const ret = dd.getFullYear().toString()
-    + '-' + pad(dd.getMonth() + 1)
-    + '-' + pad(dd.getDate())
-    + 'T' + pad(dd.getHours())
-    + ':' + pad(dd.getMinutes())
-    + ':' + pad(dd.getSeconds())
-    + '.' + pad3(dd.getMilliseconds())
-    + dif + pad(tzo / 60)
-    + ':' + pad(tzo % 60)
+    + '-' + pad(dd.getMonth() + 1, 2)
+    + '-' + pad(dd.getDate(), 2)
+    + 'T' + pad(dd.getHours(), 2)
+    + ':' + pad(dd.getMinutes(), 2)
+    + ':' + pad(dd.getSeconds(), 2)
+    + '.' + pad(dd.getMilliseconds(), 3)
+    + dif + pad(tzo / 60, 2)
+    + ':' + pad(tzo % 60, 2)
 
   return ret as ISO8601String
 }
 
-function pad(num: number): string {
+function pad(num: number, length: number): string {
   const norm = Math.floor(Math.abs(num))
-  return (norm < 10 ? '0' : '') + norm.toString()
-}
-
-function pad3(num: number): string {
-  const norm = Math.floor(Math.abs(num))
-  return (norm < 99 ? '0' : '') + norm.toString()
+  return norm.toString().padStart(length, '0')
 }
 
