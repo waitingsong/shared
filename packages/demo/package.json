@@ -1,7 +1,7 @@
 {
   "name": "demo",
   "author": "waiting",
-  "version": "6.1.0",
+  "version": "6.1.1",
   "description": "npm boilerplate",
   "private": true,
   "keywords": [
@@ -25,10 +25,10 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@waiting/shared-types": "^6.1.0"
+    "@waiting/shared-types": "^6.1.1"
   },
   "devDependencies": {
-    "@waiting/shared-core": "^6.1.0",
+    "@waiting/shared-core": "^6.1.1",
     "cross-env": "7"
   },
   "engines": {
