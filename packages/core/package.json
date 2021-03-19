@@ -12,7 +12,7 @@
   "es2015": "",
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "types": "./src/index.ts",
   "bugs": {
     "url": "https://github.com/waitingsong/node-shared-core/issues"
   },
@@ -36,6 +36,7 @@
     "node": ">=12.13.0"
   },
   "files": [
+    "src/**/*.ts",
     "dist"
   ],
   "scripts": {
