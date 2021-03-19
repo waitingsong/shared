@@ -3,7 +3,6 @@ import {
   basename,
   join,
 } from '@waiting/shared-core'
-import * as assert from 'power-assert'
 
 import { Equals, KeyFromValue } from '../../src/index'
 
@@ -14,6 +13,9 @@ import {
   alias,
   alias2,
 } from './test-model'
+
+// eslint-disable-next-line import/order
+import assert = require('power-assert')
 
 
 const filename = basename(__filename)

@@ -1,4 +1,3 @@
-import * as assert from 'power-assert'
 import { from as ofrom, of, EMPTY } from 'rxjs'
 import { catchError, defaultIfEmpty, finalize, tap } from 'rxjs/operators'
 
@@ -7,6 +6,10 @@ import {
   assertNeverRx,
   basename,
 } from '../src/index'
+
+
+// eslint-disable-next-line import/order
+import assert = require('power-assert')
 
 
 const filename = basename(__filename)

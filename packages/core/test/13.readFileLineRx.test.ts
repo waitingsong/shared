@@ -1,7 +1,9 @@
-import * as assert from 'power-assert'
 import { tap, finalize } from 'rxjs/operators'
 
 import { readFileLineRx, basename } from '../src/index'
+
+// eslint-disable-next-line import/order
+import assert = require('power-assert')
 
 
 const filename = basename(__filename)

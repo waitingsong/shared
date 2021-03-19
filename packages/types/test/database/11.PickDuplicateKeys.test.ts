@@ -3,7 +3,6 @@ import {
   basename,
   join,
 } from '@waiting/shared-core'
-import * as assert from 'power-assert'
 
 import {
   Equals,
@@ -19,6 +18,9 @@ import {
   InverseUserAlias,
   InverseUserDetailAlias,
 } from './data'
+
+// eslint-disable-next-line import/order
+import assert = require('power-assert')
 
 
 type AcUser = DbDict['aliasColumns']['tb_user']

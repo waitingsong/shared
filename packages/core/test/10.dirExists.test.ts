@@ -1,5 +1,4 @@
-import * as assert from 'power-assert'
-import * as rmdir from 'rimraf'
+import rmdir from 'rimraf'
 import { from as ofrom, of } from 'rxjs'
 import { mergeMap } from 'rxjs/operators'
 
@@ -10,6 +9,9 @@ import {
   join,
   tmpdir,
 } from '../src/index'
+
+// eslint-disable-next-line import/order
+import assert = require('power-assert')
 
 
 const filename = basename(__filename)
