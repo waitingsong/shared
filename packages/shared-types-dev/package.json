@@ -2,10 +2,10 @@
   "name": "@waiting/shared-types-dev",
   "author": "waiting",
   "version": "7.1.0",
-  "description": "npm boilerplate",
+  "description": "shared typescript types devel",
   "private": false,
   "keywords": [
-    "种子项目",
+    "types",
     "typescript",
     "ts"
   ],
@@ -16,16 +16,17 @@
   "module": "./dist/index.js",
   "types": "./src/index.ts",
   "bugs": {
-    "url": "https://github.com/waitingsong/npm-mono-base/issues"
+    "url": "https://github.com/waitingsong/shared/issues"
   },
-  "homepage": "https://github.com/waitingsong/npm-mono-base#readme",
+  "homepage": "https://github.com/waitingsong/shared#readme",
   "repository": {
     "type": "git",
     "url": "git@github.com:waitingsong/shared.git"
   },
   "license": "MIT",
   "dependencies": {
-    "@waiting/shared-types": "^7.1.0"
+    "@waiting/shared-types": "^7.1.0",
+    "ts-morph": "10"
   },
   "devDependencies": {
     "@waiting/shared-core": "^7.1.0",
