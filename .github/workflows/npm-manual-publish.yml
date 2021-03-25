@@ -20,15 +20,8 @@ jobs:
         node: [14]
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node }}
-          registry-url: 'https://registry.npmjs.org'
-      - name: Verify
+      - name: Prepare
         run: |
-          echo $GITHUB_REF
           echo "@edge https://uk.alpinelinux.org/alpine//alpine/edge/main" >> /etc/apk/repositories
           apk upgrade --no-cache > /dev/null
           apk add apache2-utils bash curl git jq nodejs npm openssh openssl postgresql-client tar tzdata zstd > /dev/null
@@ -41,6 +34,15 @@ jobs:
           tar --version
           git --version
           uname -a
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+          registry-url: 'https://registry.npmjs.org'
+      - name: Verify
+        run: |
+          echo $GITHUB_REF
           # github project/settings/Secrets/New repository secret: NPM_TOKEN
           npm whoami
         env:
