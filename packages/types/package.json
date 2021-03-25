@@ -15,12 +15,12 @@
   "module": "./dist/index.js",
   "types": "./src/index.ts",
   "bugs": {
-    "url": "https://github.com/waitingsong/shared-types/issues"
+    "url": "https://github.com/waitingsong/shared/issues"
   },
-  "homepage": "https://waitingsong.github.io/shared-types#readme",
+  "homepage": "https://github.com/waitingsong/shared/issues",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/waitingsong/shared-types.git"
+    "url": "git+https://github.com/waitingsong/shared.git"
   },
   "license": "MIT",
   "devDependencies": {

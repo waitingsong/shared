@@ -14,12 +14,12 @@
   "module": "./dist/index.js",
   "types": "./src/index.ts",
   "bugs": {
-    "url": "https://github.com/waitingsong/node-shared-core/issues"
+    "url": "https://github.com/waitingsong/shared/issues"
   },
-  "homepage": "https://waitingsong.github.io/node-shared-core/",
+  "homepage": "https://github.com/waitingsong/shared/issues",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/waitingsong/node-shared-core.git"
+    "url": "git+https://github.com/waitingsong/shared.git"
   },
   "license": "MIT",
   "dependencies": {
