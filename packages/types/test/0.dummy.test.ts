@@ -1,4 +1,3 @@
-/* eslint-disable node/no-extraneous-import */
 import {
   basename,
   join,
@@ -18,3 +17,4 @@ describe(filename, () => {
   })
 
 })
+
