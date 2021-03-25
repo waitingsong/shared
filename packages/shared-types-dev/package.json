@@ -3,7 +3,6 @@
   "author": "waiting",
   "version": "7.2.0",
   "description": "shared typescript types devel",
-  "private": false,
   "keywords": [
     "types",
     "typescript",
