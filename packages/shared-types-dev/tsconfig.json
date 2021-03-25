@@ -15,6 +15,7 @@
     "outDir": "dist",
     "pretty": true,
     "skipLibCheck": true,
+    "strictPropertyInitialization": false,
     "sourceMap": false,
     "strict": true,
     "target": "ES2019",
