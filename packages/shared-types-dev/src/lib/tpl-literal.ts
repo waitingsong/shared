@@ -29,6 +29,7 @@ export interface TransFormOptions {
   importModuleName?: string
   leadingString: string
   trailingString: string
+  saveFile?: boolean
 }
 
 export interface ProcessExpressionOptions {
@@ -47,6 +48,7 @@ export function transformCallExpressionToLiteralType(options: TransFormOptions):
     importModuleName,
     leadingString,
     trailingString,
+    saveFile,
   } = options
 
   const insertedNum = importModuleName
@@ -73,7 +75,9 @@ export function transformCallExpressionToLiteralType(options: TransFormOptions):
   }
 
   // const ft2 = sourceFile.getFullText()
-  // sourceFile.saveSync()
+  if (saveFile) {
+    sourceFile.saveSync()
+  }
 }
 
 export function processExpression(options: ProcessExpressionOptions): JsonObject {
