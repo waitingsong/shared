@@ -64,7 +64,6 @@ export function transformCallExpressionToLiteralType(options: TransFormOptions):
     const obj = processExpression(opts)
     const jsonCode = leadingString
       + JSON.stringify(obj, null, 2)
-      + ';'
       + trailingString
     express.replaceWithText(jsonCode)
   })
