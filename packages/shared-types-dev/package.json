@@ -1,7 +1,7 @@
 {
   "name": "@waiting/shared-types-dev",
   "author": "waiting",
-  "version": "7.3.0",
+  "version": "7.4.0",
   "description": "shared typescript types devel",
   "private": false,
   "keywords": [
@@ -25,11 +25,11 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@waiting/shared-types": "^7.3.0",
+    "@waiting/shared-types": "^7.4.0",
     "ts-morph": "10"
   },
   "devDependencies": {
-    "@waiting/shared-core": "^7.3.0",
+    "@waiting/shared-core": "^7.4.0",
     "cross-env": "7"
   },
   "engines": {
