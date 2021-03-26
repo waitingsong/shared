@@ -38,22 +38,31 @@ npm run bootstrap
 
 ## Packages
 
-| Package   | Version                  | Dependencies                   | DevDependencies                  |
-| --------- | ------------------------ | ------------------------------ | -------------------------------- |
-| [`types`] | [![types-svg]][types-ch] | [![types-d-svg]][types-d-link] | [![types-dd-svg]][types-dd-link] |
-| [`core`]  | [![core-svg]][core-ch]   | [![core-d-svg]][core-d-link]   | [![core-dd-svg]][core-dd-link]   |
+| Package       | Version                          | Dependencies                           | DevDependencies                          |
+| ------------- | -------------------------------- | -------------------------------------- | ---------------------------------------- |
+| [`types`]     | [![types-svg]][types-ch]         | [![types-d-svg]][types-d-link]         | [![types-dd-svg]][types-dd-link]         |
+| [`types-dev`] | [![types-dev-svg]][types-dev-ch] | [![types-dev-d-svg]][types-dev-d-link] | [![types-dev-dd-svg]][types-dev-dd-link] |
+| [`core`]      | [![core-svg]][core-ch]           | [![core-d-svg]][core-d-link]           | [![core-dd-svg]][core-dd-link]           |
 
 
 [`types`]: https://github.com/waitingsong/shared/tree/master/packages/types
-[types-svg]: https://img.shields.io/npm/v/@waiting/shared-types.svg?maxAge=86400
+[types-svg]: https://img.shields.io/npm/v/@waiting/shared-types.svg?maxAge=7200
 [types-ch]: https://github.com/waitingsong/shared/tree/master/packages/types/CHANGELOG.md
 [types-d-svg]: https://david-dm.org/waitingsong/shared.svg?path=packages/types
 [types-d-link]: https://david-dm.org/waitingsong/shared.svg?path=packages/types
 [types-dd-svg]: https://david-dm.org/waitingsong/shared/dev-status.svg?path=packages/types
 [types-dd-link]: https://david-dm.org/waitingsong/shared?path=packages/types#info=devDependencies
 
+[`types-dev`]: https://github.com/waitingsong/shared/tree/master/packages/shared-types-dev
+[types-dev-svg]: https://img.shields.io/npm/v/@waiting/shared-types-dev.svg?maxAge=7200
+[types-dev-ch]: https://github.com/waitingsong/shared/tree/master/packages/shared-types-dev/CHANGELOG.md
+[types-dev-d-svg]: https://david-dm.org/waitingsong/shared.svg?path=packages/shared-types-dev
+[types-dev-d-link]: https://david-dm.org/waitingsong/shared.svg?path=packages/shared-types-dev
+[types-dev-dd-svg]: https://david-dm.org/waitingsong/shared/dev-status.svg?path=packages/shared-types-dev
+[types-dev-dd-link]: https://david-dm.org/waitingsong/shared?path=packages/shared-types-dev#info=devDependencies
+
 [`core`]: https://github.com/waitingsong/shared/tree/master/packages/core
-[core-svg]: https://img.shields.io/npm/v/@waiting/shared-core.svg?maxAge=86400
+[core-svg]: https://img.shields.io/npm/v/@waiting/shared-core.svg?maxAge=7200
 [core-ch]: https://github.com/waitingsong/shared/tree/master/packages/demo/CHANGELOG.md
 [core-d-svg]: https://david-dm.org/waitingsong/shared.svg?path=packages/core
 [core-d-link]: https://david-dm.org/waitingsong/shared.svg?path=packages/core
