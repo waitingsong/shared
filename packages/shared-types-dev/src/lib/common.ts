@@ -76,7 +76,7 @@ export function retrieveTypeArgmentsFromCallExpression(
   return nodes
 }
 
-export function retrieveFirstTypeArgmentTextFromCallExpression(
+export function retrieveFirstTypeArgTextFromCallExpression(
   input: CallExpression<ts.CallExpression>,
 ): string {
 

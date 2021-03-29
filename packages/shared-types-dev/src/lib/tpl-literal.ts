@@ -11,7 +11,7 @@ import {
 import {
   findCallExpressionsByName,
   hasImportNecessaryType,
-  retrieveFirstTypeArgmentTextFromCallExpression,
+  retrieveFirstTypeArgTextFromCallExpression,
 } from './common'
 import { deepFind } from './util'
 
@@ -89,7 +89,7 @@ export function processExpression(options: ProcessExpressionOptions): JsonObject
   } = options
 
   const ret = {}
-  const doName = retrieveFirstTypeArgmentTextFromCallExpression(express)
+  const doName = retrieveFirstTypeArgTextFromCallExpression(express)
 
   if (! doName) {
     // throw new Error(`Parameter D of ${AstKey.genDbDict}<D>() missing`)
