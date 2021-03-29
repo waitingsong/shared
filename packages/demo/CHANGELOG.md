@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 8.0.0 (2021-03-29)
+
+
+### Features
+
+* **types-dev:** add createObjectLiteralExpression() ([6320785](https://github.com/waitingsong/npm-mono-base/commit/6320785d552895ceb564f3359d6839198ef5f48a))
+
+
+
+
+
 # 7.4.0 (2021-03-26)
 
 
