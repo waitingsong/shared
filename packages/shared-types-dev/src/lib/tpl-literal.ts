@@ -25,7 +25,7 @@ const props = {
 export interface TransFormOptions {
   sourceFile: SourceFile
   needle: string
-  necessaryType: string
+  resultType: string
   importModuleName?: string
   leadingString: string
   trailingString: string
@@ -36,7 +36,7 @@ export interface ProcessExpressionOptions {
   file: SourceFile
   express: CallExpression<ts.CallExpression>
   needle: TransFormOptions['needle']
-  necessaryType: string
+  resultType: string
 }
 
 
@@ -44,7 +44,7 @@ export function transformCallExpressionToLiteralType(options: TransFormOptions):
   const {
     sourceFile,
     needle,
-    necessaryType,
+    resultType,
     importModuleName,
     leadingString,
     trailingString,
@@ -52,7 +52,7 @@ export function transformCallExpressionToLiteralType(options: TransFormOptions):
   } = options
 
   const insertedNum = importModuleName
-    ? hasImportNecessaryType(sourceFile, [necessaryType], importModuleName)
+    ? hasImportNecessaryType(sourceFile, [resultType], importModuleName)
     : 0
 
   const expressions = findCallExpressionsByName(sourceFile, needle)
@@ -61,7 +61,7 @@ export function transformCallExpressionToLiteralType(options: TransFormOptions):
       file: sourceFile,
       express,
       needle,
-      necessaryType,
+      resultType,
     }
     const obj = processExpression(opts)
     const jsonCode = leadingString
@@ -85,7 +85,7 @@ export function processExpression(options: ProcessExpressionOptions): JsonObject
     file,
     express,
     needle,
-    necessaryType,
+    resultType,
   } = options
 
   const ret = {}
@@ -98,7 +98,7 @@ export function processExpression(options: ProcessExpressionOptions): JsonObject
 
   const aliasName = 'T' + Math.random().toString().slice(-5)
 
-  file.addStatements(`type ${aliasName} = ${necessaryType}<${doName}>`)
+  file.addStatements(`type ${aliasName} = ${resultType}<${doName}>`)
   // const ft = file.getFullText()
   const aliasDec = file.getTypeAlias(aliasName)
   if (aliasDec) {
