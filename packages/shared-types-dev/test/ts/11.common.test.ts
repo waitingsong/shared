@@ -5,7 +5,6 @@ import {
   basename,
   join,
 } from '@waiting/shared-core'
-import { run } from 'rxrunscript'
 import ts from 'typescript'
 
 import { createObjectLiteralExpression } from '../../src/index'
