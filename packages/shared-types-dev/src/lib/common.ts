@@ -19,6 +19,28 @@ export function createSourceFile(
   return sourceFile
 }
 
+
+export function isTypeImported(
+  file: SourceFile,
+  matchTypeName: string,
+  moduleName: string,
+): boolean {
+
+  if (! moduleName) {
+    throw new Error('Value of param moduleName empty')
+  }
+
+  const arr = file.getDescendantsOfKind(SyntaxKind.ImportSpecifier)
+  const exists = arr.map(item => item.getText())
+
+  const name = matchTypeName.trim()
+  if (exists.includes(name)) {
+    return true
+  }
+
+  return false
+}
+
 export function hasImportNecessaryType(
   file: SourceFile,
   matchTypeNames: string[],
