@@ -68,7 +68,7 @@ export function hasImportNecessaryType(
 }
 
 
-export function retrieveTypeArgmentsFromCallExpression(
+export function retrieveTypeArgsFromCallExpression(
   input: CallExpression<ts.CallExpression>,
 ): TypeNode<ts.TypeNode>[] {
 
@@ -80,7 +80,7 @@ export function retrieveFirstTypeArgTextFromCallExpression(
   input: CallExpression<ts.CallExpression>,
 ): string {
 
-  const [node] = retrieveTypeArgmentsFromCallExpression(input)
+  const [node] = retrieveTypeArgsFromCallExpression(input)
 
   if (! node) {
     return ''
