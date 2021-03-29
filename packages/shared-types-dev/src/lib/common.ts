@@ -105,15 +105,22 @@ export function findCallExpressionsByName(
     if (! regx.test(code)) {
       return false
     }
-    // const parentNode = expression.getParent()
-    // if (parentNode) {
-    //   const pKindName = parentNode.getKindName()
-    //   console.log({ code, pKindName, varname })
-    // }
     return true
   })
 
   return ret
+}
+
+export function retrieveVarnameFromCallExpression(
+  expression: CallExpression<ts.CallExpression>,
+): string {
+
+  const parentNode = expression.getParent()
+  if (! parentNode) {
+    throw new TypeError('expression has no parent node')
+  }
+  const name = retrieveVarnameFromVariableDeclaration(parentNode)
+  return name
 }
 
 export function retrieveVarnameFromVariableDeclaration(
