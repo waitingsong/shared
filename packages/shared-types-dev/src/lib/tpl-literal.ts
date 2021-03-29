@@ -30,7 +30,6 @@ export interface TransFormOptions {
   importModuleName?: string
   leadingString: string
   trailingString: string
-  saveFile?: boolean
 }
 
 export interface ProcessExpressionOptions {
@@ -55,7 +54,6 @@ export function transformCallExpressionToLiteralType(
     importModuleName,
     leadingString,
     trailingString,
-    saveFile,
   } = options
   const ret = new Map<string, JsonObject>()
 
@@ -86,9 +84,9 @@ export function transformCallExpressionToLiteralType(
   }
 
   // const ft2 = sourceFile.getFullText()
-  if (saveFile) {
-    sourceFile.saveSync()
-  }
+  // if (saveFile) {
+  //   sourceFile.saveSync()
+  // }
 
   return ret
 }
