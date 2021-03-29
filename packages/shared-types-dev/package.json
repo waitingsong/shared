@@ -26,10 +26,10 @@
   "license": "MIT",
   "dependencies": {
     "@waiting/shared-types": "^8.0.0",
+    "@waiting/shared-core": "^8.0.0",
     "ts-morph": "10"
   },
   "devDependencies": {
-    "@waiting/shared-core": "^8.0.0",
     "cross-env": "7"
   },
   "engines": {
