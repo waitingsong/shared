@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import { JsonObject } from '@waiting/shared-types'
+import { LiteralObject } from '@waiting/shared-types'
 import {
   ts,
   Identifier,
@@ -46,7 +46,7 @@ export interface ProcessExpressionOptions {
  */
 export function transformCallExpressionToLiteralType(
   options: TransFormOptions,
-): Map<string, JsonObject> {
+): Map<string, LiteralObject> {
 
   const {
     sourceFile,
@@ -56,7 +56,7 @@ export function transformCallExpressionToLiteralType(
     leadingString,
     trailingString,
   } = options
-  const ret = new Map<string, JsonObject>()
+  const ret = new Map<string, LiteralObject>()
 
   const insertedNum = importModuleName
     ? hasImportNecessaryType(sourceFile, [resultType], importModuleName)
@@ -94,7 +94,7 @@ export function transformCallExpressionToLiteralType(
 
 export function genLiteralObjectFromExpression(
   options: ProcessExpressionOptions,
-): JsonObject {
+): LiteralObject {
 
   const {
     file,
