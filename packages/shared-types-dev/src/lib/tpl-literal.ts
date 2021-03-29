@@ -63,7 +63,7 @@ export function transformCallExpressionToLiteralType(options: TransFormOptions):
       needle,
       resultType,
     }
-    const obj = processExpression(opts)
+    const obj = genLiteralObjectFromExpression(opts)
     const jsonCode = leadingString
       + JSON.stringify(obj, null, 2)
       + trailingString
@@ -80,7 +80,10 @@ export function transformCallExpressionToLiteralType(options: TransFormOptions):
   }
 }
 
-export function processExpression(options: ProcessExpressionOptions): JsonObject {
+export function genLiteralObjectFromExpression(
+  options: ProcessExpressionOptions,
+): JsonObject {
+
   const {
     file,
     express,
