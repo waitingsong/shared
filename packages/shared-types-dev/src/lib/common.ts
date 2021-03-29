@@ -4,6 +4,7 @@ import {
   Project,
   CallExpression,
   SyntaxKind,
+  TypeNode,
 } from 'ts-morph'
 
 
@@ -47,16 +48,23 @@ export function hasImportNecessaryType(
 }
 
 
-export function retrieveTypeArgmentFromCallExpression(
+export function retrieveTypeArgmentsFromCallExpression(
+  input: CallExpression<ts.CallExpression>,
+): TypeNode<ts.TypeNode>[] {
+
+  const nodes = input.getTypeArguments()
+  return nodes
+}
+
+export function retrieveFirstTypeArgmentTextFromCallExpression(
   input: CallExpression<ts.CallExpression>,
 ): string {
 
-  const [node] = input.getTypeArguments()
+  const [node] = retrieveTypeArgmentsFromCallExpression(input)
 
   if (! node) {
     return ''
   }
-
   const name = node.getText()
   return name
 }
