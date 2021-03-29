@@ -42,7 +42,7 @@ describe(filename, () => {
         sourceFile: file,
         importModuleName: './dict',
         needle: 'genDbDict',
-        necessaryType: 'DbDict',
+        resultType: 'DbDict',
         leadingString: '/* eslint-disable */ ',
         trailingString: ' /* eslint-enable */',
       }
@@ -63,7 +63,7 @@ describe(filename, () => {
         sourceFile: file,
         importModuleName: '',
         needle: 'genDbDict',
-        necessaryType: 'DbDict',
+        resultType: 'DbDict',
         leadingString: '/* eslint-disable */ ',
         trailingString: ' /* eslint-enable */',
       }
@@ -85,7 +85,7 @@ describe(filename, () => {
         sourceFile: file,
         importModuleName: './dict',
         needle: 'genDbDict',
-        necessaryType: 'DbDict',
+        resultType: 'DbDict',
         leadingString: '/* eslint-disable */ ',
         trailingString: ' /* eslint-enable */',
       }
@@ -105,7 +105,7 @@ describe(filename, () => {
         sourceFile: file,
         importModuleName: '',
         needle: 'genDbDict',
-        necessaryType: 'DbDict',
+        resultType: 'DbDict',
         leadingString: '/* eslint-disable */ ',
         trailingString: ' /* eslint-enable */',
       }
