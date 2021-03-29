@@ -15,6 +15,10 @@ export type JsonType =
   | JsonType[]
   | { [property: string]: JsonType }
 
+export interface LiteralObject {
+  [property: string]: string | LiteralObject
+}
+
 // https://stackoverflow.com/a/57318205
 /** Custom response json data structure */
 export type JsonResp<T = never> = {
