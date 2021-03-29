@@ -2,9 +2,11 @@ import {
   ts,
   SourceFile,
   Project,
+  Node,
   CallExpression,
   SyntaxKind,
   TypeNode,
+  VariableDeclaration,
 } from 'ts-morph'
 
 
@@ -106,11 +108,26 @@ export function findCallExpressionsByName(
     // const parentNode = expression.getParent()
     // if (parentNode) {
     //   const pKindName = parentNode.getKindName()
-    //   console.log({ code, pKindName })
+    //   console.log({ code, pKindName, varname })
     // }
     return true
   })
 
   return ret
+}
+
+export function retrieveVarnameFromVariableDeclaration(
+  input: Node<ts.Node>,
+): string {
+
+  const kind = input.getKind()
+  const sym = input.getSymbol()
+  if (kind === SyntaxKind.VariableDeclaration && sym) {
+    // eslint-disable-next-line
+    // const name = input.getNameNode().getText() as string
+    const name = sym.getName()
+    return name
+  }
+  throw new TypeError('input is not VariableDeclaration node')
 }
 
