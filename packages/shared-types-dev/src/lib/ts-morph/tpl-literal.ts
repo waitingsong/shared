@@ -8,13 +8,14 @@ import {
   CallExpression,
 } from 'ts-morph'
 
+import { deepFind } from '../util'
+
 import {
   findCallExpressionsByName,
   hasImportNecessaryType,
   retrieveFirstTypeArgTextFromCallExpression,
   retrieveVarnameFromCallExpression,
 } from './common'
-import { deepFind } from './util'
 
 
 const props = {

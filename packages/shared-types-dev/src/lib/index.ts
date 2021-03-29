@@ -1,8 +1,8 @@
 
-export * from './common'
+export * from './ts-morph/common'
 export {
   ProcessExpressionOptions,
   TransFormOptions,
   transformCallExpressionToLiteralType,
-} from './tpl-literal'
+} from './ts-morph/tpl-literal'
 
