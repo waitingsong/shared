@@ -53,14 +53,12 @@ export function hasImportNecessaryType(
 
   let inserted = 0
 
-  const arr = file.getDescendantsOfKind(SyntaxKind.ImportSpecifier)
-  const exists = arr.map(item => item.getText())
-
   matchTypeNames.forEach((typeName) => {
     const name = typeName.trim()
-    if (exists.includes(name)) {
+    if (isTypeImported(file, name, moduleName)) {
       return
     }
+
     const code = `import { ${name} } from '${moduleName}'`
     file.insertStatements(0, code)
     inserted += 1
