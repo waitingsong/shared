@@ -12,6 +12,7 @@ import {
   findCallExpressionsByName,
   hasImportNecessaryType,
   retrieveFirstTypeArgTextFromCallExpression,
+  retrieveVarnameFromCallExpression,
 } from './common'
 import { deepFind } from './util'
 
@@ -40,7 +41,13 @@ export interface ProcessExpressionOptions {
 }
 
 
-export function transformCallExpressionToLiteralType(options: TransFormOptions): void {
+/**
+ * @returns Map<varname, computer object>
+ */
+export function transformCallExpressionToLiteralType(
+  options: TransFormOptions,
+): Map<string, JsonObject> {
+
   const {
     sourceFile,
     needle,
@@ -50,6 +57,7 @@ export function transformCallExpressionToLiteralType(options: TransFormOptions):
     trailingString,
     saveFile,
   } = options
+  const ret = new Map<string, JsonObject>()
 
   const insertedNum = importModuleName
     ? hasImportNecessaryType(sourceFile, [resultType], importModuleName)
@@ -63,7 +71,10 @@ export function transformCallExpressionToLiteralType(options: TransFormOptions):
       needle,
       resultType,
     }
+    const varname = retrieveVarnameFromCallExpression(express)
     const obj = genLiteralObjectFromExpression(opts)
+    ret.set(varname, obj)
+
     const jsonCode = leadingString
       + JSON.stringify(obj, null, 2)
       + trailingString
@@ -78,6 +89,8 @@ export function transformCallExpressionToLiteralType(options: TransFormOptions):
   if (saveFile) {
     sourceFile.saveSync()
   }
+
+  return ret
 }
 
 export function genLiteralObjectFromExpression(

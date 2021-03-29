@@ -75,6 +75,25 @@ describe(filename, () => {
       assert.deepStrictEqual(dict, expectedDict)
     })
 
+    it('demo1 result', () => {
+      const path = path1
+      const tsConfigFilePath = join(__dirname, '../../tsconfig.json')
+      const file = createSourceFile(tsConfigFilePath, path)
+
+      const opts: TransFormOptions = {
+        sourceFile: file,
+        importModuleName: './dict',
+        needle: 'genDbDict',
+        resultType: 'DbDict',
+        leadingString: '/* eslint-disable */ ',
+        trailingString: ' /* eslint-enable */',
+      }
+
+      const ret = transformCallExpressionToLiteralType(opts)
+      const obj = ret.get('dict')
+
+      assert.deepStrictEqual(obj, expectedDict)
+    })
 
     it('demo2', () => {
       const path = path2
@@ -96,6 +115,7 @@ describe(filename, () => {
       const dict = require(path).dict
       assert.deepStrictEqual(dict, expectedDict)
     })
+
     it('demo2 w/o importModuleName', () => {
       const path = path2
       const tsConfigFilePath = join(__dirname, '../../tsconfig.json')
@@ -122,7 +142,26 @@ describe(filename, () => {
         return
       }
       assert(false, 'Should throw error but not')
+    })
 
+    it('demo2 result', () => {
+      const path = path2
+      const tsConfigFilePath = join(__dirname, '../../tsconfig.json')
+      const file = createSourceFile(tsConfigFilePath, path)
+
+      const opts: TransFormOptions = {
+        sourceFile: file,
+        importModuleName: './dict',
+        needle: 'genDbDict',
+        resultType: 'DbDict',
+        leadingString: '/* eslint-disable */ ',
+        trailingString: ' /* eslint-enable */',
+      }
+
+      const ret = transformCallExpressionToLiteralType(opts)
+      const obj = ret.get('dict')
+
+      assert.deepStrictEqual(obj, expectedDict)
     })
   })
 
