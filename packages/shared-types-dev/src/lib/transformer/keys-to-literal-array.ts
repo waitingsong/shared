@@ -80,22 +80,25 @@ function isKeysImportExpression(node: ts.Node): node is ts.ImportDeclaration {
     return false
   }
   const module = (node.moduleSpecifier as ts.StringLiteral).text // not getText()
-  // console.info({ module })
   try {
     if (module.startsWith('.')) {
       const resolvedPath = pathResolve(dirname(node.getSourceFile().fileName), module)
       const path = require.resolve(resolvedPath)
       // console.info({
-      //   module, indexJs, indexTs, fulpath: path,
+      //   module, fulpath: path, indexJs, indexTs,
       // })
       return path === indexJs || path === indexTs
     }
     else {
       const path = require.resolve(module)
+      // console.info({
+      //   module, fulpath: path, indexJs, indexTs,
+      // })
       return path === indexJs
     }
   }
   catch (ex) {
+    // console.info({ module })
     return false
   }
 }
