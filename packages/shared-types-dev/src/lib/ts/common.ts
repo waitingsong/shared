@@ -132,14 +132,14 @@ export function isKeysImportExpression(
       const resolvedPath = pathResolve(dirname(node.getSourceFile().fileName), module)
       const path = require.resolve(resolvedPath)
       // console.info({
-      //   module, fulpath: path, indexJs, indexTs,
+      //   module, fupath: path, jsPath, tsPath,
       // })
       return path === jsPath || path === tsPath
     }
     else {
       const path = require.resolve(module)
       // console.info({
-      //   module, fulpath: path, indexJs, indexTs,
+      //   module, fupath: path, jsPath, tsPath,
       // })
       return path === jsPath
     }
@@ -150,3 +150,43 @@ export function isKeysImportExpression(
   }
 }
 
+
+export function isKeysCallExpression(
+  node: ts.Node,
+  typeChecker: ts.TypeChecker,
+  needleName: string,
+  tsPath: string,
+): node is ts.CallExpression {
+
+  if (! ts.isCallExpression(node)) {
+    return false
+  }
+  const sign = typeChecker.getResolvedSignature(node)
+  if (! sign) {
+    return false
+  }
+  const { declaration } = sign
+  if (! declaration || ts.isJSDocSignature(declaration)) {
+    return false
+  }
+  else {
+    const txt = declaration.name ? declaration.name.getText() : ''
+    if (txt && txt !== needleName) {
+      return false
+    }
+  }
+
+  try {
+    // require.resolve is required to resolve symlink.
+    // https://github.com/kimamula/ts-transformer-keys/issues/4#issuecomment-643734716
+    const filename = declaration.getSourceFile().fileName
+    const path = require.resolve(filename)
+    // console.log({ path, tsPath })
+    return path === tsPath
+  }
+  catch (ex) {
+    // declaration.getSourceFile().fileName may not be in Node.js require stack and require.resolve may result in an error.
+    // https://github.com/kimamula/ts-transformer-keys/issues/47
+    return false
+  }
+}

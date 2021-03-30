@@ -6,7 +6,11 @@ import {
 import ts from 'typescript'
 
 import { baseDir } from '../../base'
-import { isKeysImportExpression, processImportDeclaration } from '../ts/common'
+import {
+  isKeysCallExpression,
+  isKeysImportExpression,
+  processImportDeclaration,
+} from '../ts/common'
 
 
 const _fileName = 'src/lib/transformer/keys-to-literal-array'
@@ -55,7 +59,7 @@ function visitNode(node: ts.Node, program: ts.Program): ts.Node | undefined {
     const nodeDecl = processImportDeclaration(node, [placeholderName])
     return nodeDecl
   }
-  if (! isKeysCallExpression(node, typeChecker, placeholderName)) {
+  if (! isKeysCallExpression(node, typeChecker, placeholderName, indexTs)) {
     return node
   }
   if (! node.typeArguments || ! node.typeArguments.length) {
@@ -72,45 +76,6 @@ function visitNode(node: ts.Node, program: ts.Program): ts.Node | undefined {
   return express
 }
 
-
-function isKeysCallExpression(
-  node: ts.Node,
-  typeChecker: ts.TypeChecker,
-  needleName: string,
-): node is ts.CallExpression {
-
-  if (! ts.isCallExpression(node)) {
-    return false
-  }
-  const sign = typeChecker.getResolvedSignature(node)
-  if (! sign) {
-    return false
-  }
-  const { declaration } = sign
-  if (! declaration || ts.isJSDocSignature(declaration)) {
-    return false
-  }
-  else {
-    const txt = declaration.name ? declaration.name.getText() : ''
-    if (txt && txt !== needleName) {
-      return false
-    }
-  }
-
-  try {
-    // require.resolve is required to resolve symlink.
-    // https://github.com/kimamula/ts-transformer-keys/issues/4#issuecomment-643734716
-    const filename = declaration.getSourceFile().fileName
-    const path = require.resolve(filename)
-    // console.log({ path, indexTs, indexJs })
-    return path === indexTs
-  }
-  catch (ex) {
-    // declaration.getSourceFile().fileName may not be in Node.js require stack and require.resolve may result in an error.
-    // https://github.com/kimamula/ts-transformer-keys/issues/47
-    return false
-  }
-}
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function transTypeKeystoLiteralArrayPlaceholder<T extends Record<string, any>>(): (keyof T)[] {

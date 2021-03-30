@@ -8,6 +8,7 @@ export {
 
 export {
   createObjectLiteralExpression,
+  isKeysCallExpression,
   isKeysImportExpression,
   processImportDeclaration,
 } from './ts/common'
