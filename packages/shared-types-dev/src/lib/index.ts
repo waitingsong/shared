@@ -6,5 +6,8 @@ export {
   transformCallExpressionToLiteralType,
 } from './ts-morph/tpl-literal'
 
-export { createObjectLiteralExpression } from './ts/common'
+export {
+  createObjectLiteralExpression,
+  processImportDeclaration,
+} from './ts/common'
 

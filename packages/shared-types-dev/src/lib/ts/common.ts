@@ -53,3 +53,61 @@ function createPropertyAssignmentOfObject(
   return arr
 }
 
+
+/**
+ * Generate ImportDeclaration from existing node of ImportDeclaration,
+ * return undefined if none importSpecifier according to param skipSpecifiers
+ */
+export function processImportDeclaration(
+  node: ts.ImportDeclaration,
+  skipSpecifiers: string[],
+): ts.ImportDeclaration | undefined {
+
+  const module = (node.moduleSpecifier as ts.StringLiteral).text // not getText()
+  // console.info({ module })
+  if (! module) {
+    return
+  }
+
+  const st = new Set<string>()
+
+  const binds = node.importClause?.namedBindings
+  if (binds && binds.kind === ts.SyntaxKind.NamedImports) {
+    binds.elements.forEach((elm: ts.ImportSpecifier) => {
+      const elmText = elm.getText()
+      if (elmText && ! skipSpecifiers.includes(elmText)) {
+        st.add(elmText)
+      }
+    })
+  }
+
+  if (! st.size) {
+    return
+  }
+
+  const arr: ts.ImportSpecifier[] = []
+  st.forEach((name) => {
+    const sp = ts.factory.createImportSpecifier(
+      undefined,
+      ts.factory.createIdentifier(name),
+    )
+    arr.push(sp)
+  })
+  if (! arr.length) {
+    return
+  }
+  const nameImports: ts.NamedImports = ts.factory.createNamedImports(arr)
+  const importClause: ts.ImportClause = ts.factory.createImportClause(
+    false,
+    undefined,
+    nameImports,
+  )
+  const importDecl: ts.ImportDeclaration = ts.factory.createImportDeclaration(
+    undefined,
+    undefined,
+    importClause,
+    ts.factory.createStringLiteral(module),
+  )
+  return importDecl
+}
+
