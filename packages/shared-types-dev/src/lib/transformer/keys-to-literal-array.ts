@@ -7,13 +7,15 @@ import {
 // eslint-disable-next-line import/no-extraneous-dependencies
 import ts from 'typescript'
 
+import { baseDir } from '../../base'
 import { processImportDeclaration } from '../ts/common'
 
 
-const fileName = 'keys-to-literal-array'
+const base = baseDir
+const _fileName = 'src/lib/transformer/keys-to-literal-array'
 const placeholderName = 'transTypeKeystoLiteralArrayPlaceholder'
-const indexJs = join(__dirname, 'index.cjs.js')
-const indexTs = join(__dirname, `${fileName}.ts`)
+const indexJs = join(base, 'dist/index.cjs.js')
+const indexTs = join(base, `${_fileName}.ts`)
 
 /**
  * A ts.TransformerFactory generator,
@@ -127,6 +129,7 @@ function isKeysCallExpression(
     // https://github.com/kimamula/ts-transformer-keys/issues/4#issuecomment-643734716
     const filename = declaration.getSourceFile().fileName
     const path = require.resolve(filename)
+    // console.log({ path, indexTs, indexJs })
     return path === indexTs
   }
   catch (ex) {
