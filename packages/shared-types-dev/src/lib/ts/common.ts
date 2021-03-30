@@ -1,3 +1,7 @@
+import {
+  pathResolve,
+  dirname,
+} from '@waiting/shared-core'
 import { LiteralObject } from '@waiting/shared-types'
 // eslint-disable-next-line import/no-extraneous-dependencies
 import ts from 'typescript'
@@ -110,5 +114,39 @@ export function processImportDeclaration(
     ts.factory.createStringLiteral(module),
   )
   return importDecl
+}
+
+
+export function isKeysImportExpression(
+  node: ts.Node,
+  jsPath: string,
+  tsPath: string,
+): node is ts.ImportDeclaration {
+
+  if (! ts.isImportDeclaration(node)) {
+    return false
+  }
+  const module = (node.moduleSpecifier as ts.StringLiteral).text // not getText()
+  try {
+    if (module.startsWith('.')) {
+      const resolvedPath = pathResolve(dirname(node.getSourceFile().fileName), module)
+      const path = require.resolve(resolvedPath)
+      // console.info({
+      //   module, fulpath: path, indexJs, indexTs,
+      // })
+      return path === jsPath || path === tsPath
+    }
+    else {
+      const path = require.resolve(module)
+      // console.info({
+      //   module, fulpath: path, indexJs, indexTs,
+      // })
+      return path === jsPath
+    }
+  }
+  catch (ex) {
+    // console.info({ module })
+    return false
+  }
 }
 

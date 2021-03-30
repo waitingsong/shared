@@ -1,21 +1,18 @@
 /* eslint-disable max-len */
 import {
   join,
-  pathResolve,
-  dirname,
 } from '@waiting/shared-core'
 // eslint-disable-next-line import/no-extraneous-dependencies
 import ts from 'typescript'
 
 import { baseDir } from '../../base'
-import { processImportDeclaration } from '../ts/common'
+import { isKeysImportExpression, processImportDeclaration } from '../ts/common'
 
 
-const base = baseDir
 const _fileName = 'src/lib/transformer/keys-to-literal-array'
 const placeholderName = 'transTypeKeystoLiteralArrayPlaceholder'
-const indexJs = join(base, 'dist/index.cjs.js')
-const indexTs = join(base, `${_fileName}.ts`)
+const indexJs = join(baseDir, 'dist/index.cjs.js')
+const indexTs = join(baseDir, `${_fileName}.ts`)
 
 /**
  * A ts.TransformerFactory generator,
@@ -54,7 +51,7 @@ function visitNode(node: ts.SourceFile, program: ts.Program): ts.SourceFile
 function visitNode(node: ts.Node, program: ts.Program): ts.Node | undefined
 function visitNode(node: ts.Node, program: ts.Program): ts.Node | undefined {
   const typeChecker = program.getTypeChecker()
-  if (isKeysImportExpression(node)) {
+  if (isKeysImportExpression(node, indexJs, indexTs)) {
     const nodeDecl = processImportDeclaration(node, [placeholderName])
     return nodeDecl
   }
@@ -75,33 +72,6 @@ function visitNode(node: ts.Node, program: ts.Program): ts.Node | undefined {
   return express
 }
 
-function isKeysImportExpression(node: ts.Node): node is ts.ImportDeclaration {
-  if (! ts.isImportDeclaration(node)) {
-    return false
-  }
-  const module = (node.moduleSpecifier as ts.StringLiteral).text // not getText()
-  try {
-    if (module.startsWith('.')) {
-      const resolvedPath = pathResolve(dirname(node.getSourceFile().fileName), module)
-      const path = require.resolve(resolvedPath)
-      // console.info({
-      //   module, fulpath: path, indexJs, indexTs,
-      // })
-      return path === indexJs || path === indexTs
-    }
-    else {
-      const path = require.resolve(module)
-      // console.info({
-      //   module, fulpath: path, indexJs, indexTs,
-      // })
-      return path === indexJs
-    }
-  }
-  catch (ex) {
-    // console.info({ module })
-    return false
-  }
-}
 
 function isKeysCallExpression(
   node: ts.Node,
