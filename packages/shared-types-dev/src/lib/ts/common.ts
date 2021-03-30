@@ -71,7 +71,8 @@ export function processImportDeclaration(
 
   const st = new Set<string>()
 
-  const binds = node.importClause?.namedBindings
+  // const binds = node.importClause?.namedBindings
+  const binds = node.importClause ? node.importClause.namedBindings : void 0
   if (binds && binds.kind === ts.SyntaxKind.NamedImports) {
     binds.elements.forEach((elm: ts.ImportSpecifier) => {
       const elmText = elm.getText()
@@ -88,7 +89,7 @@ export function processImportDeclaration(
   const arr: ts.ImportSpecifier[] = []
   st.forEach((name) => {
     const sp = ts.factory.createImportSpecifier(
-      undefined,
+      void 0,
       ts.factory.createIdentifier(name),
     )
     arr.push(sp)
@@ -99,12 +100,12 @@ export function processImportDeclaration(
   const nameImports: ts.NamedImports = ts.factory.createNamedImports(arr)
   const importClause: ts.ImportClause = ts.factory.createImportClause(
     false,
-    undefined,
+    void 0,
     nameImports,
   )
   const importDecl: ts.ImportDeclaration = ts.factory.createImportDeclaration(
-    undefined,
-    undefined,
+    void 0,
+    void 0,
     importClause,
     ts.factory.createStringLiteral(module),
   )

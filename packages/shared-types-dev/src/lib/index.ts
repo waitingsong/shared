@@ -11,3 +11,8 @@ export {
   processImportDeclaration,
 } from './ts/common'
 
+export {
+  transTypeKeystoLiteralArray,
+  transTypeKeystoLiteralArrayPlaceholder,
+} from './transformer/keys-to-literal-array'
+
