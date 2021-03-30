@@ -41,23 +41,34 @@ function visitNodeAndChildren(node: ts.SourceFile, program: ts.Program, context:
 function visitNodeAndChildren(node: ts.Node, program: ts.Program, context: ts.TransformationContext): ts.Node | undefined
 function visitNodeAndChildren(node: ts.Node, program: ts.Program, context: ts.TransformationContext): ts.Node | undefined {
   const visitor = (childNode: ts.Node) => visitNodeAndChildren(childNode, program, context)
+  const options: VisitNodeOpts = {
+    jsPath: indexJs,
+    tsPath: indexTs,
+    placeholderName,
+  }
   const visitRet = ts.visitEachChild(
-    visitNode(node, program),
+    visitNode(node, program, options),
     visitor,
     context,
   )
   return visitRet
 }
 
-function visitNode(node: ts.SourceFile, program: ts.Program): ts.SourceFile
-function visitNode(node: ts.Node, program: ts.Program): ts.Node | undefined
-function visitNode(node: ts.Node, program: ts.Program): ts.Node | undefined {
+interface VisitNodeOpts {
+  jsPath: string
+  tsPath: string
+  placeholderName: string
+}
+
+function visitNode(node: ts.SourceFile, program: ts.Program, options: VisitNodeOpts): ts.SourceFile
+function visitNode(node: ts.Node, program: ts.Program, options: VisitNodeOpts): ts.Node | undefined
+function visitNode(node: ts.Node, program: ts.Program, options: VisitNodeOpts): ts.Node | undefined {
   const typeChecker = program.getTypeChecker()
-  if (isKeysImportExpression(node, indexJs, indexTs)) {
-    const nodeDecl = processImportDeclaration(node, [placeholderName])
+  if (isKeysImportExpression(node, options.jsPath, options.tsPath)) {
+    const nodeDecl = processImportDeclaration(node, [options.placeholderName])
     return nodeDecl
   }
-  if (! isKeysCallExpression(node, typeChecker, placeholderName, indexTs)) {
+  if (! isKeysCallExpression(node, typeChecker, options.placeholderName, options.tsPath)) {
     return node
   }
   if (! node.typeArguments || ! node.typeArguments.length) {
