@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 8.2.0 (2021-03-30)
+
+
+### Features
+
+* **types-dev:** export isKeysCallExpression() ([0edf004](https://github.com/waitingsong/npm-mono-base/commit/0edf00488b8d84cd28d2b2f2417e25ad0cb77355))
+
+
+
+
+
 ## 8.1.1 (2021-03-30)
 
 
