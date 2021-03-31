@@ -18,3 +18,10 @@ export {
   transTypeKeystoLiteralArrayPlaceholder,
 } from './transformer/keys-to-literal-array'
 
+export {
+  TransTypetoLiteralObjOpts,
+  transTypetoLiteralObj,
+} from './transformer/type-to-literal-obj'
+
+export * from './transformer/common'
+

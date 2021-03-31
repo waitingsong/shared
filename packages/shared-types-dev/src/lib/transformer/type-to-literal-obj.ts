@@ -33,7 +33,7 @@ export interface TransTypetoLiteralObjOpts {
   tsPath: string
 }
 
-export interface VOpts extends VisitNodeOpts, TransTypetoLiteralObjOpts {
+interface VOpts extends VisitNodeOpts, TransTypetoLiteralObjOpts {
   literalRetMap: TransformCallExpressionToLiteralTypeRet
 }
 
