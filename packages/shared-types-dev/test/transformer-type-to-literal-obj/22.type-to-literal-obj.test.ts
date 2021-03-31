@@ -12,7 +12,7 @@ import ts from 'typescript'
 import {
   transTypetoLiteralObj,
   TransTypetoLiteralObjOpts,
-} from '../../src/lib/transformer/type-to-literal-obj'
+} from '../../src/index'
 import { expectedDict } from '../literal/config'
 
 // eslint-disable-next-line import/order
