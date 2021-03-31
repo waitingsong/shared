@@ -1,4 +1,4 @@
-import { SnakeToCamel } from '@waiting/shared-types'
+import { SnakeToCamel, SnakeToPascal } from '@waiting/shared-types'
 
 
 export declare function genDbDict<D>(): DbDict<D>
@@ -20,6 +20,6 @@ export type DbTablesAliasCols<D> = {
   [tbName in keyof D]: TableAliasCols<D[tbName], tbName & string>
 }
 export type TableAliasCols<T, TbName extends string> = {
-  [K in keyof T as `${SnakeToCamel<TbName>}${Capitalize<K & string>}`]: `${TbName}.${K & string}`
+  [K in keyof T as `${SnakeToCamel<TbName>}${SnakeToPascal<K & string>}`]: `${TbName}.${K & string}`
 }
 
