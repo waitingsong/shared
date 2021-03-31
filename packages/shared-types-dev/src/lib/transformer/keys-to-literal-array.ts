@@ -54,7 +54,10 @@ function visitNode(node: ts.Node, options: VisitNodeOpts): ts.Node | undefined
 function visitNode(node: ts.Node, options: VisitNodeOpts): ts.Node | undefined {
   const typeChecker = options.program.getTypeChecker()
   /* istanbul ignore else */
-  if (isKeysImportExpression(node, options.jsPath, options.tsPath)) {
+  if (ts.isSourceFile(node)) {
+    return node
+  }
+  else if (isKeysImportExpression(node, options.jsPath, options.tsPath)) {
     const nodeDecl = processImportDeclaration(node, [options.needle])
     return nodeDecl
   }
