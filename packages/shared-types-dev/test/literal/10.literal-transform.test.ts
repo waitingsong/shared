@@ -28,8 +28,8 @@ describe(filename, () => {
   const path2 = join(__dirname, demo2)
 
   afterEach(async () => {
-    await run(`cp -f "${path1}.example" ${path1}`).toPromise()
-    await run(`cp -f "${path2}.example" ${path2}`).toPromise()
+    await run(`cp -f "example.${path1}" ${path1}`).toPromise()
+    await run(`cp -f "example.${path2}" ${path2}`).toPromise()
   })
 
   describe('Should transformCallExpressionToLiteralType works', () => {
