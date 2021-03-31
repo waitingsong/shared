@@ -16,6 +16,13 @@ import assert = require('power-assert')
 const filename = basename(__filename)
 
 describe(filename, () => {
+  const compilerOpts = {
+    noEmitOnError: true,
+    noImplicitAny: true,
+    target: ts.ScriptTarget.ESNext,
+    inlineSourceMap: false,
+    module: ts.ModuleKind.CommonJS,
+  }
 
   describe('Should transTypeKeystoLiteralArray works', () => {
     it('interface', () => {
@@ -23,13 +30,7 @@ describe(filename, () => {
       const path = join(__dirname, demo)
       const program = ts.createProgram(
         [path],
-        {
-          noEmitOnError: true,
-          noImplicitAny: true,
-          target: ts.ScriptTarget.ESNext,
-          inlineSourceMap: false,
-          module: ts.ModuleKind.CommonJS,
-        },
+        compilerOpts,
       )
       const file = program.getSourceFile(path)
       if (! file) {
@@ -55,13 +56,7 @@ describe(filename, () => {
       const path = join(__dirname, demo)
       const program = ts.createProgram(
         [path],
-        {
-          noEmitOnError: true,
-          noImplicitAny: true,
-          target: ts.ScriptTarget.ESNext,
-          inlineSourceMap: false,
-          module: ts.ModuleKind.CommonJS,
-        },
+        compilerOpts,
       )
       const file = program.getSourceFile(path)
       if (! file) {
@@ -87,13 +82,7 @@ describe(filename, () => {
       const path = join(__dirname, demo)
       const program = ts.createProgram(
         [path],
-        {
-          noEmitOnError: true,
-          noImplicitAny: true,
-          target: ts.ScriptTarget.ESNext,
-          inlineSourceMap: false,
-          module: ts.ModuleKind.CommonJS,
-        },
+        compilerOpts,
       )
       const file = program.getSourceFile(path)
       if (! file) {
@@ -119,13 +108,7 @@ describe(filename, () => {
       const path = join(__dirname, demo)
       const program = ts.createProgram(
         [path],
-        {
-          noEmitOnError: true,
-          noImplicitAny: true,
-          target: ts.ScriptTarget.ESNext,
-          inlineSourceMap: false,
-          module: ts.ModuleKind.CommonJS,
-        },
+        compilerOpts,
       )
       const file = program.getSourceFile(path)
       if (! file) {

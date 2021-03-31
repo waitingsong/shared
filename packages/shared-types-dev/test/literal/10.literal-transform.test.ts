@@ -27,9 +27,16 @@ describe(filename, () => {
   const demo2 = 'demo2.ts'
   const path2 = join(__dirname, demo2)
 
+  const defaultOpts = {
+    needle: 'genDbDict',
+    resultType: 'DbDict',
+    leadingString: 'eslint-disable',
+    trailingString: 'eslint-enable',
+  }
+
   afterEach(async () => {
-    await run(`cp -f "example.${path1}" ${path1}`).toPromise()
-    await run(`cp -f "example.${path2}" ${path2}`).toPromise()
+    await run(`cp -f "${path1}.example.ts" ${path1}`).toPromise()
+    await run(`cp -f "${path2}.example.ts" ${path2}`).toPromise()
   })
 
   describe('Should transformCallExpressionToLiteralType works', () => {
@@ -39,12 +46,9 @@ describe(filename, () => {
       const file = createSourceFile(tsConfigFilePath, path)
 
       const opts: TransFormOptions = {
+        ...defaultOpts,
         sourceFile: file,
         importModuleName: './dict',
-        needle: 'genDbDict',
-        resultType: 'DbDict',
-        leadingString: '/* eslint-disable */ ',
-        trailingString: ' /* eslint-enable */',
       }
 
       transformCallExpressionToLiteralType(opts)
@@ -60,12 +64,9 @@ describe(filename, () => {
       const file = createSourceFile(tsConfigFilePath, path)
 
       const opts: TransFormOptions = {
+        ...defaultOpts,
         sourceFile: file,
         importModuleName: '',
-        needle: 'genDbDict',
-        resultType: 'DbDict',
-        leadingString: '/* eslint-disable */ ',
-        trailingString: ' /* eslint-enable */',
       }
 
       transformCallExpressionToLiteralType(opts)
@@ -81,12 +82,9 @@ describe(filename, () => {
       const file = createSourceFile(tsConfigFilePath, path)
 
       const opts: TransFormOptions = {
+        ...defaultOpts,
         sourceFile: file,
         importModuleName: './dict',
-        needle: 'genDbDict',
-        resultType: 'DbDict',
-        leadingString: '/* eslint-disable */ ',
-        trailingString: ' /* eslint-enable */',
       }
 
       const ret = transformCallExpressionToLiteralType(opts)
@@ -101,12 +99,9 @@ describe(filename, () => {
       const file = createSourceFile(tsConfigFilePath, path)
 
       const opts: TransFormOptions = {
+        ...defaultOpts,
         sourceFile: file,
         importModuleName: './dict',
-        needle: 'genDbDict',
-        resultType: 'DbDict',
-        leadingString: '/* eslint-disable */ ',
-        trailingString: ' /* eslint-enable */',
       }
 
       transformCallExpressionToLiteralType(opts)
@@ -122,12 +117,9 @@ describe(filename, () => {
       const file = createSourceFile(tsConfigFilePath, path)
 
       const opts: TransFormOptions = {
+        ...defaultOpts,
         sourceFile: file,
         importModuleName: '',
-        needle: 'genDbDict',
-        resultType: 'DbDict',
-        leadingString: '/* eslint-disable */ ',
-        trailingString: ' /* eslint-enable */',
       }
 
       try {
@@ -150,12 +142,9 @@ describe(filename, () => {
       const file = createSourceFile(tsConfigFilePath, path)
 
       const opts: TransFormOptions = {
+        ...defaultOpts,
         sourceFile: file,
         importModuleName: './dict',
-        needle: 'genDbDict',
-        resultType: 'DbDict',
-        leadingString: '/* eslint-disable */ ',
-        trailingString: ' /* eslint-enable */',
       }
 
       const ret = transformCallExpressionToLiteralType(opts)
