@@ -74,9 +74,9 @@ export function transformCallExpressionToLiteralType(
     const obj = genLiteralObjectFromExpression(opts)
     ret.set(varname, obj)
 
-    const jsonCode = leadingString
+    const jsonCode = `/* ${leadingString} */ `
       + JSON.stringify(obj, null, 2)
-      + trailingString
+      + ` /* ${trailingString} */`
     express.replaceWithText(jsonCode)
   })
 
