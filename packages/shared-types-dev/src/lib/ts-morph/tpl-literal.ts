@@ -39,14 +39,14 @@ export interface ProcessExpressionOptions {
   needle: TransFormOptions['needle']
   resultType: string
 }
-
+export type TransformCallExpressionToLiteralTypeRet = Map<string, LiteralObject>
 
 /**
  * @returns Map<varname, computer object>
  */
 export function transformCallExpressionToLiteralType(
   options: TransFormOptions,
-): Map<string, LiteralObject> {
+): TransformCallExpressionToLiteralTypeRet {
 
   const {
     sourceFile,
