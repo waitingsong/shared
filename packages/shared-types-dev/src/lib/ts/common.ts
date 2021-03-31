@@ -134,14 +134,14 @@ export function isKeysImportExpression(
       // console.info({
       //   module, fupath: path, jsPath, tsPath,
       // })
-      return path === jsPath || path === tsPath
+      return (path === jsPath || path === tsPath) && !! path
     }
     else {
       const path = require.resolve(module)
       // console.info({
       //   module, fupath: path, jsPath, tsPath,
       // })
-      return path === jsPath
+      return path === jsPath && !! path
     }
   }
   catch (ex) {
