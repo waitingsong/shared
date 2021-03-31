@@ -10,11 +10,14 @@ import {
   processImportDeclaration,
 } from '../ts/common'
 
+import { genTransformerFactor, GenTransformerFactorOpts, VisitNodeOpts } from './common'
+
 
 const _fileName = 'src/lib/transformer/keys-to-literal-array'
 const placeholderName = 'transTypeKeystoLiteralArrayPlaceholder'
 const indexJs = join(baseDir, 'dist/index.cjs.js')
 const indexTs = join(baseDir, `${_fileName}.ts`)
+
 
 /**
  * A ts.TransformerFactory generator,
@@ -31,50 +34,39 @@ const indexTs = join(baseDir, `${_fileName}.ts`)
  * @description based on https://www.npmjs.com/package/ts-transformer-keys
  */
 export function transTypeKeystoLiteralArray(program: ts.Program): ts.TransformerFactory<ts.SourceFile> {
-  return (context: ts.TransformationContext) => (file: ts.SourceFile) => {
-    const ret = visitNodeAndChildren(file, program, context)
-    return ret
-  }
-}
-
-function visitNodeAndChildren(node: ts.SourceFile, program: ts.Program, context: ts.TransformationContext): ts.SourceFile
-function visitNodeAndChildren(node: ts.Node, program: ts.Program, context: ts.TransformationContext): ts.Node | undefined
-function visitNodeAndChildren(node: ts.Node, program: ts.Program, context: ts.TransformationContext): ts.Node | undefined {
-  const visitor = (childNode: ts.Node) => visitNodeAndChildren(childNode, program, context)
-  const options: VisitNodeOpts = {
+  const visitNodeOpts: VisitNodeOpts = {
     jsPath: indexJs,
     tsPath: indexTs,
-    placeholderName,
+    needle: placeholderName,
+    program,
   }
-  const visitRet = ts.visitEachChild(
-    visitNode(node, program, options),
-    visitor,
-    context,
-  )
-  return visitRet
+  const options: GenTransformerFactorOpts<VisitNodeOpts> = {
+    visitNodeHandler: visitNode,
+    visitNodeOpts,
+  }
+  const transfactory = genTransformerFactor<VisitNodeOpts>(options)
+  return transfactory
 }
 
-interface VisitNodeOpts {
-  jsPath: string
-  tsPath: string
-  placeholderName: string
-}
 
-function visitNode(node: ts.SourceFile, program: ts.Program, options: VisitNodeOpts): ts.SourceFile
-function visitNode(node: ts.Node, program: ts.Program, options: VisitNodeOpts): ts.Node | undefined
-function visitNode(node: ts.Node, program: ts.Program, options: VisitNodeOpts): ts.Node | undefined {
-  const typeChecker = program.getTypeChecker()
+function visitNode(node: ts.SourceFile, options: VisitNodeOpts): ts.SourceFile
+function visitNode(node: ts.Node, options: VisitNodeOpts): ts.Node | undefined
+function visitNode(node: ts.Node, options: VisitNodeOpts): ts.Node | undefined {
+  const typeChecker = options.program.getTypeChecker()
+  /* istanbul ignore else */
   if (isKeysImportExpression(node, options.jsPath, options.tsPath)) {
-    const nodeDecl = processImportDeclaration(node, [options.placeholderName])
+    const nodeDecl = processImportDeclaration(node, [options.needle])
     return nodeDecl
   }
-  if (! isKeysCallExpression(node, typeChecker, options.placeholderName, options.tsPath)) {
+  else if (! isKeysCallExpression(node, typeChecker, options.needle, options.tsPath)) {
     return node
   }
-  if (! node.typeArguments || ! node.typeArguments.length) {
+  else if (! node.typeArguments || ! node.typeArguments.length) {
     return ts.factory.createArrayLiteralExpression([])
   }
+
   const [firstTypeArg] = node.typeArguments
+  /* istanbul ignore else */
   if (! firstTypeArg) {
     throw new TypeError('typeArguents empty')
   }
@@ -82,6 +74,7 @@ function visitNode(node: ts.Node, program: ts.Program, options: VisitNodeOpts): 
   const properties = typeChecker.getPropertiesOfType(type)
   const arr = properties.map(property => ts.factory.createStringLiteral(property.name))
   const express = ts.factory.createArrayLiteralExpression(arr, false)
+
   return express
 }
 
