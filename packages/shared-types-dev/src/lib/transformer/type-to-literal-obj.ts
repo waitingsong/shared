@@ -102,16 +102,23 @@ function visitNode(node: ts.Node, options: VOpts): ts.Node | undefined {
     if (! literalObj) { return node }
 
     const newNode = createObjectLiteralExpression(literalObj)
-    ts.addSyntheticLeadingComment(
-      newNode,
-      ts.SyntaxKind.MultiLineCommentTrivia,
-      `${options.leadingString} `,
-    )
-    ts.addSyntheticTrailingComment(
-      newNode,
-      ts.SyntaxKind.MultiLineCommentTrivia,
-      ` ${options.trailingString}`,
-    )
+    /* istanbul ignore else */
+    if (options.leadingString) {
+      ts.addSyntheticLeadingComment(
+        newNode,
+        ts.SyntaxKind.MultiLineCommentTrivia,
+        ` ${options.leadingString} `,
+      )
+    }
+    /* istanbul ignore else */
+    if (options.trailingString) {
+      ts.addSyntheticTrailingComment(
+        newNode,
+        ts.SyntaxKind.MultiLineCommentTrivia,
+        ` ${options.trailingString} `,
+      )
+    }
+
     return newNode
   }
 
