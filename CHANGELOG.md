@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 8.4.2 (2021-03-31)
+
+
+### Bug Fixes
+
+* **types-dev:** create comments space ([5a716ab](https://github.com/waitingsong/shared/commit/5a716abc5ca4b808505bf1a4f7afb6f3dd3bb325))
+
+
+
+
+
 ## 8.4.1 (2021-03-31)
 
 
