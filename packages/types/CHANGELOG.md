@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 8.4.1 (2021-03-31)
+
+
+### Bug Fixes
+
+* **types-dev:** compare path via toLocaleLowerCase() ([43d3cba](https://github.com/waitingsong/shared/commit/43d3cba2d0e98809ccfd19cbc7e51197289b5a96))
+
+
+
+
+
 # 8.4.0 (2021-03-31)
 
 **Note:** Version bump only for package @waiting/shared-types
