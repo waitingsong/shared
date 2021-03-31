@@ -130,18 +130,18 @@ export function isKeysImportExpression(
   try {
     if (module.startsWith('.')) {
       const resolvedPath = pathResolve(dirname(node.getSourceFile().fileName), module)
-      const path = require.resolve(resolvedPath)
+      const path = require.resolve(resolvedPath).toLocaleLowerCase()
       // console.info({
       //   module, fupath: path, jsPath, tsPath,
       // })
-      return (path === jsPath || path === tsPath) && !! path
+      return (path === jsPath.toLocaleLowerCase() || path === tsPath.toLocaleLowerCase()) && !! path
     }
     else {
       const path = require.resolve(module)
       // console.info({
       //   module, fupath: path, jsPath, tsPath,
       // })
-      return path === jsPath && !! path
+      return path === jsPath.toLocaleLowerCase() && !! path
     }
   }
   catch (ex) {
@@ -180,9 +180,9 @@ export function isKeysCallExpression(
     // require.resolve is required to resolve symlink.
     // https://github.com/kimamula/ts-transformer-keys/issues/4#issuecomment-643734716
     const filename = declaration.getSourceFile().fileName
-    const path = require.resolve(filename)
+    const path = require.resolve(filename).toLocaleLowerCase()
     // console.log({ path, tsPath })
-    return path === tsPath
+    return path === tsPath.toLocaleLowerCase() && !! path
   }
   catch (ex) {
     // declaration.getSourceFile().fileName may not be in Node.js require stack and require.resolve may result in an error.
