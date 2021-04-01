@@ -5,6 +5,7 @@ import {
 } from '@waiting/shared-core'
 
 import {
+  Awaited,
   Equals,
   EqualsExt,
   JsonType,
@@ -114,6 +115,18 @@ describe(filename, () => {
       }
       const foo: unknown = ret.dat
       assert(foo === 1)
+    })
+  })
+
+  describe('should Awaited works', () => {
+    it('normal', () => {
+      type F1 = Promise<JsonType>
+      type F2 = Awaited<F1>
+      type ExpectType = JsonType
+      const ret1: Equals<F2, ExpectType> = true
+      assert(ret1)
+      const ret2: Equals<F2, JSON> = false
+      assert(ret2)
     })
   })
 })
