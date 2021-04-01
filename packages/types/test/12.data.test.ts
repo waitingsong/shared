@@ -126,7 +126,16 @@ describe(filename, () => {
       const ret1: Equals<F2, ExpectType> = true
       assert(ret1)
       const ret2: Equals<F2, JSON> = false
-      assert(ret2)
+      assert(! ret2)
+    })
+    it('recursive', () => {
+      type F1 = Promise<Promise<Promise<JsonType>>>
+      type F2 = Awaited<F1>
+      type ExpectType = JsonType
+      const ret1: Equals<F2, ExpectType> = true
+      assert(ret1)
+      const ret2: Equals<F2, JSON> = false
+      assert(! ret2)
     })
   })
 })
