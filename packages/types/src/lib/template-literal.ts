@@ -2,17 +2,17 @@
 
 // ref: https://github.com/microsoft/TypeScript/pull/40336#issuecomment-684122600
 
-type V = string | number | boolean | bigint
 
 export type StrSplit<S extends string, D extends string> =
   string extends S ? string[] :
     S extends `${infer T}${D}${infer U}` ? [T, ...StrSplit<U, D>] :
       [S]
 
+type V = string | number | boolean | bigint
 export type TupleJoin<T extends V[], D extends string> =
   T extends [] ? '' :
     // @ts-expect-error
-    T extends [unknown] ? `${T[0]}`:
+    T extends [unknown] ? `${T[0]}` :
       // @ts-expect-error
       T extends [unknown, ...infer U] ? `${T[0]}${D}${TupleJoin<U, D>}` :
         string
