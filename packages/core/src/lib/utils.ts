@@ -34,17 +34,51 @@ import { map } from 'rxjs/operators'
 
 
 export const closeAsync = promisify(close)
+/**
+ * @deprecated use close() from 'fs/promises' instead
+ */
 export const chmodAsync = promisify(chmod)
+/**
+ * @deprecated use copyFile() from 'fs/promises' instead
+ */
 export const copyFileAsync = promisify(copyFile)
+/**
+ * @deprecated use mkdir() from 'fs/promises' instead
+ */
 export const mkdirAsync = promisify(mkdir)
+/**
+ * @deprecated use open() from 'fs/promises' instead
+ */
 export const openAsync = promisify(open)
+/**
+ * @deprecated use readFile() from 'fs/promises' instead
+ */
 export const readFileAsync = promisify(readFile)
+/**
+ * @deprecated use  readdir() from 'fs/promises' instead
+ */
 export const readDirAsync = promisify(readdir)
+/**
+ * @deprecated use rmdir() from 'fs/promises' instead
+ */
 export const rmdirAsync = promisify(rmdir)
+/**
+ * @deprecated use stat() from 'fs/promises' instead
+ */
 export const statAsync = promisify(stat)
+/**
+ * @deprecated use unlink() from 'fs/promises' instead
+ */
 export const unlinkAsync = promisify(unlink)
+/**
+ * @deprecated use write() from 'fs/promises' instead
+ */
 export const writeAsync = promisify(write)
+/**
+ * @deprecated use writeFile() from 'fs/promises' instead
+ */
 export const writeFileAsync = promisify(writeFile)
+
 export {
   basename,
   dirname,
