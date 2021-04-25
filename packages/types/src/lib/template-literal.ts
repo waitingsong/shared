@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/prefer-ts-expect-error */
 
 // ref: https://github.com/microsoft/TypeScript/pull/40336#issuecomment-684122600
 
@@ -11,9 +12,9 @@ export type StrSplit<S extends string, D extends string> =
 type V = string | number | boolean | bigint
 export type TupleJoin<T extends V[], D extends string> =
   T extends [] ? '' :
-    // @ts-expect-error
+    // @ts-ignore
     T extends [unknown] ? `${T[0]}` :
-      // @ts-expect-error
+      // @ts-ignore
       T extends [unknown, ...infer U] ? `${T[0]}${D}${TupleJoin<U, D>}` :
         string
 

@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/prefer-ts-expect-error */
 
 import { OverwriteNeverToUnknown, FormatIntersect, KnownKeys } from '../common'
 import { TupleTail, TupleHead } from '../tuple'
@@ -127,7 +128,7 @@ export type JoinTable<
       : unknown
     : R[K]
 },
-// @ts-expect-error
+// @ts-ignore
 KnownKeys<L> | KnownKeys<R>
 >
 
@@ -150,7 +151,7 @@ export type JoinTableDistinct<
 _JoinTableDistinct<MergeTableDistinct<L, R>>,
 KnownKeys<L> & KnownKeys<R> & string
 >
-// @ts-expect-error
+// @ts-ignore
 type _JoinTableDistinct<R> = Pick<R, KnownKeys<R>>
 
 export type JoinTableDistinctExclude<
