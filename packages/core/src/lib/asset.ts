@@ -13,5 +13,6 @@ export function assertNever(x: never): never {
  */
 export function assertNeverRx(x: never): Observable<never> {
   // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
-  return throwError(new Error('Assert Never Unexpected object: ' + x))
+  return throwError(() => new Error('Assert Never Unexpected object: ' + x))
 }
+
