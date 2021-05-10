@@ -41,7 +41,6 @@ npm run bootstrap
 | Package       | Version                          | Dependencies                           | DevDependencies                          |
 | ------------- | -------------------------------- | -------------------------------------- | ---------------------------------------- |
 | [`types`]     | [![types-svg]][types-ch]         | [![types-d-svg]][types-d-link]         | [![types-dd-svg]][types-dd-link]         |
-| [`types-dev`] | [![types-dev-svg]][types-dev-ch] | [![types-dev-d-svg]][types-dev-d-link] | [![types-dev-dd-svg]][types-dev-dd-link] |
 | [`core`]      | [![core-svg]][core-ch]           | [![core-d-svg]][core-d-link]           | [![core-dd-svg]][core-dd-link]           |
 
 
