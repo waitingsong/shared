@@ -91,7 +91,7 @@ describe(filename + ' :pathAcessible()', () => {
     const dir = join(tmpDir, Math.random().toString())
 
     const ret = await pathAccessible('').toPromise()
-    assert(ret === '', 'should return false with blank path:' + ret)
+    assert(ret === '', 'should return false with blank path:' + (ret ? ret : ''))
 
     if (await pathAccessible(dir).toPromise()) {
       return assert(false, `path should not accessible: "${dir}"`)
