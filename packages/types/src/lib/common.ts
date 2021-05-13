@@ -88,3 +88,10 @@ export type KnownKeys<T> = {
  */
 export type ValuesOf<T> = T extends { [_ in keyof T]: infer U } ? U : never
 
+
+type IfAny<T, Y, N> = 0 extends (1 & T) ? Y : N
+/**
+ * @link https://stackoverflow.com/a/55541672
+ */
+export type OverwriteAnyToUnknown<T> = IfAny<T, unknown, T>
+
