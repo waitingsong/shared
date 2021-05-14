@@ -5,7 +5,6 @@ import {
 } from '@waiting/shared-core'
 
 import { Equals } from '../../src/index'
-import { User, UserAlias } from '../database/data'
 
 // eslint-disable-next-line import/order
 import assert = require('power-assert')
@@ -80,10 +79,6 @@ describe(filename, () => {
       const ret3: Equals<Set<any[]>, Set<any[]>> = true
     })
 
-    it('readonly', () => {
-      const ret1: Equals<UserAlias, UserAlias> = true
-      const ret2: Equals<Readonly<UserAlias>, Readonly<UserAlias>> = true
-    })
   })
 
 
@@ -155,9 +150,6 @@ describe(filename, () => {
       const ret3: Equals<Set<any[]>, Set<string[]>> = false
     })
 
-    it('readonly', () => {
-      const ret1: Equals<UserAlias, Readonly<UserAlias>> = false
-    })
     it('optional', () => {
       interface F1 {
         foo: number

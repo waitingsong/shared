@@ -95,4 +95,3 @@ type IfAny<T, Y, N> = 0 extends (1 & T) ? Y : N
  */
 export type OverwriteAnyToUnknown<T> = IfAny<T, unknown, T>
 
-
