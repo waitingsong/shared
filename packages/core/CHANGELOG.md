@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 10.0.0 (2021-05-14)
+
+
+### Features
+
+* **types:** remove types about database ([d0889d7](https://github.com/waitingsong/shared/commit/d0889d7a956cec2ff2ed8bb1ef67f2d05d629e77))
+
+
+
+
+
 # 9.2.0 (2021-05-13)
 
 **Note:** Version bump only for package @waiting/shared-core
