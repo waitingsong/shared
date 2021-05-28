@@ -6,4 +6,5 @@ export * from './file'
 export * from './utils'
 export * from './helper'
 export * from './string'
+export * from './stats'
 

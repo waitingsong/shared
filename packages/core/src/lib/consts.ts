@@ -10,3 +10,10 @@ export const userHome = isWin32
   ? normalize(process.env.USERPROFILE || '')
   : normalize(process.env.HOME ? `${process.env.HOME}` : '')
 
+
+export const defaultPropDescriptor: PropertyDescriptor = {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+} as const
+
