@@ -11,9 +11,9 @@
   "bin": {},
   "browser": "",
   "es2015": "",
-  "main": "./dist/index.cjs.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "bugs": {
     "url": "https://github.com/waitingsong/shared/issues"
   },
@@ -27,7 +27,7 @@
     "cross-env": "7"
   },
   "peerDependencies": {
-    "typescript": ">=4.2.0"
+    "typescript": "~4.2.0"
   },
   "engines": {
     "node": ">=12.13.0"
