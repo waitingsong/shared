@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 11.0.0 (2021-06-04)
+
+
+### Features
+
+* **core:** increase pkg.engines.node to ">=14.15.0" ([6add7ac](https://github.com/waitingsong/npm-mono-base/commit/6add7ac65335117a09c8050f1c71368ef40680c2))
+
+
+
+
+
 # 10.1.0 (2021-05-28)
 
 **Note:** Version bump only for package demo
