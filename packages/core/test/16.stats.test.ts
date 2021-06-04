@@ -4,7 +4,10 @@ import {
   join,
 } from '@waiting/shared-core'
 
-import { humanMemoryUsage } from '../src/index'
+import {
+  humanMemoryUsage,
+  retrieveProcInfo,
+} from '../src/index'
 
 // eslint-disable-next-line import/order
 import assert = require('power-assert')
@@ -21,5 +24,24 @@ describe(filename, () => {
     })
   })
 
+  describe('should retrieveProcInfo work', () => {
+    it('normal', async () => {
+      const ret = await retrieveProcInfo()
+
+      assert(typeof ret.cpuinfo === 'object')
+      assert(typeof ret.meminfo === 'object')
+      assert(typeof ret.stat === 'object')
+
+      if (process.platform === 'linux') {
+        assert(Object.keys(ret.cpuinfo).length)
+        assert(Object.keys(ret.meminfo).length)
+        assert(Object.keys(ret.stat).length)
+
+        assert(ret.cpuinfo['cpu family'])
+        assert(ret.meminfo.MemTotal)
+        assert(ret.stat.cpu)
+      }
+    })
+  })
 })
 
