@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 11.1.0 (2021-06-06)
+
+
+### Performance Improvements
+
+* **core:** Promise.all() of retrieveProcInfo() ([43171f5](https://github.com/waitingsong/npm-mono-base/commit/43171f580993ee3c320c89b42ab72902125b818b))
+
+
+
+
+
 # 11.0.0 (2021-06-04)
 
 
