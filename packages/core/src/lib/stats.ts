@@ -1,6 +1,6 @@
 import { readFile } from 'fs/promises'
 
-import { ProcInfo } from '@waiting/shared-types'
+import { ProcCpuinfo, ProcInfo, ProcMeminfo, ProcStat } from '@waiting/shared-types'
 
 import { defaultPropDescriptor } from './consts'
 import { nFormatter } from './helper'
@@ -44,49 +44,69 @@ export async function retrieveProcInfo(): Promise<ProcInfo> {
   }
 
   const arr: (keyof ProcInfo)[] = ['cpuinfo', 'meminfo']
+  const pms = [] as unknown as [Promise<string>, Promise<string>, Promise<string>]
   for (const name of arr) {
-    try {
-      const path = `/proc/${name}`
-      // eslint-disable-next-line no-await-in-loop
-      const str = await readFile(path, 'utf-8')
-      str.split('\n').forEach((line) => {
-        const parts = line.split(':')
-        if (parts.length === 2) {
-          const [key, value] = parts
-          const k1 = key?.trim()
-          const v1 = value?.trim()
-          if (! k1 || ! v1) { return }
-
-          ret[name][k1] = v1
-        }
-      })
-    }
-    catch (ex) {
-      console.warn(ex)
-    }
+    const path = `/proc/${name}`
+    const pm = readFile(path, 'utf-8').catch(() => '')
+    pms.push(pm)
   }
 
   const arr2: (keyof ProcInfo)[] = ['stat']
   for (const name of arr2) {
-    try {
-      const path = `/proc/${name}`
-      // eslint-disable-next-line no-await-in-loop
-      const str = await readFile(path, 'utf-8')
-      str.split('\n').forEach((line) => {
-        const parts = line.split(' ')
-        if (parts.length >= 2) {
-          const [key, ...value] = parts
-          const k1 = key?.trim()
-          if (! k1 || ! value.length) { return }
-
-          ret[name][k1] = value.join(' ')
-        }
-      })
-    }
-    catch (ex) {
-      console.warn(ex)
-    }
+    const path = `/proc/${name}`
+    const pm = readFile(path, 'utf-8').catch(() => '')
+    pms.push(pm)
   }
 
-  return ret
+  const info: Promise<ProcInfo> = Promise.all(pms)
+    .then((data) => {
+      const cpuinfo = processCpuAndMemInfo(data[0]) as ProcCpuinfo
+      const meminfo = processCpuAndMemInfo(data[1]) as ProcMeminfo
+      const stat = processStatInfo(data[2])
+      const res = {
+        cpuinfo,
+        meminfo,
+        stat,
+      }
+      return res
+    })
+
+  return info
+}
+
+function processCpuAndMemInfo(str: string): ProcCpuinfo | ProcMeminfo {
+  const row = {} as ProcCpuinfo | ProcMeminfo
+  if (! str.length) {
+    return row
+  }
+  str.split('\n').forEach((line) => {
+    const parts = line.split(':')
+    if (parts.length === 2) {
+      const [key, value] = parts
+      const k1 = key?.trim()
+      const v1 = value?.trim()
+      if (! k1 || ! v1) { return }
+
+      row[k1] = v1
+    }
+  })
+  return row
+}
+function processStatInfo(str: string): ProcStat {
+  const row = {} as ProcStat
+  if (! str.length) {
+    return row
+  }
+  str.split('\n').forEach((line) => {
+    const parts = line.split(' ')
+    if (parts.length >= 2) {
+      const [key, ...value] = parts
+      const k1 = key?.trim()
+      if (! k1 || ! value.length) { return }
+
+      row[k1] = value.join(' ')
+    }
+  })
+
+  return row
 }
