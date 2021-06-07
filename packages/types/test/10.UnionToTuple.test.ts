@@ -14,7 +14,7 @@ const filename = basename(__filename)
 
 describe(filename, () => {
 
-  describe('should UnionToTuple works', () => {
+  describe('should UnionToTuple work', () => {
     it('normal', () => {
       type Foo = { name: 'foo' } | { age: 1}
       type T1 = UnionToTuple<Foo>
@@ -29,7 +29,7 @@ describe(filename, () => {
     })
   })
 
-  describe('should UnionToIntersection works', () => {
+  describe('should UnionToIntersection work', () => {
     it('normal', () => {
       type Foo = { name: 'foo' } | { age: number }
       type T1 = UnionToIntersection<Foo>

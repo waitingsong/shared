@@ -31,7 +31,7 @@ describe(filename + ' :dirExists()', () => {
 
   const fnName = 'dirExists'
 
-  it(`Should ${fnName}() works`, (done) => {
+  it(`Should ${fnName}() work`, (done) => {
     return of(tmpDir).pipe(
       mergeMap(dirExists),
     ).subscribe(
@@ -46,7 +46,7 @@ describe(filename + ' :dirExists()', () => {
     )
   })
 
-  it(`Should ${fnName}() works with invalid path`, (done) => {
+  it(`Should ${fnName}() work with invalid path`, (done) => {
     const random = Math.random()
     const randomPath = `${tmpDir}/${pathPrefix}-${random}`
 
@@ -64,7 +64,7 @@ describe(filename + ' :dirExists()', () => {
     )
   })
 
-  it(`Should ${fnName}() works with blank path`, (done) => {
+  it(`Should ${fnName}() work with blank path`, (done) => {
     return of('').pipe(
       mergeMap(dirExists),
     ).subscribe(

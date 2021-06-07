@@ -14,7 +14,7 @@ const filename = basename(__filename)
 
 describe(filename, () => {
 
-  describe('should snakeToCamel works', () => {
+  describe('should snakeToCamel work', () => {
     it('normal', () => {
       const Foo = 'tb_user'
       const T1 = snakeToCamel(Foo)
@@ -51,7 +51,7 @@ describe(filename, () => {
     })
   })
 
-  describe('should SnakeToPascal works', () => {
+  describe('should SnakeToPascal work', () => {
     it('normal', () => {
       const Foo = 'tb_user'
       const T1 = snakeToPascal(Foo)

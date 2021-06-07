@@ -21,7 +21,7 @@ const pathPrefix = 'mytest'
 describe(filename, () => {
   const fnName = 'isFileExists'
 
-  it(`Should ${fnName}() works`, async () => {
+  it(`Should ${fnName}() work`, async () => {
     const random = Math.random()
     const randomPath = `${tmpDir}/${pathPrefix}-${random}`
     const file = `${randomPath}/test`
@@ -42,7 +42,7 @@ describe(filename, () => {
 describe(filename, () => {
   const fnName = 'fileExist'
 
-  it(`Should ${fnName}() works`, async () => {
+  it(`Should ${fnName}() work`, async () => {
     const random = Math.random().toString()
     const randomPath = `${tmpDir}/${pathPrefix}-${random}`
     const file = `${randomPath}/test`

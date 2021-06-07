@@ -20,7 +20,7 @@ const filename = basename(__filename)
 
 describe(filename, () => {
 
-  describe('should JsonType works with valid value', () => {
+  describe('should JsonType work with valid value', () => {
     it('string', () => {
       const ret: JsonType = 'abc'
     })
@@ -52,7 +52,7 @@ describe(filename, () => {
     })
   })
 
-  describe('should JsonType works with invalid value', () => {
+  describe('should JsonType work with invalid value', () => {
     it('undefined', () => {
       // @ts-expect-error
       const ret1: JsonType = undefined
@@ -99,7 +99,7 @@ describe(filename, () => {
     })
   })
 
-  describe('should JsonResp["dat"] works with generics', () => {
+  describe('should JsonResp["dat"] work with generics', () => {
     it('with passing generics', () => {
       const ret: JsonResp<number> = {
         code: 0,
@@ -118,7 +118,7 @@ describe(filename, () => {
     })
   })
 
-  describe('should Awaited works', () => {
+  describe('should Awaited work', () => {
     it('normal', () => {
       type F1 = Promise<JsonType>
       type F2 = Awaited<F1>

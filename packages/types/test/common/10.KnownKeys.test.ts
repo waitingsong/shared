@@ -65,7 +65,7 @@ class CUser4 extends CUser3 {
 }
 
 describe(filename, () => {
-  describe('should KnownKeys works for class', () => {
+  describe('should KnownKeys work for class', () => {
     it('normal', () => {
       type T1 = KnownKeys<CUser1>
       type Expect = 'uid' | 'age' | 'gender' | 'name' | 'ctime' | 'mtime'
@@ -86,7 +86,7 @@ describe(filename, () => {
   })
 
 
-  describe('should KnownKeys works for interface', () => {
+  describe('should KnownKeys work for interface', () => {
     it('normal', () => {
       type T1 = KnownKeys<User1>
       type Expect = 'uid' | 'age' | 'gender' | 'name' | 'ctime' | 'mtime'

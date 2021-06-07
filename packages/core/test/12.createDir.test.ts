@@ -23,7 +23,7 @@ const pathPrefix = 'mytest'
 describe(filename, () => {
   const fnName = 'createDir'
 
-  it(`Should ${fnName}() works`, async () => {
+  it(`Should ${fnName}() work`, async () => {
     const random = Math.random()
     const randomPath = `${tmpDir}/${pathPrefix}-${random}`
     const file = `${randomPath}/test`
@@ -54,7 +54,7 @@ describe(filename + ' :createDir()', () => {
 
   const fnName = 'createDir'
 
-  it(`Should ${fnName}() works`, (done) => {
+  it(`Should ${fnName}() work`, (done) => {
     const paths = [
       `${tmpDir}/${pathPrefix}-${Math.random()}`,
       `${tmpDir}/${pathPrefix}-${Math.random()}/.test/0ab`,
@@ -83,7 +83,7 @@ describe(filename + ' :createDir()', () => {
   })
 
 
-  it(`Should ${fnName}() works with blank param`, (done) => {
+  it(`Should ${fnName}() work with blank param`, (done) => {
     return of('').pipe(
       mergeMap(createDir),
       mergeMap(dirExists),

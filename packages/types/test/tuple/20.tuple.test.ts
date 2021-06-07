@@ -22,7 +22,7 @@ const filename = basename(__filename)
 
 describe(filename, () => {
 
-  describe('should TupleHead works', () => {
+  describe('should TupleHead work', () => {
     it('normal', () => {
       type Foo = [string, number, string]
       type T1 = TupleHead<Foo>
@@ -49,7 +49,7 @@ describe(filename, () => {
     })
   })
 
-  describe('should TupleTail works', () => {
+  describe('should TupleTail work', () => {
     it('normal', () => {
       type Foo = [string, number, string]
       type T1 = TupleTail<Foo>
@@ -88,7 +88,7 @@ describe(filename, () => {
     })
   })
 
-  describe('should TupleLast works', () => {
+  describe('should TupleLast work', () => {
     it('normal', () => {
       type Foo = [string, number, string]
       type T1 = TupleLast<Foo>
@@ -115,7 +115,7 @@ describe(filename, () => {
     })
   })
 
-  describe('should TupleRemoveLast works', () => {
+  describe('should TupleRemoveLast work', () => {
     it('normal', () => {
       type Foo = [string, number, string]
       type T1 = TupleRemoveLast<Foo>
@@ -143,7 +143,7 @@ describe(filename, () => {
   })
 
 
-  describe('should TupleUnshift works', () => {
+  describe('should TupleUnshift work', () => {
     it('normal', () => {
       type Foo = [string, number, string]
       type T1 = TupleUnshift<Foo, bigint>
@@ -176,7 +176,7 @@ describe(filename, () => {
     })
   })
 
-  describe('should TuplePush works', () => {
+  describe('should TuplePush work', () => {
     it('normal', () => {
       type Foo = [string, number, string]
       type T1 = TuplePush<Foo, bigint>
@@ -209,7 +209,7 @@ describe(filename, () => {
     })
   })
 
-  describe('should TupleConcat works', () => {
+  describe('should TupleConcat work', () => {
     it('normal', () => {
       type Foo = [string, number, string]
       type T1 = TupleConcat<Foo, [bigint]>
@@ -242,7 +242,7 @@ describe(filename, () => {
     })
   })
 
-  describe('should isInTuple works', () => {
+  describe('should isInTuple work', () => {
     it('pri string', () => {
       type Foo = [string]
 
@@ -284,7 +284,7 @@ describe(filename, () => {
   })
 
 
-  describe('should TupleToUnion works', () => {
+  describe('should TupleToUnion work', () => {
     it('pri string', () => {
       type Foo = [string, string]
       const ret0: TupleToUnion<Foo> = 'abc'

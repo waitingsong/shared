@@ -14,7 +14,7 @@ const filename = basename(__filename)
 
 describe(filename, () => {
 
-  describe('should genISOString works', () => {
+  describe('should genISOString work', () => {
     it('pass param', () => {
       const dd = new Date()
       const ret = genISO8601String(dd)

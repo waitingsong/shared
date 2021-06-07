@@ -11,7 +11,7 @@ const filename = basename(__filename)
 describe(filename, () => {
   const fnName = 'readFileLineRx'
 
-  it(`Should ${fnName}() works`, (done) => {
+  it(`Should ${fnName}() work`, (done) => {
     const path = './test/fixtures/fileline.txt'
     let num = 1
 

@@ -17,7 +17,7 @@ const filename = basename(__filename)
 
 describe(filename, () => {
 
-  describe('should DateISOString works', () => {
+  describe('should DateISOString work', () => {
     it('normal', () => {
       const dd: DateISOString = '2020-03-03T02:12:53.123Z'
       assert(dd)
@@ -28,7 +28,7 @@ describe(filename, () => {
     })
   })
 
-  describe('should ISO8601String works', () => {
+  describe('should ISO8601String work', () => {
     it('Z', () => {
       const dd: ISO8601String = '2020-03-03T02:12:53.123Z'
       assert(dd)

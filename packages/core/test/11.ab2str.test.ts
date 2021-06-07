@@ -13,7 +13,7 @@ const filename = basename(__filename)
 describe(filename, () => {
   const fnName = 'ab2str'
 
-  it(`Should ${fnName}() works`, async () => {
+  it(`Should ${fnName}() work`, async () => {
     const input = '𠮷'
 
     const u8arr = new Uint8Array([240, 160, 174, 183])
@@ -45,7 +45,7 @@ describe(filename, () => {
 describe(filename, () => {
   const fnName = 'str2ab'
 
-  it(`Should ${fnName}() works`, async () => {
+  it(`Should ${fnName}() work`, async () => {
     const arr: (string | number)[] = []
     arr.push('A')
     arr.push('€')

@@ -31,13 +31,13 @@ describe(filename + ' :isPathAcessible()', () => {
 
   const fnName = 'isPathAcessible'
 
-  it(`Should ${fnName}() works`, async () => {
+  it(`Should ${fnName}() work`, async () => {
     const dir = tmpdir()
 
     assert(isPathAccessible(dir), `sytem temp path should accessible: "${dir}"`)
   })
 
-  it(`Should ${fnName}() works with invalid value`, async () => {
+  it(`Should ${fnName}() work with invalid value`, async () => {
     const dir = join(tmpDir, Math.random().toString())
 
     if (await isPathAccessible('')) {
@@ -71,7 +71,7 @@ describe(filename + ' :pathAcessible()', () => {
 
   const fnName = 'pathAcessible'
 
-  it(`Should ${fnName}() works`, (done) => {
+  it(`Should ${fnName}() work`, (done) => {
     const dir = tmpdir()
     return of(dir).pipe(
       mergeMap(pathAccessible),
@@ -87,7 +87,7 @@ describe(filename + ' :pathAcessible()', () => {
     )
   })
 
-  it(`Should ${fnName}() works with invalid value`, async () => {
+  it(`Should ${fnName}() work with invalid value`, async () => {
     const dir = join(tmpDir, Math.random().toString())
 
     const ret = await pathAccessible('').toPromise()

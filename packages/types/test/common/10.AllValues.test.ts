@@ -14,7 +14,7 @@ const filename = basename(__filename)
 
 describe(filename, () => {
 
-  describe('should AllValues works', () => {
+  describe('should AllValues work', () => {
     const alias = {
       uid: 'tbUserUid',
       name: 'tbUserName',

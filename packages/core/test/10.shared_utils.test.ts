@@ -33,17 +33,17 @@ describe(filename, () => {
   })
 
 
-  it('Should isDirFileExists() works', async () => {
+  it('Should isDirFileExists() work', async () => {
     assert(await isDirFileExists(tmpDir, 'DIR'), `user tmp dir should exist. path: "${tmpDir}"`)
   })
 
-  it('Should isDirFileExists() works with blank path', async () => {
+  it('Should isDirFileExists() work with blank path', async () => {
 
     assert(! await isDirFileExists('', 'DIR'), 'should return false with blank path')
   })
 
 
-  it('Should createDirAsync() works', async () => {
+  it('Should createDirAsync() work', async () => {
     const random = Math.random()
     const randomPath = `${tmpDir}/${pathPrefix}-${random}`
 
@@ -62,7 +62,7 @@ describe(filename, () => {
     rmdir(randomPath, err => err && console.error(err))
   })
 
-  it('Should createDirAsync() works with odd path', async () => {
+  it('Should createDirAsync() work with odd path', async () => {
     const random = Math.random()
     const randomPath = `${tmpDir}/${pathPrefix}-${random}/.test/0ab`
 
@@ -82,7 +82,7 @@ describe(filename, () => {
   })
 
 
-  it('Should createDirAsync() works with blank param', (resolve) => {
+  it('Should createDirAsync() work with blank param', (resolve) => {
     createDirAsync('')
       .then(() => {
         assert(false, 'should throw error, but NOT')
@@ -91,7 +91,7 @@ describe(filename, () => {
       .catch(() => resolve())
   })
 
-  it('Should createFileAsyncAsync() works', async () => {
+  it('Should createFileAsyncAsync() work', async () => {
     const random = Math.random()
     const randomPath = `${tmpDir}/${pathPrefix}-${random}`
     const file = `${randomPath}/test`
@@ -119,7 +119,7 @@ describe(filename, () => {
     rmdir(randomPath, err => err && console.error(err))
   })
 
-  it('Should createFileAsync() works with options', async () => {
+  it('Should createFileAsync() work with options', async () => {
     const random = Math.random()
     const randomPath = `${tmpDir}/${pathPrefix}-${random}`
     const file = `${randomPath}/test`
@@ -151,7 +151,7 @@ describe(filename, () => {
     rmdir(randomPath, err => err && console.error(err))
   })
 
-  it('Should createFileAsync() works with object data', async () => {
+  it('Should createFileAsync() work with object data', async () => {
     const random = Math.random()
     const randomPath = `${tmpDir}/${pathPrefix}-${random}`
     const file = `${randomPath}/test`
@@ -182,7 +182,7 @@ describe(filename, () => {
     rmdir(randomPath, err => err && console.error(err))
   })
 
-  it('Should createFileAsync() works with blank path', (resolve) => {
+  it('Should createFileAsync() work with blank path', (resolve) => {
     createFileAsync('', '')
       .then(() => {
         assert(false, 'should throw error, but NOT')
@@ -191,7 +191,7 @@ describe(filename, () => {
       .catch(() => resolve())
   })
 
-  it('Should createFileAsync() works with buffer data', async () => {
+  it('Should createFileAsync() work with buffer data', async () => {
     const random = Math.random()
     const randomPath = `${tmpDir}/${pathPrefix}-${random}`
     const file = `${randomPath}/test`
@@ -222,7 +222,7 @@ describe(filename, () => {
   })
 
 
-  it('Should isDirExists() works', async () => {
+  it('Should isDirExists() work', async () => {
     try {
       assert(await isDirExists(tmpDir), `path should exists: "${tmpDir}"`)
     }
@@ -231,7 +231,7 @@ describe(filename, () => {
     }
   })
 
-  it('Should isDirExists() works with invalid path', async () => {
+  it('Should isDirExists() work with invalid path', async () => {
     const random = Math.random()
     const randomPath = `${tmpDir}/${pathPrefix}-${random}`
 
@@ -243,7 +243,7 @@ describe(filename, () => {
     }
   })
 
-  it('Should isDirExists() works with blank path', async () => {
+  it('Should isDirExists() work with blank path', async () => {
     try {
       assert(! await isDirExists(''), 'empty path should NOT exists')
     }

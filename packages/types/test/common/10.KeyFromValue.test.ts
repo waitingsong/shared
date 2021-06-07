@@ -68,7 +68,7 @@ class CUser3 extends CUser2 {
 }
 
 describe(filename, () => {
-  describe('should KeyFromValue works for class', () => {
+  describe('should KeyFromValue work for class', () => {
     it('type bigint', () => {
       type T1 = KeyFromValue<CUser1, bigint>
       type Expect = 'uid'
@@ -206,7 +206,7 @@ describe(filename, () => {
   })
 
 
-  describe('should KeyFromValue works for interface', () => {
+  describe('should KeyFromValue work for interface', () => {
     it('type bigint', () => {
       type T1 = KeyFromValue<User1, bigint>
       type Expect = 'uid'

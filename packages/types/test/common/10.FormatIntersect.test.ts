@@ -16,7 +16,7 @@ const filename = basename(__filename)
 
 describe(filename, () => {
 
-  describe('should FormatIntersect works', () => {
+  describe('should FormatIntersect work', () => {
     it('normal', () => {
       const ret: FormatIntersect<AliasRecord> = {
         uid: 'tbUserUid',

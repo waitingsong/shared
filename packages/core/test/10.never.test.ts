@@ -17,7 +17,7 @@ const filename = basename(__filename)
 describe(filename, () => {
   const fnName = 'assertNever'
 
-  it(`Should ${fnName}() works`, () => {
+  it(`Should ${fnName}() work`, () => {
     try {
       assertNever('foo' as never)
     }
@@ -31,7 +31,7 @@ describe(filename, () => {
 describe(filename, () => {
   const fnName = 'assertNeverObb'
 
-  it(`Should ${fnName}() works`, (done) => {
+  it(`Should ${fnName}() work`, (done) => {
     const ret$ = assertNeverRx('foo' as never)
 
     ret$.pipe(

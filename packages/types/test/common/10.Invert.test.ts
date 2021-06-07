@@ -23,7 +23,7 @@ const filename = basename(__filename)
 
 describe(filename, () => {
 
-  describe('should AllValues works', () => {
+  describe('should AllValues work', () => {
     it('type AliasRecord', () => {
       type T1 = Invert<AliasRecord>
       const ret: T1 = {
