@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 11.2.0 (2021-06-08)
+
+
+### Features
+
+* **core:** update return type of humanMemoryUsage() with pid, ppid ([5a5f326](https://github.com/waitingsong/shared/commit/5a5f326d22adec6b7978da2d9d1299bee14b4aee))
+
+
+
+
+
 ## 11.1.1 (2021-06-07)
 
 **Note:** Version bump only for package @waiting/shared-types
