@@ -21,6 +21,8 @@ describe(filename, () => {
     it('normal', () => {
       const ret = humanMemoryUsage()
       assert(typeof ret.rss === 'string' && ret.rss)
+      assert(typeof ret.pid === 'number' && ret.pid > 0)
+      assert(typeof ret.ppid === 'number' && ret.ppid > 0)
     })
   })
 
