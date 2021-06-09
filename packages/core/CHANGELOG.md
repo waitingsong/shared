@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 12.0.0 (2021-06-09)
+
+
+### Features
+
+* **types:** breaking change rename JsonResp.dat to JsonResp.data ([5d1b619](https://github.com/waitingsong/shared/commit/5d1b6197bc3a7af376d808972b2c19a484d692b9))
+
+
+
+
+
 # 11.2.0 (2021-06-08)
 
 
