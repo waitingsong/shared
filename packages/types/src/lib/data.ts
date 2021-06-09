@@ -22,7 +22,7 @@ export interface LiteralObject {
 // https://stackoverflow.com/a/57318205
 /** Custom response json data structure */
 export type JsonResp<T = never> = {
-  /** 0: no error */
+  /** 0: success */
   code: number,
   /**
    * keyof typeof ErrorCode, eg. 'E_Not_Found'
@@ -32,14 +32,9 @@ export type JsonResp<T = never> = {
   /** Request id */
   reqId?: string,
 } & ([T] extends [never]
-  ? {
-    /** payload */
-    dat?: unknown,
-  }
-  : {
-    /** payload */
-    dat: T,
-  }
+  /** payload */
+  ? { data?: unknown }
+  : { data: T }
 )
 
 /**

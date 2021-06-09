@@ -99,21 +99,21 @@ describe(filename, () => {
     })
   })
 
-  describe('should JsonResp["dat"] work with generics', () => {
+  describe('should JsonResp["data"] work with generics', () => {
     it('with passing generics', () => {
       const ret: JsonResp<number> = {
         code: 0,
-        dat: 1,
+        data: 1,
       }
-      const foo: number = ret.dat
+      const foo: number = ret.data
       assert(foo === 1)
     })
     it('w/o passing generics', () => {
       const ret: JsonResp = {
         code: 0,
-        dat: 1,
+        data: 1,
       }
-      const foo: unknown = ret.dat
+      const foo: unknown = ret.data
       assert(foo === 1)
     })
   })
