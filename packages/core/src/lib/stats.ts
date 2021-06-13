@@ -8,7 +8,6 @@ import { nFormatter } from './helper'
 
 export interface HumanMemoryUsage {
   pid: NodeJS.Process['pid']
-  ppid: NodeJS.Process['ppid']
   rss: string
   heapTotal: string
   heapUsed: string
@@ -23,7 +22,6 @@ export function humanMemoryUsage(digits = 3, sep = ' '): HumanMemoryUsage {
   const mu: NodeJS.MemoryUsage = process.memoryUsage()
   const ret = {
     pid: process.pid,
-    ppid: process.ppid,
   } as HumanMemoryUsage
 
   for (const [key, val] of Object.entries(mu)) {
