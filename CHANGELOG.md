@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 13.0.0 (2021-06-13)
+
+
+### Features
+
+* **core:** breaking change remove ppid from HumanMemoryUsage ([e2d5d8c](https://github.com/waitingsong/shared/commit/e2d5d8cb29b8526da9ba10166cdae77509aba46c))
+
+
+
+
+
 # 12.0.0 (2021-06-09)
 
 
