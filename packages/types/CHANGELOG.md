@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 13.1.0 (2021-06-14)
+
+
+### Features
+
+* **core:** retrieveProcInfo() accept parameter ([80d474c](https://github.com/waitingsong/shared/commit/80d474c6b6adc9a88ab75d082ee98d9886c94745))
+
+
+
+
+
 # 13.0.0 (2021-06-13)
 
 
