@@ -47,6 +47,29 @@ describe(filename, () => {
         assert(ret.stat.cpu)
       }
     })
+
+    it('cpuinfo', async () => {
+      const ret = await retrieveProcInfo(['cpuinfo'])
+
+      assert(typeof ret.cpuinfo === 'object')
+
+      if (process.platform === 'linux') {
+        assert(Object.keys(ret.cpuinfo).length)
+        assert(ret.cpuinfo['cpu family'])
+      }
+    })
+
+    it('cpuinfo and diskstats', async () => {
+      const ret = await retrieveProcInfo(['cpuinfo', 'diskstats'])
+
+      assert(typeof ret.cpuinfo === 'object')
+
+      if (process.platform === 'linux') {
+        assert(Object.keys(ret.cpuinfo).length)
+        assert(Object.keys(ret.diskstats).length)
+        assert(ret.cpuinfo['cpu family'])
+      }
+    })
   })
 })
 
