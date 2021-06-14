@@ -64,8 +64,8 @@ export async function retrieveProcInfo(): Promise<ProcInfo> {
 
   const info: Promise<ProcInfo> = Promise.all(pms)
     .then((data) => {
-      const cpuinfo = processCpuAndMemInfo(data[0]) as ProcCpuinfo
-      const meminfo = processCpuAndMemInfo(data[1]) as ProcMeminfo
+      const cpuinfo = processInfoWithColon(data[0]) as ProcCpuinfo
+      const meminfo = processInfoWithColon(data[1]) as ProcMeminfo
       const stat = processStatInfo(data[2])
       const res = {
         cpuinfo,
@@ -78,7 +78,7 @@ export async function retrieveProcInfo(): Promise<ProcInfo> {
   return info
 }
 
-function processCpuAndMemInfo(str: string): ProcCpuinfo | ProcMeminfo {
+function processInfoWithColon(str: string): ProcCpuinfo | ProcMeminfo {
   const row = {} as ProcCpuinfo | ProcMeminfo
   if (! str.length) {
     return row
