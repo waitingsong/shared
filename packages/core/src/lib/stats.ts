@@ -1,6 +1,12 @@
 import { readFile } from 'fs/promises'
 
-import { ProcCpuinfo, ProcInfo, ProcMeminfo, ProcStat } from '@waiting/shared-types'
+import {
+  ProcCpuinfo,
+  ProcInfo,
+  ProcMeminfo,
+  ProcDiskstats,
+  ProcStat,
+} from '@waiting/shared-types'
 
 import { defaultPropDescriptor } from './consts'
 import { nFormatter } from './helper'
@@ -34,52 +40,46 @@ export function humanMemoryUsage(digits = 3, sep = ' '): HumanMemoryUsage {
 }
 
 
+export type ProcInfoItem = keyof ProcInfo
 /**
  * Retrieve info from /proc/ for linux
  */
-export async function retrieveProcInfo(): Promise<ProcInfo> {
-  const ret = {
-    cpuinfo: {},
-    meminfo: {},
-    stat: {},
-  } as ProcInfo
+export async function retrieveProcInfo(
+  items: ProcInfoItem[] = ['cpuinfo', 'meminfo', 'diskstats', 'stat'],
+): Promise<ProcInfo> {
+
+  const info = { } as ProcInfo
   if (process.platform !== 'linux') {
-    return ret
+    return info
   }
 
-  const arr: (keyof ProcInfo)[] = ['cpuinfo', 'meminfo']
-  const pms = [] as unknown as [Promise<string>, Promise<string>, Promise<string>]
-  for (const name of arr) {
+  const pms: Promise<void>[] = []
+
+  items.forEach((name) => {
     const path = `/proc/${name}`
-    const pm = readFile(path, 'utf-8').catch(() => '')
+    const pm = readFile(path, 'utf-8')
+      .catch(() => '')
+      .then((str) => {
+        const data = str.includes(':')
+          ? processInfoWithColon(str)
+          : processInfoWithSpace(str)
+        // @ts-expect-error
+        info[name] = data
+      })
     pms.push(pm)
-  }
+  })
 
-  const arr2: (keyof ProcInfo)[] = ['stat']
-  for (const name of arr2) {
-    const path = `/proc/${name}`
-    const pm = readFile(path, 'utf-8').catch(() => '')
-    pms.push(pm)
-  }
-
-  const info: Promise<ProcInfo> = Promise.all(pms)
-    .then((data) => {
-      const cpuinfo = processInfoWithColon(data[0]) as ProcCpuinfo
-      const meminfo = processInfoWithColon(data[1]) as ProcMeminfo
-      const stat = processStatInfo(data[2])
-      const res = {
-        cpuinfo,
-        meminfo,
-        stat,
-      }
-      return res
+  const ret: Promise<ProcInfo> = Promise.all(pms)
+    .then(() => {
+      return info
     })
 
-  return info
+  return ret
 }
 
-function processInfoWithColon(str: string): ProcCpuinfo | ProcMeminfo {
+function processInfoWithColon(input: string): ProcCpuinfo | ProcMeminfo {
   const row = {} as ProcCpuinfo | ProcMeminfo
+  const str = input.trim()
   if (! str.length) {
     return row
   }
@@ -96,8 +96,9 @@ function processInfoWithColon(str: string): ProcCpuinfo | ProcMeminfo {
   })
   return row
 }
-function processStatInfo(str: string): ProcStat {
+function processInfoWithSpace(input: string): ProcDiskstats | ProcStat {
   const row = {} as ProcStat
+  const str = input.trim()
   if (! str.length) {
     return row
   }
@@ -108,7 +109,7 @@ function processStatInfo(str: string): ProcStat {
       const k1 = key?.trim()
       if (! k1 || ! value.length) { return }
 
-      row[k1] = value.join(' ')
+      row[k1] = value.join(' ').trim()
     }
   })
 

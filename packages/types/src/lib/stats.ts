@@ -5,6 +5,7 @@
 export interface ProcInfo {
   cpuinfo: ProcCpuinfo
   meminfo: ProcMeminfo
+  diskstats: ProcDiskstats
   stat: ProcStat
 }
 export interface ProcCpuinfo {
@@ -58,6 +59,9 @@ export interface ProcMeminfo {
   Shmem: string
   PageTables: string
   AnonHugePages: string
+}
+export interface ProcDiskstats {
+  [key: string]: string
 }
 export interface ProcStat {
   [key: string]: string

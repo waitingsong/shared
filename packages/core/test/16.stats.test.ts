@@ -1,4 +1,6 @@
 /* eslint-disable node/no-extraneous-import */
+import { readFile } from 'fs/promises'
+
 import {
   basename,
   join,
@@ -31,11 +33,13 @@ describe(filename, () => {
 
       assert(typeof ret.cpuinfo === 'object')
       assert(typeof ret.meminfo === 'object')
+      assert(typeof ret.diskstats === 'object')
       assert(typeof ret.stat === 'object')
 
       if (process.platform === 'linux') {
         assert(Object.keys(ret.cpuinfo).length)
         assert(Object.keys(ret.meminfo).length)
+        assert(Object.keys(ret.diskstats).length)
         assert(Object.keys(ret.stat).length)
 
         assert(ret.cpuinfo['cpu family'])
