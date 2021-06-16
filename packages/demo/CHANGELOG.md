@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 13.2.0 (2021-06-16)
+
+
+### Features
+
+* **core:** add retrieveExternalNetWorkInfo() ([95e5807](https://github.com/waitingsong/npm-mono-base/commit/95e580708d381673ac2fe6ece896356118401638))
+
+
+
+
+
 # 13.1.0 (2021-06-14)
 
 
