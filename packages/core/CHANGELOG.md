@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 14.0.0 (2021-06-18)
+
+
+### Features
+
+* bump typescript, ts-node version ([1ee3fe9](https://github.com/waitingsong/shared/commit/1ee3fe9a988c3a2705e55fd7dfd6b1b6314b94e8))
+
+
+
+
+
 # 13.2.0 (2021-06-16)
 
 
