@@ -1,10 +1,9 @@
-/* eslint-disable node/no-extraneous-import */
 import {
   basename,
   join,
-} from '@waiting/shared-core'
+  snakeToCamel, snakeToPascal,
+} from '../src/index'
 
-import { snakeToCamel, snakeToPascal } from '../src/index'
 
 // eslint-disable-next-line import/order
 import assert = require('power-assert')

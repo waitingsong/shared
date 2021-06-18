@@ -1,9 +1,3 @@
-/* eslint-disable node/no-extraneous-import */
-import {
-  basename,
-  join,
-} from '@waiting/shared-core'
-
 import { Invert } from '../../src/index'
 
 import {
@@ -19,7 +13,7 @@ import {
 import assert = require('power-assert')
 
 
-const filename = basename(__filename)
+const filename = '10.FormatIntersect.test.ts'
 
 describe(filename, () => {
 

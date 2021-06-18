@@ -1,19 +1,10 @@
-/* eslint-disable node/no-extraneous-import */
-import {
-  basename,
-  join,
-} from '@waiting/shared-core'
-
 import { Equals, SnakeToCamel, SnakeToPascal } from '../src/index'
 
 // eslint-disable-next-line import/order
 import assert = require('power-assert')
 
 
-
-const filename = basename(__filename)
-
-describe(filename, () => {
+describe('13.template-literal.test.ts', () => {
 
   describe('should SnakeToCamel work', () => {
     it('normal', () => {

@@ -1,16 +1,10 @@
-/* eslint-disable node/no-extraneous-import */
-import {
-  basename,
-  join,
-} from '@waiting/shared-core'
-
 import { Equals, ValuesOf } from '../../src/index'
 
 // eslint-disable-next-line import/order
 import assert = require('power-assert')
 
 
-const filename = basename(__filename)
+const filename = '10.ValuesOf.test.ts'
 
 interface User1 {
   uid: bigint
@@ -31,29 +25,18 @@ interface User4 extends User2 {
 }
 
 class CUser1 {
-
   uid: bigint
-
   age: number
-
   gender: number
-
   name: string
-
   ctime: Date
-
   mtime: Date | null
-
 }
 class CUser2 extends CUser1 {
-
   addr: unknown
-
 }
 class CUser3 extends CUser2 {
-
   json: any
-
 }
 
 describe(filename, () => {

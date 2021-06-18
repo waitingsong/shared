@@ -1,16 +1,10 @@
-/* eslint-disable node/no-extraneous-import */
-import {
-  basename,
-  join,
-} from '@waiting/shared-core'
-
 import { Equals, KnownKeys } from '../../src/index'
 
 // eslint-disable-next-line import/order
 import assert = require('power-assert')
 
 
-const filename = basename(__filename)
+const filename = '10.KnownKeys.test.ts'
 
 interface User1 {
   uid: bigint
@@ -24,44 +18,48 @@ interface User2 extends User1 {
   addr: unknown
   [k: string]: unknown
 }
+interface User2WoSign extends User1 {
+  addr: unknown
+}
 interface User3 extends User2 {
+  json: any
+}
+interface User3WoSign extends User2WoSign {
   json: any
 }
 interface User4 extends User3 {
   neverKey: never
 }
+interface User4WoSign extends User3WoSign {
+  neverKey: never
+}
 
 class CUser1 {
-
   uid: bigint
-
   age: number
-
   gender: number
-
   name: string
-
   ctime: Date
-
   mtime: Date | null
-
 }
 class CUser2 extends CUser1 {
-
   addr: unknown;
-
   [k: string]: unknown
-
+}
+class CUser2WoSign extends CUser1 {
+  addr: unknown
 }
 class CUser3 extends CUser2 {
-
   json: any
-
+}
+class CUser3WoSign extends CUser2WoSign {
+  json: any
 }
 class CUser4 extends CUser3 {
-
   neverKey: never
-
+}
+class CUser4WoSign extends CUser3WoSign {
+  neverKey: never
 }
 
 describe(filename, () => {
@@ -73,15 +71,24 @@ describe(filename, () => {
 
       type T2 = KnownKeys<CUser2>
       type Expect2 = Expect | 'addr'
-      const t2: Equals<T2, Expect2> = true
+      const t2: Equals<T2, Expect2> = false
+
+      type T2ws = KnownKeys<CUser2WoSign>
+      const t2ws: Equals<T2ws, Expect2> = true
 
       type T3 = KnownKeys<CUser3>
       type Expect3 = Expect2 | 'json'
-      const t3: Equals<T3, Expect3> = true
+      const t3: Equals<T3, Expect3> = false
+
+      type T3ws = KnownKeys<CUser3WoSign>
+      const t3ws: Equals<T3ws, Expect3> = true
 
       type T4 = KnownKeys<CUser4>
       type Expect4 = Expect3 | 'neverKey'
-      const t4: Equals<T4, Expect4> = true
+      const t4: Equals<T4, Expect4> = false
+
+      type T4ws = KnownKeys<CUser4WoSign>
+      const t4ws: Equals<T4ws, Expect4> = true
     })
   })
 
@@ -94,15 +101,24 @@ describe(filename, () => {
 
       type T2 = KnownKeys<User2>
       type Expect2 = Expect | 'addr'
-      const t2: Equals<T2, Expect2> = true
+      const t2: Equals<T2, Expect2> = false
+
+      type T2ws = KnownKeys<User2WoSign>
+      const t2ws: Equals<T2ws, Expect2> = true
 
       type T3 = KnownKeys<User3>
       type Expect3 = Expect2 | 'json'
-      const t3: Equals<T3, Expect3> = true
+      const t3: Equals<T3, Expect3> = false
+
+      type T3ws = KnownKeys<User3WoSign>
+      const t3ws: Equals<T3ws, Expect3> = true
 
       type T4 = KnownKeys<User4>
       type Expect4 = Expect3 | 'neverKey'
-      const t4: Equals<T4, Expect4> = true
+      const t4: Equals<T4, Expect4> = false
+
+      type T4ws = KnownKeys<User4WoSign>
+      const t4ws: Equals<T4ws, Expect4> = true
     })
   })
 

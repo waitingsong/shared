@@ -1,9 +1,3 @@
-/* eslint-disable node/no-extraneous-import */
-import {
-  basename,
-  join,
-} from '@waiting/shared-core'
-
 import {
   DateISOString,
   ISO8601String,
@@ -13,9 +7,7 @@ import {
 import assert = require('power-assert')
 
 
-const filename = basename(__filename)
-
-describe(filename, () => {
+describe('11.alias.test.ts', () => {
 
   describe('should DateISOString work', () => {
     it('normal', () => {

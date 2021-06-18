@@ -1,9 +1,3 @@
-/* eslint-disable node/no-extraneous-import */
-import {
-  basename,
-  join,
-} from '@waiting/shared-core'
-
 import {
   Awaited,
   Equals,
@@ -16,9 +10,7 @@ import {
 import assert = require('power-assert')
 
 
-const filename = basename(__filename)
-
-describe(filename, () => {
+describe('12.data.test.ts', () => {
 
   describe('should JsonType work with valid value', () => {
     it('string', () => {

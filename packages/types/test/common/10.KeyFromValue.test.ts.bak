@@ -1,9 +1,3 @@
-/* eslint-disable node/no-extraneous-import */
-import {
-  basename,
-  join,
-} from '@waiting/shared-core'
-
 import { Equals, KeyFromValue } from '../../src/index'
 
 import {
@@ -18,7 +12,7 @@ import {
 import assert = require('power-assert')
 
 
-const filename = basename(__filename)
+const filename = '10.KeyFromValue.test.ts'
 
 interface User1 {
   uid: bigint
@@ -32,7 +26,13 @@ interface User2 extends User1 {
   addr: unknown
   [k: string]: unknown
 }
+interface User2WoSign extends User1 {
+  addr: unknown
+}
 interface User3 extends User2 {
+  json: any
+}
+interface User3WoSign extends User2WoSign {
   json: any
 }
 interface User4 extends User2 {
@@ -40,31 +40,25 @@ interface User4 extends User2 {
 }
 
 class CUser1 {
-
   uid: bigint
-
   age: number
-
   gender: number
-
   name: string
-
   ctime: Date
-
   mtime: Date | null
-
 }
 class CUser2 extends CUser1 {
-
   addr: unknown;
-
   [k: string]: unknown
-
+}
+class CUser2WoSign extends CUser1 {
+  addr: unknown
 }
 class CUser3 extends CUser2 {
-
   json: any
-
+}
+class CUser3WoSign extends CUser2WoSign {
+  json: any
 }
 
 describe(filename, () => {
@@ -76,11 +70,17 @@ describe(filename, () => {
 
       type T2 = KeyFromValue<CUser2, bigint>
       type Expect2 = 'uid' | 'addr'
-      const t2: Equals<T2, Expect2> = true
+      const t2: Equals<T2, Expect2> = false
+
+      type T2ws = KeyFromValue<CUser2WoSign, bigint>
+      const t2ws: Equals<T2ws, Expect2> = true
 
       type T3 = KeyFromValue<CUser3, bigint>
       type Expect3 = 'uid' | 'addr' | 'json'
-      const t3: Equals<T3, Expect3> = true
+      const t3: Equals<T3, Expect3> = false
+
+      type T3ws = KeyFromValue<CUser3WoSign, bigint>
+      const t3ws: Equals<T3ws, Expect3> = true
     })
     it('type number', () => {
       type T1 = KeyFromValue<CUser1, number>
@@ -89,11 +89,17 @@ describe(filename, () => {
 
       type T2 = KeyFromValue<CUser2, number>
       type Expect2 = 'age' | 'gender' | 'addr'
-      const t2: Equals<T2, Expect2> = true
+      const t2: Equals<T2, Expect2> = false
+
+      type T2ws = KeyFromValue<CUser2WoSign, number>
+      const t2ws: Equals<T2ws, Expect2> = true
 
       type T3 = KeyFromValue<User3, number>
       type Expect3 = 'age' | 'gender' | 'addr' | 'json'
-      const t3: Equals<T3, Expect3> = true
+      const t3: Equals<T3, Expect3> = false
+
+      type T3ws = KeyFromValue<User3WoSign, number>
+      const t3ws: Equals<T3ws, Expect3> = true
     })
     it('type string', () => {
       type T1 = KeyFromValue<CUser1, string>
@@ -102,11 +108,17 @@ describe(filename, () => {
 
       type T2 = KeyFromValue<CUser2, string>
       type Expect2 = 'name' | 'addr'
-      const t2: Equals<T2, Expect2> = true
+      const t2: Equals<T2, Expect2> = false
+
+      type T2ws = KeyFromValue<CUser2WoSign, string>
+      const t2ws: Equals<T2ws, Expect2> = true
 
       type T3 = KeyFromValue<CUser3, string>
       type Expect3 = 'name' | 'addr' | 'json'
-      const t3: Equals<T3, Expect3> = true
+      const t3: Equals<T3, Expect3> = false
+
+      type T3ws = KeyFromValue<CUser3WoSign, string>
+      const t3ws: Equals<T3ws, Expect3> = true
     })
     it('type Date', () => {
       type T1 = KeyFromValue<CUser1, Date>
@@ -115,11 +127,17 @@ describe(filename, () => {
 
       type T2 = KeyFromValue<CUser2, Date>
       type Expect2 = 'mtime' | 'ctime' | 'addr'
-      const t2: Equals<T2, Expect2> = true
+      const t2: Equals<T2, Expect2> = false
+
+      type T2ws = KeyFromValue<CUser2WoSign, Date>
+      const t2ws: Equals<T2ws, Expect2> = true
 
       type T3 = KeyFromValue<CUser3, Date>
       type Expect3 = 'mtime' | 'ctime' | 'addr' | 'json'
-      const t3: Equals<T3, Expect3> = true
+      const t3: Equals<T3, Expect3> = false
+
+      type T3ws = KeyFromValue<CUser3WoSign, Date>
+      const t3ws: Equals<T3ws, Expect3> = true
     })
     it('type null', () => {
       type T1 = KeyFromValue<CUser1, null>
@@ -128,11 +146,17 @@ describe(filename, () => {
 
       type T2 = KeyFromValue<CUser2, null>
       type Expect2 = 'mtime' | 'addr'
-      const t2: Equals<T2, Expect2> = true
+      const t2: Equals<T2, Expect2> = false
+
+      type T2ws = KeyFromValue<CUser2WoSign, null>
+      const t2ws: Equals<T2ws, Expect2> = true
 
       type T3 = KeyFromValue<CUser3, null>
       type Expect3 = 'mtime' | 'addr' | 'json'
-      const t3: Equals<T3, Expect3> = true
+      const t3: Equals<T3, Expect3> = false
+
+      type T3ws = KeyFromValue<CUser3WoSign, null>
+      const t3ws: Equals<T3ws, Expect3> = true
     })
     it('type undefined', () => {
       type T1 = KeyFromValue<CUser1, undefined>
@@ -141,11 +165,17 @@ describe(filename, () => {
 
       type T2 = KeyFromValue<CUser2, undefined>
       type Expect2 = 'addr'
-      const t2: Equals<T2, Expect2> = true
+      const t2: Equals<T2, Expect2> = false
+
+      type T2ws = KeyFromValue<CUser2WoSign, undefined>
+      const t2ws: Equals<T2ws, Expect2> = true
 
       type T3 = KeyFromValue<User3, undefined>
       type Expect3 = 'addr' | 'json'
-      const t3: Equals<T3, Expect3> = true
+      const t3: Equals<T3, Expect3> = false
+
+      type T3ws = KeyFromValue<User3WoSign, undefined>
+      const t3ws: Equals<T3ws, Expect3> = true
     })
     it('type unknown', () => {
       type T1 = KeyFromValue<CUser1, unknown>
@@ -154,11 +184,17 @@ describe(filename, () => {
 
       type T2 = KeyFromValue<CUser2, unknown>
       type Expect2 = 'addr'
-      const t2: Equals<T2, Expect2> = true
+      const t2: Equals<T2, Expect2> = false
+
+      type T2ws = KeyFromValue<CUser2WoSign, unknown>
+      const t2ws: Equals<T2ws, Expect2> = true
 
       type T3 = KeyFromValue<CUser3, unknown>
       type Expect3 = 'addr' | 'json'
-      const t3: Equals<T3, Expect3> = true
+      const t3: Equals<T3, Expect3> = false
+
+      type T3ws = KeyFromValue<CUser3WoSign, unknown>
+      const t3ws: Equals<T3ws, Expect3> = true
     })
 
 
@@ -169,11 +205,17 @@ describe(filename, () => {
 
       type T2 = KeyFromValue<CUser2, Date | null>
       type Expect2 = 'mtime' | 'ctime' | 'addr'
-      const t2: Equals<T2, Expect2> = true
+      const t2: Equals<T2, Expect2> = false
+
+      type T2ws = KeyFromValue<CUser2WoSign, Date | null>
+      const t2ws: Equals<T2ws, Expect2> = true
 
       type T3 = KeyFromValue<CUser3, Date | null>
       type Expect3 = 'mtime' | 'ctime' | 'addr' | 'json'
-      const t3: Equals<T3, Expect3> = true
+      const t3: Equals<T3, Expect3> = false
+
+      type T3ws = KeyFromValue<CUser3WoSign, Date | null>
+      const t3ws: Equals<T3ws, Expect3> = true
     })
 
     it('type Date | string', () => {
@@ -183,11 +225,17 @@ describe(filename, () => {
 
       type T2 = KeyFromValue<CUser2, Date | string>
       type Expect2 = 'mtime' | 'ctime' | 'addr' | 'name'
-      const t2: Equals<T2, Expect2> = true
+      const t2: Equals<T2, Expect2> = false
+
+      type T2ws = KeyFromValue<CUser2WoSign, Date | string>
+      const t2ws: Equals<T2ws, Expect2> = true
 
       type T3 = KeyFromValue<CUser3, Date | string>
       type Expect3 = 'mtime' | 'ctime' | 'addr' | 'json' | 'name'
-      const t3: Equals<T3, Expect3> = true
+      const t3: Equals<T3, Expect3> = false
+
+      type T3ws = KeyFromValue<CUser3WoSign, Date | string>
+      const t3ws: Equals<T3ws, Expect3> = true
     })
     it('type never', () => {
       type T1 = KeyFromValue<CUser1, never>
@@ -214,11 +262,17 @@ describe(filename, () => {
 
       type T2 = KeyFromValue<User2, bigint>
       type Expect2 = 'uid' | 'addr'
-      const t2: Equals<T2, Expect2> = true
+      const t2: Equals<T2, Expect2> = false
+
+      type T2ws = KeyFromValue<User2WoSign, bigint>
+      const t2ws: Equals<T2ws, Expect2> = true
 
       type T3 = KeyFromValue<User3, bigint>
       type Expect3 = 'uid' | 'addr' | 'json'
-      const t3: Equals<T3, Expect3> = true
+      const t3: Equals<T3, Expect3> = false
+
+      type T3ws = KeyFromValue<User3WoSign, bigint>
+      const t3ws: Equals<T3ws, Expect3> = true
     })
     it('type number', () => {
       type T1 = KeyFromValue<User1, number>
@@ -227,11 +281,17 @@ describe(filename, () => {
 
       type T2 = KeyFromValue<User2, number>
       type Expect2 = 'age' | 'gender' | 'addr'
-      const t2: Equals<T2, Expect2> = true
+      const t2: Equals<T2, Expect2> = false
+
+      type T2ws = KeyFromValue<User2WoSign, number>
+      const t2ws: Equals<T2ws, Expect2> = true
 
       type T3 = KeyFromValue<User3, number>
       type Expect3 = 'age' | 'gender' | 'addr' | 'json'
-      const t3: Equals<T3, Expect3> = true
+      const t3: Equals<T3, Expect3> = false
+
+      type T3ws = KeyFromValue<User3WoSign, number>
+      const t3ws: Equals<T3ws, Expect3> = true
     })
     it('type string', () => {
       type T1 = KeyFromValue<User1, string>
@@ -240,11 +300,17 @@ describe(filename, () => {
 
       type T2 = KeyFromValue<User2, string>
       type Expect2 = 'name' | 'addr'
-      const t2: Equals<T2, Expect2> = true
+      const t2: Equals<T2, Expect2> = false
+
+      type T2ws = KeyFromValue<User2WoSign, string>
+      const t2ws: Equals<T2ws, Expect2> = true
 
       type T3 = KeyFromValue<User3, string>
       type Expect3 = 'name' | 'addr' | 'json'
-      const t3: Equals<T3, Expect3> = true
+      const t3: Equals<T3, Expect3> = false
+
+      type T3ws = KeyFromValue<User3WoSign, string>
+      const t3ws: Equals<T3ws, Expect3> = true
     })
     it('type Date', () => {
       type T1 = KeyFromValue<User1, Date>
@@ -253,11 +319,17 @@ describe(filename, () => {
 
       type T2 = KeyFromValue<User2, Date>
       type Expect2 = 'mtime' | 'ctime' | 'addr'
-      const t2: Equals<T2, Expect2> = true
+      const t2: Equals<T2, Expect2> = false
+
+      type T2ws = KeyFromValue<User2WoSign, Date>
+      const t2ws: Equals<T2ws, Expect2> = true
 
       type T3 = KeyFromValue<User3, Date>
       type Expect3 = 'mtime' | 'ctime' | 'addr' | 'json'
-      const t3: Equals<T3, Expect3> = true
+      const t3: Equals<T3, Expect3> = false
+
+      type T3ws = KeyFromValue<User3WoSign, Date>
+      const t3ws: Equals<T3ws, Expect3> = true
     })
     it('type null', () => {
       type T1 = KeyFromValue<User1, null>
@@ -266,11 +338,17 @@ describe(filename, () => {
 
       type T2 = KeyFromValue<User2, null>
       type Expect2 = 'mtime' | 'addr'
-      const t2: Equals<T2, Expect2> = true
+      const t2: Equals<T2, Expect2> = false
+
+      type T2ws = KeyFromValue<User2WoSign, null>
+      const t2ws: Equals<T2ws, Expect2> = true
 
       type T3 = KeyFromValue<User3, null>
       type Expect3 = 'mtime' | 'addr' | 'json'
-      const t3: Equals<T3, Expect3> = true
+      const t3: Equals<T3, Expect3> = false
+
+      type T3ws = KeyFromValue<User3WoSign, null>
+      const t3ws: Equals<T3ws, Expect3> = true
     })
     it('type undefined', () => {
       type T1 = KeyFromValue<User1, undefined>
@@ -279,11 +357,17 @@ describe(filename, () => {
 
       type T2 = KeyFromValue<User2, undefined>
       type Expect2 = 'addr'
-      const t2: Equals<T2, Expect2> = true
+      const t2: Equals<T2, Expect2> = false
+
+      type T2ws = KeyFromValue<User2WoSign, undefined>
+      const t2ws: Equals<T2ws, Expect2> = true
 
       type T3 = KeyFromValue<User3, undefined>
       type Expect3 = 'addr' | 'json'
-      const t3: Equals<T3, Expect3> = true
+      const t3: Equals<T3, Expect3> = false
+
+      type T3ws = KeyFromValue<User3WoSign, undefined>
+      const t3ws: Equals<T3ws, Expect3> = true
     })
     it('type unknown', () => {
       type T1 = KeyFromValue<User1, unknown>
@@ -292,11 +376,17 @@ describe(filename, () => {
 
       type T2 = KeyFromValue<User2, unknown>
       type Expect2 = 'addr'
-      const t2: Equals<T2, Expect2> = true
+      const t2: Equals<T2, Expect2> = false
+
+      type T2ws = KeyFromValue<User2WoSign, unknown>
+      const t2ws: Equals<T2ws, Expect2> = true
 
       type T3 = KeyFromValue<User3, unknown>
       type Expect3 = 'addr' | 'json'
-      const t3: Equals<T3, Expect3> = true
+      const t3: Equals<T3, Expect3> = false
+
+      type T3ws = KeyFromValue<User3WoSign, unknown>
+      const t3ws: Equals<T3ws, Expect3> = true
     })
     it('type never', () => {
       type T1 = KeyFromValue<User1, never>
@@ -320,11 +410,17 @@ describe(filename, () => {
 
       type T2 = KeyFromValue<User2, Date | null>
       type Expect2 = 'mtime' | 'ctime' | 'addr'
-      const t2: Equals<T2, Expect2> = true
+      const t2: Equals<T2, Expect2> = false
+
+      type T2ws = KeyFromValue<User2WoSign, Date | null>
+      const t2ws: Equals<T2ws, Expect2> = true
 
       type T3 = KeyFromValue<User3, Date | null>
       type Expect3 = 'mtime' | 'ctime' | 'addr' | 'json'
-      const t3: Equals<T3, Expect3> = true
+      const t3: Equals<T3, Expect3> = false
+
+      type T3ws = KeyFromValue<User3WoSign, Date | null>
+      const t3ws: Equals<T3ws, Expect3> = true
     })
 
     it('type Date | string', () => {
@@ -334,11 +430,17 @@ describe(filename, () => {
 
       type T2 = KeyFromValue<User2, Date | string>
       type Expect2 = 'mtime' | 'ctime' | 'addr' | 'name'
-      const t2: Equals<T2, Expect2> = true
+      const t2: Equals<T2, Expect2> = false
+
+      type T2ws = KeyFromValue<User2WoSign, Date | string>
+      const t2ws: Equals<T2ws, Expect2> = true
 
       type T3 = KeyFromValue<User3, Date | string>
       type Expect3 = 'mtime' | 'ctime' | 'addr' | 'json' | 'name'
-      const t3: Equals<T3, Expect3> = true
+      const t3: Equals<T3, Expect3> = false
+
+      type T3ws = KeyFromValue<User3WoSign, Date | string>
+      const t3ws: Equals<T3ws, Expect3> = true
     })
 
 

@@ -1,18 +1,10 @@
-/* eslint-disable node/no-extraneous-import */
-import {
-  basename,
-  join,
-} from '@waiting/shared-core'
-
 import { Equals } from '../../src/index'
 
 // eslint-disable-next-line import/order
 import assert = require('power-assert')
 
 
-const filename = basename(__filename)
-
-describe(filename, () => {
+describe('10.Equals.test.ts', () => {
 
   describe('should Equals return true', () => {
     it('true:true', () => {

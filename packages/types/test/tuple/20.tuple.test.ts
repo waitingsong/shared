@@ -1,9 +1,3 @@
-/* eslint-disable node/no-extraneous-import */
-import {
-  basename,
-  join,
-} from '@waiting/shared-core'
-
 import {
   Equals,
   TupleHead,
@@ -18,7 +12,7 @@ import {
 } from '../../src/index'
 
 
-const filename = basename(__filename)
+const filename = '20.tuple.test.ts'
 
 describe(filename, () => {
 

@@ -1,9 +1,3 @@
-/* eslint-disable node/no-extraneous-import */
-import {
-  basename,
-  join,
-} from '@waiting/shared-core'
-
 import {
   Equals,
   TupleHead,
@@ -22,9 +16,7 @@ import {
 import assert = require('power-assert')
 
 
-const filename = basename(__filename)
-
-describe(filename, () => {
+describe('10.tuple.test.ts', () => {
 
   describe('should TupleHead work', () => {
     it('normal', () => {

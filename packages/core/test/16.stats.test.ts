@@ -1,12 +1,6 @@
-/* eslint-disable node/no-extraneous-import */
-import { readFile } from 'fs/promises'
-
 import {
   basename,
   join,
-} from '@waiting/shared-core'
-
-import {
   humanMemoryUsage,
   retrieveProcInfo,
 } from '../src/index'
@@ -31,12 +25,12 @@ describe(filename, () => {
     it('normal', async () => {
       const ret = await retrieveProcInfo()
 
-      assert(typeof ret.cpuinfo === 'object')
-      assert(typeof ret.meminfo === 'object')
-      assert(typeof ret.diskstats === 'object')
-      assert(typeof ret.stat === 'object')
-
       if (process.platform === 'linux') {
+        assert(typeof ret.cpuinfo === 'object')
+        assert(typeof ret.meminfo === 'object')
+        assert(typeof ret.diskstats === 'object')
+        assert(typeof ret.stat === 'object')
+
         assert(Object.keys(ret.cpuinfo).length)
         assert(Object.keys(ret.meminfo).length)
         assert(Object.keys(ret.diskstats).length)

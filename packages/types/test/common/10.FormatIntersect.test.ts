@@ -1,9 +1,3 @@
-/* eslint-disable node/no-extraneous-import */
-import {
-  basename,
-  join,
-} from '@waiting/shared-core'
-
 import { FormatIntersect, Equals, EqualsExt } from '../../src/index'
 
 import { AliasRecord } from './test-model'
@@ -12,9 +6,7 @@ import { AliasRecord } from './test-model'
 import assert = require('power-assert')
 
 
-const filename = basename(__filename)
-
-describe(filename, () => {
+describe('10.FormatIntersect.test.ts', () => {
 
   describe('should FormatIntersect work', () => {
     it('normal', () => {

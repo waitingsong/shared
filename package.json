@@ -20,16 +20,15 @@
     "eslint": "7",
     "espower-typescript": "10",
     "intelli-espower-loader": "1",
-    "mocha": "8",
+    "mocha": "9",
     "mocha-lcov-reporter": "1",
     "power-assert": "1",
     "rewire": "5",
     "rimraf": "3",
     "rollup-plugin-terser": "7",
     "rxjs": "7",
-    "rxrunscript": "6",
     "ts-node": "10",
-    "typescript": "~4.2.0",
+    "typescript": "4",
     "yargs": "17"
   },
   "engines": {

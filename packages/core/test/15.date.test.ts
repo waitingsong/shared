@@ -1,10 +1,9 @@
-/* eslint-disable node/no-extraneous-import */
 import {
   basename,
   join,
-} from '@waiting/shared-core'
+  genISO8601String,
+} from '../src/index'
 
-import { genISO8601String } from '../src/index'
 
 // eslint-disable-next-line import/order
 import assert = require('power-assert')
