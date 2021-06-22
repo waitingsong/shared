@@ -13,12 +13,8 @@ import { SnakeToCamel, SnakeToPascal } from '@waiting/shared-types'
  * @see SnakeToCamel of @waiting/shared-types
  */
 export function snakeToCamel<T extends string = string>(input: T): SnakeToCamel<T> {
-  const line = input.replace(/-/gu, '_')
-  const ret = line.replace(/_./gu, (match) => {
-    const str = match.toUpperCase()
-    return str.slice(1)
-  })
-  return ret as SnakeToCamel<T>
+  return input.replace(/-/ug, '_')
+    .replace(/_./ug, match => match.toUpperCase().slice(1)) as SnakeToCamel<T>
 }
 
 
