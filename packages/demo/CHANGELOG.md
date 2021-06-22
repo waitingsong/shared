@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 14.2.0 (2021-06-22)
+
+
+### Features
+
+* **types:** add RecusiveCamelKeys, RecusiveParscalKeys ([4cccf14](https://github.com/waitingsong/npm-mono-base/commit/4cccf14e735d7bea6e4f1d61244948282e8cf284))
+
+
+
+
+
 ## 14.1.1 (2021-06-22)
 
 
