@@ -3,7 +3,13 @@ import { SnakeToCamel, SnakeToPascal } from '@waiting/shared-types'
 
 
 /**
- * Convert 'tb_user-detail' to tbUserDetail
+ * Convert snake to camelcase
+ *
+ * @example
+ * - 'tb_user_detail' to 'tbUserDetail'
+ * - 'tb_user-detail' to 'tbUserDetail'
+ * - 'tb_user_2_good' to 'tbUser2Good'
+ * - 'tb_user_2good' to 'tbUser2good'
  * @see SnakeToCamel of @waiting/shared-types
  */
 export function snakeToCamel<T extends string = string>(input: T): SnakeToCamel<T> {
@@ -17,7 +23,12 @@ export function snakeToCamel<T extends string = string>(input: T): SnakeToCamel<
 
 
 /**
- * Convert 'tb_user-detail' to TbUserDetail
+ * Convert snake to pascal case
+ * @example
+ * - 'tb_user_detail' to 'TbUserDetail'
+ * - 'tb_user-detail' to 'TbUserDetail'
+ * - 'tb_user_2_good' to 'TbUser2Good'
+ * - 'tb_user_2good' to 'TbUser2good'
  * @see SnakeToPascal of @waiting/shared-types
  */
 export function snakeToPascal<T extends string = string>(input: T): SnakeToPascal<T> {
@@ -26,4 +37,3 @@ export function snakeToPascal<T extends string = string>(input: T): SnakeToPasca
   const p2 = line.slice(1)
   return `${p1}${p2}` as SnakeToPascal<T>
 }
-
