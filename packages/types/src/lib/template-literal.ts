@@ -35,3 +35,14 @@ type FormatCamelCase<T extends unknown[]> =
 export type SnakeToCamel<T extends string, D extends string = '_' | '-'> = TupleJoin<FormatCamelCase<StrSplit<T, D>>, ''>
 export type SnakeToPascal<T extends string, D extends string = '_' | '-'> = TupleJoin<FormatCapitalize<StrSplit<T, D>>, ''>
 
+export type RecusiveCamelKeys<T> = {
+  [K in keyof T as `${SnakeToCamel<K & string>}`]: T[K] extends Record<string, unknown>
+    ? RecusiveCamelKeys<T[K]>
+    : T[K]
+}
+export type RecusiveParscalKeys<T> = {
+  [K in keyof T as `${SnakeToPascal<K & string>}`]: T[K] extends Record<string, unknown>
+    ? RecusiveParscalKeys<T[K]>
+    : T[K]
+}
+
