@@ -62,6 +62,20 @@ describe(filename, () => {
       const ExpectType = 'tbUser2good'
       assert(T1 === ExpectType)
     })
+
+    it('number first 1', () => {
+      const Foo = '3_tb_user_2good'
+      const T1 = snakeToCamel(Foo)
+      const ExpectType = '3TbUser2good'
+      assert(T1 === ExpectType)
+    })
+
+    it('number first 2', () => {
+      const Foo = '3tb_user_2good'
+      const T1 = snakeToCamel(Foo)
+      const ExpectType = '3tbUser2good'
+      assert(T1 === ExpectType)
+    })
   })
 
   describe('should SnakeToPascal work', () => {
@@ -110,6 +124,20 @@ describe(filename, () => {
       const Foo = 'tb_user_2good'
       const T1 = snakeToPascal(Foo)
       const ExpectType = 'TbUser2good'
+      assert(T1 === ExpectType)
+    })
+
+    it('number first 1', () => {
+      const Foo = '3_tb_user_2good'
+      const T1 = snakeToPascal(Foo)
+      const ExpectType = '3TbUser2good'
+      assert(T1 === ExpectType)
+    })
+
+    it('number first 2', () => {
+      const Foo = '3tb_user_2good'
+      const T1 = snakeToPascal(Foo)
+      const ExpectType = '3tbUser2good'
       assert(T1 === ExpectType)
     })
   })
