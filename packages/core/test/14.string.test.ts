@@ -1,6 +1,7 @@
 import {
   basename,
   join,
+  camelToSnakeCase,
   snakeToCamel, snakeToPascal,
 } from '../src/index'
 
@@ -113,5 +114,68 @@ describe(filename, () => {
     })
   })
 
+  describe('should camelToSnakeCase work', () => {
+    it('normal', () => {
+      const Foo = 'tbUser'
+      const T1 = camelToSnakeCase(Foo)
+      const ExpectType = 'tb_user'
+      assert(T1 === ExpectType)
+    })
+
+    it('two', () => {
+      const Foo = 'tbUserTwo'
+      const T1 = camelToSnakeCase(Foo)
+      const ExpectType = 'tb_user_two'
+      assert(T1 === ExpectType)
+    })
+
+    it('three', () => {
+      const Foo = 'tbUserTwoThree'
+      const T1 = camelToSnakeCase(Foo)
+      const ExpectType = 'tb_user_two_three'
+      assert(T1 === ExpectType)
+    })
+
+    it('non standard snake', () => {
+      const Foo = 'tbUserTWoThreE'
+      const T1 = camelToSnakeCase(Foo)
+      const ExpectType = 'tb_user_t_wo_thre_e'
+      assert(T1 === ExpectType)
+    })
+
+    it('minus', () => {
+      const Foo = 'tbUserTWoThreE'
+      const T1 = camelToSnakeCase(Foo)
+      const ExpectType = 'tb_user_t_wo_thre_e'
+      assert(T1 === ExpectType)
+    })
+
+    it('number', () => {
+      const Foo = 'tbUser2Good'
+      const T1 = camelToSnakeCase(Foo)
+      const ExpectType = 'tb_user_2_good'
+      assert(T1 === ExpectType)
+    })
+    it('number follow', () => {
+      const Foo = 'tbUser2good'
+      const T1 = camelToSnakeCase(Foo)
+      const ExpectType = 'tb_user_2good'
+      assert(T1 === ExpectType)
+    })
+
+    it('number first 1', () => {
+      const Foo = '3TbUser2good'
+      const T1 = camelToSnakeCase(Foo)
+      const ExpectType = '3_tb_user_2good'
+      assert(T1 === ExpectType)
+    })
+
+    it('number first 2', () => {
+      const Foo = '3tbUser2good'
+      const T1 = camelToSnakeCase(Foo)
+      const ExpectType = '3tb_user_2good'
+      assert(T1 === ExpectType)
+    })
+  })
 })
 
