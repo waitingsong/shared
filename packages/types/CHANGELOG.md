@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 14.1.1 (2021-06-22)
+
+
+### Performance Improvements
+
+* **core:** snakeToCamel() ([9edaf3c](https://github.com/waitingsong/shared/commit/9edaf3c16448ea98f96b59983a97e553d1679c53))
+
+
+
+
+
 # 14.1.0 (2021-06-22)
 
 
