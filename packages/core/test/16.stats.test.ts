@@ -45,9 +45,8 @@ describe(filename, () => {
     it('cpuinfo', async () => {
       const ret = await retrieveProcInfo(['cpuinfo'])
 
-      assert(typeof ret.cpuinfo === 'object')
-
       if (process.platform === 'linux') {
+        assert(typeof ret.cpuinfo === 'object')
         assert(Object.keys(ret.cpuinfo).length)
         assert(ret.cpuinfo['cpu family'])
       }
@@ -56,9 +55,8 @@ describe(filename, () => {
     it('cpuinfo and diskstats', async () => {
       const ret = await retrieveProcInfo(['cpuinfo', 'diskstats'])
 
-      assert(typeof ret.cpuinfo === 'object')
-
       if (process.platform === 'linux') {
+        assert(typeof ret.cpuinfo === 'object')
         assert(Object.keys(ret.cpuinfo).length)
         assert(Object.keys(ret.diskstats).length)
         assert(ret.cpuinfo['cpu family'])
