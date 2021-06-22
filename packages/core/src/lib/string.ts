@@ -37,3 +37,22 @@ export function snakeToPascal<T extends string = string>(input: T): SnakeToPasca
   const p2 = line.slice(1)
   return `${p1}${p2}` as SnakeToPascal<T>
 }
+
+
+/**
+ * Convert camelcase to snakecase
+ *
+ * @example
+ * - 'tbUserDetail' to 'tb_user_detail'
+ * - 'tbUserDetail' to 'tb_user-detail'
+ * - `tbUserDetail` to 'tb_user-detail'
+ * - `tbUser2Good` to 'tb_user_2_good'
+ * - `tbUser2good` to 'tb_user_2good'
+ * - `3TbUser2good` to '3_Tb_user_2good'
+ * - `3tbUser2good` to '3tb_user_2good'
+ */
+export function camelToSnakeCase<T extends string = string, Target extends string = string>(input: T): Target {
+  return input.replace(/[A-Z]/ug, match => `_${match.toLowerCase()}`)
+    .replace(/(?<=\w)\d+/ug, match => `_${match}`) as Target
+}
+
