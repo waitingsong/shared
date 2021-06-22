@@ -52,3 +52,27 @@ export function camelToSnakeCase<T extends string = string, Target extends strin
     .replace(/(?<=\w)\d+/ug, match => `_${match}`) as Target
 }
 
+export function camelCaseKeys<T extends Record<string, unknown>>(
+  input: T,
+): Record<SnakeToCamel<keyof T & string>, unknown> {
+
+  if (! isObject(input)) {
+    throw new TypeError('input is not valid object')
+  }
+  const ret = {} as Record<SnakeToCamel<keyof T & string>, unknown>
+  // return Object.keys(input).map(key => camelCaseConvert(input[key], options));
+  Object.entries(input).map(([key, value]) => {
+    const k1 = snakeToCamel(key) as SnakeToCamel<keyof T & string>
+    ret[k1] = value
+  })
+  return ret
+}
+
+
+function isObject(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object'
+    && value !== null
+    && ! (value instanceof RegExp)
+    && ! (value instanceof Error)
+    && ! (value instanceof Date)
+}
