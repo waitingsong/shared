@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 14.3.0 (2021-06-24)
+
+
+### Features
+
+* **core:** export functions ([e17a67d](https://github.com/waitingsong/shared/commit/e17a67d11d6c8c25a2c97a658587ddccc360b398))
+
+
+
+
+
 # 14.2.0 (2021-06-22)
 
 
