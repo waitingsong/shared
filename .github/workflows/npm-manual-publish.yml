@@ -12,29 +12,33 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    container: docker:latest
+    runs-on: ${{ matrix.os }}
+    container: node:14-bullseye
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
 
     strategy:
       matrix:
         node: [14]
+        os: [ubuntu-latest]
 
     steps:
       - name: Prepare
         run: |
-          echo "@edge https://uk.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories
-          apk upgrade --no-cache > /dev/null
-          apk add apache2-utils bash bind-tools curl git jq net-tools nodejs npm openssh openssl postgresql-client tar tzdata zstd > /dev/null
-          sed -i "s#:/bin/ash#:/bin/bash#g" /etc/passwd
-          echo "alias sh='/bin/bash ';" >> /root/.bashrc
-          docker -v
-          bash --version
+          uname -a
+          export DEBIAN_FRONTEND=noninteractive
+          apt-get update -qq --yes > /dev/null
+          apt-get upgrade -qq --yes > /dev/null
+          apt-get install -qq --yes --no-install-recommends bash  dnsutils git jq net-tools postgresql-client wget > /dev/null
           npm -v && node -v
-          ssh -V
-          tar --version
           git --version
           uname -a
       - uses: actions/checkout@v2
+        with:
+          # pulls all commits (needed for lerna / semantic release to correctly version)
+          fetch-depth: "0"
+      - name: Fix for semantic release
+        # pulls all tags (needed for lerna / semantic release to correctly version)
+        run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
       - name: Use Node.js ${{ matrix.node }}
         uses: actions/setup-node@v2
         with:
@@ -63,11 +67,14 @@ jobs:
 
       - name: npm build
         run: |
+          export cwd=`pwd`
           openssl version
           node -v
-          npm i -g lerna nyc rollup
+          npm i -g c8 lerna rollup
           npm run bootstrap
           npm run build --if-present
+        env:
+          CI: true
       - name: npm ci
         run: |
           # lint must after build
