@@ -2,7 +2,7 @@
 import { createReadStream } from 'fs'
 import { createInterface } from 'readline'
 
-import { Observable, Observer } from 'rxjs'
+import { Observable } from 'rxjs'
 
 
 /**
@@ -19,12 +19,20 @@ export function readFileLineRx(path: string): Observable<string> {
   // Note: we use the crlfDelay option to recognize all instances of CR LF
   // ('\r\n') in input.txt as a single line break.
 
-  const line$ = Observable.create((obv: Observer<string>) => {
-    rline.on('line', line => obv.next(line))
-    rline.once('close', () => obv.complete())
+  // const line$ = Observable.create((obv: Observer<string>) => {
+  //   rline.on('line', line => obv.next(line))
+  //   rline.once('close', () => obv.complete())
+
+  //   return () => rline.removeAllListeners()
+  // }) as Observable<string>
+
+  const line$ = new Observable<string>((subscriber) => {
+    rline.on('line', line => subscriber.next(line))
+    rline.once('close', () => subscriber.complete())
+    rline.once('error', err => subscriber.error(err))
 
     return () => rline.removeAllListeners()
-  }) as Observable<string>
+  })
 
   return line$
 }
