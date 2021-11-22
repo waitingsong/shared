@@ -35,7 +35,7 @@ export type TupleConcat<A extends unknown[], B extends unknown[]> = [...A, ...B]
 // 用到的 helper 类型，简化代码和解决某些情况下的类型错误
 export type TypeAssert<T, A> = T extends A ? T : never
 // @ts-expect-error
-export type Overwrite<T, S extends any> = { [P in keyof T]: S[P] }
+export type Overwrite<T, S> = { [P in keyof T]: S[P] }
 
 
 /**

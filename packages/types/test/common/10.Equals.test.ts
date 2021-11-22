@@ -71,6 +71,11 @@ describe('10.Equals.test.ts', () => {
       const ret3: Equals<Set<any[]>, Set<any[]>> = true
     })
 
+    it('never', () => {
+      const ret1: Equals<never, never> = true
+      type T1 = never
+      const ret2: Equals<T1, never> = true
+    })
   })
 
 

@@ -36,7 +36,7 @@ export type KeyFromValue<T, V> = {
  * @example `type R = Invert<{x: 'a', y: 'b', z: 'a'}>` got `{a: 'x' | 'z', b: 'y'}`
  * @see https://stackoverflow.com/a/57726844
  */
-export type Invert<T extends Record<PropertyKey, PropertyKey>> = {
+export type Invert<T extends Record<string, string>> = {
   [K in T[KnownKeys<T> & (keyof T)]]: KeyFromValue<T, K>
 }
 
@@ -53,7 +53,7 @@ export type Equals<X, Y> = (<T>() => T extends X ? 1 : 2) extends (<T>() => T ex
  */
 export type EqualsExt<X, Y> = Equals<FormatIntersect<X>, FormatIntersect<Y>>
 
-export type OverwriteNeverToUnknown<T extends any> = {
+export type OverwriteNeverToUnknown<T> = {
   [fld in keyof T]: T[fld] extends never ? unknown : T[fld]
 }
 

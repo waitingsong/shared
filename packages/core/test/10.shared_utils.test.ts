@@ -52,7 +52,7 @@ describe(filename, () => {
       assert(path === normalize(randomPath))
     }
     catch (ex) {
-      return assert(false, ex)
+      return assert(false, (ex as Error).message)
     }
 
     if (! await isDirExists(randomPath)) {
@@ -71,7 +71,7 @@ describe(filename, () => {
       assert(path === normalize(randomPath))
     }
     catch (ex) {
-      return assert(false, ex)
+      return assert(false, (ex as Error).message)
     }
 
     if (! await isDirExists(randomPath)) {
@@ -101,7 +101,7 @@ describe(filename, () => {
       assert(path === normalize(file), `Should ${file} but result ${path}`)
     }
     catch (ex) {
-      return assert(false, ex)
+      return assert(false, (ex as Error).message)
     }
 
     if (! await isFileExists(file)) {
@@ -113,7 +113,7 @@ describe(filename, () => {
       assert(ret === String(random), `content not equal. write:"${random}", read: "${ret}"`)
     }
     catch (ex) {
-      assert(false, ex)
+      return assert(false, (ex as Error).message)
     }
 
     rmdir(randomPath, err => err && console.error(err))
@@ -132,7 +132,7 @@ describe(filename, () => {
       assert(path === normalize(file), `Should ${file} but result ${path}`)
     }
     catch (ex) {
-      return assert(false, ex)
+      return assert(false, (ex as Error).message)
     }
 
     if (! await isFileExists(file)) {
@@ -145,7 +145,7 @@ describe(filename, () => {
       assert(ret === str, `content not equal. write:"${str}", read: "${ret}"`)
     }
     catch (ex) {
-      assert(false, ex)
+      return assert(false, (ex as Error).message)
     }
 
     rmdir(randomPath, err => err && console.error(err))
@@ -163,7 +163,7 @@ describe(filename, () => {
       assert(path === normalize(file), `Should ${file} but result ${path}`)
     }
     catch (ex) {
-      return assert(false, ex)
+      return assert(false, (ex as Error).message)
     }
 
     if (! await isFileExists(file)) {
@@ -176,7 +176,7 @@ describe(filename, () => {
       assert(ret === str, `content not equal. write:"${str}", read: "${ret}"`)
     }
     catch (ex) {
-      assert(false, ex)
+      return assert(false, (ex as Error).message)
     }
 
     rmdir(randomPath, err => err && console.error(err))
@@ -202,7 +202,7 @@ describe(filename, () => {
       assert(path === normalize(file), `Should ${file} but result ${path}`)
     }
     catch (ex) {
-      return assert(false, ex)
+      return assert(false, (ex as Error).message)
     }
 
     if (! await isFileExists(file)) {
@@ -215,7 +215,7 @@ describe(filename, () => {
       assert(ret === buf.toString(), `content not equal. write:"${buf.toString()}", read: "${ret}"`)
     }
     catch (ex) {
-      assert(false, ex)
+      return assert(false, (ex as Error).message)
     }
 
     rmdir(randomPath, err => err && console.error(err))
@@ -227,7 +227,7 @@ describe(filename, () => {
       assert(await isDirExists(tmpDir), `path should exists: "${tmpDir}"`)
     }
     catch (ex) {
-      assert(false, ex)
+      return assert(false, (ex as Error).message)
     }
   })
 
@@ -239,7 +239,7 @@ describe(filename, () => {
       assert(! await isDirExists(randomPath), `path should NOT exists: "${randomPath}"`)
     }
     catch (ex) {
-      assert(false, ex)
+      return assert(false, (ex as Error).message)
     }
   })
 
@@ -248,7 +248,7 @@ describe(filename, () => {
       assert(! await isDirExists(''), 'empty path should NOT exists')
     }
     catch (ex) {
-      assert(false, ex)
+      return assert(false, (ex as Error).message)
     }
   })
 

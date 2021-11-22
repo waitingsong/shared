@@ -31,10 +31,12 @@ export function humanMemoryUsage(digits = 3, sep = ' '): HumanMemoryUsage {
   } as HumanMemoryUsage
 
   for (const [key, val] of Object.entries(mu)) {
-    Object.defineProperty(ret, key, {
-      ...defaultPropDescriptor,
-      value: nFormatter(val, digits, sep),
-    })
+    if (typeof val === 'number') {
+      Object.defineProperty(ret, key, {
+        ...defaultPropDescriptor,
+        value: nFormatter(val, digits, sep),
+      })
+    }
   }
   return ret
 }

@@ -34,7 +34,7 @@ describe(filename, () => {
     }
     catch (ex) {
       rmdir(randomPath, err => console.warn(err))
-      throw new Error(ex)
+      throw ex
     }
   })
 })
@@ -55,7 +55,7 @@ describe(filename, () => {
     }
     catch (ex) {
       rmdir(randomPath, err => console.warn(err))
-      throw new Error(ex)
+      throw ex
     }
   })
 })

@@ -36,7 +36,7 @@ describe(filename, () => {
     }
     catch (ex) {
       rmdir(randomPath, err => console.warn(err))
-      throw new Error(ex)
+      return assert(false, (ex as Error).message)
     }
   })
 })

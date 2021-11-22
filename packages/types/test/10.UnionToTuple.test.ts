@@ -1,25 +1,22 @@
-import { UnionToTuple, Equals, UnionToIntersection, FormatIntersect, EqualsExt } from '../src/index'
-
-// eslint-disable-next-line import/order
-import assert = require('power-assert')
+import { Equals, UnionToIntersection, EqualsExt } from '../src/index'
 
 
 describe('10.UnionToTuple.test.ts', () => {
 
-  describe('should UnionToTuple work', () => {
-    it('normal', () => {
-      type Foo = { name: 'foo' } | { age: 1}
-      type T1 = UnionToTuple<Foo>
-      type ExpectType = [{ age: 1}, { name: 'foo' }]
-      const ret: Equals<T1, ExpectType> = true
-    })
-    it('order not exact', () => {
-      type Bar = { name: 'foo' } | 1 | 2 | 3
-      type T2 = UnionToTuple<Bar> // [3, {name: 'foo'}, 2, 1]
-      type ExpectOrder2 = [3, 2, 1, {name: 'foo'}]
-      const ret: Equals<T2, ExpectOrder2> = false
-    })
-  })
+  // describe('should UnionToTuple work', () => {
+  //   it('normal', () => {
+  //     type Foo = { name: 'foo' } | { age: 1}
+  //     type T1 = UnionToTuple<Foo>
+  //     type ExpectType = [{ age: 1}, { name: 'foo' }]
+  //     const ret: Equals<T1, ExpectType> = true
+  //   })
+  //   it('order not exact', () => {
+  //     type Bar = { name: 'foo' } | 1 | 2 | 3
+  //     type T2 = UnionToTuple<Bar> // [3, {name: 'foo'}, 2, 1]
+  //     type ExpectOrder2 = [3, 2, 1, {name: 'foo'}]
+  //     const ret: Equals<T2, ExpectOrder2> = false
+  //   })
+  // })
 
   describe('should UnionToIntersection work', () => {
     it('normal', () => {
@@ -46,11 +43,11 @@ describe('10.UnionToTuple.test.ts', () => {
       const ret: Equals<T1, ExpectType> = true
       const ret2: Equals<T1, ExpectType2> = true
     })
-    it('never', () => {
-      type Foo = { name: 'foo' } | { name: number }
-      type T1 = UnionToIntersection<Foo>
-      const ret: Equals<T1, never> = true
-    })
+    // it('never', () => {
+    //   type Foo = { name: 'foo' } | { name: number }
+    //   type T1 = UnionToIntersection<Foo>
+    //   const ret: Equals<T1, never> = true
+    // })
     it('mixed', () => {
       type Foo = {
         uid: {
