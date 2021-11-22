@@ -46,3 +46,10 @@ export type RecusiveParscalKeys<T> = {
     : T[K]
 }
 
+export type RecordCamelKeys<T, D extends string = '_' | '-'> = {
+  [K in keyof T as `${SnakeToCamel<K & string, D>}`]: T[K]
+}
+export type RecordParscalKeys<T, D extends string = '_' | '-'> = {
+  [K in keyof T as `${SnakeToPascal<K & string, D>}`]: T[K]
+}
+

@@ -4,6 +4,8 @@ import {
   SnakeToPascal,
   RecusiveCamelKeys,
   RecusiveParscalKeys,
+  RecordCamelKeys,
+  RecordParscalKeys,
 } from '../src/index'
 
 // eslint-disable-next-line import/order
@@ -176,5 +178,58 @@ describe('13.template-literal.test.ts', () => {
       const ret: Equals<T1, ExpectType> = false
     })
   })
+
+
+  describe('should RecordCamelKeys work', () => {
+    it('interface', () => {
+      interface TbUser {
+        user_id: number
+        user_2_address: string
+        user_3foo: bigint
+        '3322': boolean
+        json: {
+          user_name: 'abc',
+        }
+      }
+      type T1 = RecordCamelKeys<TbUser>
+      interface ExpectType {
+        userId: number
+        user2Address: string
+        user3foo: bigint
+        '3322': boolean
+        json: {
+          user_name: 'abc',
+        }
+      }
+      const ret: Equals<T1, ExpectType> = true
+    })
+  })
+
+
+  describe('should RecordParscalKeys work', () => {
+    it('interface', () => {
+      interface TbUser {
+        user_id: number
+        user_2_address: string
+        user_3foo: bigint
+        '3322': boolean
+        json: {
+          user_name: 'abc',
+        }
+      }
+      type T1 = RecordParscalKeys<TbUser>
+      interface ExpectType {
+        UserId: number
+        User2Address: string
+        User3foo: bigint
+        '3322': boolean
+        Json: {
+          user_name: 'abc',
+        }
+      }
+      const ret: Equals<T1, ExpectType> = true
+    })
+  })
+
 })
 
