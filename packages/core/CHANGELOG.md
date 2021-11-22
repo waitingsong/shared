@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [15.1.0](https://github.com/waitingsong/shared/compare/v15.0.0...v15.1.0) (2021-11-22)
+
+**Note:** Version bump only for package @waiting/shared-core
+
+
+
+
+
 # [15.0.0](https://github.com/waitingsong/shared/compare/v14.4.2...v15.0.0) (2021-11-22)
 
 **Note:** Version bump only for package @waiting/shared-core
