@@ -2,20 +2,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   access,
-  chmod,
-  close,
-  copyFile,
-  mkdir,
-  open,
-  readdir,
-  readFile,
-  rmdir,
-  stat,
-  unlink,
-  write,
-  writeFile,
   WriteFileOptions,
 } from 'fs'
+import {
+  mkdir,
+  stat,
+  writeFile,
+} from 'fs/promises'
 import {
   basename,
   dirname,
@@ -23,7 +16,7 @@ import {
   normalize,
   resolve as pathResolve,
 } from 'path'
-import { promisify, TextDecoder, TextEncoder } from 'util'
+import { TextDecoder, TextEncoder } from 'util'
 
 import {
   defer,
@@ -33,59 +26,12 @@ import {
 import { map } from 'rxjs/operators'
 
 
-export const closeAsync = promisify(close)
-/**
- * @deprecated use close() from 'fs/promises' instead
- */
-export const chmodAsync = promisify(chmod)
-/**
- * @deprecated use copyFile() from 'fs/promises' instead
- */
-export const copyFileAsync = promisify(copyFile)
-/**
- * @deprecated use mkdir() from 'fs/promises' instead
- */
-export const mkdirAsync = promisify(mkdir)
-/**
- * @deprecated use open() from 'fs/promises' instead
- */
-export const openAsync = promisify(open)
-/**
- * @deprecated use readFile() from 'fs/promises' instead
- */
-export const readFileAsync = promisify(readFile)
-/**
- * @deprecated use  readdir() from 'fs/promises' instead
- */
-export const readDirAsync = promisify(readdir)
-/**
- * @deprecated use rmdir() from 'fs/promises' instead
- */
-export const rmdirAsync = promisify(rmdir)
-/**
- * @deprecated use stat() from 'fs/promises' instead
- */
-export const statAsync = promisify(stat)
-/**
- * @deprecated use unlink() from 'fs/promises' instead
- */
-export const unlinkAsync = promisify(unlink)
-/**
- * @deprecated use write() from 'fs/promises' instead
- */
-export const writeAsync = promisify(write)
-/**
- * @deprecated use writeFile() from 'fs/promises' instead
- */
-export const writeFileAsync = promisify(writeFile)
-
 export {
   basename,
   dirname,
   join,
   normalize,
   pathResolve,
-  promisify,
 }
 export { tmpdir } from 'os'
 
@@ -134,7 +80,7 @@ export function isDirFileExists(path: string, type: 'DIR' | 'FILE'): Promise<boo
     return isPathAccessible(path)
       .then((accessible) => {
         return accessible
-          ? statAsync(path).then((stats) => {
+          ? stat(path).then((stats) => {
             return type === 'DIR' ? stats.isDirectory() : stats.isFile()
           })
           : false
@@ -145,17 +91,13 @@ export function isDirFileExists(path: string, type: 'DIR' | 'FILE'): Promise<boo
   }
 }
 
-export function createDir(absolutePath: string): Observable<string> {
-  return defer(() => createDirAsync(absolutePath))
-}
-
 /** create directories recursively */
 export async function createDirAsync(path: string): Promise<string> {
   if (path) {
     const target = normalize(path) // ! required for '.../.myca' under win32
     /* istanbul ignore else */
     if (! await isDirExists(target)) {
-      await mkdirAsync(path, { recursive: true })
+      await mkdir(path, { recursive: true })
     }
 
     return target
@@ -195,16 +137,16 @@ export async function createFileAsync(
     const opts: WriteFileOptions = options ? options : { mode: 0o640 }
 
     if (Buffer.isBuffer(data)) {
-      await writeFileAsync(path, data, opts)
+      await writeFile(path, data, opts)
     }
     else if (typeof data === 'object') {
-      await writeFileAsync(path, JSON.stringify(data))
+      await writeFile(path, JSON.stringify(data))
     }
     else if (typeof data === 'number') {
-      await writeFileAsync(path, data.toString(), opts)
+      await writeFile(path, data.toString(), opts)
     }
     else {
-      await writeFileAsync(path, data, opts)
+      await writeFile(path, data, opts)
     }
   }
 
@@ -229,45 +171,6 @@ export interface ExecFileOptions {
   windowsVerbatimArguments?: boolean
 }
 
-
-/* istanbul ignore next */
-/**
- * Remove directory recursively
- * @see https://stackoverflow.com/a/42505874/3027390
- */
-export async function rimraf(path: string): Promise<void> {
-  if (! path) {
-    return
-  }
-  await _rimraf(path)
-  if (await isDirExists(path)) {
-    await rmdirAsync(path)
-  }
-}
-/* istanbul ignore next */
-async function _rimraf(path: string): Promise<void> {
-  if (! path) {
-    return
-  }
-
-  if (await isPathAccessible(path)) {
-    if (await isFileExists(path)) {
-      await unlinkAsync(path)
-      return
-    }
-    const entries = await readDirAsync(path)
-
-    if (entries.length) {
-      for (const entry of entries) {
-        // eslint-disable-next-line no-await-in-loop
-        await _rimraf(join(path, entry))
-      }
-    }
-    else {
-      await rmdirAsync(path)
-    }
-  }
-}
 
 
 /**

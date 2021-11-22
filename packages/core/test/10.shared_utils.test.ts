@@ -1,3 +1,5 @@
+import { readFile } from 'fs/promises'
+
 import rmdir from 'rimraf'
 
 import {
@@ -9,7 +11,6 @@ import {
   isFileExists,
   join,
   normalize,
-  readFileAsync,
   tmpdir,
 } from '../src/index'
 
@@ -109,7 +110,7 @@ describe(filename, () => {
     }
 
     try {
-      const ret = (await readFileAsync(file)).toString('utf8')
+      const ret = (await readFile(file)).toString('utf8')
       assert(ret === String(random), `content not equal. write:"${random}", read: "${ret}"`)
     }
     catch (ex) {
@@ -140,7 +141,7 @@ describe(filename, () => {
     }
 
     try {
-      const ret = (await readFileAsync(file)).toString('utf8')
+      const ret = (await readFile(file)).toString('utf8')
 
       assert(ret === str, `content not equal. write:"${str}", read: "${ret}"`)
     }
@@ -171,7 +172,7 @@ describe(filename, () => {
     }
 
     try {
-      const ret = (await readFileAsync(file)).toString('utf8')
+      const ret = (await readFile(file)).toString('utf8')
 
       assert(ret === str, `content not equal. write:"${str}", read: "${ret}"`)
     }
@@ -210,7 +211,7 @@ describe(filename, () => {
     }
 
     try {
-      const ret = (await readFileAsync(file)).toString('utf8')
+      const ret = (await readFile(file)).toString('utf8')
 
       assert(ret === buf.toString(), `content not equal. write:"${buf.toString()}", read: "${ret}"`)
     }
