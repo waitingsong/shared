@@ -120,7 +120,6 @@ jobs:
           npm run ci
         env:
           CI: true
-          MOCK_HOME_DIR: ~/  # for node16
           # use `localhost` if running the job on the VM
           # use `postgres` if running the job on a container
           POSTGRES_HOST: postgres
