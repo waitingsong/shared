@@ -10,4 +10,5 @@ export * from './math'
 export * from './net'
 export * from './string'
 export * from './stats'
+export * from './web'
 
