@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [15.2.0](https://github.com/waitingsong/shared/compare/v15.1.1...v15.2.0) (2022-02-25)
+
+
+### Features
+
+* **types:** add MiddlewareConfig ([b6d17ea](https://github.com/waitingsong/shared/commit/b6d17ea9f344973ba4dfcebab1bfdb7e123d1a9a))
+* **types:** add XOR<T,U> ([6ddac45](https://github.com/waitingsong/shared/commit/6ddac459378397d43ccb2e2250a045b533de29e9))
+
+
+
+
+
 ## [15.1.1](https://github.com/waitingsong/shared/compare/v15.1.0...v15.1.1) (2022-02-10)
 
 **Note:** Version bump only for package @waiting/shared-types

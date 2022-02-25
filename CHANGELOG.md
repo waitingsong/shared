@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [15.2.0](/compare/v15.1.1...v15.2.0) (2022-02-25)
+
+
+### Features
+
+* **core:** isPathMatchRules() 38e75f7
+* **types:** add MiddlewareConfig b6d17ea
+* **types:** add XOR<T,U> 6ddac45
+
+
+
+
+
 ## [15.1.1](/compare/v15.1.0...v15.1.1) (2022-02-10)
 
 **Note:** Version bump only for package @waiting/shared

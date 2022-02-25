@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [15.2.0](https://github.com/waitingsong/shared/compare/v15.1.1...v15.2.0) (2022-02-25)
+
+
+### Features
+
+* **core:** isPathMatchRules() ([38e75f7](https://github.com/waitingsong/shared/commit/38e75f7cb8a3ecf6f1fe62234fc36e5f6eff5e9b))
+
+
+
+
+
 ## [15.1.1](https://github.com/waitingsong/shared/compare/v15.1.0...v15.1.1) (2022-02-10)
 
 **Note:** Version bump only for package @waiting/shared-core
