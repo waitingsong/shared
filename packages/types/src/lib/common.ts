@@ -95,3 +95,25 @@ type IfAny<T, Y, N> = 0 extends (1 & T) ? Y : N
  */
 export type OverwriteAnyToUnknown<T> = IfAny<T, unknown, T>
 
+
+/**
+ * Restrict using either exclusively the keys of T or exclusively the keys of U.
+ *
+ * No unique keys of T can be used simultaneously with any unique keys of U.
+ *
+ * Example:
+ * `const myVar: XOR<T, U>`
+ *
+ * More: https://github.com/maninak/ts-xor
+ */
+export type XOR<T, U> = (T | U) extends object
+  ? (Without<T, U> & U) | (Without<U, T> & T)
+  : T | U
+
+/**
+* Get the keys of T without any keys of U.
+*/
+export type Without<T, U> = {
+  [P in Exclude<keyof T, keyof U>]?: never
+}
+
