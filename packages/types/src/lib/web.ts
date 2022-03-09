@@ -33,5 +33,6 @@ export interface PathIgnorePattern {
   ignore?: MiddlewarePathPattern
 }
 
-export type MiddlewarePathPattern = (string | RegExp)[]
+export type PathPatternFunc = (ctx: any) => boolean
+export type MiddlewarePathPattern = (string | RegExp | PathPatternFunc)[]
 
