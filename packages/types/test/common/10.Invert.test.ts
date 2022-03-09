@@ -1,3 +1,5 @@
+import assert from 'assert/strict'
+
 import { Invert } from '../../src/index'
 
 import {
@@ -8,9 +10,6 @@ import {
   alias,
   alias2,
 } from './test-model'
-
-// eslint-disable-next-line import/order
-import assert = require('power-assert')
 
 
 const filename = '10.FormatIntersect.test.ts'

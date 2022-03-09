@@ -1,10 +1,9 @@
+import assert from 'assert/strict'
+
 import {
   DateISOString,
   ISO8601String,
 } from '../src/index'
-
-// eslint-disable-next-line import/order
-import assert = require('power-assert')
 
 
 describe('11.alias.test.ts', () => {

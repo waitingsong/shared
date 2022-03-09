@@ -1,3 +1,5 @@
+import assert from 'assert/strict'
+
 import {
   Equals,
   TupleHead,
@@ -11,9 +13,6 @@ import {
   isInLiteralTuple,
   Reverse,
 } from '../src/index'
-
-// eslint-disable-next-line import/order
-import assert = require('power-assert')
 
 
 describe('10.tuple.test.ts', () => {

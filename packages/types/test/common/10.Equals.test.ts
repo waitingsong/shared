@@ -1,7 +1,6 @@
-import { Equals } from '../../src/index'
+import assert from 'assert/strict'
 
-// eslint-disable-next-line import/order
-import assert = require('power-assert')
+import { Equals } from '../../src/index'
 
 
 describe('10.Equals.test.ts', () => {

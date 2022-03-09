@@ -1,3 +1,5 @@
+import assert from 'assert/strict'
+
 import {
   Awaited,
   Equals,
@@ -5,9 +7,6 @@ import {
   JsonType,
   JsonResp,
 } from '../src/index'
-
-// eslint-disable-next-line import/order
-import assert = require('power-assert')
 
 
 describe('12.data.test.ts', () => {

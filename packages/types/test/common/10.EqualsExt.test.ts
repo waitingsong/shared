@@ -1,7 +1,6 @@
-import { Equals as EQ, EqualsExt as Equals, FormatIntersect } from '../../src/index'
+import assert from 'assert/strict'
 
-// eslint-disable-next-line import/order
-import assert = require('power-assert')
+import { Equals as EQ, EqualsExt as Equals, FormatIntersect } from '../../src/index'
 
 
 describe('10.EqualsExt.test.ts', () => {

@@ -1,12 +1,11 @@
+import assert from 'assert/strict'
+
 import rmdir from 'rimraf'
 
 import {
   basename,
   isDirExists,
 } from '../src/index'
-
-// eslint-disable-next-line import/order
-import assert = require('power-assert')
 
 
 const filename = basename(__filename)

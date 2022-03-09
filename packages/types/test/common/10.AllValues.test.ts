@@ -1,7 +1,6 @@
-import { AllValues } from '../../src/index'
+import assert from 'assert/strict'
 
-// eslint-disable-next-line import/order
-import assert = require('power-assert')
+import { AllValues } from '../../src/index'
 
 
 describe('10.AllValues.test.ts', () => {

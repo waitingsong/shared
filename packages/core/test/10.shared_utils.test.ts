@@ -1,3 +1,5 @@
+import assert from 'assert/strict'
+
 import { readFile } from 'fs/promises'
 
 import rmdir from 'rimraf'
@@ -13,9 +15,6 @@ import {
   normalize,
   tmpdir,
 } from '../src/index'
-
-// eslint-disable-next-line import/order
-import assert = require('power-assert')
 
 
 const filename = basename(__filename)

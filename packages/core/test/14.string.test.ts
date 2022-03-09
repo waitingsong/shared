@@ -1,13 +1,11 @@
+import assert from 'assert/strict'
+
 import {
   basename,
   join,
   camelToSnakeCase,
   snakeToCamel, snakeToPascal,
 } from '../src/index'
-
-
-// eslint-disable-next-line import/order
-import assert = require('power-assert')
 
 
 const filename = basename(__filename)

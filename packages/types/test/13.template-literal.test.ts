@@ -1,3 +1,5 @@
+import assert from 'assert/strict'
+
 import {
   Equals,
   SnakeToCamel,
@@ -7,9 +9,6 @@ import {
   RecordCamelKeys,
   RecordParscalKeys,
 } from '../src/index'
-
-// eslint-disable-next-line import/order
-import assert = require('power-assert')
 
 
 describe('13.template-literal.test.ts', () => {

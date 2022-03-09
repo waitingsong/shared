@@ -1,9 +1,8 @@
+import assert from 'assert/strict'
+
 import { FormatIntersect, Equals, EqualsExt } from '../../src/index'
 
 import { AliasRecord } from './test-model'
-
-// eslint-disable-next-line import/order
-import assert = require('power-assert')
 
 
 describe('10.FormatIntersect.test.ts', () => {

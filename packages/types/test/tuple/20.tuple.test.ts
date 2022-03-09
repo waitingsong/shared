@@ -1,3 +1,5 @@
+import assert from 'assert/strict'
+
 import {
   Equals,
   TupleHead,
