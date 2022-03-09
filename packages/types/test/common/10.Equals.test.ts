@@ -76,11 +76,18 @@ describe('10.Equals.test.ts', () => {
       const ret2: Equals<T1, never> = true
     })
 
-    it('types', () => {
+    it('types 1', () => {
       interface A { p: string | number }
       type B = { p: string } | { p: number }
       const expectedTrue: Equals<A, B> = false
     })
+
+    // it('types 2', () => {
+    //   type A = { x: 1 } & { y: 2 }
+    //   interface B { x: 1, y: 2 }
+    //   const expectedTrue: Equals<A, B> = true
+    // })
+
   })
 
 

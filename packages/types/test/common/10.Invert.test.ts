@@ -33,6 +33,7 @@ describe(filename, () => {
         tbUserName: 'name',
       }
       assert(ret.tbUserUid === 'uid')
+      // @ts-expect-error
       assert(ret.tbUserUid !== 'foo')
       assert(ret.tbUserName === 'name')
 
@@ -41,6 +42,7 @@ describe(filename, () => {
         tbUserName: 'name',
       }
       assert(ret2.tbUserUid === 'foo')
+      // @ts-expect-error
       assert(ret2.tbUserUid !== 'uid')
       assert(ret2.tbUserName === 'name')
     })
@@ -51,6 +53,7 @@ describe(filename, () => {
         tbUserName: 'name',
       }
       assert(ret.tbUserUid === 'uid')
+      // @ts-expect-error
       assert(ret.tbUserUid !== 'foo')
       assert(ret.tbUserName === 'name')
 
@@ -59,6 +62,7 @@ describe(filename, () => {
         tbUserName: 'name',
       }
       assert(ret2.tbUserUid === 'foo')
+      // @ts-expect-error
       assert(ret2.tbUserUid !== 'uid')
       assert(ret2.tbUserName === 'name')
     })

@@ -64,6 +64,7 @@ describe('10.AllValues.test.ts', () => {
         value: 'tbUserUid',
       }
       assert(ret.key !== 'uid')
+      // @ts-expect-error
       assert(ret.value === 'tbUserUid')
     })
     it('invalid var value', () => {
