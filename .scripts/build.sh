@@ -4,7 +4,7 @@ input="$@"
 scope=''
 
 if [ -z "$input" ]; then
-  lerna run build --ignore demo
+  lerna run build
 else
   for pkg in $input
   do

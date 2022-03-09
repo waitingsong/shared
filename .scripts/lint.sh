@@ -4,7 +4,7 @@ input="$@"
 scope=''
 
 if [ -z "$input" ]; then
-  lerna run lint  --ignore demo--parallel
+  lerna run lint --parallel
 else
   for pkg in $input
   do
