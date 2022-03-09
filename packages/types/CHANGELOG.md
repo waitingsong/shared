@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [15.3.0](https://github.com/waitingsong/shared/compare/v15.2.0...v15.3.0) (2022-03-09)
+
+
+### Features
+
+* **types:** MiddlewareConfig has generics param ([cc5354e](https://github.com/waitingsong/shared/commit/cc5354ebca212dee80b8920581c6d0b98249f7f8))
+* **types:** MiddlewarePathPattern accepts PathPatternFunc ([a0c4c9f](https://github.com/waitingsong/shared/commit/a0c4c9f2490f833a861f1b6d2c399f049ad13de3))
+
+
+
+
+
 # [15.2.0](https://github.com/waitingsong/shared/compare/v15.1.1...v15.2.0) (2022-02-25)
 
 
