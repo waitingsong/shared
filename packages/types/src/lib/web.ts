@@ -4,12 +4,13 @@
 import { XOR } from './common'
 
 
-export type MiddlewareConfig = {
+export type MiddlewareConfig <T = unknown> = {
   /**
    * Enable middleware.
    * @default true
    */
   enableMiddleware: boolean,
+  options?: T,
 } & PathPattern
 
 export type PathPattern = XOR<PathMatchPattern, PathIgnorePattern>
