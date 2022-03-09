@@ -75,6 +75,12 @@ describe('10.Equals.test.ts', () => {
       type T1 = never
       const ret2: Equals<T1, never> = true
     })
+
+    it('types', () => {
+      interface A { p: string | number }
+      type B = { p: string } | { p: number }
+      const expectedTrue: Equals<A, B> = false
+    })
   })
 
 
