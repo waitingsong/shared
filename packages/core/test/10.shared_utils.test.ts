@@ -1,5 +1,4 @@
 import assert from 'assert/strict'
-
 import { readFile } from 'fs/promises'
 
 import rmdir from 'rimraf'
