@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [16.0.0](https://github.com/waitingsong/shared/compare/v15.3.0...v16.0.0) (2022-03-10)
+
+
+### Features
+
+* **types:** change type PathPatternFunc ([67b8912](https://github.com/waitingsong/shared/commit/67b8912f2c1581bebf558fea4922e8d8b528d10a))
+
+
+
+
+
 # [15.3.0](https://github.com/waitingsong/shared/compare/v15.2.0...v15.3.0) (2022-03-09)
 
 

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [16.0.0](/compare/v15.3.0...v16.0.0) (2022-03-10)
+
+
+### Features
+
+* **core:** rule accept function within isPathMatchRules() 4ec766c
+* **types:** change type PathPatternFunc 67b8912
+
+
+
+
+
 # [15.3.0](/compare/v15.2.0...v15.3.0) (2022-03-09)
 
 
