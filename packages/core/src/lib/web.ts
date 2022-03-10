@@ -24,6 +24,9 @@ export function isPathMatchRules(
     else if (rule instanceof RegExp) {
       ret = rule.test(path)
     }
+    else if (typeof rule === 'function') {
+      ret = rule(path)
+    }
 
     if (ret === true) {
       return true
