@@ -34,6 +34,6 @@ export interface PathIgnorePattern {
   ignore?: MiddlewarePathPattern
 }
 
-export type PathPatternFunc = (ctx: any) => boolean
+export type PathPatternFunc = (url: string) => boolean
 export type MiddlewarePathPattern = (string | RegExp | PathPatternFunc)[]
 
