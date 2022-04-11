@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [16.1.0](https://github.com/waitingsong/shared/compare/v16.0.0...v16.1.0) (2022-04-11)
+
+
+### Features
+
+* **types:** add type Trim, TrimStart, TrimEnd ([d53e117](https://github.com/waitingsong/shared/commit/d53e117bb8ed1ba549fcab5b183b1cd35018ad06))
+
+
+
+
+
 # [16.0.0](https://github.com/waitingsong/shared/compare/v15.3.0...v16.0.0) (2022-03-10)
 
 
