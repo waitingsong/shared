@@ -7,5 +7,6 @@ export * from './union'
 export * from './stats'
 export * from './tuple'
 export * from './template-literal'
+export * from './trim'
 export * from './web'
 
