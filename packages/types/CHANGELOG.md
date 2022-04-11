@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [16.3.1](https://github.com/waitingsong/shared/compare/v16.3.0...v16.3.1) (2022-04-11)
+
+
+### Bug Fixes
+
+* **types:** CamelToSnake ([32eae17](https://github.com/waitingsong/shared/commit/32eae171e0681c706eb5f450c5e2e26ea4f1863b))
+
+
+
+
+
 # [16.3.0](https://github.com/waitingsong/shared/compare/v16.2.0...v16.3.0) (2022-04-11)
 
 

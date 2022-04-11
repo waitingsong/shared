@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [16.3.1](/compare/v16.3.0...v16.3.1) (2022-04-11)
+
+
+### Bug Fixes
+
+* **types:** CamelToSnake 32eae17
+
+
+
+
+
 # [16.3.0](/compare/v16.2.0...v16.3.0) (2022-04-11)
 
 
