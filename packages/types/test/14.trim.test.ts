@@ -318,7 +318,7 @@ describe('13.trim.test.ts', () => {
   })
 
 
-  describe('should Trim work', () => {
+  describe('should Trim work w/o delimiter', () => {
     it('normal', () => {
       type Foo = 'tb_user'
       type T1 = Trim<Foo>
@@ -342,6 +342,38 @@ describe('13.trim.test.ts', () => {
     it('three', () => {
       type Foo = '   tb_user    '
       type T1 = Trim<Foo>
+      type ExpectType = 'tb_user'
+      const ret: Equals<T1, ExpectType> = true
+      const ne: Equals<T1, Foo> = false
+      const ret3: Equals<T1, '  tb_user'> = false
+      const ret4: Equals<T1, 'tb_user '> = false
+    })
+  })
+
+  describe('should Trim work with delimiter space|_', () => {
+    it('1', () => {
+      type Foo = 'tb_user'
+      type T1 = Trim<Foo, ' ' | '_'>
+      type ExpectType = 'tb_user'
+      const ret: Equals<T1, ExpectType> = true
+      const ret2: Equals<T1, Foo> = true
+      const ret3: Equals<T1, '  tb_user'> = false
+      const ret4: Equals<T1, 'tb_user '> = false
+    })
+
+    it('2', () => {
+      type Foo = ' __tb_user__ '
+      type T1 = Trim<Foo, ' ' | '_'>
+      type ExpectType = 'tb_user'
+      const ret: Equals<T1, ExpectType> = true
+      const ne: Equals<T1, Foo> = false
+      const ret3: Equals<T1, '  tb_user'> = false
+      const ret4: Equals<T1, 'tb_user '> = false
+    })
+
+    it('3', () => {
+      type Foo = '______   tb_user    '
+      type T1 = Trim<Foo, ' ' | '_'>
       type ExpectType = 'tb_user'
       const ret: Equals<T1, ExpectType> = true
       const ne: Equals<T1, Foo> = false
