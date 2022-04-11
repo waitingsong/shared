@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [16.2.0](https://github.com/waitingsong/shared/compare/v16.1.0...v16.2.0) (2022-04-11)
+
+
+### Features
+
+* **types:** update Trim<T, K> support K ([04f9226](https://github.com/waitingsong/shared/commit/04f9226ced146611207ee7c1198a4541d2dacc04))
+* **types:** update TrimEnd<T, K> support K ([7f53489](https://github.com/waitingsong/shared/commit/7f53489a9862194cb0f49bbf40932aab1e40c220))
+* **types:** update TrimStart<T, K> support K ([483c28a](https://github.com/waitingsong/shared/commit/483c28afee21ae4a52bd2da82183da1427d9a696))
+
+
+
+
+
 # [16.1.0](https://github.com/waitingsong/shared/compare/v16.0.0...v16.1.0) (2022-04-11)
 
 

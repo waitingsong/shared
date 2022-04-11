@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [16.2.0](/compare/v16.1.0...v16.2.0) (2022-04-11)
+
+
+### Features
+
+* **types:** update Trim<T, K> support K 04f9226
+* **types:** update TrimEnd<T, K> support K 7f53489
+* **types:** update TrimStart<T, K> support K 483c28a
+
+
+
+
+
 # [16.1.0](/compare/v16.0.0...v16.1.0) (2022-04-11)
 
 
