@@ -3,6 +3,7 @@ import assert from 'assert/strict'
 import {
   Equals,
   CamelToSnake,
+  RecusiveSnakeKeys,
 } from '../src/index'
 
 
@@ -131,5 +132,46 @@ describe('15.camelToSnake.test.ts', () => {
     })
   })
 
+
+  describe('should RecusiveSnakeKeys work', () => {
+    it('1', () => {
+      interface Foo {
+        tbUser: {
+          userId: number,
+          userNameExt: {
+            _nameFoo: string,
+            _NameBar: string,
+          },
+          UserAge: number,
+          _NameBar: string,
+        }
+        tb_order: {
+          OrderId: string,
+        }
+      }
+      type T1 = RecusiveSnakeKeys<Foo>
+
+      // declare const f1: T1
+      // f1.tb_user.
+
+      interface ExpectType {
+        tb_user: {
+          user_id: number,
+          user_name_ext: {
+            _name_foo: string,
+            __name_bar: string,
+          },
+          user_age: number,
+          __name_bar: string,
+        }
+        tb_order: {
+          order_id: string,
+        }
+      }
+
+      const ret: Equals<T1, ExpectType> = true
+      const ret2: Equals<T1, Foo> = false
+    })
+  })
 })
 

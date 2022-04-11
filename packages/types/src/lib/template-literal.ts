@@ -64,3 +64,10 @@ type _CamelToSnake<T extends string> = T extends `${infer U}${infer Rest}`
       : `${U}${_CamelToSnake<Rest>}`
   : Lowercase<T>
 
+
+export type RecusiveSnakeKeys<T> = {
+  [K in keyof T as `${CamelToSnake<K & string>}`]: T[K] extends Record<string, unknown>
+    ? RecusiveSnakeKeys<T[K]>
+    : T[K]
+}
+
