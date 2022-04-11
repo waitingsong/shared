@@ -89,6 +89,46 @@ describe('15.camelToSnake.test.ts', () => {
       const ret: Equals<T1, ExpectType> = true
       const ret2: Equals<T1, Foo> = false
     })
+
+    it('11', () => {
+      type Foo = '_TbUserId'
+      type T1 = CamelToSnake<Foo>
+      type ExpectType = '__tb_user_id'
+      const ret: Equals<T1, ExpectType> = true
+      const ret2: Equals<T1, Foo> = false
+    })
+
+    it('12', () => {
+      type Foo = '__TbUserId'
+      type T1 = CamelToSnake<Foo>
+      type ExpectType = '___tb_user_id'
+      const ret: Equals<T1, ExpectType> = true
+      const ret2: Equals<T1, Foo> = false
+    })
+
+    it('13', () => {
+      type Foo = '___TbUserId'
+      type T1 = CamelToSnake<Foo>
+      type ExpectType = '____tb_user_id'
+      const ret: Equals<T1, ExpectType> = true
+      const ret2: Equals<T1, Foo> = false
+    })
+
+    it('14', () => {
+      type Foo = '__tbUserId'
+      type T1 = CamelToSnake<Foo>
+      type ExpectType = '__tb_user_id'
+      const ret: Equals<T1, ExpectType> = true
+      const ret2: Equals<T1, Foo> = false
+    })
+
+    it('15', () => {
+      type Foo = '___tbUserId'
+      type T1 = CamelToSnake<Foo>
+      type ExpectType = '___tb_user_id'
+      const ret: Equals<T1, ExpectType> = true
+      const ret2: Equals<T1, Foo> = false
+    })
   })
 
 })

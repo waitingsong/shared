@@ -54,7 +54,7 @@ export type RecordParscalKeys<T, D extends string = '_' | '-'> = {
 }
 
 export type CamelToSnake<T extends string> = T extends `_${infer U}`
-  ? `_${CamelToSnake<U>}`
+  ? `_${_CamelToSnake<U>}`
   : _CamelToSnake<T> extends `_${infer U}` ? U : _CamelToSnake<T>
 type _CamelToSnake<T extends string> = T extends `${infer U}${infer Rest}`
   ? U extends '_'
@@ -63,5 +63,4 @@ type _CamelToSnake<T extends string> = T extends `${infer U}${infer Rest}`
       ? `_${Lowercase<U>}${_CamelToSnake<Rest>}`
       : `${U}${_CamelToSnake<Rest>}`
   : Lowercase<T>
-
 
