@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [16.4.0](https://github.com/waitingsong/shared/compare/v16.3.1...v16.4.0) (2022-04-11)
+
+
+### Features
+
+* **types:** add RecusiveSnakeKeys ([3d8cbe4](https://github.com/waitingsong/shared/commit/3d8cbe42870fbac94bbc378be8e02af7de308a6b))
+
+
+
+
+
 ## [16.3.1](https://github.com/waitingsong/shared/compare/v16.3.0...v16.3.1) (2022-04-11)
 
 
