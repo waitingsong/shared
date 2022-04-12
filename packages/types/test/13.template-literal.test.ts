@@ -78,6 +78,13 @@ describe('13.template-literal.test.ts', () => {
     })
 
     it('under more', () => {
+      type Foo = 'tb______user__________'
+      type T1 = SnakeToCamel<Foo>
+      type ExpectType = 'tb_____User__________'
+      const ret: Equals<T1, ExpectType> = true
+    })
+
+    it('under more', () => {
       type Foo = '_______________tb______user__________'
       type T1 = SnakeToCamel<Foo>
       type ExpectType = '_______________tb_____User__________'
@@ -171,7 +178,7 @@ describe('13.template-literal.test.ts', () => {
     })
   })
 
-  describe('should SnakeToPascal work', () => {
+  describe('should SnakeToPascal work with _', () => {
     it('normal', () => {
       type Foo = 'tb_user'
       type T1 = SnakeToPascal<Foo>
@@ -197,6 +204,76 @@ describe('13.template-literal.test.ts', () => {
       type Foo = 'tb_user_tWo_threE'
       type T1 = SnakeToPascal<Foo>
       type ExpectType = 'TbUserTWoThreE'
+      const ret: Equals<T1, ExpectType> = true
+    })
+
+    it('number', () => {
+      type Foo = 'tb_user_2_good'
+      type T1 = SnakeToPascal<Foo>
+      type ExpectType = 'TbUser2Good'
+      const ret: Equals<T1, ExpectType> = true
+    })
+
+    it('under 1', () => {
+      type Foo = '_tb_user'
+      type T1 = SnakeToPascal<Foo>
+      type ExpectType = '_TbUser'
+      const ret: Equals<T1, ExpectType> = true
+    })
+
+    it('under 2', () => {
+      type Foo = '__tb_user'
+      type T1 = SnakeToPascal<Foo>
+      type ExpectType = '__TbUser'
+      const ret: Equals<T1, ExpectType> = true
+    })
+
+    it('mix', () => {
+      type Foo = '-__tb_user'
+      type T1 = SnakeToPascal<Foo>
+      type ExpectType = '-_TbUser'
+      const ret: Equals<T1, ExpectType> = true
+    })
+
+    it('leading delimiter', () => {
+      type Foo = '___tb_user_2good'
+      type T1 = SnakeToPascal<Foo>
+      type ExpectType = '___TbUser2good'
+      const ret: Equals<T1, ExpectType> = true
+    })
+
+    it('under more', () => {
+      type Foo = 'tb______user__________'
+      type T1 = SnakeToPascal<Foo>
+      type ExpectType = 'Tb_____User__________'
+      const ret: Equals<T1, ExpectType> = true
+    })
+
+    it('under more', () => {
+      type Foo = '_______________tb______user__________'
+      type T1 = SnakeToPascal<Foo>
+      type ExpectType = '_______________Tb_____User__________'
+      const ret: Equals<T1, ExpectType> = true
+    })
+
+    it('under only', () => {
+      type Foo = '___'
+      type T1 = SnakeToPascal<Foo>
+      type ExpectType = '___'
+      const ret: Equals<T1, ExpectType> = true
+    })
+
+    it('under number', () => {
+      type Foo = '_67'
+      type T1 = SnakeToPascal<Foo>
+      type ExpectType = '_67'
+      const ret: Equals<T1, ExpectType> = true
+    })
+
+    it('trailing delimiter', () => {
+      type Foo = 't_'
+      type T1 = SnakeToPascal<Foo>
+      type ExpectType = 'T_'
       const ret: Equals<T1, ExpectType> = true
     })
   })
