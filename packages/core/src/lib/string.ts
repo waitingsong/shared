@@ -38,16 +38,30 @@ export function snakeToCamel<T extends string = string, D extends string = '_'>(
  * Convert snake to pascal case
  * @example
  * - 'tb_user_detail' to 'TbUserDetail'
+ * - 'tb_user_2_good' to 'TbUser2Good'
+ * - 'tb_user_2good' to 'TbUser2good'
+ * - '_tb_user' to '_TbUser'
+ * - '__tb__user' to '__Tb_User'
+ * - '__tb_user__' to '__TbUser__'
+ * - 'tb-user-detail' to 'TbUserDetail' with 2nd param `-`
  * - 'tb_user-detail' to 'TbUserDetail'
  * - 'tb_user_2_good' to 'TbUser2Good'
  * - 'tb_user_2good' to 'TbUser2good'
  * @see SnakeToPascal of @waiting/shared-types
  */
-export function snakeToPascal<T extends string = string>(input: T): SnakeToPascal<T> {
-  const line = snakeToCamel(input)
-  const p1 = line.slice(0, 1).toUpperCase()
-  const p2 = line.slice(1)
-  return `${p1}${p2}` as SnakeToPascal<T>
+export function snakeToPascal<T extends string = string, D extends string = '_'>(
+  input: T,
+  // @ts-expect-error
+  delimiter: D = '_',
+): SnakeToPascal<T, D> {
+
+  const line = snakeToCamel(input, delimiter)
+
+  const re = new RegExp(`^${delimiter}+[^${delimiter}]`, 'u')
+  const line2 = line.replace(re, match => match.toUpperCase()) as SnakeToPascal<T, D>
+  const p1 = line2.slice(0, 1).toUpperCase()
+  const p2 = line2.slice(1)
+  return `${p1}${p2}` as SnakeToPascal<T, D>
 }
 
 

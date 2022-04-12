@@ -4,7 +4,8 @@ import {
   basename,
   join,
   camelToSnakeCase,
-  snakeToCamel, snakeToPascal,
+  snakeToCamel,
+  snakeToPascal,
 } from '../src/index'
 
 
@@ -216,7 +217,7 @@ describe(filename, () => {
       const Foo = 'tb_user'
       const T1 = snakeToPascal(Foo)
       const ExpectType = 'TbUser'
-      assert(T1 === ExpectType)
+      assert(T1 === ExpectType, T1)
     })
 
     it('two', () => {
@@ -272,6 +273,41 @@ describe(filename, () => {
       const T1 = snakeToPascal(Foo)
       const ExpectType = '3tbUser2good'
       assert(T1 === ExpectType)
+    })
+
+    it('leading delimiter', () => {
+      const Foo = '___tb_user_2good'
+      const T1 = snakeToPascal(Foo)
+      const ExpectType = '___TbUser2good'
+      assert(T1 === ExpectType, T1)
+    })
+
+    it('under more', () => {
+      const Foo = '_______________tb______user__________'
+      const T1 = snakeToPascal(Foo)
+      const ExpectType = '_______________Tb_____User__________'
+      assert(T1 === ExpectType, T1)
+    })
+
+    it('trailing delimiter', () => {
+      const Foo = 't_'
+      const T1 = snakeToPascal(Foo)
+      const ExpectType = 'T_'
+      assert(T1 === ExpectType, T1)
+    })
+
+    it('trailing delimiter', () => {
+      const Foo = '___tb_user_2good___'
+      const T1 = snakeToPascal(Foo)
+      const ExpectType = '___TbUser2good___'
+      assert(T1 === ExpectType, T1)
+    })
+
+    it('leading delimiter -', () => {
+      const Foo = '___--tb-user-2good'
+      const T1 = snakeToPascal(Foo, '-')
+      const ExpectType = '___-TbUser2good'
+      assert(T1 === ExpectType, T1)
     })
   })
 
