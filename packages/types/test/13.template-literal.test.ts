@@ -7,7 +7,7 @@ import {
   RecusiveCamelKeys,
   RecusivePascalKeys,
   RecordCamelKeys,
-  RecordParscalKeys,
+  RecordPascalKeys,
 } from '../src/index'
 
 
@@ -421,7 +421,7 @@ describe('13.template-literal.test.ts', () => {
           user_name: 'abc',
         }
       }
-      type T1 = RecordParscalKeys<TbUser>
+      type T1 = RecordPascalKeys<TbUser>
       interface ExpectType {
         UserId: number
         User2Address: string
