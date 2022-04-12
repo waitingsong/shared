@@ -91,6 +91,13 @@ describe('15.camelToSnake.test.ts', () => {
       const ret2: Equals<T1, Foo> = false
     })
 
+    it('number', () => {
+      type Foo = 'tbUser2Good'
+      type T1 = CamelToSnake<Foo>
+      type ExpectType = 'tb_user_2_good'
+      const ret: Equals<T1, ExpectType> = true
+    })
+
     it('11', () => {
       type Foo = '_TbUserId'
       type T1 = CamelToSnake<Foo>
