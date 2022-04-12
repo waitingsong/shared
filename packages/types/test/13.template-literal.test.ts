@@ -5,7 +5,7 @@ import {
   SnakeToCamel,
   SnakeToPascal,
   RecusiveCamelKeys,
-  RecusiveParscalKeys,
+  RecusivePascalKeys,
   RecordCamelKeys,
   RecordParscalKeys,
 } from '../src/index'
@@ -345,7 +345,7 @@ describe('13.template-literal.test.ts', () => {
           total: number,
         }
       }
-      type T1 = RecusiveParscalKeys<Foo>
+      type T1 = RecusivePascalKeys<Foo>
       interface ExpectType {
         TbUser: {
           UserId: number,
@@ -370,7 +370,7 @@ describe('13.template-literal.test.ts', () => {
           '3322': boolean,
         }
       }
-      type T1 = RecusiveParscalKeys<Foo>
+      type T1 = RecusivePascalKeys<Foo>
       interface ExpectType {
         TbUser: {
           UserId: string,

@@ -40,9 +40,9 @@ export type RecusiveCamelKeys<T> = {
     ? RecusiveCamelKeys<T[K]>
     : T[K]
 }
-export type RecusiveParscalKeys<T> = {
+export type RecusivePascalKeys<T> = {
   [K in keyof T as `${SnakeToPascal<K & string>}`]: T[K] extends Record<string, unknown>
-    ? RecusiveParscalKeys<T[K]>
+    ? RecusivePascalKeys<T[K]>
     : T[K]
 }
 
