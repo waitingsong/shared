@@ -7,14 +7,30 @@ import { SnakeToCamel, SnakeToPascal } from '@waiting/shared-types'
  *
  * @example
  * - 'tb_user_detail' to 'tbUserDetail'
- * - 'tb_user-detail' to 'tbUserDetail'
  * - 'tb_user_2_good' to 'tbUser2Good'
  * - 'tb_user_2good' to 'tbUser2good'
+ * - '_tb_user' to '_tbUser'
+ * - '__tb__user' to '__tb_User'
+ * - '__tb_user__' to '__tbUser__'
+ * - 'tb-user-detail' to 'tbUserDetail' with 2nd param `-`
  * @see SnakeToCamel of @waiting/shared-types
  */
-export function snakeToCamel<T extends string = string>(input: T): SnakeToCamel<T> {
-  return input.replace(/-/ug, '_')
-    .replace(/_./ug, match => match.toUpperCase().slice(1)) as SnakeToCamel<T>
+export function snakeToCamel<T extends string = string, D extends string = '_'>(
+  input: T,
+  // @ts-expect-error
+  delimiter: D = '_',
+): SnakeToCamel<T, D> {
+
+  if (input.length <= 1) {
+    return input as SnakeToCamel<T, D>
+  }
+
+  const p1 = input.slice(0, 1)
+  if (p1 === delimiter) {
+    return delimiter + snakeToCamel(input.slice(1), delimiter) as SnakeToCamel<T, D>
+  }
+  const re = new RegExp(`${delimiter}+[^${delimiter}]`, 'ug')
+  return input.replace(re, match => match.toUpperCase().slice(1)) as SnakeToCamel<T, D>
 }
 
 
