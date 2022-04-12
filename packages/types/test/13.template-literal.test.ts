@@ -13,7 +13,7 @@ import {
 
 describe('13.template-literal.test.ts', () => {
 
-  describe('should SnakeToCamel work', () => {
+  describe('should SnakeToCamel work with _', () => {
     it('normal', () => {
       type Foo = 'tb_user'
       type T1 = SnakeToCamel<Foo>
@@ -39,6 +39,134 @@ describe('13.template-literal.test.ts', () => {
       type Foo = 'tb_user_tWo_threE'
       type T1 = SnakeToCamel<Foo>
       type ExpectType = 'tbUserTWoThreE'
+      const ret: Equals<T1, ExpectType> = true
+    })
+
+    it('number', () => {
+      type Foo = 'tb_user_2_good'
+      type T1 = SnakeToCamel<Foo>
+      type ExpectType = 'tbUser2Good'
+      const ret: Equals<T1, ExpectType> = true
+    })
+
+    it('under 1', () => {
+      type Foo = '_tb_user'
+      type T1 = SnakeToCamel<Foo>
+      type ExpectType = '_tbUser'
+      const ret: Equals<T1, ExpectType> = true
+    })
+
+    it('under 2', () => {
+      type Foo = '__tb_user'
+      type T1 = SnakeToCamel<Foo>
+      type ExpectType = '__tbUser'
+      const ret: Equals<T1, ExpectType> = true
+    })
+
+    it('mix', () => {
+      type Foo = '-__tb_user'
+      type T1 = SnakeToCamel<Foo>
+      type ExpectType = '-_TbUser'
+      const ret: Equals<T1, ExpectType> = true
+    })
+
+    it('leading delimiter', () => {
+      type Foo = '___tb_user_2good'
+      type T1 = SnakeToCamel<Foo>
+      type ExpectType = '___tbUser2good'
+      const ret: Equals<T1, ExpectType> = true
+    })
+
+    it('under more', () => {
+      type Foo = '_______________tb______user__________'
+      type T1 = SnakeToCamel<Foo>
+      type ExpectType = '_______________tb_____User__________'
+      const ret: Equals<T1, ExpectType> = true
+    })
+
+    it('under only', () => {
+      type Foo = '___'
+      type T1 = SnakeToCamel<Foo>
+      type ExpectType = '___'
+      const ret: Equals<T1, ExpectType> = true
+    })
+
+    it('under number', () => {
+      type Foo = '_67'
+      type T1 = SnakeToCamel<Foo>
+      type ExpectType = '_67'
+      const ret: Equals<T1, ExpectType> = true
+    })
+
+    it('trailing delimiter', () => {
+      type Foo = 't_'
+      type T1 = SnakeToCamel<Foo>
+      type ExpectType = 't_'
+      const ret: Equals<T1, ExpectType> = true
+    })
+  })
+
+  describe('should SnakeToCamel work with -', () => {
+    it('normal', () => {
+      type Foo = 'tb-user'
+      type T1 = SnakeToCamel<Foo, '-'>
+      type ExpectType = 'tbUser'
+      const ret: Equals<T1, ExpectType> = true
+    })
+
+    it('two', () => {
+      type Foo = 'tb-user-two'
+      type T1 = SnakeToCamel<Foo, '-'>
+      type ExpectType = 'tbUserTwo'
+      const ret: Equals<T1, ExpectType> = true
+    })
+
+    it('three', () => {
+      type Foo = 'tb-user-two-three'
+      type T1 = SnakeToCamel<Foo, '-'>
+      type ExpectType = 'tbUserTwoThree'
+      const ret: Equals<T1, ExpectType> = true
+    })
+
+    it('non standard snake', () => {
+      type Foo = 'tb-user-tWo-threE'
+      type T1 = SnakeToCamel<Foo, '-'>
+      type ExpectType = 'tbUserTWoThreE'
+      const ret: Equals<T1, ExpectType> = true
+    })
+
+    it('under 1', () => {
+      type Foo = '-tb-user'
+      type T1 = SnakeToCamel<Foo, '-'>
+      type ExpectType = '-tbUser'
+      const ret: Equals<T1, ExpectType> = true
+    })
+
+    it('under 2', () => {
+      type Foo = '--tb-user'
+      type T1 = SnakeToCamel<Foo, '-'>
+      type ExpectType = '--tbUser'
+      const ret: Equals<T1, ExpectType> = true
+    })
+
+    it('under more', () => {
+      type Foo = '-----tb-----user-----'
+      type T1 = SnakeToCamel<Foo, '-'>
+      type ExpectType = '-----tb----User-----'
+      const ret: Equals<T1, ExpectType> = true
+    })
+
+    it('under only', () => {
+      type Foo = '___---'
+      type T1 = SnakeToCamel<Foo, '-'>
+      type ExpectType = '___---'
+      const ret: Equals<T1, ExpectType> = true
+    })
+
+    it('under number', () => {
+      type Foo = '-67'
+      type T1 = SnakeToCamel<Foo, '-'>
+      type ExpectType = '-67'
       const ret: Equals<T1, ExpectType> = true
     })
   })

@@ -27,12 +27,12 @@ type FormatCapitalize<T extends unknown[]> =
     T extends [string] ? [`${Capitalize<T[0]>}`] :
       T extends [string, ...infer U] ? [`${Capitalize<T[0]>}`, ...FormatCapitalize<U>] : []
 
-type FormatCamelCase<T extends unknown[]> =
-    T extends [] ? [] :
-      T extends [unknown] ? [T[0]] :
-        T extends [unknown, ...infer U] ? [T[0], ...FormatCapitalize<U>] : []
+// type FormatCamelCase<T extends unknown[]> =
+//     T extends [] ? [] :
+//       T extends [unknown] ? [T[0]] :
+//         T extends [unknown, ...infer U] ? [T[0], ...FormatCapitalize<U>] : []
 
-export type SnakeToCamel<T extends string, D extends string = '_' | '-'> = TupleJoin<FormatCamelCase<StrSplit<T, D>>, ''>
+// export type SnakeToCamel<T extends string, D extends string = '_' | '-'> = TupleJoin<FormatCamelCase<StrSplit<T, D>>, ''>
 export type SnakeToPascal<T extends string, D extends string = '_' | '-'> = TupleJoin<FormatCapitalize<StrSplit<T, D>>, ''>
 
 export type RecusiveCamelKeys<T> = {
@@ -53,6 +53,8 @@ export type RecordParscalKeys<T, D extends string = '_' | '-'> = {
   [K in keyof T as `${SnakeToPascal<K & string, D>}`]: T[K]
 }
 
+
+
 export type CamelToSnake<T extends string> = T extends `_${infer U}`
   ? `_${_CamelToSnake<U>}`
   : _CamelToSnake<T> extends `_${infer U}` ? U : _CamelToSnake<T>
@@ -64,10 +66,26 @@ type _CamelToSnake<T extends string> = T extends `${infer U}${infer Rest}`
       : `${U}${_CamelToSnake<Rest>}`
   : Lowercase<T>
 
-
 export type RecusiveSnakeKeys<T> = {
   [K in keyof T as `${CamelToSnake<K & string>}`]: T[K] extends Record<string, unknown>
     ? RecusiveSnakeKeys<T[K]>
     : T[K]
 }
+
+
+export type SnakeToCamel<T extends string, D extends string = '_'> = T extends `${D}${infer R}`
+  ? `${D}${SnakeToCamel<R, D>}`
+  : T extends `${infer R}${D}`
+    ? `${SnakeToCamel<R, D>}${D}`
+    : _SnakeToCamel<T, D>
+
+type _SnakeToCamel<T extends string, D extends string> = T extends `${infer U}${infer R}`
+  ? U extends D
+    ? R extends D
+      ? `${D}${D}`
+      : R extends `${D}${string}`
+        ? `${D}${_SnakeToCamel<R, D>}`
+        : `${_SnakeToCamel<Capitalize<R>, D>}`
+    : `${U}${_SnakeToCamel<R, D>}`
+  : T
 
