@@ -6,7 +6,7 @@ import {
   EqualsExt,
   JsonType,
   JsonResp,
-} from '../src/index'
+} from '../src/index.js'
 
 
 describe('12.data.test.ts', () => {

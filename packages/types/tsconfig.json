@@ -19,7 +19,8 @@
     "sourceMap": false,
     "strict": true,
     "strictPropertyInitialization": false,
-    "target": "ES2021",
+    "stripInternal": true,
+    "target": "ES2022",
     "tsBuildInfoFile": ".vscode/.tsbuildinfo",
     "types" : ["mocha", "node"]
   },

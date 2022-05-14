@@ -12,7 +12,7 @@ import {
   TupleToUnion,
   isInLiteralTuple,
   Reverse,
-} from '../src/index'
+} from '../src/index.js'
 
 
 describe('10.tuple.test.ts', () => {

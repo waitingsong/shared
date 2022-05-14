@@ -8,7 +8,7 @@ import {
   RecusivePascalKeys,
   RecordCamelKeys,
   RecordPascalKeys,
-} from '../src/index'
+} from '../src/index.js'
 
 
 describe('13.template-literal.test.ts', () => {

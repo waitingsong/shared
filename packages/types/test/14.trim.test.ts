@@ -5,7 +5,7 @@ import {
   Trim,
   TrimStart,
   TrimEnd,
-} from '../src/index'
+} from '../src/index.js'
 
 
 describe('13.trim.test.ts', () => {

@@ -4,7 +4,7 @@ import {
   Equals,
   CamelToSnake,
   RecusiveSnakeKeys,
-} from '../src/index'
+} from '../src/index.js'
 
 
 

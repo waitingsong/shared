@@ -3,7 +3,7 @@ import assert from 'assert/strict'
 import {
   DateISOString,
   ISO8601String,
-} from '../src/index'
+} from '../src/index.js'
 
 
 describe('11.alias.test.ts', () => {

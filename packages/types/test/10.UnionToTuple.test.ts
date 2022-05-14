@@ -1,4 +1,4 @@
-import { Equals, UnionToIntersection, EqualsExt } from '../src/index'
+import { Equals, UnionToIntersection, EqualsExt } from '../src/index.js'
 
 
 describe('10.UnionToTuple.test.ts', () => {
