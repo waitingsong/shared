@@ -1,4 +1,4 @@
-import { readFile } from 'fs/promises'
+import { readFile } from 'node:fs/promises'
 
 import {
   ProcCpuinfo,
@@ -8,8 +8,8 @@ import {
   ProcStat,
 } from '@waiting/shared-types'
 
-import { defaultPropDescriptor } from './consts'
-import { nFormatter } from './helper'
+import { defaultPropDescriptor } from './consts.js'
+import { nFormatter } from './helper.js'
 
 
 export interface HumanMemoryUsage {

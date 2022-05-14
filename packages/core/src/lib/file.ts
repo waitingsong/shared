@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { createReadStream } from 'fs'
-import { createInterface } from 'readline'
+import { createReadStream } from 'node:fs'
+import { createInterface } from 'node:readline'
 
 import { Observable } from 'rxjs'
 

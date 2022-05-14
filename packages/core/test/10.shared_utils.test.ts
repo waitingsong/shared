@@ -1,10 +1,9 @@
-import assert from 'assert/strict'
-import { readFile } from 'fs/promises'
+import assert from 'node:assert/strict'
+import { readFile } from 'node:fs/promises'
 
 import rmdir from 'rimraf'
 
 import {
-  basename,
   createDirAsync,
   createFileAsync,
   isDirExists,
@@ -13,14 +12,14 @@ import {
   join,
   normalize,
   tmpdir,
-} from '../src/index'
+} from '../src/index.js'
+import { fileShortPath } from '../src/lib/helper.js'
 
 
-const filename = basename(__filename)
 const tmpDir = join(tmpdir(), 'test-tmp')
 const pathPrefix = 'mytest'
 
-describe(filename, () => {
+describe(fileShortPath(import.meta.url), () => {
   before(async () => {
     await createDirAsync(tmpDir)
   })

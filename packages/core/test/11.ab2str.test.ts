@@ -1,15 +1,13 @@
-import assert from 'assert/strict'
+import assert from 'node:assert/strict'
 
 import {
   ab2str,
-  basename,
   str2ab,
-} from '../src/index'
+} from '../src/index.js'
+import { fileShortPath } from '../src/lib/helper.js'
 
 
-const filename = basename(__filename)
-
-describe(filename, () => {
+describe(fileShortPath(import.meta.url), () => {
   const fnName = 'ab2str'
 
   it(`Should ${fnName}() work`, async () => {
@@ -41,7 +39,8 @@ describe(filename, () => {
   })
 })
 
-describe(filename, () => {
+
+describe(fileShortPath(import.meta.url), () => {
   const fnName = 'str2ab'
 
   it(`Should ${fnName}() work`, async () => {

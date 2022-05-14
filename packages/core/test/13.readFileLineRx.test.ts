@@ -1,13 +1,12 @@
-import assert from 'assert/strict'
+import assert from 'node:assert/strict'
 
 import { tap, finalize } from 'rxjs/operators'
 
-import { readFileLineRx, basename } from '../src/index'
+import { readFileLineRx, basename } from '../src/index.js'
+import { fileShortPath } from '../src/lib/helper.js'
 
 
-const filename = basename(__filename)
-
-describe(filename, () => {
+describe(fileShortPath(import.meta.url), () => {
   const fnName = 'readFileLineRx'
 
   it(`Should ${fnName}() work`, (done) => {

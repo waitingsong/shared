@@ -1,15 +1,10 @@
-import assert from 'assert/strict'
+import assert from 'node:assert/strict'
 
-import {
-  basename,
-  join,
-  genISO8601String,
-} from '../src/index'
+import { genISO8601String } from '../src/index.js'
+import { fileShortPath } from '../src/lib/helper.js'
 
 
-const filename = basename(__filename)
-
-describe(filename, () => {
+describe(fileShortPath(import.meta.url), () => {
 
   describe('should genISOString work', () => {
     it('pass param', () => {

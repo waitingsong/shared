@@ -16,9 +16,11 @@
     "outDir": "dist",
     "pretty": true,
     "skipLibCheck": true,
-    "sourceMap": false,
+    "sourceMap": true,
     "strict": true,
-    "target": "ES2021",
+    "strictPropertyInitialization": false,
+    "stripInternal": true,
+    "target": "ES2022",
     "tsBuildInfoFile": ".vscode/.tsbuildinfo",
     "types" : ["mocha", "node"]
   },

@@ -1,16 +1,14 @@
-import assert from 'assert/strict'
+import assert from 'node:assert/strict'
 
 import {
   basename,
-  join,
   humanMemoryUsage,
   retrieveProcInfo,
-} from '../src/index'
+} from '../src/index.js'
+import { fileShortPath } from '../src/lib/helper.js'
 
 
-const filename = basename(__filename)
-
-describe(filename, () => {
+describe(fileShortPath(import.meta.url), () => {
 
   describe('should humanMemoryUsage work', () => {
     it('normal', () => {

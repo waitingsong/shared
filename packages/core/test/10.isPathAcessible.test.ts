@@ -1,23 +1,24 @@
-import assert from 'assert/strict'
+import assert from 'node:assert/strict'
 
 import rmdir from 'rimraf'
 import { from as ofrom, of } from 'rxjs'
 import { mergeMap } from 'rxjs/operators'
 
 import {
-  basename,
   createDirAsync,
   isPathAccessible,
   join,
   pathAccessible,
   tmpdir,
-} from '../src/index'
+} from '../src/index.js'
+import { fileShortPath } from '../src/lib/helper.js'
 
 
-const filename = basename(__filename)
 const tmpDir = join(tmpdir(), 'test-tmp')
 
-describe(filename + ' :isPathAcessible()', () => {
+
+describe(fileShortPath(import.meta.url) + ':isPathAcessible()', () => {
+
   before(async () => {
     await createDirAsync(tmpDir)
   })
@@ -60,7 +61,7 @@ describe(filename + ' :isPathAcessible()', () => {
 })
 
 
-describe(filename + ' :pathAcessible()', () => {
+describe(fileShortPath(import.meta.url) + ':pathAcessible()', () => {
   after((done) => {
     rmdir(tmpDir, (err) => {
       err && console.error(err)

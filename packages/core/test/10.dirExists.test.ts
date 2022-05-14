@@ -1,23 +1,24 @@
-import assert from 'assert/strict'
+import assert from 'node:assert/strict'
 
 import rmdir from 'rimraf'
 import { from as ofrom, of } from 'rxjs'
 import { mergeMap } from 'rxjs/operators'
 
 import {
-  basename,
   createDirAsync,
   dirExists,
   join,
   tmpdir,
-} from '../src/index'
+} from '../src/index.js'
+import { fileShortPath } from '../src/lib/helper.js'
 
 
-const filename = basename(__filename)
 const tmpDir = join(tmpdir(), 'test-tmp')
 const pathPrefix = 'mytest'
 
-describe(filename + ' :dirExists()', () => {
+
+describe(fileShortPath(import.meta.url), () => {
+
   before(async () => {
     await createDirAsync(tmpDir)
   })

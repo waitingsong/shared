@@ -1,19 +1,16 @@
-import assert from 'assert/strict'
+import assert from 'node:assert/strict'
 
-import { from as ofrom, of, EMPTY } from 'rxjs'
+import { of, EMPTY } from 'rxjs'
 import { catchError, defaultIfEmpty, finalize, tap } from 'rxjs/operators'
 
 import {
   assertNever,
   assertNeverRx,
-  basename,
-} from '../src/index'
+} from '../src/index.js'
+import { fileShortPath } from '../src/lib/helper.js'
 
 
-
-const filename = basename(__filename)
-
-describe(filename, () => {
+describe(fileShortPath(import.meta.url), () => {
   const fnName = 'assertNever'
 
   it(`Should ${fnName}() work`, () => {
@@ -27,7 +24,7 @@ describe(filename, () => {
   })
 })
 
-describe(filename, () => {
+describe(fileShortPath(import.meta.url), () => {
   const fnName = 'assertNeverObb'
 
   it(`Should ${fnName}() work`, (done) => {

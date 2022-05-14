@@ -1,16 +1,10 @@
-import assert from 'assert/strict'
+import assert from 'node:assert/strict'
 
-import rmdir from 'rimraf'
-
-import {
-  basename,
-  isDirExists,
-} from '../src/index'
+import { isDirExists } from '../src/index.js'
+import { fileShortPath } from '../src/lib/helper.js'
 
 
-const filename = basename(__filename)
-
-describe(filename, () => {
+describe(fileShortPath(import.meta.url), () => {
 
   describe('Should isDirExits() work', () => {
     it('spec relative dir', async () => {

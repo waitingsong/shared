@@ -3,27 +3,27 @@
 import {
   access,
   WriteFileOptions,
-} from 'fs'
+} from 'node:fs'
 import {
   mkdir,
   stat,
   writeFile,
-} from 'fs/promises'
+} from 'node:fs/promises'
 import {
   basename,
   dirname,
   join,
   normalize,
   resolve as pathResolve,
-} from 'path'
-import { TextDecoder, TextEncoder } from 'util'
+} from 'node:path'
+import { TextDecoder, TextEncoder } from 'node:util'
 
 import {
   defer,
   of,
+  map,
   Observable,
 } from 'rxjs'
-import { map } from 'rxjs/operators'
 
 
 export {
@@ -33,7 +33,7 @@ export {
   normalize,
   pathResolve,
 }
-export { tmpdir } from 'os'
+export { tmpdir } from 'node:os'
 
 /** Return path if accessible, blank if not accessible */
 export function pathAccessible(path: string): Observable<string> {

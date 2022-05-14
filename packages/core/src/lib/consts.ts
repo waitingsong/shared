@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/prefer-nullish-coalescing */
-import { normalize } from './utils'
+import { normalize } from './utils.js'
 
 
 /* istanbul ignore next */
