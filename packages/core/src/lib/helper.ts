@@ -1,12 +1,29 @@
-import { relative } from 'node:path'
+import { join, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 
 export const appDir = process.cwd()
 
 export function fileShortPath(importUrl: string): string {
-  const path = relative(appDir, fileURLToPath(importUrl)).replace(/\\/ug, '/')
+  const path = relative(appDir, genCurrentFilename(importUrl)).replace(/\\/ug, '/')
   return path
+}
+
+/**
+ * generate __filename for ESM
+ * @param inputUrl import.meta.url
+ */
+export function genCurrentFilename(inputUrl: string): string {
+  return fileURLToPath(inputUrl).replace(/\\/ug, '/')
+}
+/**
+ * generate __dirname for ESM
+ * @param inputUrl import.meta.url
+ */
+export function genCurrentDirname(inputUrl: string): string {
+  const __filename = genCurrentFilename(inputUrl)
+  const dir = join(__filename, '..').replace(/\\/ug, '/')
+  return dir
 }
 
 /** Set loading path for node-ffi linking dll */
