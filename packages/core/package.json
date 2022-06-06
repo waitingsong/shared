@@ -5,6 +5,7 @@
   "description": "node core function re export with Promise or Observable",
   "keywords": [
     "node",
+    "ESM",
     "typescript"
   ],
   "type": "module",
