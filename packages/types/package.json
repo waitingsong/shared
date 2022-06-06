@@ -5,6 +5,7 @@
   "description": "shared typescript types",
   "keywords": [
     "types",
+    "ESM",
     "typescript",
     "ts"
   ],
