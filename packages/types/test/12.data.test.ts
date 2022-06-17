@@ -1,15 +1,14 @@
 import assert from 'assert/strict'
 
+import { fileShortPath } from '@waiting/shared-core'
+
 import {
-  Awaited,
-  Equals,
-  EqualsExt,
   JsonType,
   JsonResp,
 } from '../src/index.js'
 
 
-describe('12.data.test.ts', () => {
+describe(fileShortPath(import.meta.url), () => {
 
   describe('should JsonType work with valid value', () => {
     it('string', () => {
@@ -109,25 +108,5 @@ describe('12.data.test.ts', () => {
     })
   })
 
-  describe('should Awaited work', () => {
-    it('normal', () => {
-      type F1 = Promise<JsonType>
-      type F2 = Awaited<F1>
-      type ExpectType = JsonType
-      const ret1: Equals<F2, ExpectType> = true
-      assert(ret1)
-      const ret2: Equals<F2, JSON> = false
-      assert(! ret2)
-    })
-    it('recursive', () => {
-      type F1 = Promise<Promise<Promise<JsonType>>>
-      type F2 = Awaited<F1>
-      type ExpectType = JsonType
-      const ret1: Equals<F2, ExpectType> = true
-      assert(ret1)
-      const ret2: Equals<F2, JSON> = false
-      assert(! ret2)
-    })
-  })
 })
 
