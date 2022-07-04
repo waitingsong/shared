@@ -38,10 +38,10 @@ npm run bootstrap
 
 ## Packages
 
-| Package       | Version                          | Dependencies                           | DevDependencies                          |
-| ------------- | -------------------------------- | -------------------------------------- | ---------------------------------------- |
-| [`types`]     | [![types-svg]][types-ch]         | [![types-d-svg]][types-d-link]         | [![types-dd-svg]][types-dd-link]         |
-| [`core`]      | [![core-svg]][core-ch]           | [![core-d-svg]][core-d-link]           | [![core-dd-svg]][core-dd-link]           |
+| Package   | Version                  |
+| --------- | ------------------------ |
+| [`types`] | [![types-svg]][types-ch] |
+| [`core`]  | [![core-svg]][core-ch]   |
 
 
 [`types`]: https://github.com/waitingsong/shared/tree/master/packages/types
