@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [18.1.1](https://github.com/waitingsong/shared/compare/v18.1.0...v18.1.1) (2022-07-04)
+
+
+### Bug Fixes
+
+* **types:** isInLiteralTuple ([e919051](https://github.com/waitingsong/shared/commit/e919051612d73395387ea360756a0285526782f3))
+
+
+
+
+
 # [18.0.0](https://github.com/waitingsong/shared/compare/v17.0.0...v18.0.0) (2022-05-14)
 
 **Note:** Version bump only for package @waiting/shared-types

@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [18.1.1](/compare/v18.1.0...v18.1.1) (2022-07-04)
+
+
+### Bug Fixes
+
+* **boilerplate:** define enum without const 37ffd10
+* **boilerplate:** devDeps version 2e29b42
+* **types:** isInLiteralTuple e919051
+
+
+
+
+
 # [18.1.0](/compare/v18.0.0...v18.1.0) (2022-05-16)
 
 

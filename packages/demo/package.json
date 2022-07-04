@@ -1,7 +1,7 @@
 {
   "name": "demo",
   "author": "waiting",
-  "version": "18.1.0",
+  "version": "18.1.1",
   "description": "npm boilerplate",
   "private": true,
   "keywords": [
@@ -30,10 +30,8 @@
     "url": "https://github.com/waitingsong/npm-mono-base"
   },
   "license": "MIT",
-  "dependencies": {
-  },
   "devDependencies": {
-    "@waiting/shared-core": "^18.1.0",
+    "@waiting/shared-core": "^18.1.1",
     "cross-env": "7"
   },
   "peerDependencies": {
