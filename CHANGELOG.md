@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [19.0.0](/compare/v18.1.1...v19.0.0) (2022-07-05)
+
+
+### Bug Fixes
+
+* **boilerplate:** define enum without const 37ffd10
+* **boilerplate:** devDeps version 2e29b42
+
+
+### Features
+
+* **core:** breaking change strategy of case conversion 416ec24
+* **types:** breaking changes strategy of case conversion and typo f9962ac
+
+
+
+
+
 ## [18.1.1](/compare/v18.1.0...v18.1.1) (2022-07-04)
 
 

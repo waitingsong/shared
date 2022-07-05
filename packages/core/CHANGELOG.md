@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [19.0.0](https://github.com/waitingsong/shared/compare/v18.1.1...v19.0.0) (2022-07-05)
+
+
+### Features
+
+* **core:** breaking change strategy of case conversion ([416ec24](https://github.com/waitingsong/shared/commit/416ec24dc1d253d18f9a777f8ead59af3d778844))
+
+
+
+
+
 ## [18.1.1](https://github.com/waitingsong/shared/compare/v18.1.0...v18.1.1) (2022-07-04)
 
 **Note:** Version bump only for package @waiting/shared-core

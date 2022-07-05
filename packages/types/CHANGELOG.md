@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [19.0.0](https://github.com/waitingsong/shared/compare/v18.1.1...v19.0.0) (2022-07-05)
+
+
+### Features
+
+* **types:** breaking changes strategy of case conversion and typo ([f9962ac](https://github.com/waitingsong/shared/commit/f9962ac7582f1887c1b7db5ed5d0f9adfb160fae))
+
+
+
+
+
 ## [18.1.1](https://github.com/waitingsong/shared/compare/v18.1.0...v18.1.1) (2022-07-04)
 
 
