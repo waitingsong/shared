@@ -3,7 +3,7 @@ import assert from 'node:assert'
 import {
   CamelKeys,
   CamelToSnake,
-  // SnakeKeys,
+  SnakeKeys,
   SnakeToCamel,
   SnakeToPascal,
 } from '@waiting/shared-types'
@@ -245,4 +245,44 @@ export function camelKeys<
   })
 
   return ret as CamelKeys<T, D, Recursive>
+}
+
+
+export function snakeKeys<
+  T,
+  D extends string = '_',
+  Recursive extends boolean = false>(
+  input: T,
+  /** @default _ */
+  delimiter?: D,
+  recursive?: Recursive,
+): SnakeKeys<T, D, Recursive> {
+
+  assert(typeof input === 'object', 'snakeKeys: input must be object')
+
+  const ret = {}
+
+  Object.entries(input).forEach(([key, value]) => {
+    const key2 = camelToSnake(key, delimiter)
+    if (recursive === true && typeof value === 'object') {
+      Object.defineProperty(ret, key2, {
+        enumerable: true,
+        configurable: true,
+        writable: true,
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+        value: snakeKeys(value, delimiter, recursive),
+      })
+    }
+    else {
+      Object.defineProperty(ret, key2, {
+        enumerable: true,
+        configurable: true,
+        writable: true,
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+        value,
+      })
+    }
+  })
+
+  return ret as SnakeKeys<T, D, Recursive>
 }
