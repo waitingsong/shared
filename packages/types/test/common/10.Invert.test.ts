@@ -1,5 +1,7 @@
 import assert from 'assert/strict'
 
+import { fileShortPath } from '@waiting/shared-core'
+
 import { Invert } from '../../src/index'
 
 import {
@@ -12,9 +14,7 @@ import {
 } from './test-model'
 
 
-const filename = '10.FormatIntersect.test.ts'
-
-describe(filename, () => {
+describe(fileShortPath(import.meta.url), () => {
 
   describe('should AllValues work', () => {
     it('type AliasRecord', () => {

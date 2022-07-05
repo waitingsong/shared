@@ -1,4 +1,6 @@
-import assert from 'assert/strict'
+import assert from 'node:assert/strict'
+
+import { fileShortPath } from '@waiting/shared-core'
 
 import {
   DateISOString,
@@ -6,7 +8,7 @@ import {
 } from '../src/index.js'
 
 
-describe('11.alias.test.ts', () => {
+describe(fileShortPath(import.meta.url), () => {
 
   describe('should DateISOString work', () => {
     it('normal', () => {

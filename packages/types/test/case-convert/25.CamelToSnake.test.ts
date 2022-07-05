@@ -1,16 +1,14 @@
-import assert from 'assert/strict'
+import { fileShortPath } from '@waiting/shared-core'
 
 import {
   Equals,
   CamelToSnake,
-  RecusiveSnakeKeys,
-} from '../src/index.js'
+} from '../../src/index.js'
 
 
+describe(fileShortPath(import.meta.url), () => {
 
-describe('15.camelToSnake.test.ts', () => {
-
-  describe('should camelToSnake work', () => {
+  describe('should CamelToSnake work', () => {
     it('1', () => {
       type Foo = 'tUserId'
       type T1 = CamelToSnake<Foo>
@@ -145,48 +143,56 @@ describe('15.camelToSnake.test.ts', () => {
       const ret: Equals<T1, ExpectType> = true
       const ret2: Equals<T1, Foo> = false
     })
-  })
 
-
-  describe('should RecusiveSnakeKeys work', () => {
-    it('1', () => {
-      interface Foo {
-        tbUser: {
-          userId: number,
-          userNameExt: {
-            _nameFoo: string,
-            _NameBar: string,
-          },
-          UserAge: number,
-          _NameBar: string,
-        }
-        tb_order: {
-          OrderId: string,
-        }
-      }
-      type T1 = RecusiveSnakeKeys<Foo>
-
-      // declare const f1: T1
-      // f1.tb_user.
-
-      interface ExpectType {
-        tb_user: {
-          user_id: number,
-          user_name_ext: {
-            _name_foo: string,
-            __name_bar: string,
-          },
-          user_age: number,
-          __name_bar: string,
-        }
-        tb_order: {
-          order_id: string,
-        }
-      }
-
+    it('non standard camel', () => {
+      type Foo = 'tbUserTWo_ThreE'
+      type T1 = CamelToSnake<Foo>
+      type ExpectType = 'tb_user_t_wo__thre_e'
       const ret: Equals<T1, ExpectType> = true
-      const ret2: Equals<T1, Foo> = false
+    })
+
+    it('non standard camel 2', () => {
+      type Foo = 'tBU'
+      type T1 = CamelToSnake<Foo>
+      type ExpectType = 't_b_u'
+      const ret: Equals<T1, ExpectType> = true
+    })
+
+    it('non standard camel 3', () => {
+      type Foo = 'tbUserTWo_ThreE'
+      type T1 = CamelToSnake<Foo>
+      type ExpectType = 'tb_user_t_wo__thre_e'
+      const ret: Equals<T1, ExpectType> = true
+    })
+
+    it('non standard camel 4', () => {
+      type Foo = 'tb_USERExt'
+      type T1 = CamelToSnake<Foo>
+      type ExpectType = 'tb__u_s_e_r_ext'
+      const ret: Equals<T1, ExpectType> = true
+    })
+
+    it('non standard camel 5', () => {
+      type Foo = 'TB_USER_EXT'
+      type T1 = CamelToSnake<Foo>
+      type ExpectType = 't_b__u_s_e_r__e_x_t'
+      const ret: Equals<T1, ExpectType> = true
+    })
+
+    it('non standard camel 6', () => {
+      type Foo = 'fooJWT'
+      type T1 = CamelToSnake<Foo>
+      type ExpectType = 'foo_j_w_t'
+      const ret: Equals<T1, ExpectType> = true
+    })
+
+    it('non standard camel 7', () => {
+      type Foo = 'foo_JWT'
+      type T1 = CamelToSnake<Foo>
+      type ExpectType = 'foo__j_w_t'
+      const ret: Equals<T1, ExpectType> = true
     })
   })
+
 })
 

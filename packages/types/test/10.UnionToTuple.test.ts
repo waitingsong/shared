@@ -1,7 +1,9 @@
+import { fileShortPath } from '@waiting/shared-core'
+
 import { Equals, UnionToIntersection, EqualsExt } from '../src/index.js'
 
 
-describe('10.UnionToTuple.test.ts', () => {
+describe(fileShortPath(import.meta.url), () => {
 
   // describe('should UnionToTuple work', () => {
   //   it('normal', () => {

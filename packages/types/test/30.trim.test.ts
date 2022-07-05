@@ -1,4 +1,4 @@
-import assert from 'assert/strict'
+import { fileShortPath } from '@waiting/shared-core'
 
 import {
   Equals,
@@ -8,7 +8,7 @@ import {
 } from '../src/index.js'
 
 
-describe('13.trim.test.ts', () => {
+describe(fileShortPath(import.meta.url), () => {
 
   describe('should TrimStart work w/o delimiter', () => {
     it('1', () => {

@@ -1,9 +1,11 @@
 import assert from 'assert/strict'
 
+import { fileShortPath } from '@waiting/shared-core'
+
 import { AllValues } from '../../src/index'
 
 
-describe('10.AllValues.test.ts', () => {
+describe(fileShortPath(import.meta.url), () => {
 
   describe('should AllValues work', () => {
     const alias = {

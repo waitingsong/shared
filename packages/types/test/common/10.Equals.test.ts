@@ -1,9 +1,9 @@
-import assert from 'assert/strict'
+import { fileShortPath } from '@waiting/shared-core'
 
 import { Equals } from '../../src/index'
 
 
-describe('10.Equals.test.ts', () => {
+describe(fileShortPath(import.meta.url), () => {
 
   describe('should Equals return true', () => {
     it('true:true', () => {

@@ -1,11 +1,13 @@
 import assert from 'assert/strict'
 
+import { fileShortPath } from '@waiting/shared-core'
+
 import { FormatIntersect, Equals, EqualsExt } from '../../src/index'
 
 import { AliasRecord } from './test-model'
 
 
-describe('10.FormatIntersect.test.ts', () => {
+describe(fileShortPath(import.meta.url), () => {
 
   describe('should FormatIntersect work', () => {
     it('normal', () => {
