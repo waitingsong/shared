@@ -26,7 +26,7 @@
   "homepage": "https://github.com/waitingsong/shared/issues",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/waitingsong/shared.git"
+    "url": "https://github.com/waitingsong/shared"
   },
   "license": "MIT",
   "devDependencies": {
