@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [19.1.0](https://github.com/waitingsong/shared/compare/v19.0.1...v19.1.0) (2022-07-05)
+
+
+### Features
+
+* **core:** snakeKeys() ([2fdeaf4](https://github.com/waitingsong/shared/commit/2fdeaf45ed3afd2e17ef87899d260be21383a618))
+
+
+
+
+
 ## [19.0.1](https://github.com/waitingsong/shared/compare/v19.0.0...v19.0.1) (2022-07-05)
 
 **Note:** Version bump only for package @waiting/shared-core
