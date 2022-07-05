@@ -35,7 +35,7 @@
     "cross-env": "7"
   },
   "peerDependencies": {
-    "@waiting/shared-types": "^18.0.0"
+    "@waiting/shared-types": "^19.0.0"
   },
   "engines": {
     "node": ">=16.13.0"
