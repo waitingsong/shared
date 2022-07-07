@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [19.3.0](https://github.com/waitingsong/shared/compare/v19.2.0...v19.3.0) (2022-07-07)
+
+
+### Features
+
+* **core:** sleep() ([315e3f6](https://github.com/waitingsong/shared/commit/315e3f6471c6be47963f15f1b6c709e3220372ce))
+
+
+
+
+
 # [19.2.0](https://github.com/waitingsong/shared/compare/v19.1.0...v19.2.0) (2022-07-07)
 
 
