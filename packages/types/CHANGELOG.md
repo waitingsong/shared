@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [19.5.1](https://github.com/waitingsong/shared/compare/v19.5.0...v19.5.1) (2022-07-07)
+
+**Note:** Version bump only for package @waiting/shared-types
+
+
+
+
+
 # [19.2.0](https://github.com/waitingsong/shared/compare/v19.1.0...v19.2.0) (2022-07-07)
 
 **Note:** Version bump only for package @waiting/shared-types

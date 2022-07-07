@@ -1,7 +1,7 @@
 {
   "name": "@waiting/shared-midway",
   "author": "waiting",
-  "version": "19.5.0",
+  "version": "19.5.1",
   "description": "midway.js utils",
   "keywords": [
     "midway.js",
@@ -29,7 +29,7 @@
   "license": "MIT",
   "devDependencies": {
     "@midwayjs/koa": "^3.3.0",
-    "@waiting/shared-core": "^19.4.0",
+    "@waiting/shared-core": "^19.5.1",
     "cross-env": "7"
   },
   "peerDependencies": {
