@@ -1,6 +1,6 @@
 import { fileShortPath } from '@waiting/shared-core'
 
-import { Equals } from '../../src/index'
+import { Equals } from '../../src/index.js'
 
 
 describe(fileShortPath(import.meta.url), () => {

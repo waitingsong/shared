@@ -2,9 +2,9 @@ import assert from 'assert/strict'
 
 import { fileShortPath } from '@waiting/shared-core'
 
-import { FormatIntersect, Equals, EqualsExt } from '../../src/index'
+import { FormatIntersect, Equals, EqualsExt } from '../../src/index.js'
 
-import { AliasRecord } from './test-model'
+import { AliasRecord } from './test-model.js'
 
 
 describe(fileShortPath(import.meta.url), () => {

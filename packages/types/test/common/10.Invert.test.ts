@@ -2,7 +2,7 @@ import assert from 'assert/strict'
 
 import { fileShortPath } from '@waiting/shared-core'
 
-import { Invert } from '../../src/index'
+import { Invert } from '../../src/index.js'
 
 import {
   Alias,
@@ -11,7 +11,7 @@ import {
   Alias2Type,
   alias,
   alias2,
-} from './test-model'
+} from './test-model.js'
 
 
 describe(fileShortPath(import.meta.url), () => {

@@ -11,7 +11,7 @@ import {
   TupleConcat,
   TupleToUnion,
   isInLiteralTuple,
-} from '../../src/index'
+} from '../../src/index.js'
 
 
 describe(fileShortPath(import.meta.url), () => {

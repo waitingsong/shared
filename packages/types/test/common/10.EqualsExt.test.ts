@@ -1,6 +1,10 @@
 import assert from 'assert/strict'
 
-import { Equals as EQ, EqualsExt as Equals, FormatIntersect } from '../../src/index'
+import {
+  Equals as EQ,
+  EqualsExt as Equals,
+  FormatIntersect,
+} from '../../src/index.js'
 
 
 describe('10.EqualsExt.test.ts', () => {
