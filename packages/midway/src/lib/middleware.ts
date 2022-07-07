@@ -29,10 +29,14 @@ export function shouldEnableMiddleware(
 
   if (Array.isArray(ignore) && ignore.length) {
     const matched = isPathMatchRules(ctx.path, ignore)
-    return ! matched
+    if (matched === true) {
+      return false
+    }
+    // if not mathched, continue to check match rules
   }
-  else if (Array.isArray(match) && match.length) {
-    const matched = isPathMatchRules(ctx.path, ignore)
+
+  if (Array.isArray(match) && match.length) {
+    const matched = isPathMatchRules(ctx.path, match)
     return matched
   }
   else {
