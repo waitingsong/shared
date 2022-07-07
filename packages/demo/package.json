@@ -1,7 +1,7 @@
 {
   "name": "demo",
   "author": "waiting",
-  "version": "19.3.0",
+  "version": "19.4.0",
   "description": "npm boilerplate",
   "private": true,
   "keywords": [
@@ -31,7 +31,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@waiting/shared-core": "^19.3.0",
+    "@waiting/shared-core": "^19.4.0",
     "cross-env": "7"
   },
   "peerDependencies": {

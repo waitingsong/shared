@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [19.4.0](https://github.com/waitingsong/shared/compare/v19.3.0...v19.4.0) (2022-07-07)
+
+
+### Features
+
+* **core:** retrieveFirstIp() ([ac0e913](https://github.com/waitingsong/shared/commit/ac0e91304c7347cf141db03d8273b378e0baf21c))
+
+
+
+
+
 # [19.3.0](https://github.com/waitingsong/shared/compare/v19.2.0...v19.3.0) (2022-07-07)
 
 

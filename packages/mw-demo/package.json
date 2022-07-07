@@ -1,7 +1,7 @@
 {
   "name": "@mw-components/demo",
   "author": "waiting",
-  "version": "0.0.0",
+  "version": "19.4.0",
   "description": "midway component demo",
   "private": true,
   "keywords": [
@@ -23,7 +23,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@waiting/shared-core": "^19.1.0"
+    "@waiting/shared-core": "^19.4.0"
   },
   "devDependencies": {
     "@waiting/shared-types": "^19.0.1",
