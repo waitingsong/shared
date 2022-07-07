@@ -1,0 +1,68 @@
+{
+  "name": "demo",
+  "author": "waiting",
+  "version": "19.3.0",
+  "description": "npm boilerplate",
+  "private": true,
+  "keywords": [
+    "种子项目",
+    "ESM",
+    "typescript",
+    "ts"
+  ],
+  "type": "module",
+  "bin": {},
+  "main": "dist/index.js",
+  "types": "src/index.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "bugs": {
+    "url": "https://github.com/waitingsong/npm-mono-base/issues"
+  },
+  "homepage": "https://github.com/waitingsong/npm-mono-base#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/waitingsong/npm-mono-base"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@waiting/shared-core": "^19.3.0",
+    "cross-env": "7"
+  },
+  "peerDependencies": {
+    "@waiting/shared-types": "^19.0.1"
+  },
+  "engines": {
+    "node": ">=16.13.0"
+  },
+  "files": [
+    "tsconfig.json",
+    "Dockerfile",
+    "src/**/*.ts",
+    "bin/*.js",
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "npm run tsc && npm run rp",
+    "clean": "npm run clean:lock & npm run clean:cache & rm -rf dist/* -rf",
+    "clean:cache": "rm -rf .eslintcache .vscode/.tsbuildinfo .vscode/.tsbuildinfo.*",
+    "clean:lock": "rm package-lock.json -f",
+    "cov": "cross-env TS_NODE_PROJECT=test/tsconfig.json c8 mocha --loader=ts-node/esm --parallel=false",
+    "lint": "eslint --fix --cache {src,test}/**/*.ts",
+    "lint:nofix": "eslint --cache {src,test}/**/*.ts",
+    "purge": "npm run clean && rm node_modules -rf",
+    "rp": "rollup -c rollup.config.js --context this",
+    "test": "cross-env TS_NODE_PROJECT=test/tsconfig.json mocha --loader=ts-node/esm",
+    "test:local": "cross-env TS_NODE_PROJECT=test/tsconfig.json ../../node_modules/.bin/mocha --loader=ts-node/esm --parallel=false",
+    "tsc": "tsc -b ",
+    "tsc:w": "tsc -p tsconfig.json -w"
+  }
+}
