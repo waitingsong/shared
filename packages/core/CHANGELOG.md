@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [19.2.0](https://github.com/waitingsong/shared/compare/v19.1.0...v19.2.0) (2022-07-07)
+
+
+### Features
+
+* **core:** saveHeapSnapshot() ([b474ec0](https://github.com/waitingsong/shared/commit/b474ec0cd111e0fc43b5400c9cf88e44d523aa7b))
+
+
+
+
+
 # [19.1.0](https://github.com/waitingsong/shared/compare/v19.0.1...v19.1.0) (2022-07-05)
 
 
