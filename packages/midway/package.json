@@ -1,41 +1,40 @@
 {
-  "name": "demo",
+  "name": "@waiting/shared-midway",
   "author": "waiting",
   "version": "19.3.0",
-  "description": "npm boilerplate",
-  "private": true,
+  "description": "midway.js utils",
   "keywords": [
-    "种子项目",
+    "midway.js",
     "ESM",
-    "typescript",
     "ts"
   ],
   "type": "module",
   "bin": {},
-  "main": "dist/index.js",
-  "types": "src/index.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
     "./package.json": "./package.json"
   },
   "bugs": {
-    "url": "https://github.com/waitingsong/npm-mono-base/issues"
+    "url": "https://github.com/waitingsong/shared/issues"
   },
-  "homepage": "https://github.com/waitingsong/npm-mono-base#readme",
+  "homepage": "https://github.com/waitingsong/shared/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/waitingsong/npm-mono-base"
+    "url": "https://github.com/waitingsong/shared"
   },
   "license": "MIT",
   "devDependencies": {
-    "@waiting/shared-core": "^19.3.0",
+    "@midwayjs/koa": "^3.3.0",
+    "@waiting/shared-core": "^19.4.0",
     "cross-env": "7"
   },
   "peerDependencies": {
-    "@waiting/shared-types": "^19.0.1"
+    "@midwayjs/koa": ">=3",
+    "@waiting/shared-core": ">=19"
   },
   "engines": {
     "node": ">=16.13.0"
@@ -62,7 +61,6 @@
     "rp": "rollup -c rollup.config.js --context this",
     "test": "cross-env TS_NODE_PROJECT=test/tsconfig.json mocha --loader=ts-node/esm",
     "test:local": "cross-env TS_NODE_PROJECT=test/tsconfig.json ../../node_modules/.bin/mocha --loader=ts-node/esm --parallel=false",
-    "tsc": "tsc -b ",
-    "tsc:w": "tsc -p tsconfig.json -w"
+    "tsc": "tsc -b "
   }
 }
