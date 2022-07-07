@@ -12,6 +12,7 @@ import {
   join,
   normalize,
   tmpdir,
+  sleep,
 } from '../src/index.js'
 import { fileShortPath } from '../src/lib/helper.js'
 
@@ -250,4 +251,9 @@ describe(fileShortPath(import.meta.url), () => {
     }
   })
 
+  it('Should sleep() work ', async () => {
+    await sleep()
+    await sleep(50)
+  })
 })
+

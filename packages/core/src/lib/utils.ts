@@ -250,3 +250,11 @@ export function str2Uint8Array(input: string): Uint8Array {
 export function genRandomInt(max: number): number {
   return Math.floor(Math.random() * Math.floor(max))
 }
+
+
+export async function sleep(timeout = 1000): Promise<void> {
+  return new Promise<void>((resolve) => {
+    setTimeout(resolve, timeout)
+  })
+}
+
