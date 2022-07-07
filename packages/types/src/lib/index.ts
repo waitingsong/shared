@@ -2,6 +2,7 @@
 export * from './alias.js'
 export * from './common.js'
 export * from './data.js'
+export * from './dummy.js'
 export * from './npm-pkg.js'
 export * from './union.js'
 export * from './stats.js'
