@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [20.0.0](https://github.com/waitingsong/shared/compare/v19.5.1...v20.0.0) (2022-07-08)
+
+
+### Features
+
+* **core:** breaking change removing exports ([85439cb](https://github.com/waitingsong/shared/commit/85439cb0fb68e0b6c990f19833f913125c005de9))
+* **core:** breaking change retrieveHeadersItem() returns string | undefined only ([8c4a160](https://github.com/waitingsong/shared/commit/8c4a160e1e7cce5071fe83adf685718e5b0870f8))
+
+
+
+
+
 ## [19.5.1](https://github.com/waitingsong/shared/compare/v19.5.0...v19.5.1) (2022-07-07)
 
 **Note:** Version bump only for package @waiting/shared-core

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [20.0.0](/compare/v19.5.1...v20.0.0) (2022-07-08)
+
+
+### Features
+
+* **core:** breaking change removing exports 85439cb
+* **core:** breaking change retrieveHeadersItem() returns string | undefined only 8c4a160
+
+
+
+
+
 ## [19.5.1](/compare/v19.5.0...v19.5.1) (2022-07-07)
 
 **Note:** Version bump only for package @waiting/shared
