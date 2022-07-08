@@ -1,7 +1,6 @@
 import assert from 'node:assert/strict'
 
 import {
-  basename,
   humanMemoryUsage,
   retrieveProcInfo,
 } from '../src/index.js'

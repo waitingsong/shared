@@ -1,5 +1,7 @@
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
+import { join, normalize } from 'node:path'
 
 import rmdir from 'rimraf'
 
@@ -9,9 +11,6 @@ import {
   isDirExists,
   isDirFileExists,
   isFileExists,
-  join,
-  normalize,
-  tmpdir,
   sleep,
 } from '../src/index.js'
 import { fileShortPath } from '../src/lib/helper.js'

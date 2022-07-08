@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/prefer-nullish-coalescing */
-import { normalize } from './utils.js'
+import { normalize } from 'node:path'
 
 
 export const isWin32 = process.platform === 'win32'

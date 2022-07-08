@@ -2,7 +2,7 @@ import assert from 'node:assert/strict'
 
 import { tap, finalize } from 'rxjs/operators'
 
-import { readFileLineRx, basename } from '../src/index.js'
+import { readFileLineRx } from '../src/index.js'
 import { fileShortPath } from '../src/lib/helper.js'
 
 

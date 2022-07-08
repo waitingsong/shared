@@ -1,4 +1,6 @@
 import assert from 'node:assert/strict'
+import { tmpdir } from 'node:os'
+import { join, normalize } from 'node:path'
 
 import rmdir from 'rimraf'
 
@@ -6,9 +8,6 @@ import {
   createFileAsync,
   fileExists,
   isFileExists,
-  join,
-  normalize,
-  tmpdir,
 } from '../src/index.js'
 import { fileShortPath } from '../src/lib/helper.js'
 

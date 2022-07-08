@@ -10,9 +10,7 @@ import {
   writeFile,
 } from 'node:fs/promises'
 import {
-  basename,
   dirname,
-  join,
   normalize,
   resolve as pathResolve,
 } from 'node:path'
@@ -26,14 +24,8 @@ import {
 } from 'rxjs'
 
 
-export {
-  basename,
-  dirname,
-  join,
-  normalize,
-  pathResolve,
-}
-export { tmpdir } from 'node:os'
+export { pathResolve }
+// export { tmpdir } from 'node:os'
 
 /** Return path if accessible, blank if not accessible */
 export function pathAccessible(path: string): Observable<string> {
@@ -95,7 +87,6 @@ export function isDirFileExists(path: string, type: 'DIR' | 'FILE'): Promise<boo
 export async function createDirAsync(path: string): Promise<string> {
   if (path) {
     const target = normalize(path) // ! required for '.../.myca' under win32
-    /* istanbul ignore else */
     if (! await isDirExists(target)) {
       await mkdir(path, { recursive: true })
     }
@@ -123,7 +114,6 @@ export async function createFileAsync(
 
   const dir = dirname(file)
 
-  /* istanbul ignore next */
   if (! dir) {
     throw new Error('folder empty')
   }
@@ -132,7 +122,6 @@ export async function createFileAsync(
   }
   const path = normalize(file)
 
-  /* istanbul ignore else */
   if (! await isFileExists(path)) {
     const opts: WriteFileOptions = options ? options : { mode: 0o640 }
 
@@ -154,22 +143,22 @@ export async function createFileAsync(
 }
 
 
-/**
- * @deprecated in favor of using child_process['ExecFileOptions']
- */
-export interface ExecFileOptions {
-  cwd?: string
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  env?: object
-  encoding?: 'utf8' | string
-  timeout?: 0 | number
-  maxBuffer?: number
-  killSignal?: string
-  uid?: number
-  gid?: number
-  windowsHide?: boolean
-  windowsVerbatimArguments?: boolean
-}
+// /**
+//  * @deprecated in favor of using child_process['ExecFileOptions']
+//  */
+// export interface ExecFileOptions {
+//   cwd?: string
+//   // eslint-disable-next-line @typescript-eslint/ban-types
+//   env?: object
+//   encoding?: 'utf8' | string
+//   timeout?: 0 | number
+//   maxBuffer?: number
+//   killSignal?: string
+//   uid?: number
+//   gid?: number
+//   windowsHide?: boolean
+//   windowsVerbatimArguments?: boolean
+// }
 
 
 
