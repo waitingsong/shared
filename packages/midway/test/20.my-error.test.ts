@@ -29,6 +29,8 @@ describe(fileShortPath(import.meta.url), () => {
       assert(err.cause instanceof Error)
       assert(err.cause === cause)
       assert(err.cause.message.includes(rnd))
+
+      assert(err.details === cause)
     })
   })
 
