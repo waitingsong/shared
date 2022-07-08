@@ -9,14 +9,11 @@ import { fileShortPath } from '../src/lib/helper.js'
 import { CI } from './root.config.js'
 
 
-describe(fileShortPath(import.meta.url), () => {
+// Run this case only with describe.only() !
+describe.skip(fileShortPath(import.meta.url), () => {
 
   describe('should saveHeapSnapshot() work', () => {
     it('normal', async () => {
-      if (CI) {
-        console.info('skip test when CI')
-        return
-      }
       const path = join(tmpdir(), 'heap.dump.' + Math.random().toString())
       console.log({ path })
       await saveHeapSnapshot(path)

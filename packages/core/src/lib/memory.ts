@@ -4,6 +4,7 @@ import { createWriteStream } from 'node:fs'
 import v8 from 'node:v8'
 
 
+/* c8 ignore start */
 /**
  * Create a heap snapshot and save it to a file.
  */
@@ -44,4 +45,5 @@ export function saveHeapSnapshot(path: string): Promise<void> {
   //   v8.getHeapSnapshot(),
   // )
 }
+/* c8 ignore stop */
 
