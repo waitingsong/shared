@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [20.1.0](/compare/v20.0.0...v20.1.0) (2022-07-08)
+
+
+### Bug Fixes
+
+* **boilerplate:** define enum without const 37ffd10
+* **boilerplate:** devDeps version 2e29b42
+
+
+### Features
+
+* **midway:** add MyError.details to store cause 164c880
+
+
+
+
+
 # [20.0.0](/compare/v19.5.1...v20.0.0) (2022-07-08)
 
 
