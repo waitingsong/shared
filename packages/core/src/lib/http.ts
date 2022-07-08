@@ -1,26 +1,39 @@
 import type { IncomingHttpHeaders } from 'node:http'
 
+import type { Headers as UndiciHeaders } from 'undici'
+
 
 export function retrieveHeadersItem(
-  headers: IncomingHttpHeaders | HeadersInit | undefined,
+  headers: IncomingHttpHeaders | HeadersInit | UndiciHeaders | undefined,
   name: string,
-): string | null | undefined {
+): string | undefined {
 
   if (! headers) {
-    return ''
+    return
   }
 
   if (typeof (headers as Headers).get === 'function') {
-    return (headers as Headers).get(name)
+    const val = (headers as Headers).get(name)
+    if (['string', 'undefined'].includes(typeof val)) {
+      return val as string | undefined
+    }
+    return
   }
   else if (Array.isArray(headers)) {
     console.warn('Not supported param type Array, only support Record or Headers Map')
+    return
   }
-  else if (typeof headers === 'object' && Object.keys(headers).length) {
+  else if (typeof headers === 'object' && Object.keys(headers).length && Object.hasOwn(headers, name)) {
     // @ts-ignore
-    return headers[name] as string | undefined
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    const val = headers[name]
+    if (['string', 'undefined'].includes(typeof val)) {
+      return val as string | undefined
+    }
+    return
   }
 
-  return ''
+  /* c8 ignore next */
+  return
 }
 
