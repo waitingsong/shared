@@ -82,8 +82,8 @@ describe(fileShortPath(import.meta.url), () => {
         tbUserName: 'name',
       }
       // `ret.` w/o auto-complete
-      assert(ret.tbUserUid === 'uid')
-      assert(ret.tbUserName === 'name')
+      assert(ret['tbUserUid'] === 'uid')
+      assert(ret['tbUserName'] === 'name')
     })
 
     it('constant alias', () => {
