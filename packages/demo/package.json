@@ -15,6 +15,7 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
@@ -34,7 +35,7 @@
     "cross-env": "7"
   },
   "peerDependencies": {
-    "@waiting/shared-types": "^20.0.0"
+    "@waiting/shared-types": "^20.1.0"
   },
   "engines": {
     "node": ">=16.13.0"
