@@ -42,7 +42,20 @@ export function readFileLineRx(path: string): Observable<string> {
 }
 
 
-export function genAbsolutePath(path: string): string {
+export function genAbsolutePath(path: string, fileUrlPrefix = false): string {
+  assert(path, 'path is empty')
+
+  if (path.startsWith('file://') && fileUrlPrefix) {
+    return path
+  }
+
+  const path2 = _genAbsolutePath(path)
+  const ret = fileUrlPrefix
+    ? path2.startsWith('file://') ? path2 : `file://${path2}`
+    : path2
+  return ret
+}
+function _genAbsolutePath(path: string): string {
   assert(path, 'path is empty')
 
   if (isAbsolute(path)) {
