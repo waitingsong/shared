@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [20.3.0](/compare/v20.2.0...v20.3.0) (2022-07-12)
+
+
+### Features
+
+* **core:** genAbsolutePath() accepts 2nd param fileUrlPrefix 69ec87f
+
+
+
+
+
 # [20.2.0](/compare/v20.1.1...v20.2.0) (2022-07-12)
 
 
