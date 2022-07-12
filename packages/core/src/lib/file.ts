@@ -1,8 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import assert from 'node:assert'
 import { createReadStream } from 'node:fs'
+import { isAbsolute, resolve } from 'node:path'
 import { createInterface } from 'node:readline'
 
 import { Observable } from 'rxjs'
+
+import { isWin32 } from './consts.js'
 
 
 /**
@@ -36,3 +40,27 @@ export function readFileLineRx(path: string): Observable<string> {
 
   return line$
 }
+
+
+export function genAbsolutePath(path: string): string {
+  assert(path, 'path is empty')
+
+  if (isAbsolute(path)) {
+    return path
+  }
+
+  if (path.startsWith('.')) {
+    return resolve(process.cwd(), path)
+  }
+
+  if (path.toLocaleLowerCase().startsWith('file://')) {
+    const p1 = path.slice(7)
+    if (isWin32 && p1.startsWith('/')) {
+      return p1.slice(1)
+    }
+    return p1
+  }
+
+  assert(false, 'path is invalid')
+}
+
