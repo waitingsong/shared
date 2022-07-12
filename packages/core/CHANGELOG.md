@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [20.2.0](https://github.com/waitingsong/shared/compare/v20.1.1...v20.2.0) (2022-07-12)
+
+
+### Features
+
+* **core:** genAbsolutePath() ([1857b5e](https://github.com/waitingsong/shared/commit/1857b5e14675321c0f474f6c661224e1e4c16cd8))
+
+
+
+
+
 ## [20.1.1](https://github.com/waitingsong/shared/compare/v20.1.0...v20.1.1) (2022-07-11)
 
 **Note:** Version bump only for package @waiting/shared-core
