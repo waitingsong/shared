@@ -50,6 +50,12 @@ describe(fileShortPath(import.meta.url), () => {
       type ExpectType = [number, string]
       const ret: Equals<T1, ExpectType> = true
     })
+    it('mix', () => {
+      type Foo = [1, 3, '2']
+      type T1 = TupleTail<Foo>
+      type ExpectType = [3, '2']
+      const ret: Equals<T1, ExpectType> = true
+    })
     it('empty', () => {
       type Foo = []
       type T1 = TupleTail<Foo>

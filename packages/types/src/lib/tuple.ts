@@ -12,6 +12,8 @@ export type TupleTail<T extends unknown[]> = T extends [] ? [] :
       unknown[]
 // export type TupleTail<T extends any[]> = ((...t: T) => void) extends (x: any, ...t: infer R) => void ? R : never
 
+export type TupleShift<T extends unknown[]> = TupleTail<T>
+
 /** Get the last element */
 export type TupleLast<T extends any[]> = T[TupleTail<T>['length']]
 
