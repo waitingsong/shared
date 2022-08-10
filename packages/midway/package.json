@@ -47,6 +47,7 @@
     "tsconfig-paths": "4"
   },
   "devDependencies": {
+    "@waiting/shared-types": "^20.4.0",
     "cross-env": "7"
   },
   "engines": {
