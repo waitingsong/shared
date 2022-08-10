@@ -35,6 +35,7 @@
     "@midwayjs/redis": "^3.4.9",
     "@midwayjs/swagger": "^3.4.9",
     "@midwayjs/validate": "^3.4.9",
+    "@midwayjs/web": "^3.4.9",
     "@mw-components/ali-oss": "^2.3.6",
     "@mw-components/fetch": "^20.1.1",
     "@mw-components/jaeger": "^13.1.2",
