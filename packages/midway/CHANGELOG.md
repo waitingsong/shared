@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [20.4.2](https://github.com/waitingsong/shared/compare/v20.4.1...v20.4.2) (2022-08-10)
+
+**Note:** Version bump only for package @waiting/shared-midway
+
+
+
+
+
 ## [20.4.1](https://github.com/waitingsong/shared/compare/v20.4.0...v20.4.1) (2022-08-10)
 
 **Note:** Version bump only for package @waiting/shared-midway
