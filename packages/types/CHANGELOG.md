@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [20.4.0](https://github.com/waitingsong/shared/compare/v20.3.0...v20.4.0) (2022-08-10)
+
+
+### Features
+
+* **types:** TupleShift, alias of TupleTail ([032944c](https://github.com/waitingsong/shared/commit/032944cdc116604bfa78f48f5b65043ab14a3f73))
+
+
+
+
+
 # [20.2.0](https://github.com/waitingsong/shared/compare/v20.1.1...v20.2.0) (2022-07-12)
 
 **Note:** Version bump only for package @waiting/shared-types
