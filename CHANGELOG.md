@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [20.6.0](/compare/v20.5.0...v20.6.0) (2022-08-14)
+
+
+### Bug Fixes
+
+* **boilerplate:** define enum without const 37ffd10
+* **boilerplate:** devDeps version 2e29b42
+
+
+### Features
+
+* **midway:** bump deps version e07d9c1
+
+
+
+
+
 # [20.5.0](/compare/v20.4.4...v20.5.0) (2022-08-14)
 
 

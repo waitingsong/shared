@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [20.6.0](https://github.com/waitingsong/shared/compare/v20.5.0...v20.6.0) (2022-08-14)
+
+
+### Features
+
+* **midway:** bump deps version ([e07d9c1](https://github.com/waitingsong/shared/commit/e07d9c1572ed9a2556535fd5b6be463aec4b1394))
+
+
+
+
+
 # [20.5.0](https://github.com/waitingsong/shared/compare/v20.4.4...v20.5.0) (2022-08-14)
 
 **Note:** Version bump only for package @waiting/shared-midway
