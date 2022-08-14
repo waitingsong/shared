@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [20.5.0](/compare/v20.4.4...v20.5.0) (2022-08-14)
+
+
+### Features
+
+* **types:** types for join table 43e3919
+
+
+
+
+
 ## [20.4.4](/compare/v20.4.3...v20.4.4) (2022-08-12)
 
 **Note:** Version bump only for package @waiting/shared

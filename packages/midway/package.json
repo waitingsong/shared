@@ -1,7 +1,7 @@
 {
   "name": "@waiting/shared-midway",
   "author": "waiting",
-  "version": "20.4.4",
+  "version": "20.5.0",
   "description": "midway.js utils",
   "keywords": [
     "midway.js",
@@ -43,11 +43,11 @@
     "@mw-components/kmore": "^34.5.0",
     "@mw-components/koid": "^9.1.1",
     "@waiting/base64": "^4.2.9",
-    "@waiting/shared-core": "^20.4.0",
+    "@waiting/shared-core": "^20.5.0",
     "tsconfig-paths": "4"
   },
   "devDependencies": {
-    "@waiting/shared-types": "^20.4.0",
+    "@waiting/shared-types": "^20.5.0",
     "cross-env": "7"
   },
   "engines": {

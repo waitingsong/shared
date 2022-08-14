@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [20.5.0](https://github.com/waitingsong/shared/compare/v20.4.4...v20.5.0) (2022-08-14)
+
+
+### Features
+
+* **types:** types for join table ([43e3919](https://github.com/waitingsong/shared/commit/43e391992711aa45f17a3a0b7b991074d7cc143d))
+
+
+
+
+
 # [20.4.0](https://github.com/waitingsong/shared/compare/v20.3.0...v20.4.0) (2022-08-10)
 
 
