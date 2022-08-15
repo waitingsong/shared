@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [20.6.1](/compare/v20.6.0...v20.6.1) (2022-08-15)
+
+
+### Bug Fixes
+
+* **midway:** revert kmore version 23e740a
+
+
+
+
+
 # [20.6.0](/compare/v20.5.0...v20.6.0) (2022-08-14)
 
 

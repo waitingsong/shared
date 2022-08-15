@@ -1,7 +1,7 @@
 {
   "name": "@waiting/shared-midway",
   "author": "waiting",
-  "version": "20.6.0",
+  "version": "20.6.1",
   "description": "midway.js utils",
   "keywords": [
     "midway.js",

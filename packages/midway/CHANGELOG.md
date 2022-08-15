@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [20.6.1](https://github.com/waitingsong/shared/compare/v20.6.0...v20.6.1) (2022-08-15)
+
+
+### Bug Fixes
+
+* **midway:** revert kmore version ([23e740a](https://github.com/waitingsong/shared/commit/23e740a29f2cf31f6ca54361f337f673c4cbec69))
+
+
+
+
+
 # [20.6.0](https://github.com/waitingsong/shared/compare/v20.5.0...v20.6.0) (2022-08-14)
 
 
