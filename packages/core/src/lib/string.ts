@@ -219,6 +219,7 @@ export function camelKeys<
 ): CamelKeys<T, D, Recursive> {
 
   assert(typeof input === 'object', 'camelKeys: input must be object')
+  assert(input, 'camelKeys: input must not be null')
 
   const ret = {}
 
@@ -259,6 +260,7 @@ export function snakeKeys<
 ): SnakeKeys<T, D, Recursive> {
 
   assert(typeof input === 'object', 'snakeKeys: input must be object')
+  assert(input, 'snakeKeys: input must not be null')
 
   const ret = {}
 

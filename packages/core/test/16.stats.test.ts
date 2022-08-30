@@ -54,6 +54,8 @@ describe(fileShortPath(import.meta.url), () => {
       if (process.platform === 'linux') {
         assert(typeof ret.cpuinfo === 'object')
         assert(Object.keys(ret.cpuinfo).length)
+
+        assert(typeof ret.diskstats === 'object')
         assert(Object.keys(ret.diskstats).length)
         assert(ret.cpuinfo['cpu family'])
       }
