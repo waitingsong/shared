@@ -48,9 +48,9 @@ export type ProcInfoItem = keyof ProcInfo
  */
 export async function retrieveProcInfo(
   items: ProcInfoItem[] = ['cpuinfo', 'meminfo', 'diskstats', 'stat'],
-): Promise<ProcInfo> {
+): Promise<Partial<ProcInfo>> {
 
-  const info = { } as ProcInfo
+  const info = { } as Partial<ProcInfo>
   if (process.platform !== 'linux') {
     return info
   }
@@ -71,7 +71,7 @@ export async function retrieveProcInfo(
     pms.push(pm)
   })
 
-  const ret: Promise<ProcInfo> = Promise.all(pms)
+  const ret: Promise<Partial<ProcInfo>> = Promise.all(pms)
     .then(() => {
       return info
     })
