@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [20.6.3](https://github.com/waitingsong/shared/compare/v20.6.2...v20.6.3) (2022-08-30)
+
+
+### Bug Fixes
+
+* **core:** ReturnType of retrieveProcInfo() properties optional ([8abf9ae](https://github.com/waitingsong/shared/commit/8abf9aec74a76563514c905d35a35b76e81b0330))
+
+
+
+
+
 # [20.5.0](https://github.com/waitingsong/shared/compare/v20.4.4...v20.5.0) (2022-08-14)
 
 **Note:** Version bump only for package @waiting/shared-core
