@@ -22,7 +22,6 @@
     "@types/rimraf": "3",
     "@waiting/eslint-config": "^8.6.0",
     "@waiting/shared-core": "^20.5.0",
-    "@waiting/shared-types": "^20.5.0",
     "coveralls": "3",
     "debug": "^4.3.4",
     "eslint": "^8.23.0",
