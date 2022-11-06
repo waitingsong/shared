@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [20.8.0](https://github.com/waitingsong/shared/compare/v20.7.1...v20.8.0) (2022-11-06)
+
+
+### Features
+
+* **core:** update retrieving className within getCallerStack() ([2d45a76](https://github.com/waitingsong/shared/commit/2d45a769034658c422cf24cb129ceadbe134c3a0))
+
+
+
+
+
 ## [20.7.1](https://github.com/waitingsong/shared/compare/v20.7.0...v20.7.1) (2022-11-06)
 
 

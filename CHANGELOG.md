@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [20.8.0](/compare/v20.7.1...v20.8.0) (2022-11-06)
+
+
+### Features
+
+* **core:** update retrieving className within getCallerStack() 2d45a76
+
+
+
+
+
 ## [20.7.1](/compare/v20.7.0...v20.7.1) (2022-11-06)
 
 
