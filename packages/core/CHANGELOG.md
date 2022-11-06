@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [20.7.1](https://github.com/waitingsong/shared/compare/v20.7.0...v20.7.1) (2022-11-06)
+
+
+### Bug Fixes
+
+* **core:** exports ([c6cefdf](https://github.com/waitingsong/shared/commit/c6cefdfe039dd0e9fce7a99410197b337859239c))
+
+
+
+
+
 # [20.7.0](https://github.com/waitingsong/shared/compare/v20.6.3...v20.7.0) (2022-11-06)
 
 
