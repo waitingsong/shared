@@ -61,7 +61,7 @@ export function getCallerStack(
   let className = methodName
     ? line.match(new RegExp(`\\b\\S+(?=\\.${methodName})`, 'u'))?.[0] ?? ''
     : ''
-  if (! className) {
+  if (! className && (methodName !== funcName)) {
     className = funcName
       ? line.match(new RegExp(`\\b\\S+(?=\\.${funcName})`, 'u'))?.[0] ?? ''
       : ''
