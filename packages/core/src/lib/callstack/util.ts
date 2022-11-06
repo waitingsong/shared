@@ -58,9 +58,14 @@ export function getCallerStack(
   // eslint-disable-next-line @typescript-eslint/no-base-to-string
   const line = site.toString()
 
-  const className = methodName
+  let className = methodName
     ? line.match(new RegExp(`\\b\\S+(?=\\.${methodName})`, 'u'))?.[0] ?? ''
     : ''
+  if (! className) {
+    className = funcName
+      ? line.match(new RegExp(`\\b\\S+(?=\\.${funcName})`, 'u'))?.[0] ?? ''
+      : ''
+  }
 
   const fileLine = retrievePath(line)
   const matched = /^(.+):(\d+):(\d+)$/u.exec(fileLine)
