@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [20.7.0](/compare/v20.6.3...v20.7.0) (2022-11-06)
+
+
+### Features
+
+* **core:** add call stack functions bad12d7
+
+
+
+
+
 ## [20.6.3](/compare/v20.6.2...v20.6.3) (2022-08-30)
 
 
