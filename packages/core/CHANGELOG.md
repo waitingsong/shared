@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [20.9.0](https://github.com/waitingsong/shared/compare/v20.8.0...v20.9.0) (2022-11-12)
+
+
+### Features
+
+* **core:** getStackCallerSites() accept parameter stackTraceLimit, default 10 ([219cec9](https://github.com/waitingsong/shared/commit/219cec93806e0cf8b22960f08d408808c5559af1))
+
+
+### Performance Improvements
+
+* **core:** update getCallerStack() ([29b1b32](https://github.com/waitingsong/shared/commit/29b1b32861f9430b4a7832c2511b642a6e3274a9))
+
+
+
+
+
 # [20.8.0](https://github.com/waitingsong/shared/compare/v20.7.1...v20.8.0) (2022-11-06)
 
 

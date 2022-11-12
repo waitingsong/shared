@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [20.9.0](/compare/v20.8.0...v20.9.0) (2022-11-12)
+
+
+### Features
+
+* **core:** getStackCallerSites() accept parameter stackTraceLimit, default 10 219cec9
+
+
+### Performance Improvements
+
+* **core:** update getCallerStack() 29b1b32
+
+
+
+
+
 # [20.8.0](/compare/v20.7.1...v20.8.0) (2022-11-06)
 
 
