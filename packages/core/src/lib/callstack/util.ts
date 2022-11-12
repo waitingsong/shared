@@ -52,8 +52,8 @@ export function getCallerStack(
     ? site.getEnclosingColumnNumber() as unknown as number
     : 0
 
-  const funcName = site.getFunctionName() ?? stacks[depth - 1]?.getFunctionName() ?? ''
-  const methodName = site.getMethodName() ?? stacks[depth - 1]?.getMethodName() ?? ''
+  const funcName = site.getFunctionName() ?? ''
+  const methodName = site.getMethodName() ?? ''
   const typeName = site.getTypeName() ?? ''
 
   // eslint-disable-next-line @typescript-eslint/no-base-to-string
