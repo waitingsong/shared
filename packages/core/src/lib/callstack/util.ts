@@ -86,7 +86,6 @@ export function getCallerStack(
     className,
     funcName,
     methodName,
-    typeName,
     lineNumber: site.getLineNumber() ?? 0,
     columnNumber: site.getColumnNumber() ?? 0,
     enclosingLineNumber,
