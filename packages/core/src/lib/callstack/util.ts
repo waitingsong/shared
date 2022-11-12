@@ -36,7 +36,7 @@ export function getCallerStack(
 ): CallerInfo {
 
   const depth = callerDistance + 1
-  const stacks = getStackCallerSites()
+  const stacks = getStackCallerSites(depth)
   const site = stacks[depth]
   assert(site, 'stack empty')
 
