@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [20.9.2](/compare/v20.9.1...v20.9.2) (2022-11-12)
+
+**Note:** Version bump only for package @waiting/shared
+
+
+
+
+
 ## [20.9.1](/compare/v20.9.0...v20.9.1) (2022-11-12)
 
 
