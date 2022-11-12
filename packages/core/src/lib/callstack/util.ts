@@ -166,7 +166,7 @@ export function getStack(): string {
 }
 
 
-export function getStackCallerSites(): NodeJS.CallSite[] {
+export function getStackCallerSites(stackTraceLimit = 10): NodeJS.CallSite[] {
   // Save original Error.prepareStackTrace
   let origPrepareStackTrace = Error.prepareStackTrace
 
@@ -186,7 +186,7 @@ export function getStackCallerSites(): NodeJS.CallSite[] {
   }
 
   const limit = Error.stackTraceLimit
-  // Error.stackTraceLimit = depth + 2
+  Error.stackTraceLimit = stackTraceLimit >= 0 ? stackTraceLimit + 1 : 11
 
   const err = new Error()
   const stacks = err.stack as NodeJS.CallSite[] | undefined
