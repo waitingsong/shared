@@ -10,16 +10,16 @@ import { CallerInfo } from './types.js'
 
 const initInfo: CallerInfo = {
   path: '',
-  line: 0,
-  column: 0,
+  line: -1,
+  column: -1,
   fileName: '',
   funcName: '',
   methodName: '',
   className: '',
-  lineNumber: 0,
-  columnNumber: 0,
-  enclosingLineNumber: 0,
-  enclosingColNumber: 0,
+  lineNumber: -1,
+  columnNumber: -1,
+  enclosingLineNumber: -1,
+  enclosingColNumber: -1,
 }
 
 
