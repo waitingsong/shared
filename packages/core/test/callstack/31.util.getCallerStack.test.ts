@@ -20,8 +20,17 @@ describe(fileShortPath(import.meta.url), () => {
       const callerInfo = getCallerStack(0, exact)
       validateInfo(callerInfo, exact)
     })
+
+    it('distance: 1', () => {
+      demo()
+    })
   })
 })
+
+function demo() {
+  const callerInfo = getCallerStack(1, true)
+  validateInfo(callerInfo, true)
+}
 
 function validateInfo(callerInfo: CallerInfo, exact: boolean): void {
   assert(callerInfo)

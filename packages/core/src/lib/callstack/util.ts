@@ -102,7 +102,7 @@ export function getCallerStack(
   // const stack = getStack()
   const arr = stack.split('\n')
   // const [line2] = arr.slice(depth + 1, depth + 2)
-  const [line2] = arr.slice(depth, depth + 1)
+  const line2 = arr[1]
 
   if (! line2) {
     throw new Error('Retrieve stack of caller failed, line empty.')
