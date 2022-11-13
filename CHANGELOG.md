@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [20.10.0](/compare/v20.9.2...v20.10.0) (2022-11-13)
+
+
+### Features
+
+* **core:** change default value of initInfo fa98c42
+
+
+### Performance Improvements
+
+* **core:** update getCallerStack() b60ecd5
+
+
+
+
+
 ## [20.9.2](/compare/v20.9.1...v20.9.2) (2022-11-12)
 
 **Note:** Version bump only for package @waiting/shared

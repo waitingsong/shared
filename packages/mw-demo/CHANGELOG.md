@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [20.10.0](https://github.com/waitingsong/npm-mono-base/compare/v20.9.2...v20.10.0) (2022-11-13)
+
+**Note:** Version bump only for package @mw-components/demo
+
+
+
+
+
 ## [20.9.2](https://github.com/waitingsong/npm-mono-base/compare/v20.9.1...v20.9.2) (2022-11-12)
 
 **Note:** Version bump only for package @mw-components/demo
