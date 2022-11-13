@@ -95,10 +95,14 @@ export function getCallerStack(
     return info
   }
 
-  const stack = getStack()
+  const stack = Error.prepareStackTrace?.(new Error(), [site]) as string | undefined
+  if (! stack) {
+    return info
+  }
+  // const stack = getStack()
   const arr = stack.split('\n')
-  // const line = arr.pop() // one StackFram, but may all stacks sometime
-  const [line2] = arr.slice(depth + 1, depth + 2)
+  // const [line2] = arr.slice(depth + 1, depth + 2)
+  const [line2] = arr.slice(depth, depth + 1)
 
   if (! line2) {
     throw new Error('Retrieve stack of caller failed, line empty.')
