@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [20.10.1](https://github.com/waitingsong/shared/compare/v20.10.0...v20.10.1) (2022-11-13)
+
+
+### Bug Fixes
+
+* **core:** getCallerStack() ([9c0e0d0](https://github.com/waitingsong/shared/commit/9c0e0d0b561dae552f1dbd9975666b6751a0a1d4))
+
+
+
+
+
 # [20.10.0](https://github.com/waitingsong/shared/compare/v20.9.2...v20.10.0) (2022-11-13)
 
 

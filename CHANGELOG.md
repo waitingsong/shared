@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [20.10.1](/compare/v20.10.0...v20.10.1) (2022-11-13)
+
+
+### Bug Fixes
+
+* **core:** getCallerStack() 9c0e0d0
+
+
+
+
+
 # [20.10.0](/compare/v20.9.2...v20.10.0) (2022-11-13)
 
 
