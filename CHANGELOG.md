@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [20.11.0](/compare/v20.10.1...v20.11.0) (2022-12-14)
+
+
+### Features
+
+* **types:** export Func a8710b7
+* **types:** export type Decimal cb26da7
+
+
+
+
+
 ## [20.10.1](/compare/v20.10.0...v20.10.1) (2022-11-13)
 
 

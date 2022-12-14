@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [20.11.0](https://github.com/waitingsong/shared/compare/v20.10.1...v20.11.0) (2022-12-14)
+
+
+### Features
+
+* **types:** export Func ([a8710b7](https://github.com/waitingsong/shared/commit/a8710b7b64073030fdd9128ffb2b43248eef63fc))
+* **types:** export type Decimal ([cb26da7](https://github.com/waitingsong/shared/commit/cb26da77803696ccab7d4b3cb9e5a33c5a3595c1))
+
+
+
+
+
 # [20.5.0](https://github.com/waitingsong/shared/compare/v20.4.4...v20.5.0) (2022-08-14)
 
 
