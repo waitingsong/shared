@@ -2,8 +2,9 @@
 // import { findSourceMap, SourceMap } from 'module'
 
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-// import { install } from 'source-map-support'
 import assert from 'node:assert/strict'
+
+import { install } from 'source-map-support'
 
 import { CallerInfo } from './types.js'
 
@@ -24,7 +25,6 @@ const initInfo: CallerInfo = {
 
 
 /**
- * If processSourceMap true,
  * the dep "source-map-support" should be installed
  */
 export function getCallerStack(
@@ -137,9 +137,7 @@ export function getStack(): string {
   /* istanbul ignore else */
   if (! origPrepareStackTrace) {
     // MUST installing inner getStack()
-    // if (processSourceMap) {
-    //   install()
-    // }
+    install()
 
     /* istanbul ignore else */
     if (! Error.prepareStackTrace) {
