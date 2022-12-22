@@ -23,6 +23,9 @@ const initInfo: CallerInfo = {
   enclosingColNumber: -1,
 }
 
+// Save original Error.prepareStackTrace
+const origPrepareStackTrace = Error.prepareStackTrace
+
 
 /**
  * the dep "source-map-support" should be installed
@@ -131,26 +134,24 @@ export function getCallerStack(
  * @see https://stackoverflow.com/a/13227808
  */
 export function getStack(): string {
-  // Save original Error.prepareStackTrace
-  let origPrepareStackTrace = Error.prepareStackTrace
-
-  /* istanbul ignore else */
-  if (! origPrepareStackTrace) {
+  let fn = origPrepareStackTrace
+  /* c8 ignore else */
+  if (! fn) {
     // MUST installing inner getStack()
     install()
 
-    /* istanbul ignore else */
+    /* c8 ignore else */
     if (! Error.prepareStackTrace) {
       throw new Error('Error.prepareStackTrace not defined')
     }
-    origPrepareStackTrace = Error.prepareStackTrace
+    fn = Error.prepareStackTrace
   }
   // void else in debug hooked by source-map-support already
 
   Error.prepareStackTrace = function(err: Error, structuredStackTrace: NodeJS.CallSite[]): string {
     const target = structuredStackTrace.slice(1)
     // @ts-expect-error
-    const ret = origPrepareStackTrace(err, target) as string
+    const ret = fn(err, target) as string
     return ret
   }
 
@@ -173,16 +174,17 @@ export function getStack(): string {
 
 
 export function getStackCallerSites(stackTraceLimit = 10): NodeJS.CallSite[] {
-  // Save original Error.prepareStackTrace
-  let origPrepareStackTrace = Error.prepareStackTrace
-
+  let fn = origPrepareStackTrace
   /* c8 ignore else */
-  if (! origPrepareStackTrace) {
+  if (! fn) {
+    // MUST installing inner getStack()
+    install()
+
     /* c8 ignore else */
     if (! Error.prepareStackTrace) {
       throw new Error('Error.prepareStackTrace not defined')
     }
-    origPrepareStackTrace = Error.prepareStackTrace
+    fn = Error.prepareStackTrace
   }
   // void else in debug hooked by source-map-support already
 
@@ -198,7 +200,7 @@ export function getStackCallerSites(stackTraceLimit = 10): NodeJS.CallSite[] {
   const stacks = err.stack as NodeJS.CallSite[] | undefined
 
   // Restore original `Error.prepareStackTrace`
-  Error.prepareStackTrace = origPrepareStackTrace
+  Error.prepareStackTrace = fn
   Error.stackTraceLimit = limit
 
   if (! stacks) {
