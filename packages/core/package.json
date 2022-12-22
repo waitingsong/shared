@@ -1,7 +1,7 @@
 {
   "name": "@waiting/shared-core",
   "author": "waiting",
-  "version": "20.11.1",
+  "version": "20.11.2",
   "description": "node core function re export with Promise or Observable",
   "keywords": [
     "node",
