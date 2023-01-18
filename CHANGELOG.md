@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [20.11.4](/compare/v20.11.3...v20.11.4) (2023-01-18)
+
+
+### Bug Fixes
+
+* **core:** path from retrievePath() and getCallerStack() f7f3e96
+
+
+
+
+
 ## [20.11.3](/compare/v20.11.2...v20.11.3) (2023-01-18)
 
 **Note:** Version bump only for package @waiting/shared
