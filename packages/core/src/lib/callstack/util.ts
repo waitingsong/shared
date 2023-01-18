@@ -74,17 +74,11 @@ export function getCallerStack(
     }
   }
 
-  const fileLine = retrievePath(line)
-  const matched = /^(.+):(\d+):(\d+)$/u.exec(fileLine)
-  if (! matched || matched.length !== 4) {
-    console.warn({ line, fileLine, matched })
-    throw new Error('Retrieve args forme caller line failed. ')
-  }
-  const [, p1] = matched
+  const fileLine = site.getFileName()
 
   const info: CallerInfo = {
     ...initInfo,
-    path: p1?.trim() ?? '',
+    path: fileLine ?? '',
     fileName: site.getFileName() ?? '',
     className,
     funcName,
@@ -217,7 +211,8 @@ function retrievePath(line: string): string {
     // "    at Object.test1 (...\\call-config.ts:6:22)"
     path = line.slice(line.indexOf('(') + 1, -1)
   }
-  else if (line.includes('at')) {
+  // else if (line.includes(' at ')) {
+  else if (/^\s*at .+?\d+:\d+$/u.test(line) === true) {
     // "    at ...\\call-config.ts:24:12"
     path = line.slice(line.indexOf('at') + 3, -1)
   }
