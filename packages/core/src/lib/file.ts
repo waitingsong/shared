@@ -74,6 +74,7 @@ function _genAbsolutePath(path: string): string {
     return p1
   }
 
+  console.error('path:', { path })
   assert(false, 'path is invalid')
 }
 
