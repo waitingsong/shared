@@ -21,8 +21,8 @@ describe(fileShortPath(import.meta.url), () => {
   before(async () => {
     await createDirAsync(tmpDir)
   })
-  after((done) => {
-    rmdir(tmpDir, (err) => {
+  after(async (done) => {
+    await rmdir(tmpDir, (err) => {
       err && console.error(err)
       done()
     })

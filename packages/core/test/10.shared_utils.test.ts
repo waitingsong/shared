@@ -23,11 +23,8 @@ describe(fileShortPath(import.meta.url), () => {
   before(async () => {
     await createDirAsync(tmpDir)
   })
-  after((done) => {
-    rmdir(tmpDir, (err) => {
-      err && console.error(err)
-      done()
-    })
+  after(async () => {
+    await rmdir(tmpDir)
   })
 
 
@@ -57,7 +54,7 @@ describe(fileShortPath(import.meta.url), () => {
       return assert(false, `folder not exists, path: "${randomPath}"`)
     }
 
-    rmdir(randomPath, err => err && console.error(err))
+    await rmdir(randomPath)
   })
 
   it('Should createDirAsync() work with odd path', async () => {
@@ -76,12 +73,12 @@ describe(fileShortPath(import.meta.url), () => {
       return assert(false, `folder not exists, path: "${randomPath}"`)
     }
 
-    rmdir(randomPath, err => err && console.error(err))
+    await rmdir(randomPath)
   })
 
 
   it('Should createDirAsync() work with blank param', (resolve) => {
-    createDirAsync('')
+    void createDirAsync('')
       .then(() => {
         assert(false, 'should throw error, but NOT')
         resolve()
@@ -114,7 +111,7 @@ describe(fileShortPath(import.meta.url), () => {
       return assert(false, (ex as Error).message)
     }
 
-    rmdir(randomPath, err => err && console.error(err))
+    await rmdir(randomPath)
   })
 
   it('Should createFileAsync() work with options', async () => {
@@ -146,7 +143,7 @@ describe(fileShortPath(import.meta.url), () => {
       return assert(false, (ex as Error).message)
     }
 
-    rmdir(randomPath, err => err && console.error(err))
+    await rmdir(randomPath)
   })
 
   it('Should createFileAsync() work with object data', async () => {
@@ -177,7 +174,7 @@ describe(fileShortPath(import.meta.url), () => {
       return assert(false, (ex as Error).message)
     }
 
-    rmdir(randomPath, err => err && console.error(err))
+    await rmdir(randomPath)
   })
 
   it('Should createFileAsync() work with blank path', (resolve) => {
@@ -216,7 +213,7 @@ describe(fileShortPath(import.meta.url), () => {
       return assert(false, (ex as Error).message)
     }
 
-    rmdir(randomPath, err => err && console.error(err))
+    await rmdir(randomPath)
   })
 
 

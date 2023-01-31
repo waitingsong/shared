@@ -21,11 +21,8 @@ describe(fileShortPath(import.meta.url) + ':isPathAcessible()', () => {
   before(async () => {
     await createDirAsync(tmpDir)
   })
-  after((done) => {
-    rmdir(tmpDir, (err) => {
-      err && console.error(err)
-      done()
-    })
+  after(async () => {
+    await rmdir(tmpDir)
   })
 
   const fnName = 'isPathAcessible'
@@ -61,11 +58,8 @@ describe(fileShortPath(import.meta.url) + ':isPathAcessible()', () => {
 
 
 describe(fileShortPath(import.meta.url) + ':pathAcessible()', () => {
-  after((done) => {
-    rmdir(tmpDir, (err) => {
-      err && console.error(err)
-      done()
-    })
+  after(async () => {
+    await rmdir(tmpDir)
   })
 
   const fnName = 'pathAcessible'

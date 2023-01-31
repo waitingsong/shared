@@ -31,7 +31,7 @@ describe(fileShortPath(import.meta.url), () => {
       assert(path === normalize(file), `Should ${file} but result ${path}`)
     }
     catch (ex) {
-      rmdir(randomPath, err => console.warn(err))
+      await rmdir(randomPath)
       throw ex
     }
   })
@@ -53,7 +53,7 @@ describe(fileShortPath(import.meta.url), () => {
       assert(await fileExists(file).toPromise() === normalize(file), `file not exists, path: "${file}"`)
     }
     catch (ex) {
-      rmdir(randomPath, err => console.warn(err))
+      await rmdir(randomPath)
       throw ex
     }
   })
