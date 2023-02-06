@@ -34,7 +34,8 @@
   },
   "devDependencies": {
     "@types/source-map-support": "^0.5.6",
-    "cross-env": "7"
+    "cross-env": "7",
+    "undici": "^5.18.0"
   },
   "peerDependencies": {
     "typescript": ">=4.9.0"
