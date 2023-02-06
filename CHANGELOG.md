@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [20.12.0](https://github.com/waitingsong/shared/compare/v20.11.5...v20.12.0) (2023-02-06)
+
+
+### Bug Fixes
+
+* **boilerplate:** define enum without const ([37ffd10](https://github.com/waitingsong/shared/commit/37ffd10749d0aaa7c3d0ddf8e3c41c7a9bfedc3b))
+* **boilerplate:** devDeps version ([2e29b42](https://github.com/waitingsong/shared/commit/2e29b42d3eb679cdbced3a0a3d65a9172bd2da34))
+
+
+
+
+
 ## [20.11.5](https://github.com/waitingsong/shared/compare/v20.11.4...v20.11.5) (2023-01-31)
 
 
