@@ -21,11 +21,8 @@ describe(fileShortPath(import.meta.url), () => {
   before(async () => {
     await createDirAsync(tmpDir)
   })
-  after(async (done) => {
-    await rmdir(tmpDir, (err) => {
-      err && console.error(err)
-      done()
-    })
+  after(async () => {
+    await rmdir(tmpDir)
   })
 
   const fnName = 'dirExists'
