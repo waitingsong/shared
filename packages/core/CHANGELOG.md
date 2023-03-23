@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [21.0.0](https://github.com/waitingsong/shared/compare/v20.13.0...v21.0.0) (2023-03-23)
+
+
+### Features
+
+* breaking change re-design types CamelToSnake, SnakeToCamel, SnakeToPascal ([de1a478](https://github.com/waitingsong/shared/commit/de1a478fe505053de6b283eaebb59d340a9dc8d4))
+
+
+
+
+
 # [20.13.0](https://github.com/waitingsong/shared/compare/v20.12.0...v20.13.0) (2023-02-23)
 
 **Note:** Version bump only for package @waiting/shared-core
