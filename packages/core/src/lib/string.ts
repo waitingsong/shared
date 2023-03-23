@@ -11,6 +11,7 @@ import {
 
 const startDelimiterRegExpMap = new Map<string, RegExp>()
 const endDelimiterRegExpMap = new Map<string, RegExp>()
+const delimiterAndNumberRegExpMap = new Map<string, RegExp>()
 const regExpMap = new Map<string, RegExp>()
 const startDelimiterRegExpMapPascal = new Map<string, RegExp>()
 
@@ -30,39 +31,41 @@ const startDelimiterRegExpMapPascal = new Map<string, RegExp>()
 export function snakeToCamel<
   T extends string,
   D extends string = '_',
-  TrimStart extends boolean = false,
-  TrimEnd extends boolean = false,
 >(
   input: T,
   /** @default _ */
   delimiter?: D,
-  /** @defalut false */
-  trimStartFlag?: TrimStart,
-  /** @defalut false */
-  trimEndFlag?: TrimEnd,
-): SnakeToCamel<T, D, TrimStart, TrimEnd> {
+): SnakeToCamel<T, D> {
 
   const dem = delimiter ?? '_'
-  const ts = trimStartFlag ?? false
-  const te = trimEndFlag ?? false
 
   let reg = regExpMap.get(dem)
   if (! reg) {
-    reg = new RegExp(`${dem}+[^${dem}]+|[^${dem}]+|${dem}+$`, 'ug')
-    regExpMap.set(dem, reg)
     if (regExpMap.size > 10000) {
       regExpMap.clear()
     }
+    reg = new RegExp(`${dem}+[^${dem}]+|[^${dem}]+|${dem}+$`, 'ug')
+    regExpMap.set(dem, reg)
+  }
+
+  if (! delimiterAndNumberRegExpMap.get(dem)) {
+    if (delimiterAndNumberRegExpMap.size > 10000) {
+      delimiterAndNumberRegExpMap.clear()
+    }
+    const reg2 = new RegExp(`${dem}+[0-9]+?[^${dem}]*$`, 'u') // !no flag g
+    delimiterAndNumberRegExpMap.set(dem, reg2)
   }
 
   const matches = input.match(reg)
+  reg.lastIndex = 0
   const len = matches?.length
   if (! len) {
-    return '' as SnakeToCamel<T, D, TrimStart, TrimEnd>
+    // return ''
+    return input as SnakeToCamel<T, D>
   }
 
-  const arr = matches.map((str, idx) => _snakeToCamel(len, idx, str, dem, ts, te))
-  const ret = arr.join('') as SnakeToCamel<T, D, TrimStart, TrimEnd>
+  const arr = matches.map((str, idx) => _snakeToCamel(len, idx, str, dem))
+  const ret = arr.join('') as SnakeToCamel<T, D>
   return ret
 }
 
@@ -71,13 +74,18 @@ function _snakeToCamel(
   idx: number,
   input: string,
   delimiter: string,
-  trimStartFlag: boolean,
-  trimEndFlag: boolean,
+  trimStartFlag = false,
+  trimEndFlag = false,
 ): string {
 
   if (! input) { return '' }
 
   let ret = input
+
+  const reg2 = delimiterAndNumberRegExpMap.get(delimiter)
+  if (reg2?.test(input)) {
+    return ret
+  }
 
   if (idx === 0) {
     if (trimStartFlag === true) {
@@ -151,20 +159,14 @@ function capitalize(input: string): string {
 export function snakeToPascal<
   T extends string,
   D extends string = '_',
-  TrimStart extends boolean = false,
-  TrimEnd extends boolean = false,
 >(
   input: T,
   /** @default _ */
   delimiter?: D,
-  /** @defalut false */
-  trimStartFlag?: TrimStart,
-  /** @defalut false */
-  trimEndFlag?: TrimEnd,
-): SnakeToPascal<T, D, TrimStart, TrimEnd> {
+): SnakeToPascal<T, D> {
 
   const dem = delimiter ?? '_'
-  const line = snakeToCamel(input, dem, trimStartFlag, trimEndFlag)
+  const line = snakeToCamel(input, dem)
 
   let reg = startDelimiterRegExpMapPascal.get(dem)
   if (! reg) {
@@ -176,7 +178,8 @@ export function snakeToPascal<
   }
 
   const line2 = line.replace(reg, match => match.toUpperCase())
-  const ret = capitalize(line2) as SnakeToPascal<T, D, TrimStart, TrimEnd>
+  reg.lastIndex = 0
+  const ret = capitalize(line2) as SnakeToPascal<T, D>
   return ret
 }
 
@@ -203,8 +206,8 @@ export function camelToSnake<T extends string, D extends string = '_'>(
   const dem = delimiter ?? '_'
   let line = input.replace(/^[A-Z]/ug, match => `${match.toLowerCase()}`)
   line = line.replace(/[A-Z]/ug, match => `${dem}${match.toLowerCase()}`)
-  const ret = line.replace(/(?<=\w)\d+/ug, match => `${dem}${match}`)
-  return ret as CamelToSnake<T, D>
+  // line = line.replace(/(?<=\w)\d+/ug, match => `${dem}${match}`) // 'tb6_user_id' => 'tb_6_user_id'
+  return line as CamelToSnake<T, D>
 }
 
 

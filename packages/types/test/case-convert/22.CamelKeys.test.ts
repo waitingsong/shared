@@ -23,9 +23,9 @@ describe(fileShortPath(import.meta.url), () => {
       type T1 = CamelKeys<TbUser>
       interface ExpectType {
         userId: number
-        user2Address: string
-        user23Address: string
-        user3foo: bigint
+        user_2Address: string
+        user_2__3Address: string
+        user_3foo: bigint
         '3322': boolean
         json: {
           user_name: 'abc',
@@ -48,9 +48,9 @@ describe(fileShortPath(import.meta.url), () => {
       type T1 = CamelKeys<TbUser>
       interface ExpectType {
         userId: number
-        user2Address: string
-        user23Address: string
-        user3foo: bigint
+        user_2Address: string
+        user_2__3Address: string
+        user_3foo: bigint
         '3322': boolean
         json: {
           user_name: 'abc',
@@ -98,9 +98,9 @@ describe(fileShortPath(import.meta.url), () => {
       interface ExpectType {
         tbUser: {
           userId: number,
-          user2Address: string,
-          user23Address: string,
-          user3foo: bigint,
+          user_2Address: string,
+          user_2__3Address: string,
+          user_3foo: bigint,
           '3322': boolean,
           json: {
             userName: 'abc',
@@ -142,9 +142,9 @@ describe(fileShortPath(import.meta.url), () => {
       class ExpectType {
         tbUser: {
           userId: number,
-          user2Address: string,
-          user23Address: string,
-          user3foo: bigint,
+          user_2Address: string,
+          user_2__3Address: string,
+          user_3foo: bigint,
           '3322': boolean,
           json: {
             userName: 'abc',

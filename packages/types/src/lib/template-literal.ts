@@ -36,6 +36,7 @@ export type TupleJoin<T extends V[], D extends string> =
 // export type SnakeToPascal<T extends string, D extends string = '_' | '-'> = TupleJoin<FormatCapitalize<StrSplit<T, D>>, ''>
 
 
+export type Digit = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
 
 export type CamelToSnake<
   T extends string,
@@ -47,7 +48,7 @@ export type CamelToSnake<
       : _CamelToSnake<T, D> extends `${D}${infer U}` ? U : _CamelToSnake<T, D>
 
 type _CamelToSnake<T extends string, D extends string> = T extends `${infer U}${infer Rest}`
-  ? U extends D
+  ? U extends D | Digit
     ? `${U}${_CamelToSnake<Rest, D>}`
     : Uppercase<U> extends U
       ? `${D}${Lowercase<U>}${_CamelToSnake<Rest, D>}`
@@ -57,58 +58,60 @@ type _CamelToSnake<T extends string, D extends string> = T extends `${infer U}${
 
 export type SnakeToCamel<
   T extends string,
-  D extends string = '_',
-  TrimStart extends boolean = false,
-  TrimEnd extends boolean = false>
-  = string extends D
-    ? never
-    : T extends `${infer F extends D}${infer R}`
-      ? TrimStart extends true
-        ? `${SnakeToCamel<R, D, true, TrimEnd>}`
-        : `${F}${SnakeToCamel<R, D, false, TrimEnd>}`
-      : TrimEnd extends true
-        ? _SnakeToCamelWoTailing<T, D>
-        : _SnakeToCamelWithTailing<T, D>
+  D extends string = '_'
+> = string extends D
+  ? never
+  : T extends `${infer F extends D}${infer R}`
+    ? `${F}${SnakeToCamel<R, D>}`
+    : _SnakeToCamel<T, D>
 
-type _SnakeToCamelWoTailing<T extends string, D extends string> = T extends `${infer U}${infer R}`
-  ? U extends D
-    ? `${_SnakeToCamelWoTailing<Capitalize<R>, D>}`
-    : `${U}${_SnakeToCamelWoTailing<R, D>}`
-  : T
+// type _SnakeToCamelWoTailing<T extends string, D extends string> = T extends `${infer U}${infer R}`
+//   ? U extends D
+//     ? `${_SnakeToCamelWoTailing<Capitalize<R>, D>}`
+//     : `${U}${_SnakeToCamelWoTailing<R, D>}`
+//   : T
+
+// type SnakeToCamelNoPrefix<
+//   T extends string,
+//   D extends string = '_'
+// > = string extends D ? never : TrimStart<_SnakeToCamelWithTailing<T, D>, D>
+
+// type SnakeToCamelNoSuffix<
+//   T extends string,
+//   D extends string = '_'
+// > = string extends D ? never : TrimEnd<_SnakeToCamelWithTailing<T, D>, D>
+
+type _SnakeToCamel<T extends string, D extends string> = _SnakeToCamelWithTailing<T, D>
 
 type _SnakeToCamelWithTailing<T extends string, D extends string> = T extends `${infer U}${infer R}`
   ? R extends ''
     ? U
     : U extends D
-      ? `${_SnakeToCamelWithTailing<Capitalize<R>, D>}` extends `${infer U1 extends D}${infer R1}`
-        ? `${U}${U1}${_SnakeToCamelWithTailing<Capitalize<R1>, D>}`
+      ? `${_SnakeToCamelWithTailing<Capitalize<R>, D>}` extends `${infer U1 extends D | Digit}${infer R1}`
+        ? U1 extends D
+          ? `${U}${U1}${_SnakeToCamelWithTailing<Capitalize<R1>, D>}`
+          : `${U}${U1}${_SnakeToCamelWithTailing<R1, D>}`
         : `${_SnakeToCamelWithTailing<Capitalize<R>, D>}`
       : `${U}${_SnakeToCamelWithTailing<R, D>}`
   : T
 
 export type SnakeToPascal<
   T extends string,
-  D extends string = '_',
-  TrimStart extends boolean = false,
-  TrimEnd extends boolean = false>
-  = string extends D
-    ? never
-    : T extends `${infer F extends D}${infer R}`
-      ? TrimStart extends true
-        ? `${Capitalize<SnakeToPascal<R, D, true, TrimEnd>>}`
-        : `${F}${Capitalize<SnakeToPascal<R, D, false, TrimEnd>>}`
-      : TrimEnd extends true
-        ? _SnakeToCamelWoTailing<Capitalize<T>, D>
-        : _SnakeToCamelWithTailing<Capitalize<T>, D>
+  D extends string = '_'
+> = string extends D
+  ? never
+  : T extends `${infer F extends D}${infer R}`
+    ? `${F}${SnakeToPascal<R, D>}`
+    : _SnakeToCamelWithTailing<Capitalize<T>, D>
 
 
 export type CamelKeys<
   T,
   D extends string = '_',
-  Recursive extends boolean = false>
-  = T extends object
-    ? _CamelKeys<T, D, Recursive>
-    : never
+  Recursive extends boolean = false
+> = T extends object
+  ? _CamelKeys<T, D, Recursive>
+  : never
 
 type _CamelKeys<
   T,

@@ -81,30 +81,37 @@ describe(fileShortPath(import.meta.url), () => {
     it('number', () => {
       const Foo = 'tb_user_2_good'
       const T1 = snakeToCamel(Foo)
-      const Expectconst = 'tbUser2Good'
-      assert(T1 === Expectconst)
+      const Expectconst = 'tbUser_2Good'
+      assert(T1 === Expectconst, `expect ${Expectconst} but got ${T1}`)
+    })
+
+    it('number a', () => {
+      const Foo = 'tb_user_2a_good'
+      const T1 = snakeToCamel(Foo)
+      const Expectconst = 'tbUser_2aGood'
+      assert(T1 === Expectconst, `expect ${Expectconst} but got ${T1}`)
     })
 
     it('number only', () => {
-      const Foo = '12_3__45___67'
+      const Foo = '12_34__45___67'
       const T1 = snakeToCamel(Foo)
-      const Expectconst = '1234567'
-      assert(T1 === Expectconst)
+      const Expectconst = '12_34__45___67'
+      assert(T1 === Expectconst, `expect ${Expectconst} but got ${T1}`)
     })
 
     it('number only with tailing', () => {
       const Foo = '12_3__45___67________'
       const T1 = snakeToCamel(Foo)
-      const Expectconst = '1234567________'
-      assert(T1 === Expectconst)
+      const Expectconst = '12_3__45___67________'
+      assert(T1 === Expectconst, `expect ${Expectconst} but got ${T1}`)
     })
 
-    it('number only w/o tailing', () => {
-      const Foo = '12_3__45___67________'
-      const T1 = snakeToCamel(Foo, '_', true, true)
-      const Expectconst = '1234567'
-      assert(T1 === Expectconst)
-    })
+    // it('number only w/o tailing', () => {
+    //   const Foo = '12_3__45___67________'
+    //   const T1 = snakeToCamel(Foo, '_', true, true)
+    //   const Expectconst = '1234567'
+    //   assert(T1 === Expectconst)
+    // })
 
     it('number only one with tailing', () => {
       const Foo = '1__'
@@ -113,12 +120,12 @@ describe(fileShortPath(import.meta.url), () => {
       assert(T1 === Expectconst)
     })
 
-    it('number only one w/o tailing', () => {
-      const Foo = '1__'
-      const T1 = snakeToCamel(Foo, '_', true, true)
-      const Expectconst = '1'
-      assert(T1 === Expectconst)
-    })
+    // it('number only one w/o tailing', () => {
+    //   const Foo = '1__'
+    //   const T1 = snakeToCamel(Foo, '_', true, true)
+    //   const Expectconst = '1'
+    //   assert(T1 === Expectconst)
+    // })
 
     it('under 1', () => {
       const Foo = '_tb_user'
@@ -134,19 +141,19 @@ describe(fileShortPath(import.meta.url), () => {
       assert(T1 === Expectconst)
     })
 
-    it('leading with TrimStart:false', () => {
-      const Foo = '__tb_user'
-      const T1 = snakeToCamel(Foo, '_', false)
-      const Expectconst = '__tbUser'
-      assert(T1 === Expectconst)
-    })
+    // it('leading with TrimStart:false', () => {
+    //   const Foo = '__tb_user'
+    //   const T1 = snakeToCamel(Foo, '_', false)
+    //   const Expectconst = '__tbUser'
+    //   assert(T1 === Expectconst)
+    // })
 
-    it('leading with TrimStart:true', () => {
-      const Foo = '__tb_user'
-      const T1 = snakeToCamel(Foo, '_', true)
-      const Expectconst = 'tbUser'
-      assert(T1 === Expectconst)
-    })
+    // it('leading with TrimStart:true', () => {
+    //   const Foo = '__tb_user'
+    //   const T1 = snakeToCamel(Foo, '_', true)
+    //   const Expectconst = 'tbUser'
+    //   assert(T1 === Expectconst)
+    // })
 
     it('mix', () => {
       const Foo = '-__tb_user'
@@ -155,12 +162,12 @@ describe(fileShortPath(import.meta.url), () => {
       assert(T1 === Expectconst)
     })
 
-    it('mix with TrimStart:true', () => {
-      const Foo = '-__tb_user'
-      const T1 = snakeToCamel(Foo, '_', true)
-      const Expectconst = '-TbUser'
-      assert(T1 === Expectconst)
-    })
+    // it('mix with TrimStart:true', () => {
+    //   const Foo = '-__tb_user'
+    //   const T1 = snakeToCamel(Foo, '_', true)
+    //   const Expectconst = '-TbUser'
+    //   assert(T1 === Expectconst)
+    // })
 
     it('mix2', () => {
       const Foo = '-__tb_user'
@@ -176,47 +183,47 @@ describe(fileShortPath(import.meta.url), () => {
       assert(T1 === Expectconst)
     })
 
-    it('mix2 with TrimStart:true', () => {
-      const Foo = '-__tb_user'
-      const T1 = snakeToCamel(snakeToCamel(Foo, '_', true), '-', true)
-      const Expectconst = 'TbUser'
-      assert(T1 === Expectconst)
-    })
+    // it('mix2 with TrimStart:true', () => {
+    //   const Foo = '-__tb_user'
+    //   const T1 = snakeToCamel(snakeToCamel(Foo, '_', true), '-', true)
+    //   const Expectconst = 'TbUser'
+    //   assert(T1 === Expectconst)
+    // })
 
-    it('mix2a with TrimStart:true', () => {
-      const Foo = '-__tb_user'
-      const T1 = snakeToCamel(snakeToCamel(Foo, '-', true), '_', true)
-      const Expectconst = 'tbUser'
-      assert(T1 === Expectconst)
-    })
+    // it('mix2a with TrimStart:true', () => {
+    //   const Foo = '-__tb_user'
+    //   const T1 = snakeToCamel(snakeToCamel(Foo, '-', true), '_', true)
+    //   const Expectconst = 'tbUser'
+    //   assert(T1 === Expectconst)
+    // })
 
-    it('mix2 with TrimStart:true, TrimEnd:false', () => {
-      const Foo = '-__tb_user__'
-      const T1 = snakeToCamel(snakeToCamel(Foo, '-', true, false), '_', true)
-      const Expectconst = 'tbUser__'
-      assert(T1 === Expectconst)
-    })
+    // it('mix2 with TrimStart:true, TrimEnd:false', () => {
+    //   const Foo = '-__tb_user__'
+    //   const T1 = snakeToCamel(snakeToCamel(Foo, '-', true, false), '_', true)
+    //   const Expectconst = 'tbUser__'
+    //   assert(T1 === Expectconst)
+    // })
 
-    it('mix2 with TrimStart:true, TrimEnd:true', () => {
-      const Foo = '-__tb_user__'
-      const T1 = snakeToCamel(snakeToCamel(Foo, '-', true, true), '_', true, true)
-      const Expectconst = 'tbUser'
-      assert(T1 === Expectconst)
-    })
+    // it('mix2 with TrimStart:true, TrimEnd:true', () => {
+    //   const Foo = '-__tb_user__'
+    //   const T1 = snakeToCamel(snakeToCamel(Foo, '-', true, true), '_', true, true)
+    //   const Expectconst = 'tbUser'
+    //   assert(T1 === Expectconst)
+    // })
 
     it('leading delimiter', () => {
       const Foo = '___tb_user_2good'
       const T1 = snakeToCamel(Foo)
-      const Expectconst = '___tbUser2good'
+      const Expectconst = '___tbUser_2good'
       assert(T1 === Expectconst)
     })
 
-    it('leading delimiter with TrimStart:true', () => {
-      const Foo = '___tb_user_2good'
-      const T1 = snakeToCamel(Foo, '_', true)
-      const Expectconst = 'tbUser2good'
-      assert(T1 === Expectconst)
-    })
+    // it('leading delimiter with TrimStart:true', () => {
+    //   const Foo = '___tb_user_2good'
+    //   const T1 = snakeToCamel(Foo, '_', true)
+    //   const Expectconst = 'tbUser2good'
+    //   assert(T1 === Expectconst)
+    // })
 
     it('under more with tailing', () => {
       const Foo = 'tb______user__________'
@@ -225,12 +232,12 @@ describe(fileShortPath(import.meta.url), () => {
       assert(T1 === Expectconst)
     })
 
-    it('under more  TrimEnd:true', () => {
-      const Foo = 'tb______user__________'
-      const T1 = snakeToCamel(Foo, '_', false, true)
-      const Expectconst = 'tbUser'
-      assert(T1 === Expectconst)
-    })
+    // it('under more  TrimEnd:true', () => {
+    //   const Foo = 'tb______user__________'
+    //   const T1 = snakeToCamel(Foo, '_', false, true)
+    //   const Expectconst = 'tbUser'
+    //   assert(T1 === Expectconst)
+    // })
 
     it('under more 2 with tailing', () => {
       const Foo = '_______________tb______user__________'
@@ -239,12 +246,12 @@ describe(fileShortPath(import.meta.url), () => {
       assert(T1 === Expectconst)
     })
 
-    it('under more 2 TrimEnd:true', () => {
-      const Foo = '_______________tb______user__________'
-      const T1 = snakeToCamel(Foo, '_', false, true)
-      const Expectconst = '_______________tbUser'
-      assert(T1 === Expectconst)
-    })
+    // it('under more 2 TrimEnd:true', () => {
+    //   const Foo = '_______________tb______user__________'
+    //   const T1 = snakeToCamel(Foo, '_', false, true)
+    //   const Expectconst = '_______________tbUser'
+    //   assert(T1 === Expectconst)
+    // })
 
     it('under only', () => {
       const Foo = '___'
@@ -253,12 +260,12 @@ describe(fileShortPath(import.meta.url), () => {
       assert(T1 === Expectconst)
     })
 
-    it('under only with TrimStart:true', () => {
-      const Foo = '___'
-      const T1 = snakeToCamel(Foo, '_', true)
-      const Expectconst = ''
-      assert(T1 === Expectconst)
-    })
+    // it('under only with TrimStart:true', () => {
+    //   const Foo = '___'
+    //   const T1 = snakeToCamel(Foo, '_', true)
+    //   const Expectconst = ''
+    //   assert(T1 === Expectconst)
+    // })
 
     it('under number', () => {
       const Foo = '_67'
@@ -267,12 +274,12 @@ describe(fileShortPath(import.meta.url), () => {
       assert(T1 === Expectconst)
     })
 
-    it('under number with TrimStart:true', () => {
-      const Foo = '_67'
-      const T1 = snakeToCamel(Foo, '_', true)
-      const Expectconst = '67'
-      assert(T1 === Expectconst)
-    })
+    // it('under number with TrimStart:true', () => {
+    //   const Foo = '_67'
+    //   const T1 = snakeToCamel(Foo, '_', true)
+    //   const Expectconst = '67'
+    //   assert(T1 === Expectconst)
+    // })
 
     it('trailing delimiter with tailing', () => {
       const Foo = 't_'
@@ -281,12 +288,12 @@ describe(fileShortPath(import.meta.url), () => {
       assert(T1 === Expectconst)
     })
 
-    it('trailing delimiter TrimEnd:true', () => {
-      const Foo = 't_'
-      const T1 = snakeToCamel(Foo, '_', false, true)
-      const Expectconst = 't'
-      assert(T1 === Expectconst)
-    })
+    // it('trailing delimiter TrimEnd:true', () => {
+    //   const Foo = 't_'
+    //   const T1 = snakeToCamel(Foo, '_', false, true)
+    //   const Expectconst = 't'
+    //   assert(T1 === Expectconst)
+    // })
   })
 
   describe('should snakeToCamel work with -', () => {
@@ -347,12 +354,12 @@ describe(fileShortPath(import.meta.url), () => {
       assert(T1 === Expectconst)
     })
 
-    it('under minus TrimStart:true, TrimEnd:true', () => {
-      const Foo = '___---'
-      const T1 = snakeToCamel(Foo, '-', true, true)
-      const Expectconst = '___'
-      assert(T1 === Expectconst)
-    })
+    // it('under minus TrimStart:true, TrimEnd:true', () => {
+    //   const Foo = '___---'
+    //   const T1 = snakeToCamel(Foo, '-', true, true)
+    //   const Expectconst = '___'
+    //   assert(T1 === Expectconst)
+    // })
 
     it('under number', () => {
       const Foo = '-67'

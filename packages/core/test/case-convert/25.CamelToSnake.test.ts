@@ -46,15 +46,15 @@ describe(fileShortPath(import.meta.url), () => {
     it('6', () => {
       const Foo = 'tb6UserId'
       const T1 = camelToSnake(Foo)
-      const Expectconst = 'tb_6_user_id'
-      assert(T1 === Expectconst)
+      const Expectconst = 'tb6_user_id'
+      assert(T1 === Expectconst, `expect ${Expectconst} but got ${T1}`)
     })
 
     it('7', () => {
       const Foo = '7tb7UserId'
       const T1 = camelToSnake(Foo)
-      const Expectconst = '7tb_7_user_id'
-      assert(T1 === Expectconst)
+      const Expectconst = '7tb7_user_id'
+      assert(T1 === Expectconst, `expect ${Expectconst} but got ${T1}`)
     })
 
     it('8', () => {
@@ -81,7 +81,7 @@ describe(fileShortPath(import.meta.url), () => {
     it('number', () => {
       const Foo = 'tbUser2Good'
       const T1 = camelToSnake(Foo)
-      const Expectconst = 'tb_user_2_good'
+      const Expectconst = 'tb_user2_good'
       assert(T1 === Expectconst)
     })
 

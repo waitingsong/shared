@@ -22,9 +22,9 @@ describe(fileShortPath(import.meta.url), () => {
       const T1 = camelKeys(TbUser)
       const ExpectType = {
         userId: 1,
-        user2Address: 'ab',
-        user23Address: 'abc',
-        user3foo: 23n,
+        user_2Address: 'ab',
+        user_2__3Address: 'abc',
+        user_3foo: 23n,
         3322: true,
         json: {
           user_name: 'abc',
@@ -47,9 +47,9 @@ describe(fileShortPath(import.meta.url), () => {
       const T1 = camelKeys(new TbUser())
       const ExpectType = {
         userId: 1,
-        user2Address: 'ab',
-        user23Address: 'abc',
-        user3foo: 23n,
+        user_2Address: 'ab',
+        user_2__3Address: 'abc',
+        user_3foo: 23n,
         3322: true,
         json: {
           user_name: 'abc',
@@ -105,9 +105,9 @@ describe(fileShortPath(import.meta.url), () => {
       const ExpectType = {
         tbUser: {
           userId: 1,
-          user2Address: 'ab',
-          user23Address: 'abc',
-          user3foo: 23n,
+          user_2Address: 'ab',
+          user_2__3Address: 'abc',
+          user_3foo: 23n,
           3322: true,
           json: {
             userName: 'abc',
@@ -149,9 +149,9 @@ describe(fileShortPath(import.meta.url), () => {
       const ExpectType = {
         tbUser: {
           userId: 1,
-          user2Address: 'ab',
-          user23Address: 'abc',
-          user3foo: 23n,
+          user_2Address: 'ab',
+          user_2__3Address: 'abc',
+          user_3foo: 23n,
           3322: true,
           json: {
             userName: 'abc',

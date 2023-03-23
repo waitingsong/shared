@@ -52,7 +52,7 @@ describe(fileShortPath(import.meta.url), () => {
     it('6', () => {
       type Foo = 'tb6UserId'
       type T1 = CamelToSnake<Foo>
-      type ExpectType = 'tb_6_user_id'
+      type ExpectType = 'tb6_user_id'
       const ret: Equals<T1, ExpectType> = true
       const ret2: Equals<T1, Foo> = false
     })
@@ -60,7 +60,7 @@ describe(fileShortPath(import.meta.url), () => {
     it('7', () => {
       type Foo = '7tb7UserId'
       type T1 = CamelToSnake<Foo>
-      type ExpectType = '7tb_7_user_id'
+      type ExpectType = '7tb7_user_id'
       const ret: Equals<T1, ExpectType> = true
       const ret2: Equals<T1, Foo> = false
     })
@@ -92,7 +92,7 @@ describe(fileShortPath(import.meta.url), () => {
     it('number', () => {
       type Foo = 'tbUser2Good'
       type T1 = CamelToSnake<Foo>
-      type ExpectType = 'tb_user_2_good'
+      type ExpectType = 'tb_user2_good'
       const ret: Equals<T1, ExpectType> = true
     })
 
@@ -190,6 +190,20 @@ describe(fileShortPath(import.meta.url), () => {
       type Foo = 'foo_JWT'
       type T1 = CamelToSnake<Foo>
       type ExpectType = 'foo__j_w_t'
+      const ret: Equals<T1, ExpectType> = true
+    })
+
+    it('number mix _', () => {
+      type Foo = 'vi_001_23_user4'
+      type T1 = CamelToSnake<Foo>
+      type ExpectType = 'vi_001_23_user4'
+      const ret: Equals<T1, ExpectType> = true
+    })
+
+    it('number mix _', () => {
+      type Foo = 'tbUser_2aGood'
+      type T1 = CamelToSnake<Foo>
+      type ExpectType = 'tb_user_2a_good'
       const ret: Equals<T1, ExpectType> = true
     })
   })

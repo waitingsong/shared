@@ -23,9 +23,9 @@ describe(fileShortPath(import.meta.url), () => {
       type T1 = PascalKeys<TbUser>
       interface ExpectType {
         UserId: number
-        User2Address: string
-        User23Address: string
-        User3foo: bigint
+        User_2Address: string
+        User_2__3Address: string
+        User_3foo: bigint
         '3322': boolean
         Json: {
           user_name: 'abc',
@@ -60,9 +60,9 @@ describe(fileShortPath(import.meta.url), () => {
       interface ExpectType {
         TbUser: {
           UserId: number,
-          User2Address: string,
-          User23Address: string,
-          User3foo: bigint,
+          User_2Address: string,
+          User_2__3Address: string,
+          User_3foo: bigint,
           '3322': boolean,
           Json: {
             UserName: 'abc',
