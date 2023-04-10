@@ -1,5 +1,5 @@
 {
-  "name": "npm-mono-base",
+  "name": "@waiting/shared",
   "version": "1.0.0",
   "description": "",
   "private": true,
@@ -16,7 +16,6 @@
     "@types/rewire": "2",
     "@waiting/eslint-config": "^8.8.0",
     "@waiting/shared-core": "^21.0.0",
-    "@waiting/shared-types": "^21.0.0",
     "autocannon": "7",
     "coveralls": "3",
     "debug": "^4.3.4",
