@@ -5,3 +5,4 @@ export interface Func {
   (this: any, ...args: any[]): any | Promise<any>
 }
 
+export type MethodType = (...input: any[]) => (any | Promise<any>)
