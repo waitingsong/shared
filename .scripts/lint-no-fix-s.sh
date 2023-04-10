@@ -11,6 +11,6 @@ else
     scope="$scope --scope $pkg"
   done
 
-  lerna run lint:nofix --ignore demo $scope
+  lerna run lint:nofix $scope
 fi
 

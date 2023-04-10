@@ -11,6 +11,6 @@ else
     scope="$scope --scope $pkg"
   done
 
-  lerna run lint  --ignore demo--parallel $scope
+  lerna run lint --parallel $scope
 fi
 

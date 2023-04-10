@@ -11,6 +11,6 @@ else
     scope="$scope --scope $pkg"
   done
 
-  lerna run build --ignore demo $scope
+  lerna run build $scope
 fi
 
