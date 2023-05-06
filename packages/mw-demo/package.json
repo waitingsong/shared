@@ -1,7 +1,7 @@
 {
   "name": "@mwcp/demo",
   "author": "waiting",
-  "version": "21.1.0",
+  "version": "21.2.0",
   "description": "midway component boilerplate",
   "private": true,
   "keywords": [
@@ -23,7 +23,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@waiting/shared-core": "^21.1.0"
+    "@waiting/shared-core": "^21.2.0"
   },
   "devDependencies": {
     "@mwcp/share": "6 - 8",

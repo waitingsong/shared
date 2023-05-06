@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [21.2.0](https://github.com/waitingsong/shared/compare/v21.1.0...v21.2.0) (2023-05-06)
+
+
+### Features
+
+* **types:** add types MethodTypeUnknown, AsyncMethodType ([4e28418](https://github.com/waitingsong/shared/commit/4e28418a3321f06e763658c44e77aa12a927f5bc))
+
+
+
+
+
 # [21.1.0](https://github.com/waitingsong/shared/compare/v21.0.1...v21.1.0) (2023-04-10)
 
 

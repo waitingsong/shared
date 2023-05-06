@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [21.2.0](https://github.com/waitingsong/npm-mono-base/compare/v21.1.0...v21.2.0) (2023-05-06)
+
+**Note:** Version bump only for package demo
+
+
+
+
+
 # [21.0.0](https://github.com/waitingsong/npm-mono-base/compare/v20.13.0...v21.0.0) (2023-03-23)
 
 **Note:** Version bump only for package demo
