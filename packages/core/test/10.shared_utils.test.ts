@@ -1,9 +1,7 @@
 import assert from 'node:assert/strict'
-import { readFile } from 'node:fs/promises'
+import { readFile, rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join, normalize } from 'node:path'
-
-import rmdir from 'rimraf'
 
 import {
   createDirAsync,
@@ -24,7 +22,7 @@ describe(fileShortPath(import.meta.url), () => {
     await createDirAsync(tmpDir)
   })
   after(async () => {
-    await rmdir(tmpDir)
+    await rm(tmpDir, { recursive: true, force: true })
   })
 
 
@@ -54,7 +52,7 @@ describe(fileShortPath(import.meta.url), () => {
       return assert(false, `folder not exists, path: "${randomPath}"`)
     }
 
-    await rmdir(randomPath)
+    await rm(randomPath, { recursive: true, force: true })
   })
 
   it('Should createDirAsync() work with odd path', async () => {
@@ -73,7 +71,7 @@ describe(fileShortPath(import.meta.url), () => {
       return assert(false, `folder not exists, path: "${randomPath}"`)
     }
 
-    await rmdir(randomPath)
+    await rm(randomPath, { recursive: true, force: true })
   })
 
 
@@ -111,7 +109,7 @@ describe(fileShortPath(import.meta.url), () => {
       return assert(false, (ex as Error).message)
     }
 
-    await rmdir(randomPath)
+    await rm(randomPath, { recursive: true, force: true })
   })
 
   it('Should createFileAsync() work with options', async () => {
@@ -143,7 +141,7 @@ describe(fileShortPath(import.meta.url), () => {
       return assert(false, (ex as Error).message)
     }
 
-    await rmdir(randomPath)
+    await rm(randomPath, { recursive: true, force: true })
   })
 
   it('Should createFileAsync() work with object data', async () => {
@@ -174,7 +172,7 @@ describe(fileShortPath(import.meta.url), () => {
       return assert(false, (ex as Error).message)
     }
 
-    await rmdir(randomPath)
+    await rm(randomPath, { recursive: true, force: true })
   })
 
   it('Should createFileAsync() work with blank path', (resolve) => {
@@ -213,7 +211,7 @@ describe(fileShortPath(import.meta.url), () => {
       return assert(false, (ex as Error).message)
     }
 
-    await rmdir(randomPath)
+    await rm(randomPath, { recursive: true, force: true })
   })
 
 

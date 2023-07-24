@@ -1,8 +1,7 @@
 import assert from 'node:assert/strict'
+import { rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join, normalize } from 'node:path'
-
-import rmdir from 'rimraf'
 
 import {
   createFileAsync,
@@ -31,7 +30,7 @@ describe(fileShortPath(import.meta.url), () => {
       assert(path === normalize(file), `Should ${file} but result ${path}`)
     }
     catch (ex) {
-      await rmdir(randomPath)
+      await rm(randomPath, { recursive: true, force: true })
       throw ex
     }
   })
@@ -53,7 +52,7 @@ describe(fileShortPath(import.meta.url), () => {
       assert(await fileExists(file).toPromise() === normalize(file), `file not exists, path: "${file}"`)
     }
     catch (ex) {
-      await rmdir(randomPath)
+      await rm(randomPath, { recursive: true, force: true })
       throw ex
     }
   })

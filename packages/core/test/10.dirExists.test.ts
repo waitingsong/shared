@@ -1,8 +1,8 @@
 import assert from 'node:assert/strict'
+import { rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
-import rmdir from 'rimraf'
 import { from as ofrom, of } from 'rxjs'
 import { mergeMap } from 'rxjs/operators'
 
@@ -22,7 +22,7 @@ describe(fileShortPath(import.meta.url), () => {
     await createDirAsync(tmpDir)
   })
   after(async () => {
-    await rmdir(tmpDir)
+    await rm(tmpDir, { recursive: true, force: true })
   })
 
   const fnName = 'dirExists'
