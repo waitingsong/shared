@@ -1,12 +1,5 @@
 {
   "version": "21.2.1",
-  "packages": [
-    "packages/*"
-  ],
-  "ignore": [
-    "demo",
-    "@mwcp/demo"
-  ],
   "command": {
     "publish": {
       "ignoreChanges": [

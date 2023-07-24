@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        node: ['lts/*', '19']
+        node: ['lts/*', 'current']
         os: [ubuntu-latest]
 
     steps:
@@ -92,7 +92,7 @@ jobs:
           # .github/workflows/fix.sh
           npm i --no-audit -g autocannon c8 lerna rollup zx
           # npm run purge
-          npm run bootstrap
+          npm i
         env:
           CI: true
 
