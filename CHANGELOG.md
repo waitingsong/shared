@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [21.3.0](https://github.com/waitingsong/shared/compare/v21.2.1...v21.3.0) (2023-07-28)
+
+
+### Features
+
+* **core:** add isExecWithEnableSourceMaps() ([af1a5b6](https://github.com/waitingsong/shared/commit/af1a5b6720451c9bd3db99af0deeb21f8a07341c))
+* **core:** add node20+ support for functions ([e201aaf](https://github.com/waitingsong/shared/commit/e201aaf96a31267c61539d07fcb7725248a4d6dd))
+* **core:** add retrieveNodeExecOptions() ([e46fdd2](https://github.com/waitingsong/shared/commit/e46fdd268cdd51848555dc5ff236ddb17c907393))
+
+
+
+
+
 ## [21.2.1](https://github.com/waitingsong/shared/compare/v21.2.0...v21.2.1) (2023-05-08)
 
 **Note:** Version bump only for package @waiting/shared
