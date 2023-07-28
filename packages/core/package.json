@@ -30,6 +30,7 @@
   "dependencies": {
     "@waiting/shared-types": "^21.2.0",
     "rxjs": "^7.8.0",
+    "semver": "^7.5.4",
     "source-map-support": "^0.5.21"
   },
   "devDependencies": {
@@ -63,9 +64,8 @@
     "purge": "npm run clean && rm node_modules -rf",
     "rp": "rollup -c rollup.config.js --context this",
     "prepack": "rm -f dist/tsconfig.tsbuildinfo",
-    "pretest": "npm run build",
     "pretest:local": "npm run build",
-    "test": "cross-env TS_NODE_PROJECT=test/tsconfig.json mocha --loader=ts-node/esm",
+    "test": "mocha --loader=ts-node/esm --no-warnings --enable-source-maps",
     "test:local": "cross-env TS_NODE_PROJECT=test/tsconfig.json ../../node_modules/.bin/mocha --loader=ts-node/esm --parallel=false",
     "tsc": "tsc -b "
   }
