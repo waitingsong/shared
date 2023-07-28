@@ -28,6 +28,27 @@ const origPrepareStackTrace = Error.prepareStackTrace
 
 
 /**
+ * Nodejs execution options
+ * @description from process.execArgv and process.evn.NODE_OPTIONS
+ * @example return new Set(['--loader ts-node/esm', '--no-warnings'])
+ */
+export function retrieveNodeExecOptions(): Set<string> {
+  const ret = new Set<string>(process.execArgv)
+
+  const line = process.env['NODE_OPTIONS'] ?? ''
+  const opts = line.trim()
+  //  opts: ' --loader ts-node/esm  --no-warnings '
+  opts.split(/(?=--)/u).forEach((opt) => {
+    const txt = opt.trim()
+    if (txt.startsWith('--')) {
+      ret.add(txt.replace(/\s{2,}/ug, ' '))
+    }
+  })
+
+  return ret
+}
+
+/**
  * the dep "source-map-support" should be installed
  */
 export function getCallerStack(
