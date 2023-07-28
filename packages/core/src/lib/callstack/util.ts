@@ -48,6 +48,12 @@ export function retrieveNodeExecOptions(): Set<string> {
   return ret
 }
 
+export function isExecWithEnableSourceMaps(): boolean {
+  const opts = retrieveNodeExecOptions()
+  const ret = opts.has('--enable-source-maps')
+  return ret
+}
+
 /**
  * the dep "source-map-support" should be installed
  */
