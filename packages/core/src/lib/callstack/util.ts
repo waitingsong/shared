@@ -1,17 +1,25 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
-// import { findSourceMap, SourceMap } from 'module'
-
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import assert from 'node:assert/strict'
+import { normalize } from 'node:path'
 
 import semver from 'semver'
-import { install } from 'source-map-support'
+// import { install } from 'source-map-support'
 
-import { CallerInfo } from './types.js'
+import { CallerInfo, CallerInfoBase } from './types.js'
 
+
+const maxStackDepth = 128
+
+const initInfoBase: CallerInfoBase = {
+  path: '',
+  line: -1,
+  column: -1,
+}
 
 const initInfo: CallerInfo = {
   path: '',
+  srcPath: '',
   line: -1,
   column: -1,
   fileName: '',
@@ -23,9 +31,6 @@ const initInfo: CallerInfo = {
   enclosingLineNumber: -1,
   enclosingColNumber: -1,
 }
-
-// Save original Error.prepareStackTrace
-const origPrepareStackTrace = Error.prepareStackTrace
 
 const nodeVersion = semver.coerce(process.version)
 const isNodeGteV20 = nodeVersion ? semver.gte(nodeVersion, '20.0.0') : false
@@ -123,32 +128,22 @@ export function getCallerStack(
     return info
   }
 
-  const stack = Error.prepareStackTrace?.(new Error(), [site]) as string | undefined
-  if (! stack) {
+  const stack = getStack()
+  if (! stack.length) {
     return info
   }
-  // const stack = getStack()
   const arr = stack.split('\n')
-  // const [line2] = arr.slice(depth + 1, depth + 2)
-  const line2 = arr[1]
-
-  if (! line2) {
-    throw new Error('Retrieve stack of caller failed, line empty.')
-  }
-  const path = retrievePath(line2)
-  const matched2 = /^(.+):(\d+):(\d+)$/u.exec(path)
-  if (! matched2 || matched2.length !== 4) {
-    throw new Error('Retrieve stack of caller failed. ' + (matched2 ? matched2.toString() : ''))
-  }
-
-  const [, , m2, m3] = matched2
-  if (! m2 || ! m3) {
-    throw new Error('Retrieved stack of caller empty. ' + matched2.toString())
-  }
+  const line2 = arr[depth + 1]
+  assert(line2, 'Retrieve stack of caller failed, line empty.')
+  const infoBase = retrieveInfoPathWithLineCol(line2)
+  const srcPath = infoBase.path && ! infoBase.path.startsWith('file:///')
+    ? 'file:///' + normalize(infoBase.path).replace(/\\/ug, '/')
+    : infoBase.path
   const caller: CallerInfo = {
     ...info,
-    line: +m2,
-    column: +m3,
+    line: infoBase.line,
+    column: infoBase.column,
+    srcPath,
   }
 
   if (isNodeGteV20 && ! isExecWithEnableSourceMaps()) {
@@ -170,96 +165,111 @@ export function getCallerStack(
  * @see https://stackoverflow.com/a/13227808
  */
 export function getStack(): string {
-  let fn = origPrepareStackTrace
-  /* c8 ignore else */
-  if (! fn) {
-    // MUST installing inner getStack()
-    install()
+  const ret = isNodeGteV20
+    ? getStackCurrent()
+    : getStackOld()
+  return ret
+}
 
-    /* c8 ignore else */
-    if (! Error.prepareStackTrace) {
-      throw new Error('Error.prepareStackTrace not defined')
-    }
-    fn = Error.prepareStackTrace
-  }
-  // void else in debug hooked by source-map-support already
+/**
+ * For node < v20
+ */
+function getStackOld(): string {
+  const _prepareStackTrace = Error.prepareStackTrace
+  const sites = getStackCallerSites(maxStackDepth).slice(2)
 
-  Error.prepareStackTrace = function(err: Error, structuredStackTrace: NodeJS.CallSite[]): string {
-    const target = structuredStackTrace.slice(1)
-    // @ts-expect-error
-    const ret = fn(err, target) as string
-    return ret
+  if (_prepareStackTrace && sites.length) {
+    const stack = _prepareStackTrace(new Error(), sites) as string
+    return stack
   }
 
-  const limit = Error.stackTraceLimit
-  // Error.stackTraceLimit = depth + 2
+  return ''
+}
 
+/**
+ * For node >= v20
+ */
+function getStackCurrent(): string {
   const err = new Error()
   const { stack } = err
+  assert(stack, 'stack EMPTY!')
 
-  // Restore original `Error.prepareStackTrace`
-  Error.prepareStackTrace = origPrepareStackTrace
-  Error.stackTraceLimit = limit
-
-  if (! stack) {
-    throw new Error('stack EMPTY!')
+  const arr = stack.split('\n')
+  const arr2 = arr.slice(0, 1).concat(arr.slice(3))
+  const line = arr2[1]
+  const { path } = retrieveInfoPathWithLineCol(line ?? '')
+  if (path.endsWith('.ts') || path.endsWith('.mts')) {
+    if (isNodeGteV20 && ! isExecWithEnableSourceMaps()) {
+      console.warn(
+        `Warning getCallerStack(): Nodejs >= 20.0.0, but not exec with --enable-source-maps. return line and column may incorrect.
+  file: "${line ?? path}"`,
+      )
+    }
   }
+  // const sites = callsites()
+  // assert(sites?.length > 0, 'callsites() empty'
+  // console.info({ sites })
+  // const site1 = sites[1]
+  // const site2 = sites[2]
+  // const site3 = sites[3]
 
-  return stack
+  // const info1 = {
+  //   path: site1.ge,
+  // }
+
+  // console.log({
+
+  // })
+
+  const ret = arr2.join('\n')
+  return ret
 }
 
 
-export function getStackCallerSites(stackTraceLimit = 10): NodeJS.CallSite[] {
-  let fn = origPrepareStackTrace
-  /* c8 ignore else */
-  if (! fn) {
-    // MUST installing inner getStack()
-    install()
 
-    /* c8 ignore else */
-    if (! Error.prepareStackTrace) {
-      throw new Error('Error.prepareStackTrace not defined')
-    }
-    fn = Error.prepareStackTrace
-  }
-  // void else in debug hooked by source-map-support already
+export function getStackCallerSites(stackTraceLimit = 10): NodeJS.CallSite[] {
+  const _prepareStackTrace = Error.prepareStackTrace
+  const limit = Error.stackTraceLimit
+
+  // if (! _prepareStackTrace) {
+  //   install()
+  // }
 
   Error.prepareStackTrace = function(_: Error, structuredStackTrace: NodeJS.CallSite[]): NodeJS.CallSite[] {
     const target = structuredStackTrace.slice(1)
     return target
   }
-
-  const limit = Error.stackTraceLimit
   Error.stackTraceLimit = stackTraceLimit >= 0 ? stackTraceLimit + 1 : 11
 
   const err = new Error()
   const stacks = err.stack as NodeJS.CallSite[] | undefined
 
   // Restore original `Error.prepareStackTrace`
-  Error.prepareStackTrace = fn
+  Error.prepareStackTrace = _prepareStackTrace
   Error.stackTraceLimit = limit
 
-  if (! stacks) {
-    throw new Error('stacks EMPTY!')
-  }
-
+  assert(stacks, 'stacks EMPTY!')
   return stacks
 }
 
-function retrievePath(line: string): string {
+function retrievePathWithLineCol(line: string): string {
   let path = ''
   if (line.includes('(')) {
     // "    at Object.<anonymous> (...\\30.caller-stack.test.ts:20:20)"
     // "    at Object.test1 (...\\call-config.ts:6:22)"
     path = line.slice(line.indexOf('(') + 1, -1)
   }
-  // else if (line.includes(' at ')) {
-  else if (/^\s*at .+?\d+:\d+$/u.test(line) === true) {
-    // "    at ...\\call-config.ts:24:12"
-    path = line.slice(line.indexOf('at') + 3, -1)
-  }
   else if (line.startsWith('file://')) {
     path = line
+  }
+  else if (/^\s*at .+?\d+:\d+$/u.test(line) === true) {
+    // "    at ...\\call-config.ts:24:12"
+    const txt = line.slice(line.indexOf('at') + 3)
+    const last = txt.slice(-1)
+    path = typeof +last === 'number'
+      ? txt
+      : txt.slice(0, -1)
+    // console.log('debug01', { path, line })
   }
   else {
     throw new Error('Retrieve stack of caller failed. ' + line)
@@ -270,4 +280,25 @@ function retrievePath(line: string): string {
   }
 
   return path
+}
+
+function retrieveInfoPathWithLineCol(line: string): CallerInfoBase {
+  const ret: CallerInfoBase = {
+    ...initInfoBase,
+  }
+
+  const path = retrievePathWithLineCol(line)
+  const matched2 = /^(.+):(\d+):(\d+)$/u.exec(path)
+  if (! matched2 || matched2.length !== 4) {
+    throw new Error('Retrieve stack of caller failed. ' + (matched2 ? matched2.toString() : ''))
+  }
+
+  const [, m1, m2, m3] = matched2
+  assert(m1, 'path EMPTY!')
+  assert(m2 && m3, 'line or column EMPTY!' + matched2.toString())
+  ret.path = m1.trim()
+  ret.line = +m2
+  ret.column = +m3
+
+  return ret
 }

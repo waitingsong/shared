@@ -1,4 +1,8 @@
 
+// const opts = process.env['NODE_OPTIONS'] ?? ''
+// process.env['NODE_OPTIONS'] = opts + ' --enable-source-maps'
+// export NODE_OPTIONS='--enable-source-maps --no-warnings'
+
 /**
  * @see https://mochajs.org/#root-hook-plugins
  * beforeAll:

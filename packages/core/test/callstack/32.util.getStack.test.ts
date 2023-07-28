@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict'
-
+import { basename } from 'node:path'
 
 import { getStack } from '../../src/lib/callstack/util.js'
 import { fileShortPath } from '../../src/lib/helper.js'
@@ -15,7 +15,8 @@ describe(fileShortPath(import.meta.url), () => {
       assert(line0)
       assert(line0.includes('Error'))
       assert(line1)
-      assert(line1.includes(import.meta.url))
+      const file = basename(import.meta.url)
+      assert(line1.includes(file), `expect: "${file}", but got: "${line1}"`)
       assert(true)
     })
 

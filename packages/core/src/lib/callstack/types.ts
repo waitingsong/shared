@@ -1,6 +1,6 @@
 
-export interface CallerInfo {
-  path: string
+export interface CallerInfo extends CallerInfoBase {
+  srcPath: string
   // from StackFram
   fileName: string
   className: string
@@ -10,6 +10,10 @@ export interface CallerInfo {
   columnNumber: number
   enclosingLineNumber: number
   enclosingColNumber: number
+}
+
+export interface CallerInfoBase {
+  path: string
   line: number
   column: number
 }
