@@ -4,6 +4,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import assert from 'node:assert/strict'
 
+import semver from 'semver'
 import { install } from 'source-map-support'
 
 import { CallerInfo } from './types.js'
@@ -26,6 +27,8 @@ const initInfo: CallerInfo = {
 // Save original Error.prepareStackTrace
 const origPrepareStackTrace = Error.prepareStackTrace
 
+const nodeVersion = semver.coerce(process.version)
+const isNodeGteV20 = nodeVersion ? semver.gte(nodeVersion, '20.0.0') : false
 
 /**
  * Nodejs execution options
@@ -115,6 +118,7 @@ export function getCallerStack(
     enclosingLineNumber,
     enclosingColNumber,
   }
+
   if (! retrievePosition) {
     return info
   }
@@ -145,6 +149,17 @@ export function getCallerStack(
     ...info,
     line: +m2,
     column: +m3,
+  }
+
+  if (isNodeGteV20 && ! isExecWithEnableSourceMaps()) {
+    const str = caller.path.toLowerCase()
+    if (str.endsWith('.ts') || str.endsWith('.mts')) {
+      if (caller.line === caller.lineNumber && caller.column === caller.columnNumber) {
+        console.warn(
+          `Warning getCallerStack(): Nodejs >= 20.0.0, but not exec with --enable-source-maps. return line and column may incorrect. \n  file: "${caller.path}"`,
+        )
+      }
+    }
   }
 
   return caller
