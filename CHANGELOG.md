@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [21.4.0](https://github.com/waitingsong/shared/compare/v21.3.1...v21.4.0) (2023-08-17)
+
+
+### Features
+
+* **core:** add getNpmPkgViewFromRegistry() ([2965cc1](https://github.com/waitingsong/shared/commit/2965cc1e76a4c98c3a563248363b50cb88e1e53e))
+* **types:** add types NpmPkgView, NpmPkgDist ([957fc0a](https://github.com/waitingsong/shared/commit/957fc0a8ed48a8f86e658141209d5b6c40600b12))
+
+
+
+
+
 ## [21.3.1](https://github.com/waitingsong/shared/compare/v21.3.0...v21.3.1) (2023-08-17)
 
 **Note:** Version bump only for package @waiting/shared
