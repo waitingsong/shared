@@ -1,7 +1,7 @@
 {
   "name": "@waiting/shared-types",
   "author": "waiting",
-  "version": "21.3.0",
+  "version": "21.3.1",
   "description": "shared typescript types",
   "keywords": [
     "types",
@@ -28,8 +28,6 @@
     "url": "https://github.com/waitingsong/shared"
   },
   "license": "MIT",
-  "devDependencies": {
-  },
   "engines": {
     "node": ">=14.16.0"
   },
