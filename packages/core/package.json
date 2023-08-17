@@ -34,8 +34,7 @@
   },
   "devDependencies": {
     "@types/source-map-support": "^0.5.6",
-    "cross-env": "7",
-    "undici": "^5.18.0"
+    "undici": "^5.23.0"
   },
   "engines": {
     "node": ">=16.13.0"
@@ -62,11 +61,11 @@
     "lint:nofix": "eslint --cache {src,test}/**/*.ts",
     "purge": "npm run clean && rm node_modules -rf",
     "rp": "rollup -c rollup.config.js --context this",
-    "pretest": "npm run build",
     "prepack": "rm -f dist/tsconfig.tsbuildinfo",
+    "pretest": "npm run build",
     "pretest:local": "npm run build",
-    "test": "cross-env TS_NODE_PROJECT=test/tsconfig.json mocha ",
-    "test:local": "cross-env TS_NODE_PROJECT=test/tsconfig.json ../../node_modules/.bin/mocha   --parallel=false",
+    "test": "cross-env TS_NODE_PROJECT=test/tsconfig.json mocha",
+    "test:local": "cross-env TS_NODE_PROJECT=test/tsconfig.json ../../node_modules/.bin/mocha",
     "tsc": "tsc -b "
   }
 }
