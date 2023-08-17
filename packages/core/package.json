@@ -29,8 +29,10 @@
   "license": "MIT",
   "dependencies": {
     "@waiting/shared-types": "^21.3.1",
+    "minimist": "^1.2.8",
     "rxjs": "^7.8.0",
-    "semver": "^7.5.4"
+    "semver": "^7.5.4",
+    "zx": "^7.2.3"
   },
   "devDependencies": {
     "@types/source-map-support": "^0.5.6",
