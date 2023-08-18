@@ -1,8 +1,10 @@
 import assert from 'node:assert'
 
 import type { NpmPkgView } from '@waiting/shared-types'
-import { $ } from 'zx'
+import { Shell, Options } from 'zx'
 
+
+let $: (Shell & Options) | undefined
 
 export type { NpmPkgView }
 
@@ -17,6 +19,13 @@ export async function getNpmPkgViewFromRegistry(
   assert(registry, 'registry empty')
 
   const name = `${pkgName}@${version}`
+
+  if (! $) {
+    // zx is pure ESM module and cannot via require(), so use dynamic import for bundler cjs
+    $ = await import('zx').then(mod => mod.$)
+  }
+  assert($, 'zx.$ empty')
+
   try {
     $.verbose = false
     const { exitCode, stdout } = await $`npm view ${name} --json --registry=${registry}`
