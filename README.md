@@ -10,17 +10,15 @@
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
 
 
+## 安装全局依赖
+```sh
+npm i -g c8 lerna rollup tsx
+```
+
 ## Initialization
 
 ```sh
-npm run repo:init
-```
-
-
-## Update
-
-```sh
-npm run bootstrap
+npm i && npm run build
 ```
 
 
