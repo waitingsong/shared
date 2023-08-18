@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [21.4.2](https://github.com/waitingsong/shared/compare/v21.4.1...v21.4.2) (2023-08-18)
+
+
+### Bug Fixes
+
+* **core:** import('zx') dynamically for cjs bundle ([a4daa34](https://github.com/waitingsong/shared/commit/a4daa34399cd0dbc2e0036cb149675e75ec62706))
+
+
+
+
+
 ## [21.4.1](https://github.com/waitingsong/shared/compare/v21.4.0...v21.4.1) (2023-08-17)
 
 **Note:** Version bump only for package @waiting/shared-core
