@@ -1,28 +1,38 @@
-import { join, relative } from 'node:path'
+import { dirname, relative, sep } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 
 export const appDir = process.cwd()
 
-export function fileShortPath(importUrl: string): string {
-  const path = relative(appDir, genCurrentFilename(importUrl)).replace(/\\/ug, '/')
+export function fileShortPath(importUrl: string, separator = '/'): string {
+  let path = relative(appDir, genCurrentFilename(importUrl))
+  if (separator && separator !== sep) {
+    path = path.replaceAll(sep, separator)
+  }
   return path
 }
 
 /**
- * generate __filename for ESM
+ * Generate __filename for ESM
  * @param inputUrl import.meta.url
  */
-export function genCurrentFilename(inputUrl: string): string {
-  return fileURLToPath(inputUrl).replace(/\\/ug, '/')
+export function genCurrentFilename(inputUrl: string, separator = '/'): string {
+  let path = fileURLToPath(inputUrl)
+  if (separator && separator !== sep) {
+    path = path.replaceAll(sep, separator)
+  }
+  return path
 }
 /**
- * generate __dirname for ESM
+ * Generate __dirname for ESM
  * @param inputUrl import.meta.url
  */
-export function genCurrentDirname(inputUrl: string): string {
-  const __filename = genCurrentFilename(inputUrl)
-  const dir = join(__filename, '..').replace(/\\/ug, '/')
+export function genCurrentDirname(inputUrl: string, separator = '/'): string {
+  const __filename = genCurrentFilename(inputUrl, sep)
+  let dir = dirname(__filename)
+  if (separator && separator !== sep) {
+    dir = dir.replaceAll(sep, separator)
+  }
   return dir
 }
 
@@ -52,7 +62,7 @@ const lookup: Formater[] = [
  *
  * @link https://stackoverflow.com/a/9462382
  */
-export function nFormatter(positiveNum: number, digits = 2, sep = ''): string {
+export function nFormatter(positiveNum: number, digits = 2, separator = ''): string {
   if (positiveNum <= 0) {
     return positiveNum.toString()
   }
@@ -64,6 +74,6 @@ export function nFormatter(positiveNum: number, digits = 2, sep = ''): string {
   }
 
   const rx = /\.0+$|(\.[0-9]*[1-9])0+$/u
-  const ret = (positiveNum / item.value).toFixed(digits).replace(rx, '$1') + sep + item.symbol
+  const ret = (positiveNum / item.value).toFixed(digits).replace(rx, '$1') + separator + item.symbol
   return ret
 }
