@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [21.5.0](https://github.com/waitingsong/shared/compare/v21.4.2...v21.5.0) (2023-08-21)
+
+
+### Features
+
+* **core:** add 2nd param separator of functions ([7097d7a](https://github.com/waitingsong/shared/commit/7097d7a67bbd4fff425c68743e7be481dc459dc1))
+
+
+
+
+
 ## [21.4.2](https://github.com/waitingsong/shared/compare/v21.4.1...v21.4.2) (2023-08-18)
 
 
