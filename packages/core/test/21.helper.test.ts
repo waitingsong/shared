@@ -4,7 +4,7 @@ import { sep } from 'node:path'
 import { fileShortPath, genCurrentDirname, genCurrentFilename } from '../src/lib/helper.js'
 
 
-describe.only(fileShortPath(import.meta.url), () => {
+describe(fileShortPath(import.meta.url), () => {
 
   describe('should genCurrentFilename() work', () => {
     it('common', async () => {
