@@ -14,7 +14,7 @@
     "@rollup/plugin-node-resolve": "15",
     "@types/mocha": "10",
     "@types/node": "20",
-    "@waiting/eslint-config": "^8.8.0",
+    "@waiting/eslint-config": "^9.1.0",
     "autocannon": "7",
     "coveralls": "3",
     "cross-env": "7",
