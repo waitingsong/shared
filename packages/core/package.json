@@ -10,7 +10,12 @@
   ],
   "type": "module",
   "bin": {},
-  "types": "./dist/index.d.ts",
+  "types": "dist/index.d.ts",
+  "imports": {
+    "#package.json": "./package.json",
+    "##/*": "./src/*",
+    "#@/*": "./test/*"
+  },
   "exports": {
     ".": {
       "import": "./dist/index.js",
