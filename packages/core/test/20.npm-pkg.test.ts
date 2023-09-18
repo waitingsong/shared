@@ -6,7 +6,7 @@ import { fileShortPath } from '../src/lib/helper.js'
 
 describe(fileShortPath(import.meta.url), () => {
   const pkgName = 'npm'
-  const pkgVer = '9.8.1'
+  const pkgVer = '10.0.0'
   const pkgReg = 'https://registry.npmjs.org'
   const pkgRegMirror = 'https://registry.npmmirror.com'
 
@@ -70,14 +70,14 @@ describe(fileShortPath(import.meta.url), () => {
     })
 
     it(`${pkgName} --registry ${pkgRegMirror} ${pkgVer}`, async () => {
-      const info: NpmPkgView | undefined = await getNpmPkgViewFromRegistry(pkgName, 'latest', pkgRegMirror)
+      const info: NpmPkgView | undefined = await getNpmPkgViewFromRegistry(pkgName, pkgVer, pkgRegMirror)
       assert(info)
       assert(info.author, 'author empty')
       assert(info.name === pkgName, 'name not match')
 
       const latest = info['dist-tags'].latest
       assert(latest, 'latest not exist')
-      assert(info._id === `${pkgName}@${latest}`, '_id not match')
+      assert(info._id === `${pkgName}@${pkgVer}`, '_id not match')
 
       assert(info.versions.length > 0, 'versions empty')
       assert(info.versions.includes(latest), 'latest not in versions')
