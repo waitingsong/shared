@@ -2,7 +2,7 @@
 
 name: ci
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
@@ -91,7 +91,6 @@ jobs:
           export cwd=`pwd`
           # .github/workflows/fix.sh
           npm i --no-audit -g autocannon c8 lerna rollup tsx zx
-          # npm run purge
           npm i
         env:
           CI: true
