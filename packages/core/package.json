@@ -35,8 +35,7 @@
     "zx": "^7.2.3"
   },
   "devDependencies": {
-    "@types/source-map-support": "^0.5.6",
-    "undici": "^5.23.0"
+    "undici": "^5.24.0"
   },
   "engines": {
     "node": ">=16.13.0"
@@ -69,7 +68,7 @@
     "lint": "eslint --fix --cache {src,test}/**/*.ts",
     "lint:nofix": "eslint --cache {src,test}/**/*.ts",
     "rp": "rollup -c rollup.config.js --context this",
-    "test": "cross-env NODE_ENV=test TS_NODE_PROJECT=test/tsconfig.json mocha  --parallel=false",
+    "test": "cross-env NODE_ENV=test TS_NODE_PROJECT=test/tsconfig.json mocha --jobs=4",
     "tsc": "tsc -b"
   }
 }
