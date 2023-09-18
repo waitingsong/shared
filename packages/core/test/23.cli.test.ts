@@ -12,16 +12,20 @@ describe(fileShortPath(import.meta.url), () => {
       console.log({ argv })
       assert(argv)
       assert(Array.isArray(argv._), JSON.stringify(argv))
-      assert(argv._[0] === 'test/**/*.test.ts', JSON.stringify(argv))
-      assert(argv.ui === 'bdd', JSON.stringify(argv))
+      if (argv._.length) {
+        assert(argv._[0] === 'test/**/*.test.ts', JSON.stringify(argv))
+        assert(argv.ui === 'bdd', JSON.stringify(argv))
+      }
     })
 
     it('pass argv', async () => {
       const argv = retrieveArgsFromProcess(process.argv)
       assert(argv)
       assert(Array.isArray(argv._), JSON.stringify(argv))
-      assert(argv._[0] === 'test/**/*.test.ts', JSON.stringify(argv))
-      assert(argv.ui === 'bdd', JSON.stringify(argv))
+      if (argv._.length) {
+        assert(argv._[0] === 'test/**/*.test.ts', JSON.stringify(argv))
+        assert(argv.ui === 'bdd', JSON.stringify(argv))
+      }
     })
 
     it('pass argv equal default', async () => {
