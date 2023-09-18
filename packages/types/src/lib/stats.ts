@@ -60,9 +60,7 @@ export interface ProcMeminfo {
   PageTables: string
   AnonHugePages: string
 }
-export interface ProcDiskstats {
-  [key: string]: string
-}
+export type ProcDiskstats = Record<string, string>
 export interface ProcStat {
   [key: string]: string
   cpu: string

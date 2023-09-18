@@ -1,9 +1,9 @@
-import { PathPattern } from '@waiting/shared-types'
+import type { MiddlewarePathPattern } from '@waiting/shared-types'
 
 
 export function isPathMatchRules(
   path: string,
-  rules?: PathPattern['match'] | PathPattern['ignore'],
+  rules?: MiddlewarePathPattern,
 ): boolean {
 
   if (! path) {

@@ -121,7 +121,5 @@ export interface NpmPkgPersion {
   email?: string
 }
 
-export interface NpmPkgStringObj {
-  [name: string]: string
-}
+export type NpmPkgStringObj = Record<string, string>
 

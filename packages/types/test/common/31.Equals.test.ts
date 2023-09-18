@@ -56,8 +56,8 @@ describe(fileShortPath(import.meta.url), () => {
       const ret0: Equals<Record<any, number>, Record<string, number>> = true
       const ret1: Equals<Record<string, any>, Record<string, any>> = true
       const ret2: Equals<Record<string, number>, Record<string, number>> = true
-      const ret3: Equals<Record<string, string>, {[k: string]: string}> = true
-      const ret4: Equals<Record<number, string>, {[k: number]: string}> = true
+      const ret3: Equals<Record<string, string>, Record<string, string>> = true
+      const ret4: Equals<Record<number, string>, Record<number, string>> = true
     })
     it('Map', () => {
       const ret1: Equals<Map<string, number>, Map<string, number>> = true
@@ -144,14 +144,14 @@ describe(fileShortPath(import.meta.url), () => {
     it('Record', () => {
       const ret1: Equals<Record<string, any>, Record<string, string>> = false
       const ret2: Equals<Record<string, number>, Record<string, any>> = false
-      const ret3: Equals<Record<string, string>, {[k: number]: string}> = false
-      const ret4: Equals<Record<string | number, string>, {[k: number]: string}> = false
+      const ret3: Equals<Record<string, string>, Record<number, string>> = false
+      const ret4: Equals<Record<string | number, string>, Record<number, string>> = false
       const ret5: Equals<Record<string, string>, Map<string, string>> = false
     })
     it('Map', () => {
       const ret1: Equals<Map<any, number>, Map<string, number>> = false
       const ret2: Equals<Map<any, unknown>, Map<string, unknown>> = false
-      const ret3: Equals<Map<string, any>, {[k: string]: any}> = false
+      const ret3: Equals<Map<string, any>, Record<string, any>> = false
     })
     it('Set', () => {
       const ret1: Equals<Set<string>, Set<number>> = false

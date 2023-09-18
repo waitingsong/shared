@@ -41,6 +41,7 @@ describe(fileShortPath(import.meta.url), () => {
       type Foo = { name: 'foo' } | { name: string }
       type T1 = UnionToIntersection<Foo>
       type ExpectType = { name: string } & { name: 'foo'}
+      // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
       type ExpectType2 = { name: string | 'foo' } & { name: 'foo'}
       const ret: Equals<T1, ExpectType> = true
       const ret2: Equals<T1, ExpectType2> = true
