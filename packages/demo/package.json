@@ -19,10 +19,7 @@
     "#@/*": "./test/*"
   },
   "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    },
+    ".": "./dist/index.js",
     "./package.json": "./package.json"
   },
   "bugs": {
@@ -37,7 +34,7 @@
   "devDependencies": {
   },
   "engines": {
-    "node": ">=16.13.0"
+    "node": ">=18.12.0"
   },
   "files": [
     "README.*.md",
@@ -67,7 +64,7 @@
     "lint": "eslint --fix --cache {src,test}/**/*.ts",
     "lint:nofix": "eslint --cache {src,test}/**/*.ts",
     "pretest": "npm run build",
-    "rp": "rollup -c rollup.config.js --context this",
+    "rp": "tsx bin-hashbang.js",
     "test": "cross-env NODE_ENV=test TS_NODE_PROJECT=test/tsconfig.json mocha --jobs=4",
     "tsc": "tsc -b"
   }
