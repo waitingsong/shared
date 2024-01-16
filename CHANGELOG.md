@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [23.0.0](https://github.com/waitingsong/shared/compare/v22.0.0...v23.0.0) (2024-01-16)
+
+
+### Bug Fixes
+
+* **boilerplate:** package.json db:gen ([e1b4a74](https://github.com/waitingsong/shared/commit/e1b4a744f58ce710add2edc9f5878f96b69d1009))
+
+
+
+
+
 # [22.0.0](https://github.com/waitingsong/shared/compare/v21.6.1...v22.0.0) (2023-09-18)
 
 **Note:** Version bump only for package @waiting/shared
