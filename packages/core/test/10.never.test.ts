@@ -1,12 +1,6 @@
 import assert from 'node:assert/strict'
 
-import { of, EMPTY } from 'rxjs'
-import { catchError, defaultIfEmpty, finalize, tap } from 'rxjs/operators'
-
-import {
-  assertNever,
-  assertNeverRx,
-} from '../src/index.js'
+import { assertNever } from '../src/index.js'
 import { fileShortPath } from '../src/lib/helper.js'
 
 
@@ -24,6 +18,7 @@ describe(fileShortPath(import.meta.url), () => {
   })
 })
 
+/*
 describe(fileShortPath(import.meta.url), () => {
   const fnName = 'assertNeverObb'
 
@@ -39,4 +34,5 @@ describe(fileShortPath(import.meta.url), () => {
       finalize(() => done()),
     ).subscribe()
   })
-})
+}) */
+

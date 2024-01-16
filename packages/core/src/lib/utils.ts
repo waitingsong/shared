@@ -16,23 +16,16 @@ import {
 } from 'node:path'
 import { TextDecoder, TextEncoder } from 'node:util'
 
-import {
-  defer,
-  of,
-  map,
-  Observable,
-} from 'rxjs'
-
 
 export { pathResolve }
 // export { tmpdir } from 'node:os'
 
 /** Return path if accessible, blank if not accessible */
-export function pathAccessible(path: string): Observable<string> {
-  return defer(() => isPathAccessible(path)).pipe(
-    map(exists => exists ? normalize(path) : ''),
-  )
-}
+// export function pathAccessible(path: string): Observable<string> {
+//   return defer(() => isPathAccessible(path)).pipe(
+//     map(exists => exists ? normalize(path) : ''),
+//   )
+// }
 // support relative file ('./foo')
 export function isPathAccessible(path: string): Promise<boolean> {
   return path
@@ -41,27 +34,27 @@ export function isPathAccessible(path: string): Promise<boolean> {
 }
 
 /** Check folder path exists, return path if exists, blank if not exists */
-export function dirExists(path: string): Observable<string> {
-  if (! path) {
-    return of('')
-  }
-  const dir = normalize(path)
-  return defer(() => isDirExists(dir)).pipe(
-    map(exists => exists ? dir : ''),
-  )
-}
+// export function dirExists(path: string): Observable<string> {
+//   if (! path) {
+//     return of('')
+//   }
+//   const dir = normalize(path)
+//   return defer(() => isDirExists(dir)).pipe(
+//     map(exists => exists ? dir : ''),
+//   )
+// }
 export function isDirExists(path: string): Promise<boolean> {
   return path ? isDirFileExists(path, 'DIR') : Promise.resolve(false)
 }
 
 
 /** Check file exists, return path if exists, blank if not exists */
-export function fileExists(path: string): Observable<string> {
-  const file = normalize(path)
-  return defer(() => isFileExists(file)).pipe(
-    map(exists => exists ? file : ''),
-  )
-}
+// export function fileExists(path: string): Observable<string> {
+//   const file = normalize(path)
+//   return defer(() => isFileExists(file)).pipe(
+//     map(exists => exists ? file : ''),
+//   )
+// }
 export function isFileExists(path: string): Promise<boolean> {
   return path ? isDirFileExists(path, 'FILE') : Promise.resolve(false)
 }

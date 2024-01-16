@@ -5,7 +5,6 @@ import { join, normalize } from 'node:path'
 
 import {
   createFileAsync,
-  fileExists,
   isFileExists,
 } from '../src/index.js'
 import { fileShortPath } from '../src/lib/helper.js'
@@ -37,6 +36,7 @@ describe(fileShortPath(import.meta.url), () => {
 })
 
 
+/*
 describe(fileShortPath(import.meta.url), () => {
   const fnName = 'fileExist'
 
@@ -56,5 +56,5 @@ describe(fileShortPath(import.meta.url), () => {
       throw ex
     }
   })
-})
+}) */
 

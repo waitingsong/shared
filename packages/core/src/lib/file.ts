@@ -1,19 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import assert from 'node:assert'
-import { createReadStream } from 'node:fs'
 import { isAbsolute, resolve } from 'node:path'
-import { createInterface } from 'node:readline'
-
-import { Observable } from 'rxjs'
 
 import { isWin32 } from './consts.js'
 
 
+// import { createReadStream } from 'node:fs'
+// import { createInterface } from 'node:readline'
 /**
  * Read file line by line
  *
  * @see https://nodejs.org/dist/latest-v12.x/docs/api/readline.html#readline_example_read_file_stream_line_by_line
  */
+/*
 export function readFileLineRx(path: string): Observable<string> {
   const fileStream = createReadStream(path)
   const rline = createInterface({
@@ -39,7 +38,7 @@ export function readFileLineRx(path: string): Observable<string> {
   })
 
   return line$
-}
+} */
 
 
 export function genAbsolutePath(path: string, fileUrlPrefix = false): string {
