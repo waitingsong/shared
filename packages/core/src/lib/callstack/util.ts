@@ -78,15 +78,15 @@ export function getCallerStack(
   const site = stacks[depth]
   assert(site, 'stack empty')
 
-  // @ts-expect-error
+  // @ts-ignore
   const enclosingLineNumber: number | undefined = site.getEnclosingLineNumber
-    // @ts-expect-error
+    // @ts-ignore
     ? site.getEnclosingLineNumber() as unknown as number
     : 0
 
-  // @ts-expect-error
+  // @ts-ignore
   const enclosingColNumber: number | undefined = site.getEnclosingColumnNumber
-    // @ts-expect-error
+    // @ts-ignore
     ? site.getEnclosingColumnNumber() as unknown as number
     : 0
 
