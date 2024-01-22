@@ -36,7 +36,7 @@
     "zx": "^7.2.3"
   },
   "devDependencies": {
-    "undici": "^5.24.0"
+    "undici": "^6.4.0"
   },
   "engines": {
     "node": ">=18.12.0"
