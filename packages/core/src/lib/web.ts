@@ -6,15 +6,16 @@ export function isPathMatchRules(
   rules?: MiddlewarePathPattern,
 ): boolean {
 
+  let ret = false
+
   if (! path) {
-    return false
+    return ret
   }
   else if (! rules) {
-    return false
+    return ret
   }
 
   for (const rule of rules) {
-    let ret = false
     if (! rule) {
       continue
     }
@@ -29,9 +30,9 @@ export function isPathMatchRules(
     }
 
     if (ret === true) {
-      return true
+      break
     }
   }
 
-  return false
+  return ret
 }
