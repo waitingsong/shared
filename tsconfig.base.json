@@ -1,7 +1,5 @@
 {
-  "extends": "../../../tsconfig.base.json",
   "compilerOptions": {
-<<<<<<<< HEAD:tsconfig.base.json
     "baseUrl": ".",
     "declaration": true,
     "declarationMap": true,
@@ -36,17 +34,14 @@
     "target": "ES2022",
     "tsBuildInfoFile": ".tsbuildinfo",
     "types" : ["mocha", "node"]
-========
-    "rootDir": "../../..",
-    "declarationMap": false,
-    "strictPropertyInitialization": false
->>>>>>>> bp/main:packages/mw-demo/test/fixtures/base-app/tsconfig.json
   },
   "include": [
-    "../../../src/**/*.ts",
-    "../../../test/**/*.ts"
+    "src/**/*.ts"
   ],
   "exclude": [
+    "asset",
+    "app/public",
+    "app/views",
     "dist",
     "node_modules*",
     "**/*.d.ts",
