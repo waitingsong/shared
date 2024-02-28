@@ -6,7 +6,7 @@
   "type": "module",
   "devDependencies": {
     "@commitlint/cli": "18",
-    "@commitlint/config-conventional": "18",
+    "@commitlint/config-conventional": "19",
     "@midwayjs/mock": "^3.14.0",
     "@midwayjs/swagger": "^3.14.0",
     "@types/koa": "2",
