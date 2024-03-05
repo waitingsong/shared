@@ -32,8 +32,6 @@ function pad(num: number, length: number): string {
 }
 
 
-
-
 export const defaultDateTimeFormatOptions: Intl.DateTimeFormatOptions = {
   year: 'numeric',
   month: '2-digit',
@@ -52,7 +50,7 @@ export function formatDateTime(
   input: number | string | Date,
   locales: string | string[] = 'zh-CN',
   options?: Intl.DateTimeFormatOptions,
-): any {
+): string {
 
   const dateFormatter = locales && options
     ? new Intl.DateTimeFormat(locales, options)
