@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [23.1.1](https://github.com/waitingsong/shared/compare/v23.1.0...v23.1.1) (2024-03-05)
+
+
+### Bug Fixes
+
+* **core:** return type of formatDateTime() to string ([2399d4b](https://github.com/waitingsong/shared/commit/2399d4b9e46d1173b4ce74209b775f4bdc5508ec))
+
+
+
+
+
 # [23.1.0](https://github.com/waitingsong/shared/compare/v23.0.2...v23.1.0) (2024-03-05)
 
 
