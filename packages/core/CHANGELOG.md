@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [23.1.0](https://github.com/waitingsong/shared/compare/v23.0.2...v23.1.0) (2024-03-05)
+
+
+### Features
+
+* **core:** formatDateTime() ([22f9cf9](https://github.com/waitingsong/shared/commit/22f9cf9b2e45b073bd6f7edc45f7414505436f09))
+
+
+
+
+
 ## [23.0.2](https://github.com/waitingsong/shared/compare/v23.0.1...v23.0.2) (2024-02-28)
 
 **Note:** Version bump only for package @waiting/shared-core
