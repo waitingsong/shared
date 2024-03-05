@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ISO8601String } from '@waiting/shared-types'
 
 
@@ -28,5 +29,48 @@ export function genISO8601String(date?: Date): ISO8601String {
 function pad(num: number, length: number): string {
   const norm = Math.floor(Math.abs(num))
   return norm.toString().padStart(length, '0')
+}
+
+
+
+
+export const defaultDateTimeFormatOptions: Intl.DateTimeFormatOptions = {
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit',
+  hour: '2-digit',
+  minute: '2-digit',
+  second: '2-digit',
+  timeZone: 'Asia/Shanghai',
+}
+
+export const dateTimeFormatterCN = new Intl.DateTimeFormat('zh-CN', defaultDateTimeFormatOptions)
+// const date = new Date(Date.UTC(2020, 11, 20, 3, 23, 16, 738))
+// dateFormatterCN.format(date) // "2020/12/20 11:23:16"
+
+export function formatDateTime(
+  input: number | string | Date,
+  locales: string | string[] = 'zh-CN',
+  options?: Intl.DateTimeFormatOptions,
+): any {
+
+  const dateFormatter = locales && options
+    ? new Intl.DateTimeFormat(locales, options)
+    : dateTimeFormatterCN
+
+  if (input instanceof Date) {
+    return dateFormatter.format(input)
+  }
+  else if (typeof input === 'number') {
+    const val = new Date(input)
+    return dateFormatter.format(val)
+  }
+  else if (typeof input === 'string') {
+    const val = new Date(input)
+    return dateFormatter.format(val)
+  }
+  else {
+    throw new Error('input is invalid')
+  }
 }
 
