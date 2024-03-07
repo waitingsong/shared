@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [23.2.0](https://github.com/waitingsong/shared/compare/v23.1.1...v23.2.0) (2024-03-07)
+
+
+### Features
+
+* **core:** getKeyByEnumValue() ([85c31a8](https://github.com/waitingsong/shared/commit/85c31a8b69f684a0dc3549d67ceb074ee2f9d5ba))
+
+
+
+
+
 ## [23.1.1](https://github.com/waitingsong/shared/compare/v23.1.0...v23.1.1) (2024-03-05)
 
 
