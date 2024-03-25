@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 
@@ -10,9 +9,9 @@ export type ToTuple<T> = T extends any[] ? T : any[]
  * @example `Spread<T, K, 'foo'>` or `Spread<T, K, 'foo' | 'bar'>`
  * @see https://github.com/microsoft/TypeScript/pull/13288#issuecomment-412230721
  */
-export type Spread<T1, T2, KeyExcludeOptinal = void>
-  = { [K in Exclude<keyof T1, KeyExcludeOptinal | keyof T2>]: T1[K] }
-  & { [K in Exclude<keyof T2, KeyExcludeOptinal>]: T2[K] }
+export type Spread<T1, T2, KeyExcludeOptional = void>
+  = { [K in Exclude<keyof T1, KeyExcludeOptional | keyof T2>]: T1[K] }
+  & { [K in Exclude<keyof T2, KeyExcludeOptional>]: T2[K] }
 
 /**
  * @example `type R = AllValues<Record<'uid', 'tbUserUid'>>`
@@ -83,7 +82,7 @@ export type KnownKeys<T> = {
 } extends { [_ in keyof T]: infer U } ? U : never
 
 /**
- * Retrive types
+ * Retrieve types
  * @see https://stackoverflow.com/a/51955852/2887218
  */
 export type ValuesOf<T> = T extends { [_ in keyof T]: infer U } ? U : never

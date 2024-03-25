@@ -7,7 +7,7 @@
 export type StrSplit<S extends string, D extends string> =
   string extends S ? string[] :
     S extends `${infer T}${D}${infer U}` ? [T, ...StrSplit<U, D>] :
-      [S]
+        [S]
 
 type V = string | number | boolean | bigint
 export type TupleJoin<T extends V[], D extends string> =
@@ -58,7 +58,7 @@ type _CamelToSnake<T extends string, D extends string> = T extends `${infer U}${
 
 export type SnakeToCamel<
   T extends string,
-  D extends string = '_'
+  D extends string = '_',
 > = string extends D
   ? never
   : T extends `${infer F extends D}${infer R}`
@@ -97,7 +97,7 @@ type _SnakeToCamelWithTailing<T extends string, D extends string> = T extends `$
 
 export type SnakeToPascal<
   T extends string,
-  D extends string = '_'
+  D extends string = '_',
 > = string extends D
   ? never
   : T extends `${infer F extends D}${infer R}`
@@ -108,7 +108,7 @@ export type SnakeToPascal<
 export type CamelKeys<
   T,
   D extends string = '_',
-  Recursive extends boolean = false
+  Recursive extends boolean = false,
 > = T extends object
   ? _CamelKeys<T, D, Recursive>
   : never

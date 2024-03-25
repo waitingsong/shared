@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { fileShortPath } from '@waiting/shared-core'
 
 import {

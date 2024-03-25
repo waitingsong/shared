@@ -6,7 +6,7 @@ import { genCurrentDirname } from '@waiting/shared-core'
 export const testDir = genCurrentDirname(import.meta.url)
 export const baseDir = join(testDir, '..')
 
-const CI = !! ((process.env['CI']
+export const CI = !! ((process.env['CI']
   ?? process.env['MIDWAY_SERVER_ENV'] === 'unittest')
   || process.env['MIDWAY_SERVER_ENV'] === 'local'
   || process.env['NODE_ENV'] === 'unittest'

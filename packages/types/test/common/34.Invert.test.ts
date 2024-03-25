@@ -67,7 +67,7 @@ describe(fileShortPath(import.meta.url), () => {
       assert(ret2.tbUserName === 'name')
     })
     it('type inline', () => {
-      type T1 = Invert<{uid: 'tbUserUid', name: 'tbUserName'}>
+      type T1 = Invert<{ uid: 'tbUserUid', name: 'tbUserName' }>
       const ret: T1 = {
         tbUserUid: 'uid',
         tbUserName: 'name',

@@ -1,10 +1,7 @@
-/* eslint-disable max-len */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 import { XOR } from './common.js'
 
 
-export type MiddlewareConfig <T = unknown> = {
+export type MiddlewareConfig<T = unknown> = {
   /**
    * Enable middleware.
    * @default true

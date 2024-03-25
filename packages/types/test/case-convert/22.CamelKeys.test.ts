@@ -15,7 +15,7 @@ describe(fileShortPath(import.meta.url), () => {
         user_2_address: string
         user_2__3_address: string
         user_3foo: bigint
-        '3322': boolean
+        3322: boolean
         json: {
           user_name: 'abc',
         }
@@ -26,7 +26,7 @@ describe(fileShortPath(import.meta.url), () => {
         user_2Address: string
         user_2__3Address: string
         user_3foo: bigint
-        '3322': boolean
+        3322: boolean
         json: {
           user_name: 'abc',
         }
@@ -36,6 +36,7 @@ describe(fileShortPath(import.meta.url), () => {
 
     it('class', () => {
       class TbUser {
+
         user_id: number
         user_2_address: string
         user_2__3_address: string
@@ -44,6 +45,7 @@ describe(fileShortPath(import.meta.url), () => {
         json: {
           user_name: 'abc',
         }
+
       }
       type T1 = CamelKeys<TbUser>
       interface ExpectType {
@@ -51,7 +53,7 @@ describe(fileShortPath(import.meta.url), () => {
         user_2Address: string
         user_2__3Address: string
         user_3foo: bigint
-        '3322': boolean
+        3322: boolean
         json: {
           user_name: 'abc',
         }
@@ -81,7 +83,7 @@ describe(fileShortPath(import.meta.url), () => {
           user_2_address: string,
           user_2__3_address: string,
           user_3foo: bigint,
-          '3322': boolean,
+          3322: boolean,
           json: {
             user_name: 'abc',
           },
@@ -101,7 +103,7 @@ describe(fileShortPath(import.meta.url), () => {
           user_2Address: string,
           user_2__3Address: string,
           user_3foo: bigint,
-          '3322': boolean,
+          3322: boolean,
           json: {
             userName: 'abc',
           },
@@ -119,12 +121,13 @@ describe(fileShortPath(import.meta.url), () => {
 
     it('class', () => {
       class Foo {
+
         tb_user: {
           user_id: number,
           user_2_address: string,
           user_2__3_address: string,
           user_3foo: bigint,
-          '3322': boolean,
+          3322: boolean,
           json: {
             user_name: 'abc',
           },
@@ -137,15 +140,17 @@ describe(fileShortPath(import.meta.url), () => {
             user_name: 'abc',
           },
         }
+
       }
       type T1 = CamelKeys<Foo, '_', true>
       class ExpectType {
+
         tbUser: {
           userId: number,
           user_2Address: string,
           user_2__3Address: string,
           user_3foo: bigint,
-          '3322': boolean,
+          3322: boolean,
           json: {
             userName: 'abc',
           },
@@ -158,6 +163,7 @@ describe(fileShortPath(import.meta.url), () => {
             userName: 'abc',
           },
         }
+
       }
       const ret: Equals<T1, ExpectType> = true
     })

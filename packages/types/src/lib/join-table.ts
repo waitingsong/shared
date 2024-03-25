@@ -6,7 +6,7 @@ export enum CaseType {
   camel = 'camel',
   pascal = 'pascal',
   snake = 'snake',
-  none = 'none'
+  none = 'none',
 }
 
 

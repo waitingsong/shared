@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import assert from 'assert/strict'
 
 import { fileShortPath } from '@waiting/shared-core'
@@ -56,7 +57,7 @@ describe(fileShortPath(import.meta.url), () => {
       const ret2: Equals<F2, false> = false
     })
     it('tuple', () => {
-      type F1 = [boolean, 1, 'foo', number, {foo: string}]
+      type F1 = [boolean, 1, 'foo', number, { foo: string }]
       type F2 = FormatIntersect<F1>
       const ret: Equals<F2, F2> = true
     })
@@ -104,12 +105,12 @@ describe(fileShortPath(import.meta.url), () => {
     it('deep false', () => {
       interface F1 {
         user: {
-          f1: {f2: number} & {f3: string},
+          f1: { f2: number } & { f3: string },
         }
       }
       interface F2 {
         user: {
-          f1: {d2: number} & {d3: string},
+          f1: { d2: number } & { d3: string },
         }
       }
       /*
