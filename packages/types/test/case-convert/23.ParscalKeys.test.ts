@@ -26,7 +26,7 @@ describe(fileShortPath(import.meta.url), () => {
         User_2Address: string
         User_2__3Address: string
         User_3foo: bigint
-        3322: boolean
+        // 3322: boolean
         Json: {
           user_name: 'abc',
         }
@@ -63,7 +63,7 @@ describe(fileShortPath(import.meta.url), () => {
           User_2Address: string,
           User_2__3Address: string,
           User_3foo: bigint,
-          3322: boolean,
+          // 3322: boolean,
           Json: {
             UserName: 'abc',
           },

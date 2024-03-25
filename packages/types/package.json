@@ -44,6 +44,7 @@
     "bin",
     "database",
     "dist",
+    "src",
     "!**/*.spec.*",
     "!**/*.tsbuildinfo"
   ],
@@ -64,6 +65,6 @@
     "pretest": "npm run build && npm run build:test",
     "rp": "tsx bin-hashbang.js",
     "test": "cross-env NODE_ENV=test TS_NODE_PROJECT=test/tsconfig.json mocha --jobs=4",
-    "tsc": "tsc -b"
+    "tsc": "tsc -p tsconfig.json"
   }
 }

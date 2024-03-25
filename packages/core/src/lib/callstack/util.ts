@@ -78,15 +78,13 @@ export function getCallerStack(
   const site = stacks[depth]
   assert(site, 'stack empty')
 
-  // @ts-ignore
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   const enclosingLineNumber: number | undefined = site.getEnclosingLineNumber
-    // @ts-ignore
     ? site.getEnclosingLineNumber() as unknown as number
     : 0
 
-  // @ts-ignore
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   const enclosingColNumber: number | undefined = site.getEnclosingColumnNumber
-    // @ts-ignore
     ? site.getEnclosingColumnNumber() as unknown as number
     : 0
 
@@ -102,7 +100,7 @@ export function getCallerStack(
     className = methodName
       ? line.match(new RegExp(`\\b\\S+(?=\\.${methodName})`, 'u'))?.[0] ?? ''
       : ''
-    if (! className && (methodName !== funcName)) {
+    if (! className && methodName !== funcName) {
       className = funcName
         ? line.match(new RegExp(`\\b\\S+(?=\\.${funcName})`, 'u'))?.[0] ?? ''
         : ''
@@ -150,9 +148,7 @@ export function getCallerStack(
     const str = caller.path.toLowerCase()
     if (str.endsWith('.ts') || str.endsWith('.mts')) {
       if (caller.line === caller.lineNumber && caller.column === caller.columnNumber) {
-        console.warn(
-          `Warning getCallerStack(): Nodejs >= 20.0.0, but not exec with --enable-source-maps. return line and column may incorrect. \n  file: "${caller.path}"`,
-        )
+        console.warn(`Warning getCallerStack(): Nodejs >= 20.0.0, but not exec with --enable-source-maps. return line and column may incorrect. \n  file: "${caller.path}"`)
       }
     }
   }
@@ -200,10 +196,8 @@ function getStackCurrent(): string {
   const { path } = retrieveInfoPathWithLineCol(line ?? '')
   if (path.endsWith('.ts') || path.endsWith('.mts')) {
     if (isNodeGteV20 && ! isExecWithEnableSourceMaps()) {
-      console.warn(
-        `Warning getCallerStack(): Nodejs >= 20.0.0, but not exec with --enable-source-maps. return line and column may incorrect.
-  file: "${line ?? path}"`,
-      )
+      console.warn(`Warning getCallerStack(): Nodejs >= 20.0.0, but not exec with --enable-source-maps. return line and column may incorrect.
+  file: "${line ?? path}"`)
     }
   }
   // const sites = callsites()
@@ -235,7 +229,7 @@ export function getStackCallerSites(stackTraceLimit = 10): NodeJS.CallSite[] {
   //   install()
   // }
 
-  Error.prepareStackTrace = function(_: Error, structuredStackTrace: NodeJS.CallSite[]): NodeJS.CallSite[] {
+  Error.prepareStackTrace = function (_: Error, structuredStackTrace: NodeJS.CallSite[]): NodeJS.CallSite[] {
     const target = structuredStackTrace.slice(1)
     return target
   }
@@ -262,7 +256,7 @@ function retrievePathWithLineCol(line: string): string {
   else if (line.startsWith('file://')) {
     path = line
   }
-  else if (/^\s*at .+?\d+:\d+$/u.test(line) === true) {
+  else if (/^\s*at .+?\d+:\d+$/u.test(line)) {
     // "    at ...\\call-config.ts:24:12"
     const txt = line.slice(line.indexOf('at') + 3)
     const last = txt.slice(-1)

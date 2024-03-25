@@ -29,7 +29,7 @@ export function isPathMatchRules(
       ret = rule(path)
     }
 
-    if (ret === true) {
+    if (ret) {
       break
     }
   }

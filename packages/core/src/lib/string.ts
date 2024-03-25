@@ -88,13 +88,13 @@ function _snakeToCamel(
   }
 
   if (idx === 0) {
-    if (trimStartFlag === true) {
+    if (trimStartFlag) {
       ret = trimStart(input, delimiter)
     }
     return ret
   }
   else if (idx === len - 1) {
-    if (trimEndFlag === true && input.endsWith(delimiter)) {
+    if (trimEndFlag && input.endsWith(delimiter)) {
       ret = trimEnd(input, delimiter)
     }
     else if (input.startsWith(delimiter) && input.endsWith(delimiter)) {
@@ -204,7 +204,7 @@ export function camelToSnake<T extends string, D extends string = '_'>(
 ): CamelToSnake<T, D> {
 
   const dem = delimiter ?? '_'
-  let line = input.replace(/^[A-Z]/ug, match => `${match.toLowerCase()}`)
+  let line = input.replace(/^[A-Z]/ug, match => match.toLowerCase())
   line = line.replace(/[A-Z]/ug, match => `${dem}${match.toLowerCase()}`)
   // line = line.replace(/(?<=\w)\d+/ug, match => `${dem}${match}`) // 'tb6_user_id' => 'tb_6_user_id'
   return line as CamelToSnake<T, D>

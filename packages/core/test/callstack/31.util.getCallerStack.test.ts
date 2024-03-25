@@ -1,10 +1,11 @@
 import assert from 'node:assert/strict'
 
 
+import { CallerInfo } from '##/index.js'
+
 import { getCallerStack } from '../../src/lib/callstack/util.js'
 import { fileShortPath } from '../../src/lib/helper.js'
 
-import { CallerInfo } from '##/index.js'
 
 
 describe(fileShortPath(import.meta.url), () => {

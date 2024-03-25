@@ -29,7 +29,7 @@ export { pathResolve }
 // support relative file ('./foo')
 export function isPathAccessible(path: string): Promise<boolean> {
   return path
-    ? new Promise(resolve => access(path, err => resolve(! err)))
+    ? new Promise((resolve) => { access(path, (err) => { resolve(! err) }) })
     : Promise.resolve(false)
 }
 

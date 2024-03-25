@@ -66,9 +66,10 @@ export function nFormatter(positiveNum: number, digits = 2, separator = ''): str
   if (positiveNum <= 0) {
     return positiveNum.toString()
   }
-  const item = lookup.slice().reverse().find((row) => {
-    return positiveNum >= row.value
-  })
+  const item = lookup.slice().reverse()
+    .find((row) => {
+      return positiveNum >= row.value
+    })
   if (! item) {
     return positiveNum.toString()
   }

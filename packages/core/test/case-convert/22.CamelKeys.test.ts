@@ -35,6 +35,7 @@ describe(fileShortPath(import.meta.url), () => {
 
     it('class', () => {
       class TbUser {
+
         user_id = 1
         user_2_address = 'ab'
         user_2__3_address = 'abc'
@@ -43,6 +44,7 @@ describe(fileShortPath(import.meta.url), () => {
         json = {
           user_name: 'abc',
         }
+
       }
       const T1 = camelKeys(new TbUser())
       const ExpectType = {
@@ -126,6 +128,7 @@ describe(fileShortPath(import.meta.url), () => {
 
     it('class', () => {
       class Foo {
+
         tb_user = {
           user_id: 1,
           user_2_address: 'ab',
@@ -144,6 +147,7 @@ describe(fileShortPath(import.meta.url), () => {
             user_name: 'abc',
           },
         }
+
       }
       const T1 = camelKeys(new Foo(), '_', true)
       const ExpectType = {

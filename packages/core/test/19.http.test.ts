@@ -36,14 +36,16 @@ describe(fileShortPath(import.meta.url), () => {
     it('result valid with Object', () => {
       const header = {} as Headers
       const rnd = Math.random().toString()
-      header['foo'] = rnd
+      // @ts-expect-error
+      header.foo = rnd
       const ret = retrieveHeadersItem(header, 'foo')
       assert(ret === rnd, ret)
     })
 
     it('result undefined with Object number', () => {
       const header = {} as Headers
-      header['foo'] = 123
+      // @ts-expect-error
+      header.foo = 123
       const ret = retrieveHeadersItem(header, 'foo')
       assert(! ret, ret)
     })

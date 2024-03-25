@@ -1,3 +1,4 @@
+/* eslint-disable no-await-in-loop */
 import assert from 'node:assert/strict'
 
 import { isDirExists } from '../src/index.js'

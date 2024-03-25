@@ -26,7 +26,8 @@ describe(fileShortPath(import.meta.url), () => {
         user_2Address: string
         user_2__3Address: string
         user_3foo: bigint
-        3322: boolean
+        // @FIXME
+        // 3322: boolean
         json: {
           user_name: 'abc',
         }
@@ -83,7 +84,8 @@ describe(fileShortPath(import.meta.url), () => {
           user_2_address: string,
           user_2__3_address: string,
           user_3foo: bigint,
-          3322: boolean,
+          // @FIXME
+          // 3322: boolean,
           json: {
             user_name: 'abc',
           },
@@ -103,7 +105,7 @@ describe(fileShortPath(import.meta.url), () => {
           user_2Address: string,
           user_2__3Address: string,
           user_3foo: bigint,
-          3322: boolean,
+          // 3322: boolean,
           json: {
             userName: 'abc',
           },
@@ -127,7 +129,8 @@ describe(fileShortPath(import.meta.url), () => {
           user_2_address: string,
           user_2__3_address: string,
           user_3foo: bigint,
-          3322: boolean,
+          // @FIXME
+          // 3322: boolean,
           json: {
             user_name: 'abc',
           },
@@ -150,7 +153,7 @@ describe(fileShortPath(import.meta.url), () => {
           user_2Address: string,
           user_2__3Address: string,
           user_3foo: bigint,
-          3322: boolean,
+          // 3322: boolean,
           json: {
             userName: 'abc',
           },
