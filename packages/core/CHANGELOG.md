@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [23.3.0](https://github.com/waitingsong/shared/compare/v23.2.1...v23.3.0) (2024-03-27)
+
+
+### Features
+
+* **core:** add genModuleAbsolutePathIfExists() ([14449b1](https://github.com/waitingsong/shared/commit/14449b1b3327ce37e1c32bee527a5d5019afd79c))
+
+
+
+
+
 ## [23.2.1](https://github.com/waitingsong/shared/compare/v23.2.0...v23.2.1) (2024-03-27)
 
 **Note:** Version bump only for package @waiting/shared-core
