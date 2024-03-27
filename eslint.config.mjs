@@ -1,7 +1,11 @@
 import eslint from 'typescript-eslint'
+
 import srcConfig from '@waiting/eslint-config'
 import testConfig from '@waiting/eslint-config/test'
+import { genCurrentDirname, genModuleAbsolutePathIfExists } from '@waiting/shared-core'
 
+
+const projectDir = genCurrentDirname(import.meta.url)
 
 const srcRules = {
   'import/no-extraneous-dependencies': [2, {
@@ -10,7 +14,7 @@ const srcRules = {
     bundledDependencies: false,
     packageDir: [
       './',
-      // '../../node_modules/@mwcp/share/',
+      await genModuleAbsolutePathIfExists(projectDir, 'node_modules/@mwcp/share'),
     ],
   }],
 }

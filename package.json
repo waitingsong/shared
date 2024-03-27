@@ -13,7 +13,7 @@
     "@types/koa": "2",
     "@types/mocha": "10",
     "@types/node": "20",
-    "@waiting/eslint-config": "^10.18.0",
+    "@waiting/eslint-config": "^10.19.0",
     "autocannon": "7",
     "c8": "9",
     "coveralls": "3",
