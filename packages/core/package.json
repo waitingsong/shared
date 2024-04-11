@@ -33,7 +33,7 @@
     "@waiting/shared-types": "^23.2.1",
     "minimist": "^1.2.8",
     "semver": "^7.6.0",
-    "zx": "^7.2.3"
+    "zx": "^8.0.1"
   },
   "devDependencies": {
     "undici": "^6.6.2"
