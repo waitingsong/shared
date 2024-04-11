@@ -34,7 +34,7 @@
     "build": true,
     "commitlint.*": true,
     "coverage": true,
-    "dist": true,
+    "dist": false,
     "logs": true,
     "out": true,
     "package-lock.json": true,
@@ -120,9 +120,7 @@
   "terminal.integrated.profiles.linux": {
     "bash (login)": {
       "path": "bash",
-      "args": [
-        "-l"
-      ]
+      "args": ["-l"]
     }
   },
   "terminal.integrated.defaultProfile.windows": "Git Bash",
@@ -153,5 +151,20 @@
     "editor.formatOnPaste": true,
     "editor.formatOnSave": false
   },
-  "workbench.editor.wrapTabs": false
+  "workbench.editor.wrapTabs": false,
+  "workbench.editor.customLabels.enabled": true,
+  "workbench.editor.customLabels.patterns": {
+    "src/app/**/*.ts": "${dirname}/${filename}",
+    "src/**": "${dirname}/${filename}.${extname}",
+    "test/**": "${filename}.${extname} - test",
+    "dist/**": "${filename}.${extname} - dist",
+    "packages/*/src/app/**": "${dirname(1)}/${dirname}/${filename} src",
+    "packages/*/src/*.*": "${filename}.${extname} src",
+    "packages/*/test/*.*": "${filename}.${extname} test",
+    "packages/*/src/**": "${dirname}/${filename}.${extname} - src",
+    "packages/*/test/**": "${dirname}/${filename}.${extname} - test",
+    "packages/*/*.*": "${dirname}/${filename}.${extname}",
+    "packages/*/**": "${dirname(1)}/${dirname}/${filename}.${extname}",
+    "**/node_modules/**/*": "${filename}.${extname} - ${dirname(2)}/${dirname(1)}/${dirname}"
+  }
 }
