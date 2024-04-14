@@ -26,7 +26,8 @@ describe(fileShortPath(import.meta.url), () => {
       const path2 = join(projectDir, path)
       await mkdir(path2, { recursive: true })
       const ret = await genModuleAbsolutePathIfExists(projectDir, path)
-      assert(! ret)
+      assert(typeof ret === 'string')
+      assert(ret === '.')
       await rmdir(path2, { recursive: true })
     })
 
