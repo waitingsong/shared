@@ -20,9 +20,13 @@ export async function getNpmPkgViewFromRegistry(
 
   assert($, 'zx.$ empty')
 
+  const ps = pkgName.includes('@') ? '' : '--no-workspaces'
+
   try {
     $.verbose = false
-    const { exitCode, stdout } = await $`npm view ${name} --json --registry=${registry}`
+    // const cmd = `npm view ${ps} ${name} --json --registry=${registry}`
+    // void cmd
+    const { exitCode, stdout } = await $`npm view ${ps} ${name} --json --registry=${registry}`
     $.verbose = true
     if (exitCode === 0 && stdout) {
       const info = JSON.parse(stdout) as NpmPkgView
