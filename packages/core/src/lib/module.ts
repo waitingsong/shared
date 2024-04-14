@@ -11,6 +11,10 @@ export async function genModuleAbsolutePathIfExists(projectDir: string, modulePa
   const needle = join(moduleAbsolutePath, 'package.json')
 
   const mwcpShareExists = await access(needle).then(() => true)
+    // .catch((ex) => {
+    //   console.error(ex)
+    //   return false
+    // })
     .catch(() => false)
 
   if (mwcpShareExists) {
