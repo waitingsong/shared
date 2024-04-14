@@ -10,21 +10,14 @@ export interface Func {
 /**
  * ReturnType is any
  */
-export type MethodType = (...input: any[]) => (any | Promise<any>)
-
+export type MethodType<ArgsType extends unknown[] = any[], ReturnType = any | Promise<any>> = (...input: ArgsType) => ReturnType
 /**
  * ReturnType is unknown
  */
-export type MethodTypeUnknown<
-  ArgsType extends any[] = any[],
-  ReturnType extends unknown = unknown,
-> = (...input: ArgsType) => ReturnType
+export type MethodTypeUnknown<ArgsType extends any[] = any[], ReturnType extends unknown = unknown> = (...input: ArgsType) => ReturnType
 
 /**
  * ReturnType is Promise<unknown>
  */
-export type AsyncMethodType<
-  ArgsType extends any[] = any[],
-  ResultType extends unknown = unknown,
-> = (...input: ArgsType) => Promise<ResultType>
+export type AsyncMethodType<ArgsType extends any[] = any[], ResultType extends unknown = unknown> = (...input: ArgsType) => Promise<ResultType>
 
