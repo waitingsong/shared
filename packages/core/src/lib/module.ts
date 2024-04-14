@@ -6,7 +6,7 @@ import { join } from 'node:path'
 /**
  * @example genModuleAbsolutePathIfExists(genCurrentDirname(import.meta.url), 'node_modules/@mwcp/share')
  */
-export async function genModuleAbsolutePathIfExists(projectDir: string, modulePath: string): Promise<string | undefined> {
+export async function genModuleAbsolutePathIfExists(projectDir: string, modulePath: string): Promise<string> {
   const moduleAbsolutePath = join(projectDir, modulePath)
   const needle = join(moduleAbsolutePath, 'package.json')
 
@@ -16,4 +16,5 @@ export async function genModuleAbsolutePathIfExists(projectDir: string, modulePa
   if (mwcpShareExists) {
     return moduleAbsolutePath
   }
+  return '.'
 }
