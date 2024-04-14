@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [23.5.0](https://github.com/waitingsong/shared/compare/v23.4.0...v23.5.0) (2024-04-14)
+
+
+### Features
+
+* **core:** detect package scope within getNpmPkgViewFromRegistry() ([382d49e](https://github.com/waitingsong/shared/commit/382d49e9680088b28d50558ce4bb6b8acf98e1d1))
+
+
+### Reverts
+
+* **core:** genModuleAbsolutePathIfExists() ([7bb32d1](https://github.com/waitingsong/shared/commit/7bb32d1ae1f3825b81bfae83f59351c004bfd571))
+* **core:** zx version to ^7.2.3 ([f68b7cb](https://github.com/waitingsong/shared/commit/f68b7cb03393e2afc17a8ade219e08afae508d83))
+
+
+
+
+
 # [23.4.0](https://github.com/waitingsong/shared/compare/v23.3.0...v23.4.0) (2024-04-14)
 
 
