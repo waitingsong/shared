@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [23.4.0](https://github.com/waitingsong/shared/compare/v23.3.0...v23.4.0) (2024-04-14)
+
+
+### Features
+
+* **types:** update type MethodType accepts generics ([3b68601](https://github.com/waitingsong/shared/commit/3b68601a83a947dd58c2b6800d2d0630bc702e4c))
+
+
+
+
+
 ## [23.2.1](https://github.com/waitingsong/shared/compare/v23.2.0...v23.2.1) (2024-03-27)
 
 **Note:** Version bump only for package @waiting/shared-types

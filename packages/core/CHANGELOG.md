@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [23.4.0](https://github.com/waitingsong/shared/compare/v23.3.0...v23.4.0) (2024-04-14)
+
+
+### Features
+
+* **core:** change return type of genModuleAbsolutePathIfExists() from undefined to '.' ([769b295](https://github.com/waitingsong/shared/commit/769b2958e6713e5cb24decd5f9aa1f0bc4a02d0c))
+
+
+
+
+
 # [23.3.0](https://github.com/waitingsong/shared/compare/v23.2.1...v23.3.0) (2024-03-27)
 
 
