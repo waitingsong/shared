@@ -30,13 +30,13 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@types/minimist": "^1.2.5",
     "@waiting/shared-types": "^23.6.0",
     "minimist": "^1.2.8",
     "semver": "^7.6.0",
     "zx": "^8.0.2"
   },
   "devDependencies": {
-    "@types/minimist": "1",
     "undici": "^6.13.0"
   },
   "engines": {
