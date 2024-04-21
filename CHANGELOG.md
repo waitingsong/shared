@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [23.6.0](https://github.com/waitingsong/shared/compare/v23.5.1...v23.6.0) (2024-04-21)
+
+
+### Features
+
+* **core:** retrieveArgsFromProcess() accepts generics ([adfd22c](https://github.com/waitingsong/shared/commit/adfd22ca7963bf7fcaed057ae108c4cacc630f45))
+
+
+
+
+
 ## [23.5.1](https://github.com/waitingsong/shared/compare/v23.5.0...v23.5.1) (2024-04-14)
 
 **Note:** Version bump only for package @waiting/shared

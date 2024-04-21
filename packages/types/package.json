@@ -1,7 +1,7 @@
 {
   "name": "@waiting/shared-types",
   "author": "waiting",
-  "version": "23.4.0",
+  "version": "23.6.0",
   "description": "shared typescript types",
   "keywords": [
     "types",
