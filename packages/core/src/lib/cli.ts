@@ -1,10 +1,10 @@
 import minimist from 'minimist'
 
 
-export function retrieveArgsFromProcess(processArgv: string[] = process.argv): minimist.ParsedArgs {
+export function retrieveArgsFromProcess<T extends minimist.ParsedArgs = minimist.ParsedArgs>(processArgv: string[] = process.argv): T {
   const ps = processArgv.slice(2)
   const argv = minimist(ps)
-  return argv
+  return argv as T
 }
 
 
