@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import assert from 'node:assert'
+import crypto from 'node:crypto'
 import {
   access,
   WriteFileOptions,
@@ -160,7 +162,7 @@ export async function createFileAsync(
  */
 export async function validateDllFile(path: string): Promise<void> {
   if (! path) {
-    throw new Error('File path empth ')
+    throw new Error('File path empty ')
   }
   // only filename. can be loaded by search path such as %system%
   if (! path.includes('/')) {
@@ -240,3 +242,12 @@ export async function sleep(timeout = 1000): Promise<void> {
   })
 }
 
+
+export function genRandomString(length = 32): string {
+  assert(length > 0, 'length must be greater than 0')
+  // 生成随机字节
+  const randomBytes = crypto.randomBytes(Math.ceil(length / 2))
+  // 将字节转换为十六进制字符串
+  const randomString = randomBytes.toString('hex').slice(0, length)
+  return randomString
+}
