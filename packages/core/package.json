@@ -18,6 +18,7 @@
   },
   "exports": {
     ".": "./dist/index.js",
+    "./shell": "./dist/lib/shell/index.shell.js",
     "./package.json": "./package.json"
   },
   "bugs": {
