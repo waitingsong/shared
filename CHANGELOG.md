@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [23.8.0](https://github.com/waitingsong/shared/compare/v23.7.0...v23.8.0) (2024-05-08)
+
+
+### Features
+
+* **core:** add property sshAllowUser of CreateUserOptions ([bed4f83](https://github.com/waitingsong/shared/commit/bed4f836b51d15bd7219fc85a37d84348340d2b5))
+* **core:** update UserShell ([68176db](https://github.com/waitingsong/shared/commit/68176dbb0d33e0fe76f5d561d91f4ac183bf3aac))
+
+
+
+
+
 # [23.7.0](https://github.com/waitingsong/shared/compare/v23.6.1...v23.7.0) (2024-05-08)
 
 
