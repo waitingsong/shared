@@ -34,11 +34,11 @@
     "@types/minimist": "^1.2.5",
     "@waiting/shared-types": "^23.6.0",
     "minimist": "^1.2.8",
-    "semver": "^7.6.0",
+    "semver": "^7.6.1",
     "zx": "^8.0.2"
   },
   "devDependencies": {
-    "undici": "^6.13.0"
+    "undici": "^6.16.0"
   },
   "engines": {
     "node": ">=18.12.0"
