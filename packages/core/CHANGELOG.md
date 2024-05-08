@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [23.7.0](https://github.com/waitingsong/shared/compare/v23.6.1...v23.7.0) (2024-05-08)
+
+
+### Features
+
+* **core:** genRandomString() ([6d7fe6a](https://github.com/waitingsong/shared/commit/6d7fe6a677609f787347054a66e32d50850ff4dd))
+* **core:** user functions of shell ([8ecac13](https://github.com/waitingsong/shared/commit/8ecac130225ceb0020266c33b1135b683266f527))
+
+
+
+
+
 ## [23.6.1](https://github.com/waitingsong/shared/compare/v23.6.0...v23.6.1) (2024-04-21)
 
 **Note:** Version bump only for package @waiting/shared-core
