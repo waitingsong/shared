@@ -26,6 +26,7 @@ export interface CreateUserOptions {
    * undefined: false
    */
   sudoWithoutPassword?: boolean
+  sshAllowUser?: boolean
 }
 
 export enum UserShell {
