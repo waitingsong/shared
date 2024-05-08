@@ -29,7 +29,7 @@ export interface CreateUserOptions {
 }
 
 export enum UserShell {
-  // nologin = '/sbin/nologin',
+  nologin = '/sbin/nologin',
   binFalse = '/bin/false',
 }
 
