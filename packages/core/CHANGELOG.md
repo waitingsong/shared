@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [23.9.0](https://github.com/waitingsong/shared/compare/v23.8.0...v23.9.0) (2024-05-09)
+
+
+### Features
+
+* **core:** shell updateSshAllowUser() ([f3f8607](https://github.com/waitingsong/shared/commit/f3f8607d1b58f35f8b85ff8628e57989f06c6880))
+
+
+
+
+
 # [23.8.0](https://github.com/waitingsong/shared/compare/v23.7.0...v23.8.0) (2024-05-08)
 
 
