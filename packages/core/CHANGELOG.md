@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [23.10.0](https://github.com/waitingsong/shared/compare/v23.9.0...v23.10.0) (2024-05-09)
+
+
+### Features
+
+* **core:** shell add property sshSelfWithoutPassword of type CreateUserOptions ([23bf0bb](https://github.com/waitingsong/shared/commit/23bf0bb254117743de5cc4728b50ac1605136a9a))
+
+
+
+
+
 # [23.9.0](https://github.com/waitingsong/shared/compare/v23.8.0...v23.9.0) (2024-05-09)
 
 
