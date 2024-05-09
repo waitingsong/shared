@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [23.10.1](https://github.com/waitingsong/shared/compare/v23.10.0...v23.10.1) (2024-05-09)
+
+
+### Bug Fixes
+
+* **core:** shell createUser() ([2f8d8f0](https://github.com/waitingsong/shared/commit/2f8d8f0e9ac88639282db5de6cc5a41a9b9defc3))
+
+
+
+
+
 # [23.10.0](https://github.com/waitingsong/shared/compare/v23.9.0...v23.10.0) (2024-05-09)
 
 
