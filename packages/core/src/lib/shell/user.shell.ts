@@ -28,13 +28,13 @@ export async function createUser(user: CreateUserOptions): Promise<void> {
   await $`useradd ${ps} ${user.username}`
 
   if (await isDirExists(`/home/${user.username}`)) {
-    await $`mkdir -p /home/${user.username}/.vim/swp /home/${user.username}/.ssh`
-    await $`chown -R ${user.username}:${user.username} /home/${user.username}/.vim`
-
     if (! await isFileExists(`/home/${user.username}/.ssh/id_ed25519`)) {
-      await $`ssh-keygen -q -t ed25519 -N '' -f /home/${user.username}/.ssh/id_ed25519`
-      await $`chown -R ${user.username}:${user.username} /home/${user.username}/.ssh`
+      await $`rm -f /home/${user.username}/.ssh/id_ed25519.pub`
+      await $`sudo -u ${user.username} sh -c "ssh-keygen -q -t ed25519 -N '' -f ~/.ssh/id_ed25519"`
     }
+
+    await $`mkdir -p /home/${user.username}/.vim/swp`
+    await $`chown -R ${user.username}:${user.username} /home/${user.username}/.vim`
   }
 }
 
