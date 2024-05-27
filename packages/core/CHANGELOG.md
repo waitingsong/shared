@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [23.11.0](https://github.com/waitingsong/shared/compare/v23.10.1...v23.11.0) (2024-05-27)
+
+
+### Features
+
+* **core:** genError() ([d7709d3](https://github.com/waitingsong/shared/commit/d7709d3db66049f1295da6b905c9c076e7ee0136))
+
+
+
+
+
 ## [23.10.1](https://github.com/waitingsong/shared/compare/v23.10.0...v23.10.1) (2024-05-09)
 
 
