@@ -35,10 +35,10 @@
     "@waiting/shared-types": "^23.6.0",
     "minimist": "^1.2.8",
     "semver": "^7.6.2",
-    "zx": "^8.1.0"
+    "zx": "^8.1.1"
   },
   "devDependencies": {
-    "undici": "^6.16.0"
+    "undici": "^6.18.1"
   },
   "engines": {
     "node": ">=18.12.0"
