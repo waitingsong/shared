@@ -1,6 +1,6 @@
 import { fileShortPath } from '@waiting/shared-core'
 
-import { Equals, UnionToIntersection, EqualsExt } from '../src/index.js'
+import { Equals, UnionToIntersection, EqualsExt } from '##/index.js'
 
 
 describe(fileShortPath(import.meta.url), () => {

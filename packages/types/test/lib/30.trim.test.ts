@@ -5,7 +5,7 @@ import {
   Trim,
   TrimStart,
   TrimEnd,
-} from '../src/index.js'
+} from '##/index.js'
 
 
 describe(fileShortPath(import.meta.url), () => {

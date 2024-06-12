@@ -5,7 +5,7 @@ import { fileShortPath } from '@waiting/shared-core'
 import {
   JsonType,
   JsonResp,
-} from '../src/index.js'
+} from '##/index.js'
 
 
 describe(fileShortPath(import.meta.url), () => {

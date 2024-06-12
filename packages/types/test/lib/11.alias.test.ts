@@ -5,7 +5,7 @@ import { fileShortPath } from '@waiting/shared-core'
 import {
   DateISOString,
   ISO8601String,
-} from '../src/index.js'
+} from '##/index.js'
 
 
 describe(fileShortPath(import.meta.url), () => {
