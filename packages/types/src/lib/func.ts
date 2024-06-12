@@ -17,14 +17,16 @@ export interface Func {
 export type MethodType<
   ArgsType extends unknown[] = any[],
   ReturnType = any | Promise<any>,
-  > = (...input: ArgsType) => ReturnType
+  TThis extends unknown = void,
+  > = (this: TThis, ...input: ArgsType) => ReturnType
 /**
  * ReturnType is unknown
  */
 export type MethodTypeUnknown<
   ArgsType extends any[] = any[],
   ReturnType extends unknown = unknown,
-  > = (...input: ArgsType) => ReturnType
+  TThis extends unknown = void,
+  > = (this: TThis, ...input: ArgsType) => ReturnType
 
 /**
  * ReturnType is Promise<unknown>
@@ -32,5 +34,6 @@ export type MethodTypeUnknown<
 export type AsyncMethodType<
   ArgsType extends any[] = any[],
   ResultType extends unknown = unknown,
-  > = (...input: ArgsType) => Promise<ResultType>
+  TThis extends unknown = void,
+  > = (this: TThis, ...input: ArgsType) => Promise<ResultType>
 
