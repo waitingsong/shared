@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [23.12.0](https://github.com/waitingsong/shared/compare/v23.11.0...v23.12.0) (2024-06-12)
+
+
+### Features
+
+* **types:** add this generics param of MethodType, MethodTypeUnknown, AsyncMethodType ([158cb83](https://github.com/waitingsong/shared/commit/158cb83d36ae1f3978ee1ae53cd42d83cd1a172b))
+
+
+
+
+
 # [23.6.0](https://github.com/waitingsong/shared/compare/v23.5.1...v23.6.0) (2024-04-21)
 
 **Note:** Version bump only for package @waiting/shared-types
