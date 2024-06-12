@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [23.13.0](https://github.com/waitingsong/shared/compare/v23.12.0...v23.13.0) (2024-06-12)
+
+
+### Features
+
+* **types:** change default type value to any of MethodType, MethodTypeUnknown, AsyncMethodType ([0ed8a7c](https://github.com/waitingsong/shared/commit/0ed8a7cffd4e680c2db82048ddb06ac9b6d21306))
+
+
+
+
+
 # [23.12.0](https://github.com/waitingsong/shared/compare/v23.11.0...v23.12.0) (2024-06-12)
 
 
