@@ -1,18 +1,16 @@
 
 export type FnCallParam = string | string[]
 export type FnCallParams = FnCallParam[] | never[]
-
-export type FnParams = FnCallParams
 export type FnParamsExpand = string[][]
 
-export function expandFFIParamArray(input: FnParams): FnParamsExpand {
+export function expandFFIParamArray(input: FnCallParams): FnParamsExpand {
   const res: FnParamsExpand = []
   const tmp: string[] = []
   permute(input, 0, tmp, res)
   return res
 }
 
-function permute(input: FnParams, index: number, current: string[], result: FnParamsExpand): void {
+function permute(input: FnCallParams, index: number, current: string[], result: FnParamsExpand): void {
   if (index === input.length) {
     result.push(current)
     return
