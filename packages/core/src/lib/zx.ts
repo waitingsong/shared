@@ -5,6 +5,11 @@ import { $, quote } from 'zx'
 
 export function patchZxQuote(): void {
   const needle = 'foo'
+  if (typeof $.quote !== 'function') {
+    _patchZxQuote()
+    return
+  }
+
   try {
     const txt = $.quote(needle)
     if (txt === needle) {
@@ -16,7 +21,7 @@ export function patchZxQuote(): void {
   }
   catch (ex) {
     assert(ex instanceof Error)
-    if (ex.message.includes('No quote function is defined')) {
+    if (ex.message.includes('quote')) {
       _patchZxQuote()
     }
   }
