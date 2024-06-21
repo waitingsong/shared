@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [23.14.0](https://github.com/waitingsong/shared/compare/v23.13.0...v23.14.0) (2024-06-21)
+
+
+### Features
+
+* **core:** fix patchZxQuote() and expose $ from zx ([835ac6b](https://github.com/waitingsong/shared/commit/835ac6b359469694f86d135008dc8201bba41f7e))
+
+
+
+
+
 # [23.13.0](https://github.com/waitingsong/shared/compare/v23.12.0...v23.13.0) (2024-06-12)
 
 
