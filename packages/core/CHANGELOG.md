@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [23.15.0](https://github.com/waitingsong/shared/compare/v23.14.0...v23.15.0) (2024-06-21)
+
+
+### Features
+
+* **core:** expandFFIParamArray() ([a11488d](https://github.com/waitingsong/shared/commit/a11488dfcb358db0f8f584477a44d89e2f8b932a))
+
+
+
+
+
 # [23.14.0](https://github.com/waitingsong/shared/compare/v23.13.0...v23.14.0) (2024-06-21)
 
 
