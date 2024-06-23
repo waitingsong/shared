@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [23.17.0](https://github.com/waitingsong/shared/compare/v23.16.0...v23.17.0) (2024-06-23)
+
+
+### Features
+
+* **types:** update type TupleToUnion, accepts readonly any[] ([83ce7d9](https://github.com/waitingsong/shared/commit/83ce7d992ed08862c1cc7dc422e661cc235f3a86))
+
+
+
+
+
 # [23.16.0](https://github.com/waitingsong/shared/compare/v23.15.1...v23.16.0) (2024-06-23)
 
 
