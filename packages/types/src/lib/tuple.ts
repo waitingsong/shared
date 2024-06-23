@@ -60,3 +60,23 @@ type Reverse_<Tuple extends any[], Result extends any[]> = {
   0: Reverse_<TupleTail<Tuple>, TupleUnshift<Result, TupleHead<Tuple>>>,
 }[Tuple extends [] ? 1 : 0]
 
+
+export type FlattenNestedTuple<T extends (readonly any[])> = {
+  [K in keyof T]: FlattenTuple<T[K]>
+}
+
+/**
+ * Convert const type to type const input = [1, 2] as const
+ * @example ```ts
+ * const input = [1, [2, 3]] as const  // note the `as const`
+ * type Result = FlattenTuple<typeof input> // [1, 2 | 3]
+ * ```
+ *
+ */
+type FlattenTuple<T> = T extends readonly (infer U)[]
+  ? U extends ((any)[])
+    ? TupleToUnion<U>
+  // ? U extends ((infer V)[])
+  //   ? FlattenTuple<U> | FlattenTuple<V>
+    : U
+  : T
