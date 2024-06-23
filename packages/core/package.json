@@ -1,7 +1,7 @@
 {
   "name": "@waiting/shared-core",
   "author": "waiting",
-  "version": "23.15.1",
+  "version": "23.16.0",
   "description": "node core function re export with Promise or Observable",
   "keywords": [
     "node",
@@ -32,7 +32,7 @@
   "license": "MIT",
   "dependencies": {
     "@types/minimist": "^1.2.5",
-    "@waiting/shared-types": "^23.13.0",
+    "@waiting/shared-types": "^23.16.0",
     "minimist": "^1.2.8",
     "semver": "^7.6.2",
     "zx": "^8.1.1"
