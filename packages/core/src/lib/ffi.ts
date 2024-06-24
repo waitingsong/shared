@@ -1,6 +1,6 @@
 
-export type FnCallParam = string | string[]
-export type FnCallParams = FnCallParam[] | never[]
+export type FnCallParam = string | string[] | readonly string[]
+export type FnCallParams = FnCallParam[] | readonly FnCallParam[] | never[]
 export type FnParamsExpand = string[][]
 
 export function expandFFIParamArray(input: FnCallParams): FnParamsExpand {
