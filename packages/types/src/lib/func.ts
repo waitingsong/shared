@@ -37,3 +37,11 @@ export type AsyncMethodType<
   TThis = any,
   > = (this: TThis, ...input: ArgsType) => Promise<ResultType>
 
+
+/**
+ * Convert a function type to an async function type
+ */
+export type ToAsyncFunction<T extends (...args: any) => any> = T extends (...args: infer A) => infer R
+  ? (...args: A) => Promise<R>
+  : never
+
