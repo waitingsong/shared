@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [23.19.0](https://github.com/waitingsong/shared/compare/v23.18.1...v23.19.0) (2024-06-25)
+
+
+### Features
+
+* **types:** type ToAsyncFunction ([036f4ba](https://github.com/waitingsong/shared/commit/036f4ba16fd02529410fa7fb6ca18cd6203112f1))
+
+
+
+
+
 ## [23.18.1](https://github.com/waitingsong/shared/compare/v23.18.0...v23.18.1) (2024-06-24)
 
 **Note:** Version bump only for package @waiting/shared
