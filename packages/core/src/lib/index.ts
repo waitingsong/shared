@@ -1,3 +1,4 @@
+/* eslint-disable import/max-dependencies */
 
 export * from './asset.js'
 export * from './cli.js'
@@ -7,6 +8,7 @@ export * from './error.js'
 export * from './ffi.js'
 export * from './date.js'
 export * from './file.js'
+export * from './function.js'
 export * from './utils.js'
 export * from './helper.js'
 export * from './http.js'
