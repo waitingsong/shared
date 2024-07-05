@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [23.20.0](https://github.com/waitingsong/shared/compare/v23.19.1...v23.20.0) (2024-07-05)
+
+
+### Features
+
+* **core:** isArrowFunction() ([1ea5907](https://github.com/waitingsong/shared/commit/1ea590777bcf9cefcf6c566e3f0434d082bc57df))
+
+
+
+
+
 ## [23.19.1](https://github.com/waitingsong/shared/compare/v23.19.0...v23.19.1) (2024-07-05)
 
 **Note:** Version bump only for package @waiting/shared
