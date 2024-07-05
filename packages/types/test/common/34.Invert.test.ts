@@ -2,9 +2,9 @@ import assert from 'assert/strict'
 
 import { fileShortPath } from '@waiting/shared-core'
 
-import { Invert } from '../../src/index.js'
+import type { Invert } from '../../src/index.js'
 
-import {
+import type {
   Alias,
   AliasRecord,
   AliasRecord2,

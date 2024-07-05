@@ -1,6 +1,6 @@
 import assert from 'node:assert'
 
-import {
+import type {
   CamelKeys,
   CamelToSnake,
   SnakeKeys,

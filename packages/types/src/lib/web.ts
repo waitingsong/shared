@@ -1,4 +1,4 @@
-import { XOR } from './common.js'
+import type { XOR } from './common.js'
 
 
 export type MiddlewareConfig<T = unknown> = {

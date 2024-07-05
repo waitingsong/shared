@@ -6,7 +6,7 @@ import { $ } from 'zx'
 
 import { genRandomString, isDirExists, isFileExists } from '../utils.js'
 
-import { CreateUserOptions } from './user.types.js'
+import type { CreateUserOptions } from './user.types.js'
 
 
 export async function createGroup(user: CreateUserOptions): Promise<void> {

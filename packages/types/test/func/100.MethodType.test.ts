@@ -2,7 +2,7 @@ import assert from 'assert/strict'
 
 import { fileShortPath } from '@waiting/shared-core'
 
-import { MethodType } from '../../src/index.js'
+import type { MethodType } from '../../src/index.js'
 
 
 describe(fileShortPath(import.meta.url), () => {

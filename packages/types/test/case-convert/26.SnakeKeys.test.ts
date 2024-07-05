@@ -1,6 +1,6 @@
 import { fileShortPath } from '@waiting/shared-core'
 
-import {
+import type {
   Equals,
   SnakeKeys,
 } from '../../src/index.js'

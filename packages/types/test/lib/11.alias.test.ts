@@ -2,7 +2,7 @@ import assert from 'node:assert/strict'
 
 import { fileShortPath } from '@waiting/shared-core'
 
-import {
+import type {
   DateISOString,
   ISO8601String,
 } from '##/index.js'

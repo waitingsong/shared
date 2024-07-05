@@ -1,6 +1,6 @@
 import { readFile } from 'node:fs/promises'
 
-import {
+import type {
   ProcCpuinfo,
   ProcInfo,
   ProcMeminfo,

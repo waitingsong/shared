@@ -1,4 +1,4 @@
-import { CallerInfo, getCallerStack } from '../../src/lib/index.js'
+import { type CallerInfo, getCallerStack } from '../../src/lib/index.js'
 // Should not change code existing or insert, append it!
 
 

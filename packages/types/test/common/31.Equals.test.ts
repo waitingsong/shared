@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { fileShortPath } from '@waiting/shared-core'
 
-import { Equals } from '../../src/index.js'
+import type { Equals } from '../../src/index.js'
 
 
 describe(fileShortPath(import.meta.url), () => {

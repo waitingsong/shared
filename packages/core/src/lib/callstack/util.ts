@@ -6,7 +6,7 @@ import { normalize } from 'node:path'
 import semver from 'semver'
 // import { install } from 'source-map-support'
 
-import { CallerInfo, CallerInfoBase } from './types.js'
+import type { CallerInfo, CallerInfoBase } from './types.js'
 
 
 const maxStackDepth = 128

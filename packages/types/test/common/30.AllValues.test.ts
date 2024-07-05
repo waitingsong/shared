@@ -2,7 +2,7 @@ import assert from 'assert/strict'
 
 import { fileShortPath } from '@waiting/shared-core'
 
-import { AllValues } from '../../src/index.js'
+import type { AllValues } from '../../src/index.js'
 
 
 describe(fileShortPath(import.meta.url), () => {

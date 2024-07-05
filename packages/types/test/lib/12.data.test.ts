@@ -2,7 +2,7 @@ import assert from 'assert/strict'
 
 import { fileShortPath } from '@waiting/shared-core'
 
-import {
+import type {
   JsonType,
   JsonResp,
 } from '##/index.js'

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import assert from 'assert/strict'
 
-import {
+import type {
   Equals as EQ,
   EqualsExt as Equals,
   FormatIntersect,

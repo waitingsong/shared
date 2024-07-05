@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ISO8601String } from '@waiting/shared-types'
+import type { ISO8601String } from '@waiting/shared-types'
 
 
 /**

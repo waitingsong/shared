@@ -4,7 +4,7 @@
  * @link https://docs.npmjs.com/files/package.json
  */
 
-import { DateISOString } from './alias.js'
+import type { DateISOString } from './alias.js'
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export interface NpmPkg {

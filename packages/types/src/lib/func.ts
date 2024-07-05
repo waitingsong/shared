@@ -18,7 +18,7 @@ export type MethodType<
   ArgsType extends unknown[] = any[],
   ReturnType = any | Promise<any>,
   TThis = any,
-  > = (this: TThis, ...input: ArgsType) => ReturnType
+> = (this: TThis, ...input: ArgsType) => ReturnType
 /**
  * ReturnType is unknown
  */
@@ -26,7 +26,7 @@ export type MethodTypeUnknown<
   ArgsType extends any[] = any[],
   ReturnType = unknown,
   TThis = any,
-  > = (this: TThis, ...input: ArgsType) => ReturnType
+> = (this: TThis, ...input: ArgsType) => ReturnType
 
 /**
  * ReturnType is Promise<unknown>
@@ -35,7 +35,7 @@ export type AsyncMethodType<
   ArgsType extends any[] = any[],
   ResultType = unknown,
   TThis = any,
-  > = (this: TThis, ...input: ArgsType) => Promise<ResultType>
+> = (this: TThis, ...input: ArgsType) => Promise<ResultType>
 
 
 /**

@@ -2,10 +2,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import assert from 'node:assert'
 import crypto from 'node:crypto'
-import {
-  access,
-  WriteFileOptions,
-} from 'node:fs'
+import type { WriteFileOptions } from 'node:fs'
+import { access } from 'node:fs'
 import {
   mkdir,
   stat,
