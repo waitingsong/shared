@@ -31,7 +31,7 @@ export type JoinTable<T1 extends {}, T2 extends {}, Prefix extends string>
   = T1 & _JoinCover<T1, T2, Prefix> & _JoinDiff<T1, T2>
 
 type _JoinCover<T1 extends object, T2 extends object, Prefix extends string> = {
-  [K in keyof Pick<T2, keyof (T1 | T2)> as `${Prefix}_${K & string}`]: T2[K]
+  [K in keyof Pick<T2, keyof (T1 | T2)> as K extends string ? `${Prefix}_${K}` : K]: T2[K]
 }
 type _JoinDiff<T1 extends object, T2 extends object> = {
   [K in keyof Omit<T2, keyof (T1 | T2)>]: T2[K]
@@ -60,7 +60,9 @@ export type DbScopedColsByTableType<D extends {}, T = undefined>
     : D extends Record<infer F extends string, unknown>
       ? F extends unknown
         ? T extends D[F]
-          ? `${F}.${(keyof D[F]) & string}`
+          ? keyof D[F] extends string
+            ? `${F}.${keyof D[F]}`
+            : never
           : never
         : never
       : never

@@ -122,12 +122,12 @@ type _CamelKeys<
     : RecordCamelKeys<T, D>
 
 export type RecursiveCamelKeys<T, D extends string = '_'> = {
-  [K in keyof T as `${SnakeToCamel<K & string, D>}`]: T[K] extends Record<string, unknown>
+  [K in keyof T as K extends string ? `${SnakeToCamel<K, D>}` : K]: T[K] extends Record<string, unknown>
     ? RecursiveCamelKeys<T[K], D>
     : T[K]
 }
 export type RecordCamelKeys<T, D extends string = '_'> = {
-  [K in keyof T as `${SnakeToCamel<K & string, D>}`]: T[K]
+  [K in keyof T as K extends string ? `${SnakeToCamel<K, D>}` : K]: T[K]
 }
 
 
@@ -148,12 +148,12 @@ type _PascalKeys<
     : RecordPascalKeys<T, D>
 
 export type RecursivePascalKeys<T, D extends string = '_'> = {
-  [K in keyof T as `${SnakeToPascal<K & string, D>}`]: T[K] extends Record<string, unknown>
+  [K in keyof T as K extends string ? `${SnakeToPascal<K, D>}` : K]: T[K] extends Record<string, unknown>
     ? RecursivePascalKeys<T[K], D>
     : T[K]
 }
 export type RecordPascalKeys<T, D extends string = '_'> = {
-  [K in keyof T as `${SnakeToPascal<K & string, D>}`]: T[K]
+  [K in keyof T as K extends string ? `${SnakeToPascal<K, D>}` : K]: T[K]
 }
 
 
@@ -174,10 +174,10 @@ type _SnakeKeys<
     : RecordSnakeKeys<T, D>
 
 export type RecursiveSnakeKeys<T, D extends string = '_'> = {
-  [K in keyof T as `${CamelToSnake<K & string, D>}`]: T[K] extends Record<string, unknown>
+  [K in keyof T as K extends string ? `${CamelToSnake<K, D>}` : K]: T[K] extends Record<string, unknown>
     ? RecursiveSnakeKeys<T[K], D>
     : T[K]
 }
 export type RecordSnakeKeys<T, D extends string = '_'> = {
-  [K in keyof T as `${CamelToSnake<K & string, D>}`]: T[K]
+  [K in keyof T as K extends string ? `${CamelToSnake<K, D>}` : K]: T[K]
 }
