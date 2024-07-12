@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [23.20.1](https://github.com/waitingsong/shared/compare/v23.20.0...v23.20.1) (2024-07-12)
+
+
+### Reverts
+
+* tsconfig.base.json ([1664c10](https://github.com/waitingsong/shared/commit/1664c1090e21fc4a10206687346cf865251b33b2))
+
+
+
+
+
 # [23.20.0](https://github.com/waitingsong/shared/compare/v23.19.1...v23.20.0) (2024-07-05)
 
 
