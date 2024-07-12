@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [23.20.2](https://github.com/waitingsong/shared/compare/v23.20.1...v23.20.2) (2024-07-12)
+
+
+### Bug Fixes
+
+* **types:** template literal process when none string property ([5e7ce5c](https://github.com/waitingsong/shared/commit/5e7ce5cf4b632f77314051617d74c052c79f5b26))
+
+
+
+
+
 ## [23.20.1](https://github.com/waitingsong/shared/compare/v23.20.0...v23.20.1) (2024-07-12)
 
 **Note:** Version bump only for package @waiting/shared-types
