@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "${configDir}",
+    "baseUrl": ".",
     "declaration": true,
     "declarationMap": false,
     "emitDecoratorMetadata": true,
@@ -28,26 +28,26 @@
     "preserveConstEnums": true,
     "pretty": true,
     "resolveJsonModule": true,
-    "rootDir": "${configDir}/src",
+    "rootDir": "src",
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
     "strictPropertyInitialization": false,
     "stripInternal": true,
-    "target": "ES2023",
+    "target": "ES2022",
     "tsBuildInfoFile": ".tsbuildinfo",
     "types" : ["mocha", "node"],
     "verbatimModuleSyntax": false
   },
   "include": [
-    "${configDir}/src/**/*.ts"
+    "src/**/*.ts"
   ],
   "exclude": [
-    "${configDir}/asset",
-    "${configDir}/app/public",
-    "${configDir}/app/views",
-    "${configDir}/dist",
-    "${configDir}/fixtures",
+    "asset",
+    "app/public",
+    "app/views",
+    "dist",
+    "fixtures",
     "node_modules*",
     "**/*.d.ts",
     "**/*.spec.ts"
