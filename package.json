@@ -12,7 +12,7 @@
     "@midwayjs/validate": "^3.16.2",
     "@types/koa": "2",
     "@types/mocha": "10",
-    "@types/node": "20",
+    "@types/node": "22",
     "@waiting/eslint-config": "^11.0.0",
     "autocannon": "7",
     "cross-env": "7",
