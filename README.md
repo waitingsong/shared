@@ -6,8 +6,6 @@
 [![](https://img.shields.io/badge/lang-TypeScript-blue.svg)]()
 [![ci](https://github.com/waitingsong/shared/workflows/ci/badge.svg)](https://github.com/waitingsong/shared/actions?query=workflow%3A%22ci%22)
 [![codecov](https://codecov.io/gh/waitingsong/shared/branch/main/graph/badge.svg?token=VN3Y815SPX)](https://codecov.io/gh/waitingsong/shared)
-[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
-[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
 
 
 ## 安装全局依赖
