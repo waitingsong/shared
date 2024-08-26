@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [23.21.0](https://github.com/waitingsong/shared/compare/v23.20.2...v23.21.0) (2024-08-26)
+
+
+### Features
+
+* **core:** compareVersions() ([4d91bd2](https://github.com/waitingsong/shared/commit/4d91bd282314d670f11ef5df978f8727486acc41))
+
+
+
+
+
 ## [23.20.2](https://github.com/waitingsong/shared/compare/v23.20.1...v23.20.2) (2024-07-12)
 
 **Note:** Version bump only for package @waiting/shared-core
