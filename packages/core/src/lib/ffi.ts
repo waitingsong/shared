@@ -30,7 +30,7 @@ function permute(input: FnCallParams, index: number, current: string[], result: 
     permute(input, index + 1, current.concat([item]), result)
   }
   else {
-    throw new Error('invalid input')
+    throw new TypeError('invalid input')
   }
 }
 

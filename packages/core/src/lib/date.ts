@@ -68,7 +68,7 @@ export function formatDateTime(
     return dateFormatter.format(val)
   }
   else {
-    throw new Error('input is invalid')
+    throw new TypeError('input is invalid')
   }
 }
 

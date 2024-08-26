@@ -23,7 +23,7 @@ describe(fileShortPath(import.meta.url), () => {
         assert(__filename.endsWith('packages/core/test/21.helper.test.ts'), __filename)
       }
       else if (sep === '\\') {
-        assert(__filename.endsWith('packages\\core\\test\\21.helper.test.ts'), __filename)
+        assert(__filename.endsWith(String.raw`packages\core\test\21.helper.test.ts`), __filename)
       }
     })
   })
@@ -45,7 +45,7 @@ describe(fileShortPath(import.meta.url), () => {
         assert(__dirname.endsWith('packages/core/test'), __dirname)
       }
       else if (sep === '\\') {
-        assert(__dirname.endsWith('packages\\core\\test'), __dirname)
+        assert(__dirname.endsWith(String.raw`packages\core\test`), __dirname)
       }
     })
   })
