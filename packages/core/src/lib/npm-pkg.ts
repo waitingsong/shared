@@ -42,3 +42,18 @@ export async function getNpmPkgViewFromRegistry(
   }
 }
 
+/**
+ * Compare two versions, input format: '1.2.3' without prefix 'v'
+ * @returns 0: equal, -1: v1 < v2, 1: v1 > v2
+ */
+export function compareVersions(version1: string, version2: string): number {
+  const v1Parts = version1.split('.').map(Number)
+  const v2Parts = version2.split('.').map(Number)
+
+  for (let i = 0; i < Math.max(v1Parts.length, v2Parts.length); i += 1) {
+    if ((v1Parts[i] ?? 0) < (v2Parts[i] ?? 0)) { return -1 }
+    if ((v1Parts[i] ?? 0) > (v2Parts[i] ?? 0)) { return 1 }
+  }
+  return 0
+}
+
