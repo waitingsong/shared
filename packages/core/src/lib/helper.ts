@@ -4,6 +4,32 @@ import { fileURLToPath } from 'node:url'
 
 export const appDir = process.cwd()
 
+/**
+ * Generate __filename for ESM
+ * @example retrieveFilename(import.meta)
+ * @link https://nodejs.org/docs/latest/api/esm.html#importmetafilename
+ */
+export function retrieveFilename(importMeta: ImportMeta): string {
+  if (typeof importMeta.filename === 'string') {
+    return importMeta.filename
+  }
+  return genCurrentFilename(importMeta.url)
+}
+
+/**
+ *
+ * Generate __dirname for ESM
+ * @example retrieveDirname(import.meta)
+ * @link https://nodejs.org/docs/latest/api/esm.html#importmetadirname
+ */
+export function retrieveDirname(importMeta: ImportMeta): string {
+  if (typeof importMeta.dirname === 'string') {
+    return importMeta.dirname
+  }
+  return genCurrentDirname(importMeta.url)
+}
+
+
 export function fileShortPath(importUrl: string, separator = '/'): string {
   let path = relative(appDir, genCurrentFilename(importUrl))
   if (separator && separator !== sep) {
