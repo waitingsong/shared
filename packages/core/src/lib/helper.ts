@@ -45,11 +45,11 @@ export function setPathDirectory(path: string): void {
 }
 
 
-interface Formater {
+interface Formatter {
   value: number
   symbol: string
 }
-const lookup: Formater[] = [
+const lookup: Formatter[] = [
   { value: 1, symbol: '' },
   { value: 1e3, symbol: 'k' },
   { value: 1e6, symbol: 'M' },
