@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [23.22.0](https://github.com/waitingsong/shared/compare/v23.21.0...v23.22.0) (2024-10-09)
+
+
+### Bug Fixes
+
+* **core:** type typo ([eb03427](https://github.com/waitingsong/shared/commit/eb034276f588c5394bae4b1a381467acb254a0f8))
+
+
+### Features
+
+* **core:** retrieveFilename(), retrieveDirname() ([7b2fdfe](https://github.com/waitingsong/shared/commit/7b2fdfe4f252593d729545eaaf0bface50b3b87b))
+
+
+
+
+
 # [23.21.0](https://github.com/waitingsong/shared/compare/v23.20.2...v23.21.0) (2024-08-26)
 
 
