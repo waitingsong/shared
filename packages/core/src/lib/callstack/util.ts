@@ -157,7 +157,7 @@ export function getCallerStack(
 }
 
 /**
- * Get stack string
+ * Get stack string, line/colum number transformed with source-map
  * @see https://stackoverflow.com/a/13227808
  */
 export function getStack(): string {
