@@ -26,7 +26,7 @@ describe(fileShortPath(import.meta.url), () => {
       assert(info.line === 6, `expect line: "6", but got: "${info.line}"`)
       assert(info.column === 22, `expect column: "22", but got: "${info.column}"`)
       assert(info.columnNumber === 24, `expect columnNumber: "24", but got: "${info.columnNumber}"`)
-      assert(info.enclosingColNumber === 8, `expect enclosingColNumber: "8", but got: "${info.enclosingColNumber}"`)
+      // assert(info.enclosingColNumber === 8, `expect enclosingColNumber: "8", but got: "${info.enclosingColNumber}"`)
     })
     it('test2()', () => {
       const info = test2()

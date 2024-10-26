@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import assert from 'node:assert/strict'
 import { normalize } from 'node:path'
+import util from 'node:util'
 
 import semver from 'semver'
 // import { install } from 'source-map-support'
@@ -28,7 +29,9 @@ const initInfo: CallerInfo = {
   className: '',
   lineNumber: -1,
   columnNumber: -1,
+  /** @deprecated since nodejs v22.9 */
   enclosingLineNumber: -1,
+  /** @deprecated since nodejs v22.9 */
   enclosingColNumber: -1,
 }
 
@@ -73,7 +76,83 @@ export function getCallerStack(
   retrievePosition = false,
 ): CallerInfo {
 
+  const info = getCallerStackSimpleInfo(callerDistance + 1)
+
+  if (! retrievePosition) {
+    return info
+  }
+
+  const stack = getStack()
+  if (! stack.length) {
+    return info
+  }
   const depth = callerDistance + 1
+  const arr = stack.split('\n')
+  const line2 = arr[depth + 1]
+  assert(line2, 'Retrieve stack of caller failed, line empty.')
+  const infoBase = retrieveInfoPathWithLineCol(line2)
+  const srcPath = infoBase.path && ! infoBase.path.startsWith('file:///')
+    ? 'file:///' + normalize(infoBase.path).replace(/\\/ug, '/')
+    : infoBase.path
+  const caller: CallerInfo = {
+    ...info,
+    line: infoBase.line,
+    column: infoBase.column,
+    srcPath,
+  }
+
+  if (isNodeGteV20 && ! isExecWithEnableSourceMaps()) {
+    const str = caller.path.toLowerCase()
+    if (str.endsWith('.ts') || str.endsWith('.mts')) {
+      if (caller.line === caller.lineNumber && caller.column === caller.columnNumber) {
+        console.warn(`Warning getCallerStack(): Nodejs >= 20.0.0, but not exec with --enable-source-maps. return line and column may incorrect. \n  file: "${caller.path}"`)
+      }
+    }
+  }
+
+  return caller
+}
+
+/**
+ * @link https://github.com/nodejs/node/releases/tag/v22.9.0
+ */
+interface CallerInfoOrigin {
+  functionName: string
+  scriptName: string
+  lineNumber: number
+  column: number
+}
+
+/**
+ * Get stack string, line/colum number not transformed with source-map
+ */
+function getCallerStackSimpleInfo(callerDistance = 0): CallerInfo {
+  const depth = callerDistance + 1
+
+  // @link https://github.com/nodejs/node/releases/tag/v22.9.0
+  // @ts-ignore since node v22.9
+  if (typeof util.getCallSite === 'function') {
+    // @ts-ignore
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    const callSites: CallerInfoOrigin[] = util.getCallSite(depth + 1)
+    const site = callSites[depth]
+    assert(site, 'stack empty')
+
+    const info: CallerInfo = {
+      ...initInfo,
+      path: site.scriptName,
+      fileName: site.scriptName,
+      className: '',
+      funcName: '',
+      methodName: '',
+      lineNumber: site.lineNumber,
+      columnNumber: site.column,
+      enclosingLineNumber: -1,
+      enclosingColNumber: -1,
+    }
+    return info
+  }
+
   const stacks = getStackCallerSites(depth + 1)
   const site = stacks[depth]
   assert(site, 'stack empty')
@@ -122,39 +201,9 @@ export function getCallerStack(
     enclosingColNumber,
   }
 
-  if (! retrievePosition) {
-    return info
-  }
-
-  const stack = getStack()
-  if (! stack.length) {
-    return info
-  }
-  const arr = stack.split('\n')
-  const line2 = arr[depth + 1]
-  assert(line2, 'Retrieve stack of caller failed, line empty.')
-  const infoBase = retrieveInfoPathWithLineCol(line2)
-  const srcPath = infoBase.path && ! infoBase.path.startsWith('file:///')
-    ? 'file:///' + normalize(infoBase.path).replace(/\\/ug, '/')
-    : infoBase.path
-  const caller: CallerInfo = {
-    ...info,
-    line: infoBase.line,
-    column: infoBase.column,
-    srcPath,
-  }
-
-  if (isNodeGteV20 && ! isExecWithEnableSourceMaps()) {
-    const str = caller.path.toLowerCase()
-    if (str.endsWith('.ts') || str.endsWith('.mts')) {
-      if (caller.line === caller.lineNumber && caller.column === caller.columnNumber) {
-        console.warn(`Warning getCallerStack(): Nodejs >= 20.0.0, but not exec with --enable-source-maps. return line and column may incorrect. \n  file: "${caller.path}"`)
-      }
-    }
-  }
-
-  return caller
+  return info
 }
+
 
 /**
  * Get stack string, line/colum number transformed with source-map
