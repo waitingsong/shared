@@ -20,7 +20,7 @@ function permute(input: FnCallParams, index: number, current: string[], result: 
 
   if (Array.isArray(item)) {
     const len = item.length
-    // eslint-disable-next-line @typescript-eslint/prefer-for-of
+
     for (let i = 0; i < len; i += 1) {
       const tmp = item[i] ?? []
       permute(input, index + 1, current.concat(tmp), result)

@@ -233,7 +233,7 @@ export function camelKeys<
         enumerable: true,
         configurable: true,
         writable: true,
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+
         value: camelKeys(value, delimiter, recursive),
       })
     }
@@ -274,7 +274,7 @@ export function snakeKeys<
         enumerable: true,
         configurable: true,
         writable: true,
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+
         value: snakeKeys(value, delimiter, recursive),
       })
     }

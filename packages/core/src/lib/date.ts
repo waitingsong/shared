@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import type { ISO8601String } from '@waiting/shared-types'
 
 

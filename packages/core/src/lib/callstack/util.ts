@@ -133,7 +133,6 @@ function getCallerStackSimpleInfo(callerDistance = 0): CallerInfo {
   // @ts-ignore since node v22.9
   if (typeof util.getCallSite === 'function') {
     // @ts-ignore
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     const callSites: CallerInfoOrigin[] = util.getCallSite(depth + 1)
     const site = callSites[depth]
     assert(site, 'stack empty')
@@ -171,17 +170,17 @@ function getCallerStackSimpleInfo(callerDistance = 0): CallerInfo {
   const methodName = site.getMethodName() ?? ''
   const typeName = site.getTypeName() ?? ''
 
-  // eslint-disable-next-line @typescript-eslint/no-base-to-string
+
   const line = site.toString()
 
   let className = typeName
   if (! className) {
     className = methodName
-      ? line.match(new RegExp(`\\b\\S+(?=\\.${methodName})`, 'u'))?.[0] ?? ''
+      ? new RegExp(`\\b\\S+(?=\\.${methodName})`, 'u').exec(line)?.[0] ?? ''
       : ''
     if (! className && methodName !== funcName) {
       className = funcName
-        ? line.match(new RegExp(`\\b\\S+(?=\\.${funcName})`, 'u'))?.[0] ?? ''
+        ? new RegExp(`\\b\\S+(?=\\.${funcName})`, 'u').exec(line)?.[0] ?? ''
         : ''
     }
   }

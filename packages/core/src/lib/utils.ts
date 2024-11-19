@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import assert from 'node:assert'
 import crypto from 'node:crypto'
 import type { WriteFileOptions } from 'node:fs'

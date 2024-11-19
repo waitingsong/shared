@@ -1,5 +1,5 @@
 #!/usr/bin/env tsx
-/* eslint-disable no-await-in-loop */
+
 import assert from 'node:assert'
 
 import { $ } from 'zx'

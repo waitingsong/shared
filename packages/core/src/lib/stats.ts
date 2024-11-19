@@ -2,9 +2,9 @@ import { readFile } from 'node:fs/promises'
 
 import type {
   ProcCpuinfo,
+  ProcDiskstats,
   ProcInfo,
   ProcMeminfo,
-  ProcDiskstats,
   ProcStat,
 } from '@waiting/shared-types'
 
@@ -57,7 +57,7 @@ export async function retrieveProcInfo(items: ProcInfoItem[] = ['cpuinfo', 'memi
 
   items.forEach((name) => {
     const path = `/proc/${name}`
-    const pm = readFile(path, 'utf-8')
+    const pm = readFile(path, 'utf8')
       .catch(() => '')
       .then((str) => {
         const data = str.includes(':')

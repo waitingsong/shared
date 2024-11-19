@@ -5,7 +5,7 @@ import { pathToFileURL } from 'node:url'
 import { fileShortPath, genCurrentDirname, genCurrentFilename, getCallerStack } from '@waiting/shared-core'
 
 
-import { test1, test2, test3, test4, test5, fake1, fake2 } from './call-config.js'
+import { fake1, fake2, test1, test2, test3, test4, test5 } from './call-config.js'
 
 
 const __dirname = genCurrentDirname(import.meta.url)
