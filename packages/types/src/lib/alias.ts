@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 
 export type BigIntStr = bigint | string
 // export type Decimal = number | string

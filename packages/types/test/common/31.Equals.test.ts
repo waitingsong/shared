@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { fileShortPath } from '@waiting/shared-core'
 
 import type { Equals } from '../../src/index.js'

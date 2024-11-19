@@ -3,8 +3,8 @@ import assert from 'node:assert/strict'
 import { fileShortPath } from '@waiting/shared-core'
 
 import type {
-  JsonType,
   JsonResp,
+  JsonType,
 } from '##/index.js'
 
 

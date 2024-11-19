@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-function-type */
+/* eslint-disable @typescript-eslint/no-unnecessary-type-parameters */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 
@@ -56,7 +58,6 @@ export type OverwriteNeverToUnknown<T> = {
   [fld in keyof T]: T[fld] extends never ? unknown : T[fld]
 }
 
-/* eslint-disable @typescript-eslint/ban-types */
 /**
  * (Experimental) Rewrite members of intersect type into one type deeply
  *
@@ -112,7 +113,5 @@ export type XOR<T, U> = (T | U) extends object
 /**
 * Get the keys of T without any keys of U.
 */
-export type Without<T, U> = {
-  [P in Exclude<keyof T, keyof U>]?: never
-}
+export type Without<T, U> = Partial<Record<Exclude<keyof T, keyof U>, never>>
 

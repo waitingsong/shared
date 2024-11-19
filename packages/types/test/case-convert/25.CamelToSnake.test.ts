@@ -1,8 +1,8 @@
 import { fileShortPath } from '@waiting/shared-core'
 
 import type {
-  Equals,
   CamelToSnake,
+  Equals,
 } from '../../src/index.js'
 
 

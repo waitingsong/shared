@@ -1,18 +1,18 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { fileShortPath } from '@waiting/shared-core'
 
 import type {
   Equals,
-  TupleHead,
-  TupleTail,
-  TupleLast,
-  TupleRemoveLast,
-  TupleUnshift,
-  TuplePush,
-  TupleConcat,
-  TupleToUnion,
-  isInLiteralTuple,
   Reverse,
+  TupleConcat,
+  TupleHead,
+  TupleLast,
+  TuplePush,
+  TupleRemoveLast,
+  TupleTail,
+  TupleToUnion,
+  TupleUnshift,
+  isInLiteralTuple,
 } from '##/index.js'
 
 

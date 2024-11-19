@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-types */
 import type { RecordCamelKeys, RecordPascalKeys, RecordSnakeKeys } from './template-literal.js'
 
 
@@ -11,13 +10,13 @@ export enum CaseType {
 
 
 export type JoinTableWithCaseConvert<
-  T1 extends {},
-  T2 extends {},
+  T1 extends object,
+  T2 extends object,
   Prefix extends string,
   CaseConvert extends CaseType>
   = CaseConvertTable<JoinTable<T1, T2, Prefix>, CaseConvert>
 
-export type CaseConvertTable<T extends {}, CaseConvert extends CaseType> =
+export type CaseConvertTable<T extends object, CaseConvert extends CaseType> =
   CaseConvert extends CaseType.camel
     ? RecordCamelKeys<T>
     : CaseConvert extends CaseType.snake
@@ -27,7 +26,7 @@ export type CaseConvertTable<T extends {}, CaseConvert extends CaseType> =
         : T
 
 
-export type JoinTable<T1 extends {}, T2 extends {}, Prefix extends string>
+export type JoinTable<T1 extends object, T2 extends object, Prefix extends string>
   = T1 & _JoinCover<T1, T2, Prefix> & _JoinDiff<T1, T2>
 
 type _JoinCover<T1 extends object, T2 extends object, Prefix extends string> = {
@@ -42,7 +41,7 @@ type _JoinDiff<T1 extends object, T2 extends object> = {
  * Create scoped column name from all tables of D,
  * filter by Tb name like 'tb_user' | 'tb_order'
  */
-export type DbScopedColsByKey<D extends {}, Tb extends keyof D = keyof D>
+export type DbScopedColsByKey<D extends object, Tb extends keyof D = keyof D>
   = D extends Record<infer F extends (Tb extends string ? Tb : string), unknown> ?
     F extends unknown
       ? `${F}.${StrKey<D[F]>}`
@@ -54,7 +53,7 @@ export type DbScopedColsByKey<D extends {}, Tb extends keyof D = keyof D>
  * Create scoped column name from all tables of D,
  * filter by Tb Type
  */
-export type DbScopedColsByTableType<D extends {}, T = undefined>
+export type DbScopedColsByTableType<D extends object, T = undefined>
   = T extends undefined
     ? DbScopedColsByKey<D>
     : D extends Record<infer F extends string, unknown>

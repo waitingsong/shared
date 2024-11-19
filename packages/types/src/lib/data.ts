@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 
 /** Value of key-value pairs object */
 export type PlainJsonValue = boolean | number | string | null

@@ -1,12 +1,12 @@
 import { fileShortPath } from '@waiting/shared-core'
 
 import type {
-  Equals,
   DbScopedColsByKey,
   DbScopedColsByTableType,
+  Equals,
 } from '../../src/index.js'
 
-import type { DbUser, DbUserExt, DbOrder, Db, UserDO, OrderDO } from './test.model.js'
+import type { Db, DbOrder, DbUser, DbUserExt, OrderDO, UserDO } from './test.model.js'
 
 
 describe(fileShortPath(import.meta.url), () => {

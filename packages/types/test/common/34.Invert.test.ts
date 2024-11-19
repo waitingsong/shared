@@ -5,12 +5,12 @@ import { fileShortPath } from '@waiting/shared-core'
 import type { Invert } from '../../src/index.js'
 
 import type {
-  Alias,
-  AliasRecord,
-  AliasRecord2,
   Alias2Type,
-  alias,
+  Alias,
+  AliasRecord2,
+  AliasRecord,
   alias2,
+  alias,
 } from './test-model.js'
 
 

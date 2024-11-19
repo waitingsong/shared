@@ -1,9 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import assert from 'node:assert/strict'
 
 import { fileShortPath } from '@waiting/shared-core'
 
-import type { FormatIntersect, Equals, EqualsExt } from '../../src/index.js'
+import type { Equals, EqualsExt, FormatIntersect } from '../../src/index.js'
 
 import type { AliasRecord } from './test-model.js'
 

@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/prefer-ts-expect-error */
 
 // ref: https://github.com/microsoft/TypeScript/pull/40336#issuecomment-684122600
 

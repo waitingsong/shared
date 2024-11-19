@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-redundant-type-constituents */
-/* eslint-disable @typescript-eslint/no-unnecessary-type-constraint */
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 export interface Func {
