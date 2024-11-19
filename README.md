@@ -8,7 +8,7 @@
 [![codecov](https://codecov.io/gh/waitingsong/shared/branch/main/graph/badge.svg?token=VN3Y815SPX)](https://codecov.io/gh/waitingsong/shared)
 
 
-## 安装全局依赖
+## Install global deps for development
 ```sh
 npm i -g c8 lerna madge rollup tsx zx
 ```
@@ -41,7 +41,7 @@ npm i && npm run build
 
 
 [`types`]: https://github.com/waitingsong/shared/tree/master/packages/types
-[types-svg]: https://img.shields.io/npm/v/@waiting/shared-types.svg?maxAge=7200
+[types-svg]: https://img.shields.io/npm/v/@waiting/shared-types.svg?maxAge=300
 [types-ch]: https://github.com/waitingsong/shared/tree/master/packages/types/CHANGELOG.md
 [types-d-svg]: https://david-dm.org/waitingsong/shared.svg?path=packages/types
 [types-d-link]: https://david-dm.org/waitingsong/shared.svg?path=packages/types
@@ -49,7 +49,7 @@ npm i && npm run build
 [types-dd-link]: https://david-dm.org/waitingsong/shared?path=packages/types#info=devDependencies
 
 [`types-dev`]: https://github.com/waitingsong/shared/tree/master/packages/shared-types-dev
-[types-dev-svg]: https://img.shields.io/npm/v/@waiting/shared-types-dev.svg?maxAge=7200
+[types-dev-svg]: https://img.shields.io/npm/v/@waiting/shared-types-dev.svg?maxAge=300
 [types-dev-ch]: https://github.com/waitingsong/shared/tree/master/packages/shared-types-dev/CHANGELOG.md
 [types-dev-d-svg]: https://david-dm.org/waitingsong/shared.svg?path=packages/shared-types-dev
 [types-dev-d-link]: https://david-dm.org/waitingsong/shared.svg?path=packages/shared-types-dev
@@ -57,7 +57,7 @@ npm i && npm run build
 [types-dev-dd-link]: https://david-dm.org/waitingsong/shared?path=packages/shared-types-dev#info=devDependencies
 
 [`core`]: https://github.com/waitingsong/shared/tree/master/packages/core
-[core-svg]: https://img.shields.io/npm/v/@waiting/shared-core.svg?maxAge=7200
+[core-svg]: https://img.shields.io/npm/v/@waiting/shared-core.svg?maxAge=300
 [core-ch]: https://github.com/waitingsong/shared/tree/master/packages/demo/CHANGELOG.md
 [core-d-svg]: https://david-dm.org/waitingsong/shared.svg?path=packages/core
 [core-d-link]: https://david-dm.org/waitingsong/shared.svg?path=packages/core
