@@ -149,19 +149,9 @@ export function getCallerInfo(callerDistance = 0): CallerInfo {
     }
   }
 
-  const stacks = getStackCallerSites(depth + 1)
-  const site = stacks[depth]
+  const stacks = getStackCallerSites(depth + 5)
+  const site = pickSite(stacks.slice(depth - 1), ret)
   assert(site, 'stack empty')
-
-  // // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-  // const enclosingLineNumber: number | undefined = site.getEnclosingLineNumber
-  //   ? site.getEnclosingLineNumber() as unknown as number
-  //   : 0
-
-  // // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-  // const enclosingColNumber: number | undefined = site.getEnclosingColumnNumber
-  //   ? site.getEnclosingColumnNumber() as unknown as number
-  //   : 0
 
   const funcName = site.getFunctionName() ?? ''
   const methodName = site.getMethodName() ?? ''
@@ -186,6 +176,25 @@ export function getCallerInfo(callerDistance = 0): CallerInfo {
   }
 
   return ret
+}
+
+function pickSite(data: NodeJS.CallSite[], needle: CallerInfo): NodeJS.CallSite | undefined {
+  const site = data.find((item) => {
+    const fileName = item.getFileName() ?? ''
+    const funcName = item.getFunctionName() ?? ''
+    const lineNumber = item.getLineNumber() ?? -1
+    const columnNumber = item.getColumnNumber() ?? -1
+
+    if (fileName === needle.path
+      && funcName === needle.funcName
+      && lineNumber === needle.lineNumber
+      && columnNumber === needle.columnNumber
+    ) {
+      return true
+    }
+    return false
+  })
+  return site
 }
 
 
