@@ -1,8 +1,8 @@
 import assert from 'node:assert/strict'
 
-import type { NpmPkgView } from '../src/index.js'
-import { getNpmPkgViewFromRegistry } from '../src/index.js'
-import { fileShortPath } from '../src/lib/helper.js'
+import type { NpmPkgView } from '##/index.js'
+import { getNpmPkgViewFromRegistry } from '##/index.js'
+import { fileShortPath } from '##/lib/helper.js'
 
 
 describe(fileShortPath(import.meta.url), () => {

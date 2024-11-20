@@ -31,7 +31,7 @@ describe(fileShortPath(import.meta.url), () => {
 
     it('demo', () => {
       const info = demo()
-      validateInfo(info, 'test/callstack/34.util.getCallerStackSimpleInfo.test.ts')
+      validateInfo(info, 'test/callstack/34.util.getCallerInfo.test.ts')
       assert(info.line === -1, JSON.stringify(info, null, 2))
       assert(info.column === -1, JSON.stringify(info, null, 2))
       assert(info.funcName === '', JSON.stringify(info, null, 2))
@@ -48,7 +48,7 @@ describe(fileShortPath(import.meta.url), () => {
 
 function case22(): void {
   const info = demo2()
-  validateInfo(info, 'test/callstack/34.util.getCallerStackSimpleInfo.test.ts')
+  validateInfo(info, 'test/callstack/34.util.getCallerInfo.test.ts')
   assert(info.line === -1, JSON.stringify(info, null, 2))
   assert(info.column === -1, JSON.stringify(info, null, 2))
   assert(info.funcName === 'case22', JSON.stringify(info, null, 2))
