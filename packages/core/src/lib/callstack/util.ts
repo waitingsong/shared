@@ -88,9 +88,10 @@ export function getCallerStack(
   const line2 = arr[depth + 1]
   assert(line2, 'Retrieve stack of caller failed, line empty.')
   const infoBase = retrieveInfoPathWithLineCol(line2)
-  const srcPath = infoBase.path && ! infoBase.path.startsWith('file:///')
+  let srcPath = infoBase.path && ! infoBase.path.startsWith('file:///')
     ? 'file:///' + normalize(infoBase.path).replace(/\\/ug, '/')
     : infoBase.path
+  srcPath = srcPath.replace(/^file:\/\/\/+/u, 'file:///')
   const caller: CallerInfo = {
     ...info,
     line: infoBase.line,
