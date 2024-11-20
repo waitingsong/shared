@@ -65,9 +65,6 @@ export function isExecWithEnableSourceMaps(): boolean {
   return ret
 }
 
-/**
- * the dep "source-map-support" should be installed
- */
 export function getCallerStack(
   callerDistance = 0,
   /**
@@ -76,7 +73,7 @@ export function getCallerStack(
   retrievePosition = false,
 ): CallerInfo {
 
-  const info = getCallerStackSimpleInfo(callerDistance + 1)
+  const info = getCallerInfo(callerDistance + 1)
 
   if (! retrievePosition) {
     return info
@@ -124,9 +121,9 @@ interface CallerInfoOrigin {
 }
 
 /**
- * Get stack string, line/colum number not transformed with source-map
+ * Get stack string, line/column number not transformed with source-map
  */
-function getCallerStackSimpleInfo(callerDistance = 0): CallerInfo {
+export function getCallerInfo(callerDistance = 0): CallerInfo {
   const depth = callerDistance + 1
 
   // @link https://github.com/nodejs/node/releases/tag/v22.9.0
@@ -142,7 +139,7 @@ function getCallerStackSimpleInfo(callerDistance = 0): CallerInfo {
       path: site.scriptName,
       fileName: site.scriptName,
       className: '',
-      funcName: '',
+      funcName: site.functionName,
       methodName: '',
       lineNumber: site.lineNumber,
       columnNumber: site.column,
@@ -205,7 +202,7 @@ function getCallerStackSimpleInfo(callerDistance = 0): CallerInfo {
 
 
 /**
- * Get stack string, line/colum number transformed with source-map
+ * Get stack string, line/column number transformed with source-map
  * @see https://stackoverflow.com/a/13227808
  */
 export function getStack(): string {
