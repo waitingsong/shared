@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [23.24.1](https://github.com/waitingsong/shared/compare/v23.24.0...v23.24.1) (2024-11-20)
+
+
+### Bug Fixes
+
+* **core:** getCallerStack() srcPath ([ad55d29](https://github.com/waitingsong/shared/commit/ad55d296adafaf747401e39c75e6f298429f5a3f))
+
+
+
+
+
 # [23.24.0](https://github.com/waitingsong/shared/compare/v23.23.0...v23.24.0) (2024-11-20)
 
 
