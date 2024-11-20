@@ -147,6 +147,9 @@ export function getCallerInfo(callerDistance = 0): CallerInfo {
       enclosingLineNumber: -1,
       enclosingColNumber: -1,
     }
+    if (! info.methodName) {
+      info.methodName = info.funcName
+    }
     return info
   }
 
@@ -167,8 +170,6 @@ export function getCallerInfo(callerDistance = 0): CallerInfo {
   const funcName = site.getFunctionName() ?? ''
   const methodName = site.getMethodName() ?? ''
   const typeName = site.getTypeName() ?? ''
-
-
   const line = site.toString()
 
   let className = typeName
@@ -196,6 +197,9 @@ export function getCallerInfo(callerDistance = 0): CallerInfo {
     columnNumber: site.getColumnNumber() ?? 0,
     enclosingLineNumber,
     enclosingColNumber,
+  }
+  if (! info.methodName) {
+    info.methodName = info.funcName
   }
 
   return info

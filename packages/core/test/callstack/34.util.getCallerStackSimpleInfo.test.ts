@@ -10,7 +10,7 @@ import { _demo, validateInfo } from './34a.config.js'
 
 describe(fileShortPath(import.meta.url), () => {
 
-  describe('getCallerStackSimpleInfo() ', () => {
+  describe('getCallerInfo() ', () => {
     it('distance: 0', () => {
       const info = getCallerInfo(0)
       validateInfo(info, import.meta.url)
@@ -52,7 +52,7 @@ function case22(): void {
   assert(info.line === -1, JSON.stringify(info, null, 2))
   assert(info.column === -1, JSON.stringify(info, null, 2))
   assert(info.funcName === 'case22', JSON.stringify(info, null, 2))
-  assert(info.methodName === '', JSON.stringify(info, null, 2))
+  assert(info.methodName === 'case22', JSON.stringify(info, null, 2))
   assert(info.className === '', JSON.stringify(info, null, 2))
   assert(info.lineNumber === 40, JSON.stringify(info, null, 2))
   assert(info.columnNumber === 18, JSON.stringify(info, null, 2))
