@@ -11,6 +11,20 @@ export function _demo(distance = 0) { // line9
   return callerInfo
 }
 
+export class Foo {
+  foo() {
+    return getCallerInfo(0)
+  }
+
+  bar() {
+    return getCallerInfo(1)
+  }
+
+  barz() {
+    return this.bar()
+  }
+}
+
 export function validateInfo(callerInfo: CallerInfo, path: string): void {
   assert(callerInfo)
   if (path) {

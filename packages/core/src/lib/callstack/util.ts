@@ -1,11 +1,8 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import assert from 'node:assert/strict'
 import { normalize } from 'node:path'
 import util from 'node:util'
 
 import semver from 'semver'
-// import { install } from 'source-map-support'
 
 import type { CallerInfo, CallerInfoBase } from './types.js'
 
@@ -126,17 +123,20 @@ interface CallerInfoOrigin {
  */
 export function getCallerInfo(callerDistance = 0): CallerInfo {
   const depth = callerDistance + 1
+  let ret: CallerInfo = {
+    ...initInfo,
+  }
 
   // @link https://github.com/nodejs/node/releases/tag/v22.9.0
   // @ts-ignore since node v22.9
   if (typeof util.getCallSite === 'function') {
     // @ts-ignore
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
     const callSites: CallerInfoOrigin[] = util.getCallSite(depth + 1)
     const site = callSites[depth]
     assert(site, 'stack empty')
-
-    const info: CallerInfo = {
-      ...initInfo,
+    ret = {
+      ...ret,
       path: site.scriptName,
       fileName: site.scriptName,
       className: '',
@@ -147,25 +147,21 @@ export function getCallerInfo(callerDistance = 0): CallerInfo {
       enclosingLineNumber: -1,
       enclosingColNumber: -1,
     }
-    if (! info.methodName) {
-      info.methodName = info.funcName
-    }
-    return info
   }
 
   const stacks = getStackCallerSites(depth + 1)
   const site = stacks[depth]
   assert(site, 'stack empty')
 
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-  const enclosingLineNumber: number | undefined = site.getEnclosingLineNumber
-    ? site.getEnclosingLineNumber() as unknown as number
-    : 0
+  // // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+  // const enclosingLineNumber: number | undefined = site.getEnclosingLineNumber
+  //   ? site.getEnclosingLineNumber() as unknown as number
+  //   : 0
 
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-  const enclosingColNumber: number | undefined = site.getEnclosingColumnNumber
-    ? site.getEnclosingColumnNumber() as unknown as number
-    : 0
+  // // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+  // const enclosingColNumber: number | undefined = site.getEnclosingColumnNumber
+  //   ? site.getEnclosingColumnNumber() as unknown as number
+  //   : 0
 
   const funcName = site.getFunctionName() ?? ''
   const methodName = site.getMethodName() ?? ''
@@ -183,26 +179,13 @@ export function getCallerInfo(callerDistance = 0): CallerInfo {
         : ''
     }
   }
-
-  const fileLine = site.getFileName()
-
-  const info: CallerInfo = {
-    ...initInfo,
-    path: fileLine ?? '',
-    fileName: site.getFileName() ?? '',
-    className,
-    funcName,
-    methodName,
-    lineNumber: site.getLineNumber() ?? 0,
-    columnNumber: site.getColumnNumber() ?? 0,
-    enclosingLineNumber,
-    enclosingColNumber,
-  }
-  if (! info.methodName) {
-    info.methodName = info.funcName
+  ret.className = className
+  ret.methodName = methodName
+  if (! ret.methodName) {
+    ret.methodName = ret.funcName
   }
 
-  return info
+  return ret
 }
 
 
