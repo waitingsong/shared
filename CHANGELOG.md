@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [23.24.0](https://github.com/waitingsong/shared/compare/v23.23.0...v23.24.0) (2024-11-20)
+
+
+### Features
+
+* **core:** expose getCallerInfo() ([107c7d9](https://github.com/waitingsong/shared/commit/107c7d9d68bbec9ea0143a15e9e030ed85860048))
+
+
+
+
+
 # [23.23.0](https://github.com/waitingsong/shared/compare/v23.22.0...v23.23.0) (2024-10-26)
 
 **Note:** Version bump only for package @waiting/shared
