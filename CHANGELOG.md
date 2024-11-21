@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [23.25.3](https://github.com/waitingsong/shared/compare/v23.25.2...v23.25.3) (2024-11-21)
+
+
+### Bug Fixes
+
+* **core:** getCallerInfo() for nodejs v20/23 ([6cd2ae8](https://github.com/waitingsong/shared/commit/6cd2ae8496cd884e88720dfeb9d9ccb2886c35c2))
+
+
+
+
+
 ## [23.25.2](https://github.com/waitingsong/shared/compare/v23.25.1...v23.25.2) (2024-11-20)
 
 
