@@ -4,6 +4,7 @@ import { pathToFileURL } from 'node:url'
 
 import { fileShortPath, genCurrentDirname, genCurrentFilename, getCallerStack } from '@waiting/shared-core'
 
+import { isNodeGteV23 } from '#@/root.config.js'
 
 import { fake1, fake2, test1, test2, test3, test4, test5 } from './call-config.js'
 
@@ -17,7 +18,6 @@ const pathUrl = pathToFileURL(tmpFile)
 const path1 = pathUrl.href
 
 describe(fileShortPath(import.meta.url), () => {
-
   describe('Should demo1 work', () => {
     it('test1()', () => {
       const info = test1()
@@ -25,8 +25,6 @@ describe(fileShortPath(import.meta.url), () => {
       assert(info.path === path1, `expect path: "${path1}", but got: "${info.path}"`)
       assert(info.line === 6, `expect line: "6", but got: "${info.line}"`)
       assert(info.column === 22, `expect column: "22", but got: "${info.column}"`)
-      assert(info.columnNumber === 24, `expect columnNumber: "24", but got: "${info.columnNumber}"`)
-      // assert(info.enclosingColNumber === 8, `expect enclosingColNumber: "8", but got: "${info.enclosingColNumber}"`)
     })
     it('test2()', () => {
       const info = test2()

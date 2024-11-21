@@ -34,6 +34,8 @@ const initInfo: CallerInfo = {
 
 const nodeVersion = semver.coerce(process.version)
 const isNodeGteV20 = nodeVersion ? semver.gte(nodeVersion, '20.0.0') : false
+const isNodeGteV22 = nodeVersion ? semver.gte(nodeVersion, '22.9.0') : false
+const isNodeGteV23 = nodeVersion ? semver.gte(nodeVersion, '23.3.0') : false
 
 /**
  * Nodejs execution options
@@ -123,41 +125,31 @@ interface CallerInfoOrigin {
  */
 export function getCallerInfo(callerDistance = 0): CallerInfo {
   const depth = callerDistance + 1
-  let ret: CallerInfo = {
+  let info22: CallerInfo = {
     ...initInfo,
   }
-
   // @link https://github.com/nodejs/node/releases/tag/v22.9.0
   // @ts-ignore since node v22.9
   if (typeof util.getCallSite === 'function') {
-    // @ts-ignore
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
-    const callSites: CallerInfoOrigin[] = util.getCallSite(depth + 1)
-    const site = callSites[depth]
-    assert(site, 'stack empty')
-    ret = {
-      ...ret,
-      path: site.scriptName,
-      fileName: site.scriptName,
-      className: '',
-      funcName: site.functionName,
-      methodName: '',
-      lineNumber: site.lineNumber,
-      columnNumber: site.column,
-      enclosingLineNumber: -1,
-      enclosingColNumber: -1,
-    }
+    info22 = getCallSiteNative(depth, true)
   }
 
   const stacks = getStackCallerSites(depth + 5)
-  const site = pickSite(stacks.slice(depth - 1), ret)
+  let site = stacks[depth]
   assert(site, 'stack empty')
+  const fileName = site.getFileName() ?? ''
+  let funcName = site.getFunctionName() ?? ''
 
-  const funcName = site.getFunctionName() ?? ''
+  if (isNodeGteV22 && (fileName !== info22.path || funcName !== info22.funcName)) {
+    const infoWoSourceMap = isNodeGteV23 ? getCallSiteNative(depth, false) : info22
+    site = pickSite(stacks.slice(depth - 1), infoWoSourceMap)
+    assert(site, 'stack empty after pickSite')
+  }
+
+  funcName = site.getFunctionName() ?? ''
   const methodName = site.getMethodName() ?? ''
   const typeName = site.getTypeName() ?? ''
   const line = site.toString()
-
   let className = typeName
   if (! className) {
     className = methodName
@@ -169,10 +161,67 @@ export function getCallerInfo(callerDistance = 0): CallerInfo {
         : ''
     }
   }
-  ret.className = className
-  ret.methodName = methodName
+  if (info22.path) {
+    info22.className = className
+    info22.methodName = methodName
+    if (! info22.methodName) {
+      info22.methodName = info22.funcName
+    }
+    return info22
+  }
+
+  const fileLine = site.getFileName()
+  const info: CallerInfo = {
+    ...initInfo,
+    path: fileLine ?? '',
+    fileName: site.getFileName() ?? '',
+    className,
+    funcName,
+    methodName,
+    lineNumber: site.getLineNumber() ?? 0,
+    columnNumber: site.getColumnNumber() ?? 0,
+  }
+  const ret = {
+    ...info22,
+    ...info,
+  }
   if (! ret.methodName) {
     ret.methodName = ret.funcName
+  }
+  return ret
+}
+
+/**
+ *
+ * @param sourceMap since node v23.3
+ * @returns
+ */
+function getCallSiteNative(distance: number, sourceMap: boolean): CallerInfo {
+  const depth = distance + 1
+  const ret: CallerInfo = {
+    ...initInfo,
+  }
+  const depth2 = isNodeGteV23 ? depth + 2 : depth + 1
+  const depth3 = isNodeGteV23 ? depth + 1 : depth
+
+  // @ts-ignore
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
+  const callSites: CallerInfoOrigin[] = util.getCallSite(depth2, { sourceMap })
+  const site = callSites[depth3]
+  assert(site, 'stack empty')
+  ret.path = site.scriptName
+  ret.fileName = site.scriptName
+  ret.funcName = site.functionName
+  ret.lineNumber = site.lineNumber
+  ret.columnNumber = site.column
+
+  if (sourceMap && ! ret.funcName) {
+    // @ts-ignore
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
+    const callSites2: CallerInfoOrigin[] = util.getCallSite(depth2, { sourceMap: false })
+    const site2 = callSites2[depth3]
+    assert(site2, 'stack2 empty')
+    ret.funcName = site2.functionName
   }
 
   return ret
