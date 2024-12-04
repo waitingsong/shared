@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@types/semver": "7",
-    "undici": "^6.19.2"
+    "undici": "^7.1.0"
   },
   "engines": {
     "node": ">=18.12.0"
