@@ -35,6 +35,7 @@ const initInfo: CallerInfo = {
 const nodeVersion = semver.coerce(process.version)
 const isNodeGteV20 = nodeVersion ? semver.gte(nodeVersion, '20.0.0') : false
 const isNodeGteV22 = nodeVersion ? semver.gte(nodeVersion, '22.9.0') : false
+const isNodeGteV22_12 = nodeVersion ? semver.gte(nodeVersion, '22.12.0') : false
 const isNodeGteV23 = nodeVersion ? semver.gte(nodeVersion, '23.3.0') : false
 
 /**
@@ -201,8 +202,8 @@ function getCallSiteNative(distance: number, sourceMap: boolean): CallerInfo {
   const ret: CallerInfo = {
     ...initInfo,
   }
-  const depth2 = isNodeGteV23 ? depth + 2 : depth + 1
-  const depth3 = isNodeGteV23 ? depth + 1 : depth
+  const depth2 = isNodeGteV23 || isNodeGteV22_12 ? depth + 2 : depth + 1
+  const depth3 = isNodeGteV23 || isNodeGteV22_12 ? depth + 1 : depth
 
   // @ts-ignore
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
