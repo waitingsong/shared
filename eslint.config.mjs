@@ -18,9 +18,11 @@ const srcRules = {
       await genModuleAbsolutePathIfExists(projectDir, 'node_modules/@mwcp/share') ?? '.',
     ],
   }],
+  '@typescript-eslint/prefer-nullish-coalescing': 1,
 }
 const testRules = {
   '@typescript-eslint/no-explicit-any': 0,
+  '@typescript-eslint/prefer-nullish-coalescing': 1,
 }
 
 const languageOptions = {
