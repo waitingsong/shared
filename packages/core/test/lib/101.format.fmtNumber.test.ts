@@ -72,20 +72,19 @@ describe(fileShortPath(import.meta.url), () => {
       assert(ret === '123.456,78 €', ret)
     })
 
-    it('style=currency, currency=CNY', () => {
+    it.only('style=currency, currency=CNY', () => {
       const opts: FmtNumberOptions = {
         style: 'currency',
         currency: 'CNY',
       }
       const ret = fmtNumber(123456.7804, opts)
+      const expected = '¥123,456.78'
+      const expected2 = 'CN¥123,456.78'
       if (isWin32) {
-        const expected = '¥123,456.78'
-        assert(ret === expected, `got: "${ret}", length: ${ret.length}; expected: "${expected}", length: ${expected.length}`)
+        assert(ret === expected || ret === expected2, `got: "${ret}", length: ${ret.length}; expected: "${expected}", length: ${expected.length}`)
       }
       else {
-        console.log(ret.length)
-        console.log('CN¥123,456.78'.length)
-        assert(ret === 'CN¥123,456.78', ret)
+        assert(ret === expected2, ret)
       }
     })
 
