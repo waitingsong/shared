@@ -72,7 +72,7 @@ describe(fileShortPath(import.meta.url), () => {
       assert(ret === '123.456,78 €', ret)
     })
 
-    it.only('style=currency, currency=CNY', () => {
+    it('style=currency, currency=CNY', () => {
       const opts: FmtNumberOptions = {
         style: 'currency',
         currency: 'CNY',
