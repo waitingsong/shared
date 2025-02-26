@@ -36,5 +36,6 @@ export const testConfig = {
 const nodeVersion = semver.coerce(process.version)
 export const isNodeGteV20 = nodeVersion ? semver.gte(nodeVersion, '20.0.0') : false
 export const isNodeGteV22 = nodeVersion ? semver.gte(nodeVersion, '22.9.0') : false
+export const isNodeGteV22_13 = nodeVersion ? semver.gte(nodeVersion, '22.13.0') : false
 export const isNodeGteV23 = nodeVersion ? semver.gte(nodeVersion, '23.3.0') : false
 

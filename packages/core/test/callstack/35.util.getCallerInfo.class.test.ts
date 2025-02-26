@@ -1,8 +1,7 @@
 import assert from 'node:assert'
 
-import { getCallerInfo } from '##/index.js'
 import { fileShortPath } from '##/lib/helper.js'
-import { isNodeGteV23 } from '#@/root.config.js'
+import { isNodeGteV22_13, isNodeGteV23 } from '#@/root.config.js'
 
 import { Foo, _demo, validateInfo } from './34a.config.js'
 
@@ -17,7 +16,7 @@ describe(fileShortPath(import.meta.url), () => {
       assert(info.className === 'Foo', `expect Foo, but got ${info.className}`)
       assert(info.funcName === 'foo', `expect foo, but got ${info.funcName}`)
       assert(info.srcPath === '', `expect blank, but got ${info.srcPath}`)
-      if (isNodeGteV23) {
+      if (isNodeGteV23 || isNodeGteV22_13) {
         assert(info.columnNumber === 12, `expect 12, but got ${info.columnNumber}`)
         assert(info.lineNumber === 16, `expect 16, but got ${info.lineNumber}`)
       }
@@ -34,7 +33,7 @@ describe(fileShortPath(import.meta.url), () => {
       assert(info.className === 'Foo', `expect Foo, but got ${info.className}`)
       assert(info.funcName === 'barz', `expect foo, but got ${info.funcName}`)
       assert(info.srcPath === '', `expect blank, but got ${info.srcPath}`)
-      if (isNodeGteV23) {
+      if (isNodeGteV23 || isNodeGteV22_13) {
         assert(info.columnNumber === 17, `expect 17, but got ${info.columnNumber}`)
         assert(info.lineNumber === 24, `expect 24, but got ${info.lineNumber}`)
       }

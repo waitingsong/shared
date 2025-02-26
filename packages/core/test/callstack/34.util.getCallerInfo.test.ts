@@ -2,7 +2,7 @@ import assert from 'node:assert'
 
 import { getCallerInfo } from '##/index.js'
 import { fileShortPath } from '##/lib/helper.js'
-import { isNodeGteV23 } from '#@/root.config.js'
+import { isNodeGteV22_13, isNodeGteV23 } from '#@/root.config.js'
 
 import { demo } from './34.demo1.js'
 import { demo2 } from './34.demo2.js'
@@ -27,7 +27,7 @@ describe(fileShortPath(import.meta.url), () => {
       assert(info.funcName === '', JSON.stringify(info, null, 2))
       assert(info.methodName === '', JSON.stringify(info, null, 2))
       assert(info.className === 'Context', JSON.stringify(info, null, 2))
-      if (isNodeGteV23) {
+      if (isNodeGteV23 || isNodeGteV22_13) {
         assert(info.lineNumber === 23, JSON.stringify(info, null, 2))
         assert(info.columnNumber === 20, JSON.stringify(info, null, 2))
       }
@@ -45,7 +45,7 @@ describe(fileShortPath(import.meta.url), () => {
       assert(info.funcName === '', JSON.stringify(info, null, 2))
       assert(info.methodName === '', JSON.stringify(info, null, 2))
       assert(info.className === 'Context', JSON.stringify(info, null, 2))
-      if (isNodeGteV23) {
+      if (isNodeGteV23 || isNodeGteV22_13) {
         assert(info.lineNumber === 41, JSON.stringify(info, null, 2))
         assert(info.columnNumber === 20, JSON.stringify(info, null, 2))
       }
@@ -69,7 +69,7 @@ function case22(): void {
   assert(info.funcName === 'case22', JSON.stringify(info, null, 2))
   assert(info.methodName === 'case22', JSON.stringify(info, null, 2))
   assert(info.className === 'Context', JSON.stringify(info, null, 2))
-  if (isNodeGteV23) {
+  if (isNodeGteV23 || isNodeGteV22_13) {
     assert(info.lineNumber === 65, JSON.stringify(info, null, 2))
     assert(info.columnNumber === 16, JSON.stringify(info, null, 2))
   }
