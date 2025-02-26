@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [23.26.0](https://github.com/waitingsong/shared/compare/v23.25.5...v23.26.0) (2025-02-26)
+
+
+### Features
+
+* **core:** fmtNumber() ([3dde0f3](https://github.com/waitingsong/shared/commit/3dde0f392e22e0ce05c06fa29696b47129aeb229))
+
+
+
+
+
 ## [23.25.5](https://github.com/waitingsong/shared/compare/v23.25.4...v23.25.5) (2024-12-22)
 
 **Note:** Version bump only for package @waiting/shared
