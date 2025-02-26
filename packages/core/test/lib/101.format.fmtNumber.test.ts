@@ -79,8 +79,8 @@ describe(fileShortPath(import.meta.url), () => {
       }
       const ret = fmtNumber(123456.7804, opts)
       if (isWin32) {
-        console.log(ret.length)
-        assert(ret === '¥123,456.78', ret)
+        const expected = '¥123,456.78'
+        assert(ret === expected, `got: "${ret}", length: ${ret.length}; expected: "${expected}", length: ${expected.length}`)
       }
       else {
         console.log(ret.length)
