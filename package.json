@@ -10,7 +10,7 @@
     "@midwayjs/mock": "^3.19.0",
     "@midwayjs/swagger": "^3.19.0",
     "@midwayjs/validate": "^3.19.0",
-    "@types/koa": "2",
+    "@types/koa": "3",
     "@types/mocha": "10",
     "@types/node": "22",
     "@waiting/eslint-config": "^15.2.0",
