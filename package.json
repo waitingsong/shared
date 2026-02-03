@@ -5,7 +5,7 @@
   "private": true,
   "type": "module",
   "devDependencies": {
-    "@commitlint/cli": "19",
+    "@commitlint/cli": "20",
     "@commitlint/config-conventional": "19",
     "@midwayjs/mock": "^3.19.0",
     "@midwayjs/swagger": "^3.19.0",
